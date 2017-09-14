@@ -1,0 +1,33 @@
+<app-header [menuEnabled]="menuEnabled"></app-header>
+<section>
+    <div class="container-fluid">
+        <div class="row no-mg">
+            <div class="col-12 col-sm-2 box-filter">
+                <h4 class="text-info">Filtro</h4>
+                <br />
+                <form #form name="form">
+
+                    <!-- Form fields-->
+
+                    <label>Por nome:</label>
+                    <input #search type="text" placeholder="Buscar por..." (keyup)="dataGrid.search('name', search.value)" class="form-control" />
+                    <br />
+
+                    <label>Por descrição:</label>
+                    <input #descriptionSearch type="text" placeholder="Buscar por..." (keyup)="dataGrid.search('description', descriptionSearch.value)" class="form-control" />
+                    <br />
+
+                    <!-- Form fields -->
+
+                    <filter-controls [form]="form" [dataGrid]="dataGrid"></filter-controls>
+                </form>
+            </div>
+            <div class="col no-pd-right">
+                <alert #alert></alert>
+
+                <!-- Datagrid -->
+                <data-grid-templates [alert]="alert" class="table table-hover table-bordered"></data-grid-templates>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,42 @@
+<app-header [menuEnabled]="menuEnabled"></app-header>
+<section>
+    <div class="container-fluid">
+        <div class="row no-mg">
+            <div class="col-12 col-sm-2 box-filter">
+                <h4 class="text-info">Filtro</h4>
+                <br />
+                <form #form name="form">
+
+                    <!-- Form fields-->
+
+                    <label>Por título:</label>
+                    <input #search type="text" placeholder="Buscar por..." (keyup)="dataGrid.search('title', search.value)" class="form-control" />
+                    <br />
+
+                    <label>Por status:</label>
+                    <div class="form-check">
+                        <label class="form-check-label mg-right">
+                            <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios2" value="true" (click)="dataGrid.search('active', true)" />
+                            Ativo
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios2" value="false" (click)="dataGrid.search('active', false)" />
+                            Inativo
+                        </label>
+                    </div>
+                    <br />
+
+                    <!-- Form fields -->
+
+                    <filter-controls [form]="form" [dataGrid]="dataGrid"></filter-controls>
+                </form>
+            </div>
+            <div class="col no-pd-right">
+                <alert></alert>
+
+                <!-- Datagrid -->
+                <data-grid-surveys class="table table-hover table-bordered"></data-grid-surveys>
+            </div>
+        </div>
+    </div>
+</section>

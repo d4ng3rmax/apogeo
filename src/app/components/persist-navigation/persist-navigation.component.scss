@@ -1,0 +1,35 @@
+@import "../../../assets/mixins/global-imports";
+
+.bg-top-menu {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+ul.top-menu {
+    padding: 0;
+    margin: 0;
+
+    li {
+        list-style: none;
+    }
+
+    .btn {
+        padding: 7px 10px;
+        font-size: rems(12px);
+    }
+}
+
+/* Mobile */
+@media (max-width: #{$tablet-width - 1px}) {
+
+}
+
+/* Tablet */
+@media (min-width:#{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
+
+}
+
+/* 1024px */
+@media (min-width:#{$tablet-width}) and (max-width: 1024px) {
+
+}

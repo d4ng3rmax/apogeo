@@ -1,0 +1,42 @@
+<modal #modal>
+    <modal-header [show-close]="true">
+        <h4 class="flex-first" *ngIf="type == 'create'">Preencha os campos abaixo:</h4>
+        <h4 class="flex-first" *ngIf="type == 'edit'">Edite os campos abaixo:</h4>
+    </modal-header>
+    <modal-body>
+        <alert #alert></alert>
+
+        <form novalidate [formGroup]="form" (ngSubmit)="onSubmit(form)">
+
+            <!-- Form -->
+
+            <label for="name">Título:</label>
+            <select formControlName="name" id="name">
+              <option *ngFor="let name of names"
+                [value]="name">
+                {{name}}
+              </option>
+            </select>
+            <!-- <textarea formControlName="name" cols="30" rows="1" class="form-control" autofocus></textarea> -->
+
+            <br />
+
+            <label for="description">Descrição:</label>
+            <textarea formControlName="description" cols="30" rows="5" class="form-control" autofocus></textarea>
+
+            <br />
+
+            <label for="subject">Assunto:</label>
+            <textarea formControlName="subject" cols="30" rows="1" class="form-control" autofocus></textarea>
+
+            <!-- /Form -->
+
+            <br />
+
+            <button type="submit" class="btn btn-success" [disabled]="form.invalid" *ngIf="type == 'create'">Cadastrar</button>
+            <button type="button" class="btn btn-default" (click)="close()" *ngIf="type == 'create'">Cancelar</button>
+            <button type="submit" class="btn btn-success" [disabled]="form.invalid" *ngIf="type == 'edit'">Editar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.dismiss()" *ngIf="type == 'edit'">Cancelar</button>
+        </form>
+    </modal-body>
+</modal>
