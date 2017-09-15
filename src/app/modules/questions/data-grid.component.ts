@@ -1,7 +1,7 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuestionModalComponent } from './modal.component';
-import { DataGridComponent, DisabledCheckboxComponent } from '../../components';
+import { DataGridComponent, CheckboxComponent } from '../../components';
 import { QuestionService } from './question.service';
 import { Question } from '../../models';
 
@@ -32,7 +32,12 @@ export class QuestionsDataGridComponent extends DataGridComponent {
             question: {
                 title: 'Nome', width: "30%", filter: false, editor: { type: 'textarea' }
             },
-            active: { title: 'Ativo', type: 'custom', valuePrepareFunction: 'custom', renderComponent: DisabledCheckboxComponent, filter: false }
+            active: {
+                title: 'Ativo', type: 'custom', valuePrepareFunction: 'custom', renderComponent: CheckboxComponent, filter: false,
+                onComponentInitFunction: (instance: any) => {
+                    instance.saveStatus = this.saveStatus;
+                }
+            }
         };
     }
 
