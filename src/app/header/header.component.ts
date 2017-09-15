@@ -40,6 +40,11 @@ export class HeaderComponent implements OnInit {
 
     selectModule(module: string) {
         this.module = module;
+        if (module == 'solutions') {
+            this.router.navigate(['/solutions/result/list']);
+        } else if (module == 'surveys') {
+            this.router.navigate(['/surveys/question/list']);
+        }
     }
 
     logout() {
