@@ -19,7 +19,7 @@ import { Alert, JobPosition } from '../../models';
     providers: [JobPositionService],
     encapsulation: ViewEncapsulation.None
 })
-export class JobPositionDataGridComponent extends DataGridComponent {
+export class JobPositionsDataGridComponent extends DataGridComponent {
 
     constructor(protected router: Router, protected service: JobPositionService) {
         super(router, service);

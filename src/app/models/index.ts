@@ -5,4 +5,5 @@ export * from './result.model';
 export * from './solution.model';
 export * from './survey.model';
 export * from './template.model';
+export * from './jobPosition.model';
 export * from './user.model';
