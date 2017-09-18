@@ -32,10 +32,10 @@
                 </form>
             </div>
             <div class="col no-pd-right">
-                <alert></alert>
+                <alert #alert></alert>
 
                 <!-- Datagrid -->
-                <data-grid-surveys class="table table-hover table-bordered"></data-grid-surveys>
+                <data-grid-surveys [alert]="alert" class="table table-hover table-bordered"></data-grid-surveys>
             </div>
         </div>
     </div>

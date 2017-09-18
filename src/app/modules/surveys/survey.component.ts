@@ -8,7 +8,7 @@ import { EditOrderedListComponent } from '../../components';
 @Component({
     selector: 'app-survey',
     templateUrl: './survey.component.html',
-    styleUrls: ['./survey.component.scss'],
+    styleUrls: ['../../app.component.scss', './survey.component.scss'],
     providers: [SurveyService, PageService]
 })
 export class SurveyComponent extends EditOrderedListComponent {

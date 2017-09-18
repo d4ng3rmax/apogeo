@@ -49,10 +49,10 @@
                 </form>
             </div>
             <div class="col no-pd-right">
-                <alert></alert>
+                <alert #alert></alert>
 
                 <!-- Datagrid -->
-                <data-grid-solutions class="table table-hover table-bordered"></data-grid-solutions>
+                <data-grid-solutions [alert]="alert" class="table table-hover table-bordered"></data-grid-solutions>
             </div>
         </div>
     </div>

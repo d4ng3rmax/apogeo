@@ -20,16 +20,16 @@
 
             <br />
 
-            <div class="form-check">
-                <label class="form-check-label mg-right">
-                    <input type="radio" class="form-check-input" formControlName="active" value="true" [checked]="true" />
-                    Ativo
-                </label>
-
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" formControlName="active" value="false" />
-                    Inativo
-                </label>
+            <div class="row">
+                <div class="col-2 col-sm-1">
+                    <span>Ativo</span>
+                </div>
+                <div class="col-2 col-sm-1">
+                    <div class="check">
+                        <input type="checkbox" name="active" id="active" class="ios-toggle" formControlName="active" [checked]="object.active" />
+                        <label for="active" class="checkbox-label" data-off="" data-on=""></label>
+                    </div>
+                </div>
             </div>
 
             <!-- /Form -->

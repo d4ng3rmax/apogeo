@@ -2,9 +2,12 @@ import { Component, ViewChild, Input, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { LocalDataSource } from 'ng2-smart-table';
 import { ApiService } from './api.service';
+import { AlertComponent } from '../../components';
 
 export class ModalComponent implements OnInit {
 
+    @ViewChild('alert')
+    alert: AlertComponent;
     form: FormGroup;
     source: LocalDataSource;
     dataGrid: any;
@@ -30,6 +33,7 @@ export class ModalComponent implements OnInit {
     }
 
     open(size: string) {
+        this.alert.reset();
         this.modal.open(size);
     }
 
@@ -69,16 +73,17 @@ export class ModalComponent implements OnInit {
                 this.source.add(this.object);
                 this.source.refresh();
                 this.dataGrid.alert.buildAlert(1, this.labels.save.success);
+                this.alert.reset();
                 this.form.setValue(JSON.parse(JSON.stringify(this.defaultValues)));
 
             }, error => {
                 var errorObj = JSON.parse(error._body);
                 if (errorObj.errorMessage) {
-                    this.dataGrid.alert.buildAlert(0, errorObj.errorMessage);
+                    this.alert.buildAlert(0, errorObj.errorMessage);
                 } else if (errorObj.message) {
-                    this.dataGrid.alert.buildAlert(0, JSON.parse(error._body).message);
+                    this.alert.buildAlert(0, JSON.parse(error._body).message);
                 } else {
-                    this.dataGrid.alert.buildAlert(0, JSON.stringify(error._body));
+                    this.alert.buildAlert(0, JSON.stringify(error._body));
                 }
                 this.open('lg');
             });
@@ -95,16 +100,18 @@ export class ModalComponent implements OnInit {
                 this.source.update(this.selectedRow, this.object);
                 this.source.reset();
                 this.source.refresh();
+                this.alert.reset();
                 this.dataGrid.alert.buildAlert(1, this.labels.save.success);
+
             }, error => {
                 var errorObj = JSON.parse(error._body);
                 if (errorObj.errorMessage) {
-                    this.dataGrid.alert.buildAlert(0, errorObj.errorMessage);
+                    this.alert.buildAlert(0, errorObj.errorMessage);
 
                 } else if (errorObj.message) {
-                    this.dataGrid.alert.buildAlert(0, JSON.parse(error._body).message);
+                    this.alert.buildAlert(0, JSON.parse(error._body).message);
                 } else {
-                    this.dataGrid.alert.buildAlert(0, JSON.stringify(error._body));
+                    this.alert.buildAlert(0, JSON.stringify(error._body));
                 }
                 this.open('lg');
             });
@@ -112,7 +119,8 @@ export class ModalComponent implements OnInit {
 
     close() {
         this.modal.close();
-        this.dataGrid.alert.status = false;
+        this.alert.reset();
+        this.dataGrid.alert.reset();
     }
 
     // Abstract methods

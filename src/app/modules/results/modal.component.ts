@@ -12,7 +12,7 @@ export class ResultModalComponent extends ModalComponent {
 
     constructor(protected fb: FormBuilder, protected service: ResultService) {
         super(fb, service);
-        this.defaultValues = { id: 0, description: '', codigo: 0, active: false };
+        this.defaultValues = { id: 0, description: '', codigo: 0, active: true };
     }
 
     newEntity = (params): Object => {
@@ -20,8 +20,9 @@ export class ResultModalComponent extends ModalComponent {
     }
 
     validate(value: any) {
-        if (value['description'] == "") {
-            this.dataGrid.alert.buildAlert(0, "O campo descrição requer ao menos 5 caracteres");
+        let o = value['description'];
+        if (o === null || o === '' || o.length < 5) {
+            this.alert.buildAlert(0, "O campo descrição requer ao menos 5 caracteres");
             return false;
         }
         return true;

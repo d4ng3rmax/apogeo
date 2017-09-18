@@ -6,6 +6,6 @@ export class Question {
     constructor(id: number, question: string, active?: any) {
         this.id = id;
         this.question = question;
-        this.active = active;
+        this.active = active || false;
     }
 }

@@ -8,7 +8,7 @@ import { EditOrderedListComponent } from '../../components';
 @Component({
     selector: 'app-page',
     templateUrl: './page.component.html',
-    styleUrls: ['./page.component.scss'],
+    styleUrls: ['../../app.component.scss', './page.component.scss'],
     providers: [PageService, QuestionService]
 })
 export class PageComponent extends EditOrderedListComponent {
@@ -18,7 +18,7 @@ export class PageComponent extends EditOrderedListComponent {
         super(route, router, service, childrenService);
         this.listPath = '/surveys/page/list';
         this.childListName = 'questionOrder';
-        this.object = this.newEntity({ id: 0, title: '', questionOrder: {}, active: false });
+        this.object = this.newEntity({ id: 0, title: '', questionOrder: {}, active: true });
         this.labels.create.success = 'Página criada com sucesso!'
         this.labels.save.success = 'Página salva com sucesso!'
         this.labels.delete.confirm = 'Deseja mesmo excluir essa página?'

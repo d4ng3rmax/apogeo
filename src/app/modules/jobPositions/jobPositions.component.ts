@@ -5,7 +5,7 @@ import { Subject } from 'rxjs/Rx';
 
 @Component({
     selector: 'app-job-positions',
-    templateUrl: './jobPosition.component.html',
+    templateUrl: './jobPositions.component.html',
     styleUrls: ['../../components/data-grid/data-grid.component.scss']
 })
 export class JobPositionsComponent extends CrudComponent {

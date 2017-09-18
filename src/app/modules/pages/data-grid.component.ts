@@ -9,7 +9,7 @@ import { Page } from '../../models';
     template: `<ng2-smart-table
     [settings]="settings"
     [source]="source"
-    (create)="onCreate()"
+    (create)="onCreate($event)"
     (edit)="onEdit($event)"
     (delete)="onDeleteConfirm($event)"></ng2-smart-table>
     `,

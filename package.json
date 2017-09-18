@@ -23,6 +23,7 @@
     "@angular/router": "^4.0.0",
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
+    "enhanced-resolve": "3.3.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
     "ng2-bs3-modal": "^0.10.4",
@@ -35,7 +36,7 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "1.2.0",
+    "@angular/cli": "^1.2.0",
     "@angular/compiler-cli": "^4.0.0",
     "@angular/language-service": "^4.0.0",
     "@types/jasmine": "~2.5.53",

@@ -26,6 +26,9 @@ import { ResultsComponent, ResultsDataGridComponent, ResultModalComponent } from
 // Mail
 import { TemplatesComponent, TemplatesDataGridComponent, TemplateModalComponent } from './modules/templates';
 
+// Job Positions
+import { JobPositionsComponent, JobPositionModalComponent, JobPositionsDataGridComponent } from './modules/jobPositions';
+
 @NgModule({
     declarations: [
         // Shared
@@ -42,7 +45,10 @@ import { TemplatesComponent, TemplatesDataGridComponent, TemplateModalComponent 
         ResultsComponent, ResultsDataGridComponent, ResultModalComponent,
 
         // Mail
-        TemplatesComponent, TemplatesDataGridComponent, TemplateModalComponent
+        TemplatesComponent, TemplatesDataGridComponent, TemplateModalComponent,
+
+        // Job Positions
+        JobPositionsComponent, JobPositionModalComponent, JobPositionsDataGridComponent
     ],
     imports: [
         BrowserModule,

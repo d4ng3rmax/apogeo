@@ -13,6 +13,10 @@
                     <input #search type="text" placeholder="Buscar por..." (keyup)="dataGrid.search('description', search.value)" class="form-control" />
                     <br />
 
+                    <label>Por código:</label>
+                    <input #codigoSearch type="text" placeholder="Buscar por..." (keyup)="dataGrid.search('codigo', codigoSearch.value)" class="form-control" />
+                    <br />
+
                     <label>Por status:</label>
                     <div class="form-check">
                         <label class="form-check-label mg-right">

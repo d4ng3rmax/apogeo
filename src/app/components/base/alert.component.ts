@@ -8,7 +8,7 @@ import { Alert } from '../../models';
     <div class="row">
       <div class="col-12">
         <div class="alert {{ obj.cssClass }} alert-dismissible fade show" role="alert" *ngIf="obj.status">
-          <button type="button" class="close" aria-label="Close" (click)="closeAlert(); false;">
+          <button type="button" class="close" aria-label="Close" (click)="reset(); false;">
             <span aria-hidden="true">&times;</span>
           </button>
           <span [innerHTML]="obj.title"></span>{{ obj.message }}
@@ -47,7 +47,7 @@ export class AlertComponent {
         }, 15000);
     }
 
-    public closeAlert = (): void => {
-        this.obj.status = false;
+    public reset = (): void => {
+        this.obj = new Alert(0, '', '', '', false);
     }
 }

@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
-import { Http } from '@angular/http';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { LocalDataSource } from 'ng2-smart-table';
+import { JobPositionModalComponent } from './modal.component';
 import { DataGridComponent, CheckboxComponent } from '../../components';
 import { JobPositionService } from './jobPosition.service';
 import { Alert, JobPosition } from '../../models';
@@ -11,9 +10,10 @@ import { Alert, JobPosition } from '../../models';
     template: `<ng2-smart-table
     [settings]="settings"
     [source]="source"
-    (create)="onCreate()"
-    (edit)="onEdit($event)"
+    (create)="onCreate($event)"
+    (edit)="onSave($event)"
     (delete)="onDeleteConfirm($event)"></ng2-smart-table>
+    <mm-job-position-modal></mm-job-position-modal>
     `,
     styleUrls: ['../../components/data-grid/data-grid.component.scss'],
     providers: [JobPositionService],
@@ -41,6 +41,21 @@ export class JobPositionsDataGridComponent extends DataGridComponent {
 
     newEntity = (rowData): Object => {
         return new JobPosition(rowData.id, rowData.title, rowData.pageOrder, rowData.active);
+    }
+
+    // Modal editor
+    @ViewChild(JobPositionModalComponent)
+    modalComponent: JobPositionModalComponent;
+
+    onCreate(event: any) {
+        this.alert.obj.status = false;
+        this.modalComponent.type = 'create';
+        this.modalComponent.openModal(this);
+    }
+
+    onSave(event: any) {
+        this.modalComponent.type = 'edit';
+        this.modalComponent.openModal(this, event);
     }
 
 }

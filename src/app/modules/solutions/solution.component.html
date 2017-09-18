@@ -6,63 +6,51 @@
         <persist-navigation (save)="save($event)" (update)="update($event)" (deleteOne)="delete($event)" [listPath]="listPath" [urlId]="urlId"></persist-navigation>
         <alert #alert></alert>
 
-        <div class="row mg-top-2">
-            <div class="col-12 col-md-2 form-group">
-                <label for="txt-title">Título da solução:</label>
-                <input type="text" id="txt-title" class="form-control" [value]="object.title" [(ngModel)]="object.title" />
+        <div class="row">
+            <div class="col-3">
+                <div class="col">
+                    <label for="title">Título da solução:</label>
+                    <input type="text" id="title" class="form-control" [value]="object.title" [(ngModel)]="object.title" />
+                </div>
+                <div class="col">
+                    <label for="valor">Valor:</label>
+                    <div class="input-group">
+                      <span class="input-group-addon">R$</span>
+                      <input [disabled]="object.cortesia" id="valor" class="form-control currency" [value]="object.valor" [(ngModel)]="object.valor"
+                      type="number" value="10000" min="0" step="25" data-number-to-fixed="2" data-number-stepfactor="100" />
+                    </div>
+                    <!-- <input [disabled]="object.cortesia" type="text" id="valor" class="form-control" [value]="object.valor" [(ngModel)]="object.valor" /> -->
+                </div>
             </div>
 
-            <div class="col-12 col-md-3 form-group">
-                <label for="txt-description">Descrição da solução:</label>
-                <input type="text" id="txt-description" class="form-control" [value]="object.description" [(ngModel)]="object.description" />
-            </div>
-            <div class="col-12 col-md-3 form-group">
-                <label for="txt-valor">Valor:</label>
-                <input type="text" id="txt-valor" class="form-control" [value]="object.valor" [(ngModel)]="object.valor" />
+            <div class="col-8">
+                <div class="col-8">
+                    <label for="description">Descrição da solução:</label>
+                    <textarea rows="5" type="text" id="description" class="form-control" [value]="object.description" [(ngModel)]="object.description"></textarea>
+                </div>
             </div>
         </div>
 
         <div class="row mg-top-2">
             <div class="col-12 col-sm-2 form-group">
-                <label for="xxx">Possui Cargos:</label>
-                <div class="form-check">
-                    <label class="form-check-label mg-right">
-                    <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios1" (click)="setHasJobPosition(true)" [checked]="object.hasJobPosition == true" />
-                    Sim
-                </label>
-
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios1" (click)="setHasJobPosition(false)" [checked]="object.hasJobPosition == false" />
-                    Não
-                </label>
+                <label for="hasJobPosition">Possui Cargos:</label>
+                <div class="check">
+                    <input type="checkbox" name="hasJobPosition" id="hasJobPosition" class="ios-toggle" (click)="setHasJobPosition(!object.hasJobPosition)" [checked]="object.hasJobPosition" />
+                    <label for="hasJobPosition" class="checkbox-label" data-off="" data-on=""></label>
                 </div>
             </div>
-            <div class="col-12 col-sm-2 form-group">
-                <label for="xxx">Cortesia:</label>
-                <div class="form-check">
-                    <label class="form-check-label mg-right">
-                    <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios2" (click)="setCortesia(true)" [checked]="object.cortesia == true" />
-                    Sim
-                </label>
-
-                    <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios5" (click)="setCortesia(false)" [checked]="object.cortesia == false" />
-                    Não
-                </label>
+            <div class="col-12 col-sm-1 form-group">
+                <label for="cortesia">Cortesia:</label>
+                <div class="check no-mg">
+                    <input type="checkbox" name="cortesia" id="cortesia" class="ios-toggle" (click)="setCortesia(!object.cortesia)" [checked]="object.cortesia" />
+                    <label for="cortesia" class="checkbox-label" data-off="" data-on=""></label>
                 </div>
             </div>
-            <div class="col-12 col-sm-2 form-group">
-                <label for="xxx">Status:</label>
-                <div class="form-check">
-                    <label class="form-check-label mg-right">
-                        <input type="radio" class="form-check-input" name="optionsRadios3" id="optionsRadios3" (click)="setActive(true)" [checked]="object.active == true" />
-                        Ativo
-                    </label>
-
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optionsRadios3" id="optionsRadios4" (click)="setActive(false)" [checked]="object.active == false" />
-                        Inativo
-                    </label>
+            <div class="col-12 col-sm-1 form-group">
+                <label for="active">Ativo:</label>
+                <div class="check no-mg">
+                    <input type="checkbox" name="active" id="active" class="ios-toggle" (click)="setActive(!object.active)" [checked]="object.active" />
+                    <label for="active" class="checkbox-label" data-off="" data-on=""></label>
                 </div>
             </div>
         </div>

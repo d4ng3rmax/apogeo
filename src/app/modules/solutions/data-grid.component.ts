@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataGridComponent, DisabledCheckboxComponent } from '../../components';
+import { DataGridComponent, CheckboxComponent, DisabledCheckboxComponent } from '../../components';
 import { SolutionService } from './solution.service';
 import { Solution } from '../../models';
 
@@ -9,7 +9,7 @@ import { Solution } from '../../models';
     template: `<ng2-smart-table
     [settings]="settings"
     [source]="source"
-    (create)="onCreate()"
+    (create)="onCreate($event)"
     (edit)="onEdit($event)"
     (delete)="onDeleteConfirm($event)"></ng2-smart-table>
     `,
@@ -29,13 +29,20 @@ export class SolutionsDataGridComponent extends DataGridComponent {
         this.settings.columns = {
             title: { title: 'Título', editor: { type: 'textarea' }, width: "20%", filter: false },
             description: { title: 'Descrição', width: "30%", editor: { type: 'textarea' }, filter: false },
-            hasJobPosition: { title: 'Possui Cargos', type: 'custom', renderComponent: DisabledCheckboxComponent, filter: false,
+            hasJobPosition: {
+                title: 'Possui Cargos', type: 'custom', renderComponent: DisabledCheckboxComponent, filter: false,
                 onComponentInitFunction: (instance: any) => { instance.flagName = 'hasJobPosition'; }
             },
-            cortesia: { title: 'Cortesia', type: 'custom', renderComponent: DisabledCheckboxComponent, filter: false,
+            cortesia: {
+                title: 'Cortesia', type: 'custom', renderComponent: DisabledCheckboxComponent, filter: false,
                 onComponentInitFunction: (instance: any) => { instance.flagName = 'cortesia'; }
             },
-            active: { title: 'Ativo', type: 'custom', valuePrepareFunction: 'custom', renderComponent: DisabledCheckboxComponent, filter: false }
+            active: {
+                title: 'Ativo', type: 'custom', renderComponent: CheckboxComponent, filter: false,
+                onComponentInitFunction: (instance: any) => {
+                    instance.saveStatus = this.saveStatus;
+                }
+            }
         };
     }
 

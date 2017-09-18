@@ -6,11 +6,11 @@ import { ApiService } from '../base/api.service';
 
 export class DataGridComponent implements OnInit {
 
-    @Input('alert')
+    @Input()
     alert: AlertComponent;
     baseUrl: string;
     source: LocalDataSource;
-    statusActive: boolean = null;
+    // statusActive: boolean = null;
     apiService: ApiService;
     filters: any = {};
 
@@ -114,7 +114,7 @@ export class DataGridComponent implements OnInit {
 
     clearFilter() {
         this.source.reset();
-        this.statusActive = null;
+        // this.statusActive = null;
         this.source.refresh();
         this.filters = {};
     }
@@ -131,4 +131,5 @@ export class DataGridComponent implements OnInit {
             this.source.setFilter([{ field: this.filters[key].field, search: this.filters[key].value }], true);
         }
     }
+
 }

@@ -22,8 +22,9 @@ export class TemplateModalComponent extends ModalComponent {
     }
 
     validate(value: any) {
-        if (value['description'] == "") {
-            this.dataGrid.alert.buildAlert(0, "O campo Frase requer ao menos 5 caracteres");
+        let o = value['description'];
+        if (o === null || o === '' || o.length < 5) {
+            this.alert.buildAlert(0, "O campo descrição requer ao menos 5 caracteres");
             return false;
         }
         return true;

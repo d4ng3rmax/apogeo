@@ -8,7 +8,7 @@ import { EditOrderedListComponent } from '../../components';
 @Component({
     selector: 'app-solution',
     templateUrl: './solution.component.html',
-    styleUrls: ['./solution.component.scss'],
+    styleUrls: ['../../app.component.scss', './solution.component.scss'],
     providers: [SolutionService, ResultService]
 })
 export class SolutionComponent extends EditOrderedListComponent {
@@ -38,14 +38,18 @@ export class SolutionComponent extends EditOrderedListComponent {
     }
 
     setActive = (status: boolean): void => {
+      console.log('[setActive] ' + status);
         this.object.active = status;
     }
 
     setCortesia = (status: boolean): void => {
+      console.log('[setCortesia] ' + status);
         this.object.cortesia = status;
+        this.object.valor = 0;
     }
 
     setHasJobPosition = (status: boolean): void => {
+      console.log('[setHasJobPosition] ' + status);
         this.object.hasJobPosition = status;
     }
 }

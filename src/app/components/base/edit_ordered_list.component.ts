@@ -12,7 +12,6 @@ export class EditOrderedListComponent implements OnInit {
     availableItems: Array<any> = [];
     selectedItems: Array<any> = [];
     urlId: number;
-    // alert: Alert;
     object: any;
     listPath: string;
     childListName: string;
@@ -161,7 +160,10 @@ export class EditOrderedListComponent implements OnInit {
     }
 
     populatedObject = (): Object => {
-        for (let i = 0; i < this.selectedItems.length; i++) this.object[this.childListName][i + 1] = { "id": this.selectedItems[i].id }
+        delete this.object[this.childListName];
+        this.object[this.childListName] = {};
+        for (let i = 0; i < this.selectedItems.length; i++)
+            this.object[this.childListName][i] = { "id": this.selectedItems[i].id };
         return this.object;
     }
 

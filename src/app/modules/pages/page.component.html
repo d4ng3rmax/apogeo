@@ -1,4 +1,4 @@
- <app-header [menuEnabled]="menuEnabled"></app-header>
+<app-header [menuEnabled]="menuEnabled"></app-header>
 
 <section>
     <div class="container-fluid">
@@ -11,18 +11,11 @@
                 <label for="txt-nome">Nome da página:</label>
                 <input type="text" id="txt-nome" class="form-control" [value]="object.title" [(ngModel)]="object.title" />
             </div>
-            <div class="col-12 col-md-3 offset-md-3">
-                <label for="xxx">Status:</label>
-                <div class="form-check">
-                    <label class="form-check-label mg-right">
-                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" (click)="setActive(true)" [checked]="object.active == true" />
-                        Ativo
-                    </label>
-
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" (click)="setActive(false)" [checked]="object.active == false" />
-                        Inativo
-                    </label>
+            <div class="col-12 col-sm-1 form-group">
+                <label for="active">Ativo:</label>
+                <div class="check no-mg">
+                    <input type="checkbox" name="active" id="active" class="ios-toggle" (click)="setActive(!object.active)" [checked]="object.active" />
+                    <label for="active" class="checkbox-label" data-off="" data-on=""></label>
                 </div>
             </div>
         </div>
