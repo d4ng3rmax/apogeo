@@ -11,14 +11,6 @@
                 <label for="txt-nome">Nome do Questionário:</label>
                 <input type="text" id="txt-nome" class="form-control" [value]="object.title" [(ngModel)]="object.title" />
             </div>
-
-            <div class="col-12 col-sm-1 form-group">
-                <label for="active">Ativo:</label>
-                <div class="check no-mg">
-                    <input type="checkbox" name="active" id="active" class="ios-toggle" (click)="setActive(!object.active)" [checked]="object.active" />
-                    <label for="active" class="checkbox-label" data-off="" data-on=""></label>
-                </div>
-            </div>
         </div>
 
         <div class="row mg-top-1">

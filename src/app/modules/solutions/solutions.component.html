@@ -17,6 +17,23 @@
                     <input #descriptionSearch type="text" placeholder="Buscar por..." (keyup)="dataGrid.search('description', descriptionSearch.value)" class="form-control" />
                     <br />
 
+                    <label>Por valor:</label>
+                    <div class="input-group">
+                        <!--
+                        <label class="form-check-label mg-right">
+                            <input type="radio" class="form-check-input" name="optValor" id="optValor" value="true" (click)="dataGrid.searchNumber('valor', valorSearch.value, true)" />
+                            <=
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optValor" id="optValor" value="false" (click)="dataGrid.search('valor', valorSearch.value, false)" />
+                            >=
+                        </label>
+                        -->
+                        <span class="input-group-addon">R$</span>
+                        <input #valorSearch type="text" placeholder="Buscar por..." (keyup)="dataGrid.search('valor', valorSearch.value)" class="form-control currency" type="number" value="" min="0" step="25" data-number-to-fixed="2" data-number-stepfactor="100" />
+                    </div>
+                    <br />
+
                     <label>Cortesia:</label>
                     <div class="form-check">
                         <label class="form-check-label mg-right">

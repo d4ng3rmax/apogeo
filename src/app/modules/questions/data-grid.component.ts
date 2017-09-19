@@ -30,7 +30,7 @@ export class QuestionsDataGridComponent extends DataGridComponent {
         this.labels.add = 'Adicionar Frase';
         this.settings.columns = {
             question: {
-                title: 'Nome', width: "30%", filter: false, editor: { type: 'textarea' }
+                title: 'Nome', width: "60%", filter: false, editor: { type: 'textarea' }
             },
             active: {
                 title: 'Ativo', type: 'custom', valuePrepareFunction: 'custom', renderComponent: CheckboxComponent, filter: false,

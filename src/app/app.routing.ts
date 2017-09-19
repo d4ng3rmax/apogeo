@@ -14,9 +14,11 @@ const routes: Routes = [
     {
         path: '',
         component: AppComponent,
+        canActivate: [TokenRefreshFilter],
         children: [
-            { path: 'login', component: HomeComponent, canActivate: [TokenRefreshFilter] },
-            { path: 'home', component: HomeComponent, canActivate: [AuthFilter] },
+          { path: '', component: HomeComponent, canActivate: [TokenRefreshFilter] },
+            { path: 'home', component: HomeComponent, canActivate: [] },
+            { path: 'login', component: HomeComponent, canActivate: [TokenRefreshFilter, AuthFilter] },
             {
                 path: 'surveys', canActivate: [AuthFilter], children: [
                     { path: 'question/list', component: QuestionsComponent, },
@@ -41,7 +43,7 @@ const routes: Routes = [
                     { path: 'template/list', component: TemplatesComponent }
                 ]
             },
-            { path: '**', redirectTo: '/home' }
+            { path: '**', redirectTo: 'surveys/question/list' }
         ]
     }
 ];

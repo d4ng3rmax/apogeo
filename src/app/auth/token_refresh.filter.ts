@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from './auth.service';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class TokenRefreshFilter implements CanActivate {
@@ -12,7 +13,9 @@ export class TokenRefreshFilter implements CanActivate {
     // Takes care of token validation and wiring from the / and /home paths
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         if(route.fragment == null) {
-            return true;
+            if(!this.authService.isAuthenticated())
+                window.location.href = environment.api.login;
+            return false;
         }
         let token: string = route.fragment.match(/^(.*?)&/)[1].replace('access_token=', '');
         // console.log('[TokenRefreshFilter] ' + token + ' - AuthService token: ' + this.authService.token);

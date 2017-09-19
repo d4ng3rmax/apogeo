@@ -27,8 +27,9 @@ export class SolutionsDataGridComponent extends DataGridComponent {
         this.labels.delete.confirm = 'Deseja mesmo excluir essa solução?';
         this.labels.add = 'Adicionar Solução';
         this.settings.columns = {
-            title: { title: 'Título', editor: { type: 'textarea' }, width: "20%", filter: false },
-            description: { title: 'Descrição', width: "30%", editor: { type: 'textarea' }, filter: false },
+            title: { title: 'Título', editor: { type: 'textarea' }, width: '20%', filter: false },
+            description: { title: 'Descrição', width: '30%', editor: { type: 'textarea' }, filter: false },
+            valor: { title: 'Valor', width: '10%', editor: { type: 'textarea' }, filter: false },
             hasJobPosition: {
                 title: 'Possui Cargos', type: 'custom', renderComponent: DisabledCheckboxComponent, filter: false,
                 onComponentInitFunction: (instance: any) => { instance.flagName = 'hasJobPosition'; }

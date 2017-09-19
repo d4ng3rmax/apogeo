@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../auth';
+import { environment } from '../../environments/environment';
 
 @Component({
     selector: 'app-header',
@@ -14,8 +15,10 @@ export class HeaderComponent implements OnInit {
     url: string;
     token: string;
     user: any;
+    loginUrl: string;
 
     constructor(private route: ActivatedRoute, private router: Router, private authService: AuthService) {
+        this.loginUrl = environment.api.login;
         this.router.events.subscribe((res) => {
             this.url = this.router.url;
             // Pega o modulo na primeira parte depois da barra para definir menu ativo
@@ -30,7 +33,7 @@ export class HeaderComponent implements OnInit {
 
         this.user = this.authService.user;
         this.authService.userEmitter.subscribe(user => {
-            console.log('[header.component][userEmitter] Received user: ' + user);
+            // console.log('[header.component][userEmitter] Received user: ' + JSON.stringify(user));
             this.user = user;
         });
     }
@@ -44,6 +47,8 @@ export class HeaderComponent implements OnInit {
             this.router.navigate(['/solutions/result/list']);
         } else if (module == 'surveys') {
             this.router.navigate(['/surveys/question/list']);
+        } else if (module == 'mail') {
+            this.router.navigate(['/mail/template/list']);
         }
     }
 
