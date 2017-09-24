@@ -8,19 +8,19 @@ import { SurveysComponent, SurveyComponent } from './modules/surveys';
 import { SolutionsComponent, SolutionComponent } from './modules/solutions';
 import { ResultsComponent } from './modules/results';
 import { TemplatesComponent } from './modules/templates';
-import { AuthFilter, TokenRefreshFilter } from './auth';
+import { AuthFilter } from './auth';
 
 const routes: Routes = [
     {
         path: '',
         component: AppComponent,
-        canActivate: [TokenRefreshFilter],
+        canActivate: [AuthFilter],
         children: [
-          { path: '', component: HomeComponent, canActivate: [TokenRefreshFilter] },
-            { path: 'home', component: HomeComponent, canActivate: [] },
-            { path: 'login', component: HomeComponent, canActivate: [TokenRefreshFilter, AuthFilter] },
+          { path: '', component: HomeComponent },
+            { path: 'home', component: HomeComponent },
+            { path: 'login', component: HomeComponent },
             {
-                path: 'surveys', canActivate: [AuthFilter], children: [
+                path: 'surveys', children: [
                     { path: 'question/list', component: QuestionsComponent, },
                     { path: 'page/list', component: PagesComponent, },
                     { path: 'page/:id', component: PageComponent, },
@@ -31,7 +31,7 @@ const routes: Routes = [
                 ]
             },
             {
-                path: 'solutions', canActivate: [AuthFilter], children: [
+                path: 'solutions', children: [
                     { path: 'result/list', component: ResultsComponent },
                     { path: 'solution/list', component: SolutionsComponent },
                     { path: 'solution/:id', component: SolutionComponent },
@@ -39,17 +39,17 @@ const routes: Routes = [
                 ]
             },
             {
-                path: 'mail', canActivate: [AuthFilter], children: [
+                path: 'mail', children: [
                     { path: 'template/list', component: TemplatesComponent }
                 ]
             },
-            { path: '**', redirectTo: 'surveys/question/list' }
+            { path: '**', redirectTo: '' }
         ]
     }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, { useHash: true })],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }

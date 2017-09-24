@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header';
 import { HomeComponent } from './modules/home'
 import { AlertComponent, CheckboxComponent, DisabledCheckboxComponent, PersistNavigationComponent, FilterControlsComponent } from './components';
-import { AuthFilter, TokenRefreshFilter, AuthService } from './auth';
+import { AuthFilter, AuthService } from './auth';
 
 // Survey
 import { QuestionsComponent, QuestionsDataGridComponent, QuestionModalComponent } from './modules/questions';
@@ -60,7 +60,7 @@ import { JobPositionsComponent, JobPositionModalComponent, JobPositionsDataGridC
         AppRoutingModule,
         Ng2Bs3ModalModule
     ],
-    providers: [AuthService, TokenRefreshFilter, AuthFilter],
+    providers: [AuthService, AuthFilter],
     bootstrap: [AppComponent],
     entryComponents: [CheckboxComponent, DisabledCheckboxComponent]
 })

@@ -2,7 +2,7 @@ import { Component, ViewChild, Input, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { LocalDataSource } from 'ng2-smart-table';
 import { ApiService } from './api.service';
-import { AlertComponent } from '../../components';
+import { AlertComponent } from '../../components/base/alert.component';
 
 export class ModalComponent implements OnInit {
 

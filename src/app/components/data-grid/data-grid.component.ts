@@ -1,7 +1,9 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalDataSource } from 'ng2-smart-table';
-import { AlertComponent, CheckboxComponent, DisabledCheckboxComponent } from '../../components';
+import { AlertComponent } from '../../components/base/alert.component';
+import { CheckboxComponent } from '../../components/custom-render/checkbox/checkbox.component';
+import { DisabledCheckboxComponent } from '../../components/custom-render/checkbox/disabledCheckbox.component';
 import { ApiService } from '../base/api.service';
 
 export class DataGridComponent implements OnInit {

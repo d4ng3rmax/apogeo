@@ -16,30 +16,7 @@ export class AuthService {
     validated: Boolean = false;
     validating: Boolean = false;
 
-    constructor(private http: Http, private route: ActivatedRoute,
-        private router: Router) {
-        // Reload token from localStorage
-        // this.token = '2819e418-76e1-4a41-bb54-c30509146d19';
-        // this.validateToken();
-        if (!this.authenticated && localStorage.getItem('user') && localStorage.getItem('token')) {
-            // console.log('Getting user from storage: ' + localStorage.getItem('user'));
-            this.setUser(JSON.parse(localStorage.getItem('user')), localStorage.getItem('token'));
-            this.validateToken(this.token);
-        }
-        // router.events.subscribe(s => {
-        //     if (s instanceof NavigationCancel) {
-        //         let params = new URLSearchParams(s.url.split('#')[1]);
-        //         let access_token = params.get('access_token');
-        //         if (access_token == null || access_token === undefined) {
-        //             return;
-        //         }
-
-                // console.log('[AuthService] URL: ' + s.url);
-                // console.log('[AuthService] Token: ' + access_token + ' - Validating...');
-                // this.validateToken(access_token);
-            // }
-        // });
-    }
+    constructor(private http: Http, private route: ActivatedRoute, private router: Router) { }
 
     isAuthenticated() {
         return this.token != null && this.validated;
@@ -48,39 +25,26 @@ export class AuthService {
     setUser(user: User, token: string) {
         this.user = user;
         this.token = token;
-        // console.log('[auth.service][setUser] User: ' + JSON.stringify(this.user));
-        localStorage.setItem('user', JSON.stringify(this.user));
         localStorage.setItem('token', this.token);
         this.userEmitter.emit(this.user);
     }
 
     logout() {
-        // console.log('[AuthService][logout] Called');
         this.token = null;
         this.user = null;
         localStorage.removeItem('token');
-        localStorage.removeItem('user');
         localStorage.removeItem('returnUrl');
         this.userEmitter.emit();
     }
 
     validateToken(token: string) {
-        if (token == null) {
-            console.log('[auth.service][validateToken] No token provided');
-            return null;
-        }
-        if(this.validating) {
-            // console.log('Token already being validated.');
-            return;
-        }
+        if (token == null || this.validating) return;
         // console.log('Validating token: ' + token);
         this.validating = true;
-        // let url = 'mock.json';
-        let url = environment.api.user;
         this.token = token;
-        let options = new RequestOptions({ headers: this.getHeaders() });
-        var request = this.http.get(url, options);
 
+        let url = environment.api.user;
+        var request = this.http.get(url, new RequestOptions({ headers: this.getHeaders() }));
         request.subscribe(response => {
             this.validating = false;
             this.validated = true;
@@ -94,6 +58,8 @@ export class AuthService {
                 // console.log('[auth.service][validateToken] Redirecting to returnUrl: ' + returnUrl);
                 this.router.navigate([returnUrl]);
                 localStorage.removeItem('returnUrl');
+            } else {
+                this.router.navigate(['surveys/question/list'], { preserveQueryParams: true });
             }
 
         }, err => {
@@ -104,7 +70,6 @@ export class AuthService {
             this.validated = false;
             this.authenticated = false;
             localStorage.removeItem('token');
-            localStorage.removeItem('user');
             localStorage.removeItem('returnUrl');
         });
 
@@ -112,8 +77,7 @@ export class AuthService {
     }
 
     getHeaders() {
-        let headers = new Headers({ "Authorization": "Bearer " + this.token });
-        return headers;
+        return new Headers({ "Authorization": "Bearer " + this.token });
     }
 
 }
