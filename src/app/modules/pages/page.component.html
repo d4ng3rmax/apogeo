@@ -1,11 +1,20 @@
 <app-header [menuEnabled]="menuEnabled"></app-header>
 
 <section>
+    <div class="container-fluid container" *ngIf="!loaded">
+        <div class="col-lg-10 lds-css ng-scope">
+            <div style="margin: 0 auto;" class="lds-eclipse">
+                <div></div>
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid">
-
-        <persist-navigation (save)="save($event)" (update)="update($event)" (deleteOne)="delete($event)" [listPath]="listPath" [urlId]="urlId"></persist-navigation>
+        <persist-navigation *ngIf="loaded" (save)="save($event)" (update)="update($event)" (deleteOne)="delete($event)" [listPath]="listPath" [urlId]="urlId" [loaded]="loaded"></persist-navigation>
         <alert #alert></alert>
+    </div>
 
+    <div class="container-fluid" *ngIf="loaded">
         <div class="row mg-top-2">
             <div class="col-12 col-md-3 form-group">
                 <label for="txt-nome">Nome da página:</label>
@@ -14,8 +23,8 @@
             <div class="col-12 col-sm-1 form-group">
                 <label for="active">Ativo:</label>
                 <div class="check no-mg">
-                    <input type="checkbox" name="active" id="active" class="ios-toggle" (click)="setActive(!object.active)" [checked]="object.active" />
-                    <label for="active" class="checkbox-label" data-off="" data-on=""></label>
+                    <input class="tgl tgl-skewed" type="checkbox" name="active" id="active" (click)="setActive(!object.active)" [checked]="object.active" />
+                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="active"></label>
                 </div>
             </div>
         </div>

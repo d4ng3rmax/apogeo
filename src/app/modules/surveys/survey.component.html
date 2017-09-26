@@ -1,19 +1,30 @@
 <app-header [menuEnabled]="menuEnabled"></app-header>
 
 <section>
-    <div class="container-fluid">
+    <div class="container-fluid container" *ngIf="!loaded">
+        <div class="col-lg-10 lds-css ng-scope">
+            <div style="margin: 0 auto;" class="lds-eclipse">
+                <div></div>
+            </div>
+        </div>
+    </div>
 
-        <persist-navigation (save)="save($event)" (update)="update($event)" (deleteOne)="delete($event)" [listPath]="listPath" [urlId]="urlId"></persist-navigation>
+    <div class="container-fluid mb-md mg-b-2">
+        <persist-navigation *ngIf="loaded" (save)="save($event)" (update)="update($event)" (deleteOne)="delete($event)" [listPath]="listPath" [urlId]="urlId" [loaded]="loaded"></persist-navigation>
+        <br />
         <alert #alert></alert>
+    </div>
 
-        <div class="row mg-top-2">
+
+    <div class="container-fluid" *ngIf="loaded">
+        <div class="row">
             <div class="col-12 col-md-3 form-group">
                 <label for="txt-nome">Nome do Questionário:</label>
                 <input type="text" id="txt-nome" class="form-control" [value]="object.title" [(ngModel)]="object.title" />
             </div>
         </div>
 
-        <div class="row mg-top-1">
+        <div class="row">
             <div class="col">
                 <div class="form-group">
                     <label for="sel-available">Páginas disponíveis:</label>

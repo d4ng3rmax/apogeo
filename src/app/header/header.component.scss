@@ -1,3 +1,15 @@
 header {
     padding: 10px 15px;
 }
+
+.nav-pills-secondary > li > a:not(.active) {
+    color: #00AACC;
+}
+
+.nav-pills-secondary > li > a.active {
+    color: #FFFFFF;
+}
+
+.nav-pills-secondary > li > .active, .nav-pills-secondary > li > .active:hover {
+    background-color: #00AACC;
+}

@@ -22,9 +22,9 @@ export class SurveysDataGridComponent extends DataGridComponent {
     constructor(protected router: Router, protected service: SurveyService) {
         super(router, service);
         this.baseUrl = '/surveys/survey';
-        this.labels.update.success = 'Página atualizada com sucesso!';
-        this.labels.delete.success = 'Página excluida com sucesso!';
-        this.labels.delete.confirm = 'Deseja mesmo excluir essa página?';
+        // this.labels.update.success = 'Página atualizada com sucesso!';
+        // this.labels.delete.success = 'Página excluida com sucesso!';
+        // this.labels.delete.confirm = 'Deseja mesmo excluir essa página?';
         this.labels.add = 'Adicionar Página';
         this.settings.columns = {
             title: {
@@ -38,7 +38,6 @@ export class SurveysDataGridComponent extends DataGridComponent {
     }
 
     newEntity = (rowData): Object => {
-        console.log('[newEntity] Alert: ' + this.alert);
         return new Survey(rowData.id, rowData.title, rowData.pageOrder, rowData.active);
     }
 
@@ -58,19 +57,13 @@ export class SurveysDataGridComponent extends DataGridComponent {
         if (flagName !== undefined && status !== undefined)
             rowData[flagName] = status;
 
-        this.apiService.setStatus(rowData)
+        this.apiService.setStatus(rowData.id)
             .then(data => {
                 this.source.update(rowData, this.newEntity(data));
                 this.source.refresh();
                 this.alert.buildAlert(1, this.labels.update.success);
+                this.reload();
 
-            }, error => {
-                if (error._body) {
-                    this.alert.buildAlert(0, JSON.parse(error._body).errorMessage);
-
-                } else if (error.exception) {
-                    this.alert.buildAlert(0, error.exception);
-                }
-            });
+            }, error => { this.alert.handleResponseError(error); });
     }
 }

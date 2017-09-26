@@ -26,7 +26,7 @@ export class DataGridComponent implements OnInit {
         },
         delete: {
             confirm: 'Deseja mesmo excluir esse item?',
-            success: 'Item excluida com sucesso!'
+            success: 'Item excluido com sucesso!'
         }
     }
 
@@ -60,7 +60,11 @@ export class DataGridComponent implements OnInit {
         this.apiService = service;
     }
 
-    async ngOnInit() {
+    ngOnInit() {
+        this.reload();
+    }
+
+    async reload() {
         this.source = new LocalDataSource(await this.apiService.getResult());
     }
 
@@ -135,17 +139,18 @@ export class DataGridComponent implements OnInit {
     }
 
     searchNumber(field: string, value: number, greaterThan: boolean) {
-      this.filters[field] = { field: field, value: value.toString() };
-      this.source.reset();
-      for (var key in this.filters) {
-          this.source.setFilter([{ field: this.filters[key].field, search: this.filters[key].value,
-            customFilter: (value: number, search: number) => {
-                if(greaterThan) return value > search;
-                return value < search;
-            }
+        this.filters[field] = { field: field, value: value.toString() };
+        this.source.reset();
+        for (var key in this.filters) {
+            this.source.setFilter([{
+                field: this.filters[key].field, search: this.filters[key].value,
+                customFilter: (value: number, search: number) => {
+                    if (greaterThan) return value > search;
+                    return value < search;
+                }
 
-          }], true);
-      }
+            }], true);
+        }
     }
 
 }

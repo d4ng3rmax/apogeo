@@ -1,4 +1,11 @@
-<div class="row bg-top-menu">
+<div class="container-fluid container" *ngIf="!loaded">
+    <div class="col-lg-10 lds-css ng-scope">
+        <div style="margin: 0 auto;" class="lds-eclipse">
+            <div></div>
+        </div>
+    </div>
+</div>
+<div class="row bg-top-menu" *ngIf="!!loaded">
     <div class="col">
         <ul class="top-menu d-flex flex-row">
             <li class="p-2" *ngIf="!urlId"><a href="#" (click)="onSave(); false"  class="btn btn-success"><i class="fa fa-check"></i> Salvar</a></li>

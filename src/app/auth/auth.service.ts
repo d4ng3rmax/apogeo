@@ -59,6 +59,8 @@ export class AuthService {
                 this.router.navigate([returnUrl]);
                 localStorage.removeItem('returnUrl');
             } else {
+
+                // this.router.navigate(['mail/template/list'], { preserveQueryParams: true });
                 this.router.navigate(['surveys/question/list'], { preserveQueryParams: true });
             }
 

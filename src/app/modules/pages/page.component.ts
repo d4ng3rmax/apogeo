@@ -19,10 +19,10 @@ export class PageComponent extends EditOrderedListComponent {
         this.listPath = '/surveys/page/list';
         this.childListName = 'questionOrder';
         this.object = this.newEntity({ id: 0, title: '', questionOrder: {}, active: true });
-        this.labels.create.success = 'Página criada com sucesso!'
-        this.labels.save.success = 'Página salva com sucesso!'
-        this.labels.delete.confirm = 'Deseja mesmo excluir essa página?'
-        this.labels.delete.success = 'Página excluida com sucesso!'
+        // this.labels.create.success = 'Página criada com sucesso!'
+        // this.labels.save.success = 'Página salva com sucesso!'
+        // this.labels.delete.confirm = 'Deseja mesmo excluir essa página?'
+        // this.labels.delete.success = 'Página excluida com sucesso!'
     }
 
     newEntity(serverObject: any) {

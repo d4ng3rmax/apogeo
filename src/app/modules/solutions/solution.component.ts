@@ -18,11 +18,11 @@ export class SolutionComponent extends EditOrderedListComponent {
         super(route, router, service, childrenService);
         this.listPath = '/solutions/solution/list';
         this.childListName = 'resultOrder';
-        this.object = this.newEntity({ id: 0, title: '', description: '', hasJobPosition: false, valor: 0, cortesia: false, resultOrder: {}, active: false });
-        this.labels.create.success = 'Solução criada com sucesso!'
-        this.labels.save.success = 'Solução salva com sucesso!'
-        this.labels.delete.confirm = 'Deseja mesmo excluir essa solução?'
-        this.labels.delete.success = 'Solução excluida com sucesso!'
+        this.object = this.newEntity({ id: 0, title: '', description: '', hasJobPosition: false, valor: 0, cortesia: false, resultOrder: {}, active: true });
+        // this.labels.create.success = 'Solução criada com sucesso!'
+        // this.labels.save.success = 'Solução salva com sucesso!'
+        // this.labels.delete.confirm = 'Deseja mesmo excluir essa solução?'
+        // this.labels.delete.success = 'Solução excluida com sucesso!'
     }
 
     newEntity(serverObject: any) {
@@ -38,18 +38,18 @@ export class SolutionComponent extends EditOrderedListComponent {
     }
 
     setActive = (status: boolean): void => {
-      console.log('[setActive] ' + status);
+        // console.log('[setActive] ' + status);
         this.object.active = status;
     }
 
     setCortesia = (status: boolean): void => {
-      console.log('[setCortesia] ' + status);
+        // console.log('[setCortesia] ' + status);
         this.object.cortesia = status;
         this.object.valor = 0;
     }
 
     setHasJobPosition = (status: boolean): void => {
-      console.log('[setHasJobPosition] ' + status);
+        // console.log('[setHasJobPosition] ' + status);
         this.object.hasJobPosition = status;
     }
 }

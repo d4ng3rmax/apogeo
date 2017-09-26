@@ -1,0 +1,11 @@
+#!/bin/sh
+
+rm -rf devastaging
+mkdir devastaging
+cd dist
+zip -r ../devastaging/apogeo-app.zip * > /dev/null 2>&1
+cd ../devastaging
+curl -X POST -F "space=leo" -F "group=app-ui" -F "name=pilot" -F "runtime=static" -F "file=@apogeo-app.zip" http://localhost:8000/api/upload
+cd ..
+rm -rf devastaging
+echo

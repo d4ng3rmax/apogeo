@@ -38,16 +38,26 @@ export class AlertComponent {
             this.obj.message = msg;
             this.obj.cssClass = "alert-danger";
             this.obj.status = true;
-            console.error(msg);
+            // console.error(msg);
         }
 
         setTimeout(() => {
-            // this.alert.status = false;
-            console.clear();
+            this.reset();
         }, 15000);
     }
 
     public reset = (): void => {
         this.obj = new Alert(0, '', '', '', false);
+    }
+
+    public handleResponseError = (error: any): void => {
+        var errorObj = JSON.parse(error._body);
+        if (errorObj.errorMessage) {
+            this.buildAlert(0, errorObj.errorMessage);
+        } else if (errorObj.message) {
+            this.buildAlert(0, JSON.parse(error._body).message);
+        } else {
+            this.buildAlert(0, JSON.stringify(error._body));
+        }
     }
 }

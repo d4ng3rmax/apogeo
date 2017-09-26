@@ -24,13 +24,13 @@ export class ResultsDataGridComponent extends DataGridComponent {
     constructor(protected router: Router, protected service: ResultService) {
         super(router, service);
         this.baseUrl = '/solutions/result';
-        this.labels.update.success = 'Resultado atualizado com sucesso!';
-        this.labels.delete.success = 'Resultado excluido com sucesso!';
-        this.labels.delete.confirm = 'Deseja mesmo excluir esse resultado?';
+        // this.labels.update.success = 'Resultado atualizado com sucesso!';
+        // this.labels.delete.success = 'Resultado excluido com sucesso!';
+        // this.labels.delete.confirm = 'Deseja mesmo excluir esse resultado?';
         this.labels.add = 'Adicionar Resultado';
         this.settings.columns = {
+            codigo: { title: 'Código', editor: { type: 'input' }, width: "10%", filter: false },
             description: { title: 'Descrição', editor: { type: 'textarea' }, width: "40%", filter: false },
-            codigo: { title: 'Código', editor: { type: 'input' }, width: "20%", filter: false },
             active: {
                 title: 'Ativo', type: 'custom', renderComponent: CheckboxComponent, filter: false,
                 onComponentInitFunction: (instance: any) => {

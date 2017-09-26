@@ -23,6 +23,7 @@ export class AuthFilter implements CanActivate {
         }
         if (token !== null && token !== undefined && token !== '') {
             console.log('[AuthFilter] Validating token from access_token parameter: ' + token);
+            // localStorage.setItem('returnUrl', state.url.split('#')[0]);
             this.authService.validateToken(token);
             return false
         }
@@ -31,6 +32,7 @@ export class AuthFilter implements CanActivate {
         token = localStorage.getItem('token');
         if (token !== null && token !== undefined && token !== '') {
             console.log('[AuthFilter] Validating token from storage: ' + token);
+            localStorage.setItem('returnUrl', state.url.split('#')[0]);
             this.authService.validateToken(localStorage.getItem('token'));
             return false;
         }

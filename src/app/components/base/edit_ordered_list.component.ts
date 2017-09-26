@@ -15,6 +15,7 @@ export class EditOrderedListComponent implements OnInit {
     object: any;
     listPath: string;
     childListName: string;
+    loaded: boolean;
 
     labels: any = {
         create: {
@@ -36,9 +37,11 @@ export class EditOrderedListComponent implements OnInit {
         protected childrenService: ApiService
     ) {
         this.urlId = (this.route.snapshot.params['id']) ? this.route.snapshot.params['id'] : false;
+        this.loaded = false;
     }
 
     async ngOnInit() {
+        this.loaded = false;
         let all = await this.childrenService.getActiveResult();
         if (this.urlId) {
             let serverObject = await this.service.getSingleResult(this.urlId);
@@ -56,6 +59,7 @@ export class EditOrderedListComponent implements OnInit {
         } else {
             this.availableItems = all;
         }
+        this.loaded = true;
     }
 
     moveItem = (originSelect, from, to): void => {
@@ -118,39 +122,54 @@ export class EditOrderedListComponent implements OnInit {
     }
 
     save = (event): void => {
+        this.loaded = false;
         this.service.createData(this.populatedObject())
             .then(data => {
+                this.loaded = true;
                 this.alert.buildAlert(1, this.labels.create.success);
 
                 setTimeout(() => {
                     this.router.navigate([this.listPath]);
                 }, 2000);
 
-            }, error => this.alert.buildAlert(0, JSON.parse(error._body).errorMessage));
+            }, error => {
+                this.loaded = true;
+                this.alert.buildAlert(0, JSON.parse(error._body).errorMessage);
+            }
+            );
     }
 
     update = (event): void => {
+        this.loaded = false;
         this.service.updateData(this.urlId, this.populatedObject())
             .then(data => {
+                this.loaded = true;
                 this.alert.buildAlert(1, this.labels.save.success);
 
                 setTimeout(() => {
                     this.router.navigate([this.listPath]);
                 }, 2000);
 
-            }, error => this.alert.buildAlert(0, JSON.parse(error._body).errorMessage));
+            }, error => {
+                this.loaded = true;
+                this.alert.buildAlert(0, JSON.parse(error._body).errorMessage);
+            });
     }
 
     delete = (event) => {
+        this.loaded = false;
         if (window.confirm(this.labels.delete.confirm)) {
             this.service.deleteData(this.urlId)
                 .then(data => {
+                    this.loaded = true;
                     this.alert.buildAlert(1, this.labels.delete.success);
 
                     setTimeout(() => {
                         this.router.navigate([this.listPath]);
                     }, 2000);
+
                 }, error => {
+                    this.loaded = true;
                     this.alert.buildAlert(0, JSON.parse(error._body).errorMessage);
                 });
 

@@ -14,4 +14,11 @@ export class SurveyService extends ApiService {
         this.apiRoot = environment.api.surveys;
     }
 
+    async setStatus(id: number): Promise<any> {
+        return this.http.post(`${this.apiRoot}/${id}/setActive`, {}, this.options)
+            .toPromise()
+            .then((res) => res.json() || {})
+            .catch((error) => Promise.reject(error.message || error));
+    }
+
 }

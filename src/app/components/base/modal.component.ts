@@ -77,15 +77,9 @@ export class ModalComponent implements OnInit {
                 this.form.setValue(JSON.parse(JSON.stringify(this.defaultValues)));
 
             }, error => {
-                var errorObj = JSON.parse(error._body);
-                if (errorObj.errorMessage) {
-                    this.alert.buildAlert(0, errorObj.errorMessage);
-                } else if (errorObj.message) {
-                    this.alert.buildAlert(0, JSON.parse(error._body).message);
-                } else {
-                    this.alert.buildAlert(0, JSON.stringify(error._body));
-                }
                 this.open('lg');
+                this.alert.handleResponseError(error);
+                this.dataGrid.alert.handleResponseError(error);
             });
 
     }
@@ -104,16 +98,9 @@ export class ModalComponent implements OnInit {
                 this.dataGrid.alert.buildAlert(1, this.labels.save.success);
 
             }, error => {
-                var errorObj = JSON.parse(error._body);
-                if (errorObj.errorMessage) {
-                    this.alert.buildAlert(0, errorObj.errorMessage);
-
-                } else if (errorObj.message) {
-                    this.alert.buildAlert(0, JSON.parse(error._body).message);
-                } else {
-                    this.alert.buildAlert(0, JSON.stringify(error._body));
-                }
                 this.open('lg');
+                this.alert.handleResponseError(error);
+                this.dataGrid.alert.handleResponseError(error);
             });
     }
 

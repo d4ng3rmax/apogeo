@@ -17,6 +17,10 @@
                     <input #descriptionSearch type="text" placeholder="Buscar por..." (keyup)="dataGrid.search('description', descriptionSearch.value)" class="form-control" />
                     <br />
 
+                    <label>Por assunto:</label>
+                    <input #subjectSearch type="text" placeholder="Buscar por..." (keyup)="dataGrid.search('subject', subjectSearch.value)" class="form-control" />
+                    <br />
+
                     <!-- Form fields -->
 
                     <filter-controls [form]="form" [dataGrid]="dataGrid"></filter-controls>

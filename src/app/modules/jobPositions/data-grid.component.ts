@@ -24,9 +24,9 @@ export class JobPositionsDataGridComponent extends DataGridComponent {
     constructor(protected router: Router, protected service: JobPositionService) {
         super(router, service);
         this.baseUrl = '/jobPositions/jobPosition';
-        this.labels.update.success = 'Página atualizada com sucesso!';
-        this.labels.delete.success = 'Página excluida com sucesso!';
-        this.labels.delete.confirm = 'Deseja mesmo excluir essa página?';
+        // this.labels.update.success = 'Página atualizada com sucesso!';
+        // this.labels.delete.success = 'Página excluida com sucesso!';
+        // this.labels.delete.confirm = 'Deseja mesmo excluir essa página?';
         this.labels.add = 'Adicionar Posição';
         this.settings.columns = {
             title: {

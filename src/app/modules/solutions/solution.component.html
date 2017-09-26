@@ -1,11 +1,20 @@
 <app-header [menuEnabled]="menuEnabled"></app-header>
 
 <section>
+    <div class="container-fluid container" *ngIf="!loaded">
+        <div class="col-lg-10 lds-css ng-scope">
+            <div style="margin: 0 auto;" class="lds-eclipse">
+                <div></div>
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid">
-
-        <persist-navigation (save)="save($event)" (update)="update($event)" (deleteOne)="delete($event)" [listPath]="listPath" [urlId]="urlId"></persist-navigation>
+        <persist-navigation *ngIf="loaded" (save)="save($event)" (update)="update($event)" (deleteOne)="delete($event)" [listPath]="listPath" [urlId]="urlId" [loaded]="loaded"></persist-navigation>
         <alert #alert></alert>
+    </div>
 
+    <div class="container-fluid" *ngIf="loaded">
         <div class="row">
             <div class="col-3">
                 <div class="col">
@@ -15,9 +24,8 @@
                 <div class="col">
                     <label for="valor">Valor:</label>
                     <div class="input-group">
-                      <span class="input-group-addon">R$</span>
-                      <input [disabled]="object.cortesia" id="valor" class="form-control currency" [value]="object.valor" [(ngModel)]="object.valor"
-                      type="number" value="10000" min="0" step="25" data-number-to-fixed="2" data-number-stepfactor="100" />
+                        <span class="input-group-addon">R$</span>
+                        <input [disabled]="object.cortesia" id="valor" class="form-control currency" [value]="object.valor" [(ngModel)]="object.valor" type="number" value="10000" min="0" step="25" data-number-to-fixed="2" data-number-stepfactor="100" />
                     </div>
                     <!-- <input [disabled]="object.cortesia" type="text" id="valor" class="form-control" [value]="object.valor" [(ngModel)]="object.valor" /> -->
                 </div>
@@ -34,23 +42,23 @@
         <div class="row mg-top-2">
             <div class="col-12 col-sm-2 form-group">
                 <label for="hasJobPosition">Possui Cargos:</label>
-                <div class="check">
-                    <input type="checkbox" name="hasJobPosition" id="hasJobPosition" class="ios-toggle" (click)="setHasJobPosition(!object.hasJobPosition)" [checked]="object.hasJobPosition" />
-                    <label for="hasJobPosition" class="checkbox-label" data-off="" data-on=""></label>
+                <div class="no-mg">
+                    <input class="tgl tgl-skewed" type="checkbox" name="hasJobPosition" id="hasJobPosition" (click)="setHasJobPosition(!object.hasJobPosition)" [checked]="object.hasJobPosition" />
+                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="hasJobPosition"></label>
                 </div>
             </div>
             <div class="col-12 col-sm-1 form-group">
                 <label for="cortesia">Cortesia:</label>
-                <div class="check no-mg">
-                    <input type="checkbox" name="cortesia" id="cortesia" class="ios-toggle" (click)="setCortesia(!object.cortesia)" [checked]="object.cortesia" />
-                    <label for="cortesia" class="checkbox-label" data-off="" data-on=""></label>
+                <div class="no-mg">
+                    <input class="tgl tgl-skewed" type="checkbox" name="cortesia" id="cortesia" (click)="setCortesia(!object.cortesia)" [checked]="object.cortesia" />
+                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cortesia"></label>
                 </div>
             </div>
             <div class="col-12 col-sm-1 form-group">
                 <label for="active">Ativo:</label>
-                <div class="check no-mg">
-                    <input type="checkbox" name="active" id="active" class="ios-toggle" (click)="setActive(!object.active)" [checked]="object.active" />
-                    <label for="active" class="checkbox-label" data-off="" data-on=""></label>
+                <div class="no-mg">
+                    <input class="tgl tgl-skewed" type="checkbox" name="active" id="active" (click)="setActive(!object.active)" [checked]="object.active" />
+                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="active"></label>
                 </div>
             </div>
         </div>

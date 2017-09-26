@@ -11,8 +11,7 @@ import { Template } from '../../models';
         [settings]="settings"
         [source]="source"
         (create)="onCreate($event)"
-        (edit)="onSave($event)"
-        (delete)="onDeleteConfirm($event)"></ng2-smart-table>
+        (edit)="onSave($event)"></ng2-smart-table>
         <mm-template-modal></mm-template-modal>
         `,
     styleUrls: ['../../components/data-grid/data-grid.component.scss'],
@@ -24,18 +23,23 @@ export class TemplatesDataGridComponent extends DataGridComponent {
     constructor(protected router: Router, protected service: TemplateService) {
         super(router, service);
         this.baseUrl = '/mail/template';
-        this.labels.update.success = 'Template atualizado com sucesso!';
-        this.labels.delete.success = 'Template excluido com sucesso!';
-        this.labels.delete.confirm = 'Deseja mesmo excluir esse template?';
+        // this.labels.update.success = 'Template atualizado com sucesso!';
+        // this.labels.delete.success = 'Template excluido com sucesso!';
+        // this.labels.delete.confirm = 'Deseja mesmo excluir esse template?';
         this.labels.add = 'Adicionar Template';
         this.settings.columns = {
             name: {
-                title: 'Nome', width: "30%", filter: false, editor: { type: 'textarea' }
+                title: 'Nome', width: "20%", filter: false, editor: { type: 'textarea' }
+            },
+            description: {
+                title: 'Descrição', width: "40%", filter: false, editor: { type: 'textarea' }
             },
             subject: {
-                title: 'Assunto', width: "50%", filter: false, editor: { type: 'textarea' }
+                title: 'Assunto', width: "30%", filter: false, editor: { type: 'textarea' }
             }
         };
+        this.settings.actions.add = false;
+        this.settings.actions.delete = false;
     }
 
     newEntity = (rowData): Object => {

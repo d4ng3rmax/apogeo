@@ -24,9 +24,9 @@ export class QuestionsDataGridComponent extends DataGridComponent {
     constructor(protected router: Router, protected service: QuestionService) {
         super(router, service);
         this.baseUrl = '/surveys/question';
-        this.labels.update.success = 'Frase atualizada com sucesso!';
-        this.labels.delete.success = 'Frase excluida com sucesso!';
-        this.labels.delete.confirm = 'Deseja mesmo excluir essa frase?';
+        // this.labels.update.success = 'Frase atualizada com sucesso!';
+        // this.labels.delete.success = 'Frase excluida com sucesso!';
+        // this.labels.delete.confirm = 'Deseja mesmo excluir essa frase?';
         this.labels.add = 'Adicionar Frase';
         this.settings.columns = {
             question: {

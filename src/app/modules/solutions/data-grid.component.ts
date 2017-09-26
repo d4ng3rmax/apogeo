@@ -22,24 +22,24 @@ export class SolutionsDataGridComponent extends DataGridComponent {
     constructor(protected router: Router, protected service: SolutionService) {
         super(router, service);
         this.baseUrl = '/solutions/solution';
-        this.labels.update.success = 'Solução atualizada com sucesso!';
-        this.labels.delete.success = 'Solução excluida com sucesso!';
-        this.labels.delete.confirm = 'Deseja mesmo excluir essa solução?';
+        // this.labels.update.success = 'Solução atualizada com sucesso!';
+        // this.labels.delete.success = 'Solução excluida com sucesso!';
+        // this.labels.delete.confirm = 'Deseja mesmo excluir essa solução?';
         this.labels.add = 'Adicionar Solução';
         this.settings.columns = {
-            title: { title: 'Título', editor: { type: 'textarea' }, width: '20%', filter: false },
+            title: { title: 'Título', editor: { type: 'textarea' }, width: '10%', filter: false },
             description: { title: 'Descrição', width: '30%', editor: { type: 'textarea' }, filter: false },
             valor: { title: 'Valor', width: '10%', editor: { type: 'textarea' }, filter: false },
             hasJobPosition: {
-                title: 'Possui Cargos', type: 'custom', renderComponent: DisabledCheckboxComponent, filter: false,
+                title: 'Possui Cargos', type: 'custom', width: '10%', renderComponent: DisabledCheckboxComponent, filter: false,
                 onComponentInitFunction: (instance: any) => { instance.flagName = 'hasJobPosition'; }
             },
             cortesia: {
-                title: 'Cortesia', type: 'custom', renderComponent: DisabledCheckboxComponent, filter: false,
+                title: 'Cortesia', type: 'custom', width: '10%', renderComponent: DisabledCheckboxComponent, filter: false,
                 onComponentInitFunction: (instance: any) => { instance.flagName = 'cortesia'; }
             },
             active: {
-                title: 'Ativo', type: 'custom', renderComponent: CheckboxComponent, filter: false,
+                title: 'Ativo', type: 'custom', width: '10%', renderComponent: CheckboxComponent, filter: false,
                 onComponentInitFunction: (instance: any) => {
                     instance.saveStatus = this.saveStatus;
                 }
