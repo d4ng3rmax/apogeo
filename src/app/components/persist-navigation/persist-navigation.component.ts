@@ -7,28 +7,28 @@ import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 })
 export class PersistNavigationComponent implements OnInit {
 
-    @Input() urlId : number;
-    @Input() listPath : String;
-    @Input() loaded : boolean;
+    @Input() urlId: number;
+    @Input() listPath: String;
+    @Input() loaded: boolean;
 
-    @Output() save : EventEmitter<any> = new EventEmitter();
-    @Output() update : EventEmitter<any> = new EventEmitter();
-    @Output() deleteOne : EventEmitter<any> = new EventEmitter();
+    @Output() save: EventEmitter<any> = new EventEmitter();
+    @Output() update: EventEmitter<any> = new EventEmitter();
+    @Output() deleteOne: EventEmitter<any> = new EventEmitter();
 
     constructor() { }
 
     ngOnInit() {
     }
 
-    onSave =() : void => {
+    onSave = (): void => {
         this.save.emit();
     }
 
-    onUpdate =() : void => {
+    onUpdate = (): void => {
         this.update.emit();
     }
 
-    onDelete =() : void => {
+    onDelete = (e): void => {
         this.deleteOne.emit();
     }
 }

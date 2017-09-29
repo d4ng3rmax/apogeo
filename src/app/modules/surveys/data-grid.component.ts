@@ -12,6 +12,11 @@ import { Alert, Survey } from '../../models';
         (create)="onCreate($event)"
         (edit)="onEdit($event)"
         (delete)="onDeleteConfirm($event)"></ng2-smart-table>
+        <div *ngIf="this.empty">
+            <br />
+            <a (click)="this.reload()" href="javascript:void(0)"> Tentar novamente</a>
+            <img *ngIf="this.reloading" src="images/refresh.svg" width="16" height="16" />
+        </div>
     `,
     styleUrls: ['../../components/data-grid/data-grid.component.scss'],
     providers: [SurveyService],
@@ -27,11 +32,9 @@ export class SurveysDataGridComponent extends DataGridComponent {
         // this.labels.delete.confirm = 'Deseja mesmo excluir essa página?';
         this.labels.add = 'Adicionar Página';
         this.settings.columns = {
-            title: {
-                title: 'Página', width: "70%", filter: false, editor: { type: 'textarea' }
-            },
+            title: { title: 'Página', width: "70%", filter: false, editor: { type: 'textarea' } },
             active: {
-                title: 'Ativo', type: 'custom', renderComponent: CheckboxComponent, filter: false,
+                title: 'Ativo', type: 'custom', valuePrepareFunction: 'custom', width: '10%', renderComponent: CheckboxComponent, filter: false,
                 onComponentInitFunction: (instance: any) => { instance.saveStatus = this.saveStatus; }
             }
         };
@@ -44,7 +47,7 @@ export class SurveysDataGridComponent extends DataGridComponent {
     saveStatus = (rowData, flagName, status): void => {
         console.log(JSON.stringify(rowData));
         if (rowData.active && !status) {
-            this.alert.buildAlert(0, "Operação não permitida! Você precisa ativar um outro questionário para desativar esse.");
+            this.alert.buildAlert(0, "Você só poderá ter 1 questionário ativo por vez. Ao ativar este, o anterior será automaticamente inativado. Deseja continuar?");
 
             for (let i = 0; i < this.source['data'].length; i++) {
                 let newS = { id: rowData.id, active: rowData.active, title: rowData.title };

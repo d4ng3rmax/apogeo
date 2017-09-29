@@ -172,10 +172,10 @@ export class EditOrderedListComponent implements OnInit {
                     this.loaded = true;
                     this.alert.buildAlert(0, JSON.parse(error._body).errorMessage);
                 });
-
-        } else {
-            return;
+            return false;
         }
+        this.loaded = true;
+        return false;
     }
 
     populatedObject = (): Object => {

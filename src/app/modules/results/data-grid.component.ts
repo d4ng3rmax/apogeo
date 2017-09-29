@@ -13,6 +13,11 @@ import { Result } from '../../models';
         (create)="onCreate($event)"
         (edit)="onSave($event)"
         (delete)="onDeleteConfirm($event)"></ng2-smart-table>
+        <div *ngIf="this.empty">
+            <br />
+            <a (click)="this.reload()" href="javascript:void(0)"> Tentar novamente</a>
+            <img *ngIf="this.reloading" src="images/refresh.svg" width="16" height="16" />
+        </div>
         <mm-result-modal></mm-result-modal>
     `,
     styleUrls: ['../../components/data-grid/data-grid.component.scss'],
@@ -32,10 +37,8 @@ export class ResultsDataGridComponent extends DataGridComponent {
             codigo: { title: 'Código', editor: { type: 'input' }, width: "10%", filter: false },
             description: { title: 'Descrição', editor: { type: 'textarea' }, width: "40%", filter: false },
             active: {
-                title: 'Ativo', type: 'custom', renderComponent: CheckboxComponent, filter: false,
-                onComponentInitFunction: (instance: any) => {
-                    instance.saveStatus = this.saveStatus;
-                }
+                title: 'Ativo', type: 'custom', valuePrepareFunction: 'custom', width: '10%', renderComponent: CheckboxComponent, filter: false,
+                onComponentInitFunction: (instance: any) => { instance.saveStatus = this.saveStatus; }
             }
         };
     }

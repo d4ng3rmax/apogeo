@@ -1,40 +1,54 @@
 <modal #modal>
     <modal-header [show-close]="true">
         <h4 class="flex-first" *ngIf="type == 'create'">Preencha os campos abaixo:</h4>
-        <h4 class="flex-first" *ngIf="type == 'edit'">Template - {{ object.name }}</h4>
+        <h4 class="flex-first" *ngIf="type == 'edit'">{{ object.name }}</h4>
     </modal-header>
     <modal-body>
         <alert #alert></alert>
 
+
         <form novalidate [formGroup]="form" (ngSubmit)="onSubmit(form)">
 
             <!-- Form -->
+
             <div class="row">
-                <div class="col-md-6 mg-top-2">
-                    <label for="description">Descrição:</label>
-                    <input type="text" formControlName="description" class="form-control" />
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label for="subject">Assunto:</label>
+                            <input type="text" formControlName="subject" class="form-control" />
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label for="senderName">Nome do remetente:</label>
+                            <input type="text" formControlName="senderName" class="form-control" />
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label for="senderEmail">Email do remetente:</label>
+                            <input type="text" formControlName="senderEmail" class="form-control" />
+                        </div>
+
+
+
+                    </div>
                 </div>
 
-                <div class="col-md-6 mg-top-2">
-                    <label for="subject">Assunto:</label>
-                    <input type="text" formControlName="subject" class="form-control" />
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-mg">
+                        <label for="description" class="mg-top-2">Descrição:</label>
+                        <p class="description">{{ form.controls['description'].value }}</p>
+                    </div>
                 </div>
             </div>
+            <br />
+            <div class="row">
 
-            <div class="row mg-top-2 mg-top-2">
-                <div class="col-md-6">
-                    <label for="senderName">Nome do remetente:</label>
-                    <input type="text" formControlName="senderName" class="form-control" />
-                </div>
-
-                <div class="col-md-6 mg-top-2">
-                    <label for="senderEmail">Email do remetente:</label>
-                    <input type="text" formControlName="senderEmail" class="form-control" />
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <textarea id="contentEditor" formControlName="content" rows="8" class="form-control" autofocus></textarea>
                 </div>
             </div>
-
-            <label for="content" class="mg-top-2">Descrição:</label>
-            <textarea formControlName="content" cols="60" rows="8" class="form-control" autofocus></textarea>
 
             <!-- /Form -->
 

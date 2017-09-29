@@ -12,9 +12,10 @@ export class DataGridComponent implements OnInit {
     alert: AlertComponent;
     baseUrl: string;
     source: LocalDataSource;
-    // statusActive: boolean = null;
     apiService: ApiService;
     filters: any = {};
+    empty: boolean = true;
+    reloading: boolean = false;
 
     labels: any = {
         title: '',
@@ -22,7 +23,7 @@ export class DataGridComponent implements OnInit {
             success: 'Item criado com sucesso!'
         },
         update: {
-            success: 'Item atualizado com sucesso!'
+            success: 'Item salvo com sucesso!'
         },
         delete: {
             confirm: 'Deseja mesmo excluir esse item?',
@@ -48,7 +49,7 @@ export class DataGridComponent implements OnInit {
             confirmDelete: true,
             deleteButtonContent: '<i class="fa fa-close"><span>Excluir</span></i>',
         },
-        noDataMessage: 'Nenhum registro encontrado',
+        noDataMessage: 'Nenhum registro encontrado.',
         actions: {
             columnTitle: 'Ações',
             width: '200px'
@@ -65,7 +66,14 @@ export class DataGridComponent implements OnInit {
     }
 
     async reload() {
-        this.source = new LocalDataSource(await this.apiService.getResult());
+        if(this.reloading) { return; }
+        this.reloading = true;
+        let result:any[] = await this.apiService.getResult();
+        this.empty = result === undefined || result.length === 0;
+        this.source = new LocalDataSource(result);
+        // this.empty = true
+        // this.source = new LocalDataSource([]);
+        this.reloading = false;
     }
 
     onCreate(event: any) {
@@ -120,7 +128,6 @@ export class DataGridComponent implements OnInit {
 
     clearFilter() {
         this.source.reset();
-        // this.statusActive = null;
         this.source.refresh();
         this.filters = {};
     }

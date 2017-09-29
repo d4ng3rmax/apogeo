@@ -25,11 +25,11 @@ export class ResultModalComponent extends ModalComponent {
             this.alert.buildAlert(0, "O campo descrição requer ao menos 5 caracteres");
             return false;
         }
-        o = value['codigo'];
-        if (o === null || o === '' || o.length < 5) {
-            this.alert.buildAlert(0, "O campo código requer ao menos 5 caracteres");
-            return false;
-        }
+        // o = value['codigo'];
+        // if (o === null || o === '' || o.length < 1) {
+            // this.alert.buildAlert(0, "O campo código requer ao menos 1 caracter");
+            // return false;
+        // }
         return true;
     }
 }

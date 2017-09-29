@@ -3,13 +3,13 @@ import { Ng2SmartTableModule, ViewCell, LocalDataSource } from 'ng2-smart-table'
 
 @Component({
     template: `
-        <div style="width: 50%; margin: 0 auto;">
+        <div style="width: 75%; margin: 0 auto;">
             <input class="tgl tgl-skewed" type="checkbox"
-              id="checkbox{{ rowData.id }}"
-              name="checkbox{{ rowData.id }}"
+              id="checkbox{{ rowData.flagName }}"
+              name="checkbox{{ rowData.flagName }}"
               [checked]="rowData[flagName]"
               disabled="true" />
-            <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="checkbox{{ rowData.id }}"></label>
+            <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="checkbox{{ rowData.flagName }}"></label>
         </div>
     `,
 })

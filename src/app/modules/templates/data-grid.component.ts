@@ -12,6 +12,11 @@ import { Template } from '../../models';
         [source]="source"
         (create)="onCreate($event)"
         (edit)="onSave($event)"></ng2-smart-table>
+        <div *ngIf="this.empty">
+            <br />
+            <a (click)="this.reload()" href="javascript:void(0)"> Tentar novamente</a>
+            <img *ngIf="this.reloading" src="images/refresh.svg" width="16" height="16" />
+        </div>
         <mm-template-modal></mm-template-modal>
         `,
     styleUrls: ['../../components/data-grid/data-grid.component.scss'],
@@ -40,6 +45,7 @@ export class TemplatesDataGridComponent extends DataGridComponent {
         };
         this.settings.actions.add = false;
         this.settings.actions.delete = false;
+        this.settings.hideSubHeader = true;
     }
 
     newEntity = (rowData): Object => {

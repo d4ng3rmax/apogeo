@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header';
 import { HomeComponent } from './modules/home'
-import { AlertComponent, CheckboxComponent, DisabledCheckboxComponent, PersistNavigationComponent, FilterControlsComponent } from './components';
+import { AlertComponent, AutofocusDirective, CheckboxComponent, DisabledCheckboxComponent, PersistNavigationComponent, FilterControlsComponent } from './components';
 import { AuthFilter, AuthService } from './auth';
 
 // Survey
@@ -34,6 +34,9 @@ import { JobPositionsComponent, JobPositionModalComponent, JobPositionsDataGridC
         // Shared
         AppComponent, HeaderComponent, HomeComponent,
         AlertComponent, FilterControlsComponent, CheckboxComponent, DisabledCheckboxComponent, PersistNavigationComponent,
+        
+        // Directives
+        AutofocusDirective,
 
         // Survey
         QuestionsComponent, QuestionsDataGridComponent, QuestionModalComponent,
@@ -58,7 +61,7 @@ import { JobPositionsComponent, JobPositionModalComponent, JobPositionsDataGridC
         NgxPaginationModule,
         Ng2SmartTableModule,
         AppRoutingModule,
-        Ng2Bs3ModalModule
+        Ng2Bs3ModalModule,
     ],
     providers: [AuthService, AuthFilter],
     bootstrap: [AppComponent],

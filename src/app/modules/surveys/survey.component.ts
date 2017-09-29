@@ -19,10 +19,10 @@ export class SurveyComponent extends EditOrderedListComponent {
         this.listPath = '/surveys/survey/list';
         this.childListName = 'pageOrder';
         this.object = this.newEntity({ id: 0, title: '', pageOrder: {}, active: false });
-        this.labels.create.success = 'Questionário criado com sucesso!'
-        this.labels.save.success = 'Questionário salvo com sucesso!'
-        this.labels.delete.confirm = 'Deseja mesmo excluir esse questionário?'
-        this.labels.delete.success = 'Questionário excluido com sucesso!'
+        // this.labels.create.success = 'Questionário criado com sucesso!'
+        // this.labels.save.success = 'Questionário salvo com sucesso!'
+        // this.labels.delete.confirm = 'Deseja mesmo excluir esse questionário?'
+        // this.labels.delete.success = 'Questionário excluido com sucesso!'
     }
 
     newEntity(serverObject: any) {

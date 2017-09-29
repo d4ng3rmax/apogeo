@@ -11,5 +11,4 @@ import { Subject } from 'rxjs/Rx';
 export class TemplatesComponent extends CrudComponent {
 
     @ViewChild(TemplatesDataGridComponent) dataGrid: DataGridComponent;
-
 }

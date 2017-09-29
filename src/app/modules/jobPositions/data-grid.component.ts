@@ -13,6 +13,11 @@ import { Alert, JobPosition } from '../../models';
     (create)="onCreate($event)"
     (edit)="onSave($event)"
     (delete)="onDeleteConfirm($event)"></ng2-smart-table>
+    <div *ngIf="this.empty">
+        <br />
+        <a (click)="this.reload()" href="javascript:void(0)"> Tentar novamente</a>
+        <img *ngIf="this.reloading" src="images/refresh.svg" width="16" height="16" />
+    </div>
     <mm-job-position-modal></mm-job-position-modal>
     `,
     styleUrls: ['../../components/data-grid/data-grid.component.scss'],

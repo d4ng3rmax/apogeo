@@ -12,6 +12,11 @@ import { Solution } from '../../models';
     (create)="onCreate($event)"
     (edit)="onEdit($event)"
     (delete)="onDeleteConfirm($event)"></ng2-smart-table>
+    <div *ngIf="this.empty">
+        <br />
+        <a (click)="this.reload()" href="javascript:void(0)"> Tentar novamente</a>
+        <img *ngIf="this.reloading" src="images/refresh.svg" width="16" height="16" />
+    </div>
     `,
     styleUrls: ['../../components/data-grid/data-grid.component.scss'],
     providers: [SolutionService],
@@ -27,8 +32,8 @@ export class SolutionsDataGridComponent extends DataGridComponent {
         // this.labels.delete.confirm = 'Deseja mesmo excluir essa solução?';
         this.labels.add = 'Adicionar Solução';
         this.settings.columns = {
-            title: { title: 'Título', editor: { type: 'textarea' }, width: '10%', filter: false },
-            description: { title: 'Descrição', width: '30%', editor: { type: 'textarea' }, filter: false },
+            title: { title: 'Título', editor: { type: 'textarea' }, width: '20%', filter: false },
+            description: { title: 'Descrição', width: '40%', editor: { type: 'textarea' }, filter: false },
             valor: { title: 'Valor', width: '10%', editor: { type: 'textarea' }, filter: false },
             hasJobPosition: {
                 title: 'Possui Cargos', type: 'custom', width: '10%', renderComponent: DisabledCheckboxComponent, filter: false,
@@ -39,10 +44,8 @@ export class SolutionsDataGridComponent extends DataGridComponent {
                 onComponentInitFunction: (instance: any) => { instance.flagName = 'cortesia'; }
             },
             active: {
-                title: 'Ativo', type: 'custom', width: '10%', renderComponent: CheckboxComponent, filter: false,
-                onComponentInitFunction: (instance: any) => {
-                    instance.saveStatus = this.saveStatus;
-                }
+                title: 'Ativo', type: 'custom', valuePrepareFunction: 'custom', width: '10%', renderComponent: CheckboxComponent, filter: false,
+                onComponentInitFunction: (instance: any) => { instance.saveStatus = this.saveStatus; }
             }
         };
     }

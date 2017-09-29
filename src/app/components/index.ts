@@ -8,3 +8,4 @@ export * from './data-grid/filter-controls.component';
 export * from './persist-navigation/persist-navigation.component';
 export * from './custom-render/checkbox/checkbox.component';
 export * from './custom-render/checkbox/disabledCheckbox.component';
+export * from './directives/autofocus.directive';

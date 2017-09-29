@@ -30,6 +30,9 @@
                 <alert #alert></alert>
 
                 <!-- Datagrid -->
+                <!-- <div *ngIf="this.dataGrid.source === undefined || this.dataGrid.source.filteredAndSorted.length === 0"> -->
+                    <!-- <a (click)="this.dataGrid.reload()" href="javascript:void">Tentar novamente</a> -->
+                <!-- </div> -->
                 <data-grid-templates [alert]="alert" class="table table-hover table-bordered"></data-grid-templates>
             </div>
         </div>

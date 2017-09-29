@@ -8,10 +8,10 @@
 <div class="row bg-top-menu" *ngIf="!!loaded">
     <div class="col">
         <ul class="top-menu d-flex flex-row">
-            <li class="p-2" *ngIf="!urlId"><a href="#" (click)="onSave(); false"  class="btn btn-success"><i class="fa fa-check"></i> Salvar</a></li>
-            <li class="p-2" *ngIf="urlId"><a href="#" (click)="onUpdate(); false" class="btn btn-success"><i class="fa fa-save"></i> Atualizar</a></li>
+            <li class="p-2" *ngIf="!urlId"><a href="javascript:void(0)" (click)="onSave(); false"  class="btn btn-success"><i class="fa fa-check"></i> Salvar</a></li>
+            <li class="p-2" *ngIf="urlId"><a href="javascript:void(0)" (click)="onUpdate(); false" class="btn btn-success"><i class="fa fa-save"></i> Atualizar</a></li>
             <li class="p-2"><a routerLink="{{ listPath }}" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Voltar</a></li>
-            <li class="p-2 mg-left-2" *ngIf="urlId"><a href="#" (click)="onDelete(); false" class="btn btn-danger"><i class="fa fa-close"></i> Excluir</a></li>
+            <li class="p-2 mg-left-2" *ngIf="urlId"><a href="javascript:void(0)" (click)="onDelete($event)" class="btn btn-danger"><i class="fa fa-close"></i> Excluir</a></li>
         </ul>
     </div>
 </div>
