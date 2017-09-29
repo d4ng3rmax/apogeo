@@ -35,7 +35,7 @@ export class ResultsDataGridComponent extends DataGridComponent {
         this.labels.add = 'Adicionar Resultado';
         this.settings.columns = {
             codigo: { title: 'Código', editor: { type: 'input' }, width: "10%", filter: false },
-            description: { title: 'Descrição', editor: { type: 'textarea' }, width: "40%", filter: false },
+            description: { title: 'Descrição', editor: { type: 'textarea' }, width: "60%", filter: false },
             active: {
                 title: 'Ativo', type: 'custom', valuePrepareFunction: 'custom', width: '10%', renderComponent: CheckboxComponent, filter: false,
                 onComponentInitFunction: (instance: any) => { instance.saveStatus = this.saveStatus; }
