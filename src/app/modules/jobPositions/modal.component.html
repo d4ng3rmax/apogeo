@@ -27,9 +27,9 @@
 
             <br />
 
-            <button type="submit" class="btn btn-success" [disabled]="form.invalid" *ngIf="type == 'create'">Cadastrar</button>
+            <button type="submit" class="btn btn-success" [disabled]="form.invalid" *ngIf="type == 'create'">Salvar</button>
             <button type="button" class="btn btn-default" (click)="close()" *ngIf="type == 'create'">Cancelar</button>
-            <button type="submit" class="btn btn-success" [disabled]="form.invalid" *ngIf="type == 'edit'">Editar</button>
+            <button type="submit" class="btn btn-success" [disabled]="form.invalid" *ngIf="type == 'edit'">Salvar</button>
             <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.dismiss()" *ngIf="type == 'edit'">Cancelar</button>
         </form>
     </modal-body>

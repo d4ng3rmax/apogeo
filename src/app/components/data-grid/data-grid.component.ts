@@ -41,7 +41,7 @@ export class DataGridComponent implements OnInit {
         },
         edit: {
             confirmSave: true,
-            editButtonContent: '<i class="fa fa-pencil"><span>Salvar</span></i>',
+            editButtonContent: '<i class="fa fa-pencil"><span>Editar</span></i>',
             saveButtonContent: '<i class="fa fa-check"><span>Salvar</span></i>',
             cancelButtonContent: '<i class="fa fa-close"><span>Cancelar</span></i>',
         },
