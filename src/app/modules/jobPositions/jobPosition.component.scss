@@ -1,28 +1,5 @@
 @import "../../../assets/mixins/global-imports";
 
-
-.map svg {
-    height: auto;
-    width: 550px;
-    margin: 0 auto;
-    display: block;
-}
-
-.map g {
-    fill: #ccc;
-    stroke: #333;
-    stroke-width: 1;
-}
-
-.map g:hover {
-    fill: #fc0 !important;
-    stroke: #4c9;
-    fill-opacity: 1;
-    stroke-width: 5;
-    // border: 6px solid blue !important;
-    cursor: help;
-}
-
 .map_tooltip {
     position: absolute !important;
     background-color: rgba(255,255,255, .8);
@@ -39,15 +16,6 @@
 }
 
 .imgMap > svg > g > path {
-    stroke: #000;
-    fill-opacity: 0.5;
-    fill-rule: nonzero;
-    stroke-width: 3;
-    stroke-width: 30px;
-    stroke-opacity: 1;
-}
-
-.mapArea {
     stroke: #000;
     fill-opacity: 0.5;
     fill-rule: nonzero;
