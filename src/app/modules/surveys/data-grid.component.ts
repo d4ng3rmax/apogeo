@@ -45,9 +45,8 @@ export class SurveysDataGridComponent extends DataGridComponent {
     }
 
     toggleActive = (rowData): void => {
-        // console.log(JSON.stringify(rowData));
         if (rowData.active && !status) {
-            this.alert.buildAlert(0, "Você só poderá ter 1 questionário ativo por vez. Ao ativar este, o anterior será automaticamente inativado. Deseja continuar?");
+            this.alert.buildAlert(0, "Você só poderá ter 1 questionário ativo por vez. Selecione um questionário inativo para desativar este.");
 
             for (let i = 0; i < this.source['data'].length; i++) {
                 let newS = { id: rowData.id, active: rowData.active, title: rowData.title };
@@ -57,14 +56,22 @@ export class SurveysDataGridComponent extends DataGridComponent {
             return;
         }
 
-        this.apiService.toggleActive(rowData.id)
-            .then(data => {
-                this.source.update(rowData, this.newEntity(data));
-                this.source.refresh();
-                this.alert.buildAlert(1, this.labels.update.success);
-                this.reload();
+        if (window.confirm("Você só poderá ter 1 questionário ativo por vez. Ao ativar este, o anterior será automaticamente inativado. Deseja continuar?")) {
+            this.apiService.toggleActive(rowData.id)
+                .then(data => {
+                    this.source.update(rowData, this.newEntity(data));
+                    this.source.refresh();
+                    this.alert.buildAlert(1, this.labels.update.success);
+                    this.reload();
 
-            }, error => { this.alert.handleResponseError(error); });
+                }, error => { this.alert.handleResponseError(error); });
+        } else {
+            // rowData.active = false;
+            for (let i = 0; i < this.source['data'].length; i++) {
+                let newS = { id: rowData.id, active: rowData.active, title: rowData.title };
+                this.source.update(this.source['data'][i], this.source['data'][i]);
+            }
+        }
     }
 
     // saveStatus = (rowData, flagName, status): void => {
