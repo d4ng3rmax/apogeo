@@ -106,26 +106,37 @@ export class DataGridComponent implements OnInit {
         }
     }
 
-    saveStatus = (rowData, flagName, status): void => {
-        if (flagName !== undefined && status !== undefined)
-            rowData[flagName] = status;
-        let newObject = this.newEntity(rowData);
-
-        this.apiService.updateData(rowData.id, newObject)
+    toggleActive = (rowData): void => {
+        this.apiService.toggleActive(rowData.id)
             .then(data => {
-                this.source.update(rowData, newObject);
+                this.source.update(rowData, this.newEntity(data));
                 this.source.refresh();
                 this.alert.buildAlert(1, this.labels.update.success);
+                this.reload();
 
-            }, error => {
-                if (error._body) {
-                    this.alert.buildAlert(0, JSON.parse(error._body).errorMessage);
+            }, error => { this.alert.handleResponseError(error); });
+    }
 
-                } else if (error.exception) {
-                    this.alert.buildAlert(0, error.exception);
-                }
-            });
-    };
+    // saveStatus = (rowData, flagName, status): void => {
+    //     if (flagName !== undefined && status !== undefined)
+    //         rowData[flagName] = status;
+    //     let newObject = this.newEntity(rowData);
+    //
+    //     this.apiService.updateData(rowData.id, newObject)
+    //         .then(data => {
+    //             this.source.update(rowData, newObject);
+    //             this.source.refresh();
+    //             this.alert.buildAlert(1, this.labels.update.success);
+    //
+    //         }, error => {
+    //             if (error._body) {
+    //                 this.alert.buildAlert(0, JSON.parse(error._body).errorMessage);
+    //
+    //             } else if (error.exception) {
+    //                 this.alert.buildAlert(0, error.exception);
+    //             }
+    //         });
+    // };
 
     clearFilter() {
         this.source.reset();

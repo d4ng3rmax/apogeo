@@ -39,7 +39,7 @@ export class JobPositionsDataGridComponent extends DataGridComponent {
             },
             active: {
                 title: 'Ativo', type: 'custom', renderComponent: CheckboxComponent, filter: false,
-                onComponentInitFunction: (instance: any) => { instance.saveStatus = this.saveStatus; }
+                onComponentInitFunction: (instance: any) => { instance.toggleActive = this.toggleActive; }
             }
         };
     }

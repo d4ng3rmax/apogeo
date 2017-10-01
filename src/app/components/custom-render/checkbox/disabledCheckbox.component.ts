@@ -15,7 +15,6 @@ import { Ng2SmartTableModule, ViewCell, LocalDataSource } from 'ng2-smart-table'
 })
 export class DisabledCheckboxComponent implements ViewCell, OnInit {
 
-    saveStatus: any;
     row: any;
     flag: boolean;
     flagName: string;

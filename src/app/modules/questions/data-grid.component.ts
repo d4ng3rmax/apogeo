@@ -39,7 +39,7 @@ export class QuestionsDataGridComponent extends DataGridComponent {
             },
             active: {
                 title: 'Ativo', type: 'custom', valuePrepareFunction: 'custom', width: '10%', renderComponent: CheckboxComponent, filter: false,
-                onComponentInitFunction: (instance: any) => { instance.saveStatus = this.saveStatus; }
+                onComponentInitFunction: (instance: any) => { instance.toggleActive = this.toggleActive; }
             }
         };
     }

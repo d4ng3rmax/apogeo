@@ -60,8 +60,8 @@ export class ApiService {
             .catch((error) => Promise.reject(error.message || error));
     }
 
-    async setStatus(obj: Object): Promise<any> {
-        return this.http.post(`${this.apiRoot + '/setActive'}`, obj, this.options)
+    async toggleActive(objId: number): Promise<any> {
+        return this.http.post(`${this.apiRoot}/${objId}/toggleActive`, {}, this.options)
             .toPromise()
             .then((res) => res.json() || {})
             .catch((error) => Promise.reject(error.message || error));

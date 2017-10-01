@@ -45,7 +45,7 @@ export class SolutionsDataGridComponent extends DataGridComponent {
             },
             active: {
                 title: 'Ativo', type: 'custom', valuePrepareFunction: 'custom', width: '5%', renderComponent: CheckboxComponent, filter: false,
-                onComponentInitFunction: (instance: any) => { instance.saveStatus = this.saveStatus; }
+                onComponentInitFunction: (instance: any) => { instance.toggleActive = this.toggleActive; }
             }
         };
     }

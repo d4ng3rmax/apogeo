@@ -35,7 +35,7 @@ export class SurveysDataGridComponent extends DataGridComponent {
             title: { title: 'Página', width: "70%", filter: false, editor: { type: 'textarea' } },
             active: {
                 title: 'Ativo', type: 'custom', valuePrepareFunction: 'custom', width: '10%', renderComponent: CheckboxComponent, filter: false,
-                onComponentInitFunction: (instance: any) => { instance.saveStatus = this.saveStatus; }
+                onComponentInitFunction: (instance: any) => { instance.toggleActive = this.toggleActive; }
             }
         };
     }
@@ -44,8 +44,8 @@ export class SurveysDataGridComponent extends DataGridComponent {
         return new Survey(rowData.id, rowData.title, rowData.pageOrder, rowData.active);
     }
 
-    saveStatus = (rowData, flagName, status): void => {
-        console.log(JSON.stringify(rowData));
+    toggleActive = (rowData): void => {
+        // console.log(JSON.stringify(rowData));
         if (rowData.active && !status) {
             this.alert.buildAlert(0, "Você só poderá ter 1 questionário ativo por vez. Ao ativar este, o anterior será automaticamente inativado. Deseja continuar?");
 
@@ -57,10 +57,7 @@ export class SurveysDataGridComponent extends DataGridComponent {
             return;
         }
 
-        if (flagName !== undefined && status !== undefined)
-            rowData[flagName] = status;
-
-        this.apiService.setStatus(rowData.id)
+        this.apiService.toggleActive(rowData.id)
             .then(data => {
                 this.source.update(rowData, this.newEntity(data));
                 this.source.refresh();
@@ -69,4 +66,30 @@ export class SurveysDataGridComponent extends DataGridComponent {
 
             }, error => { this.alert.handleResponseError(error); });
     }
+
+    // saveStatus = (rowData, flagName, status): void => {
+    //     console.log(JSON.stringify(rowData));
+    //     if (rowData.active && !status) {
+    //         this.alert.buildAlert(0, "Você só poderá ter 1 questionário ativo por vez. Ao ativar este, o anterior será automaticamente inativado. Deseja continuar?");
+    //
+    //         for (let i = 0; i < this.source['data'].length; i++) {
+    //             let newS = { id: rowData.id, active: rowData.active, title: rowData.title };
+    //             this.source.update(this.source['data'][i], this.source['data'][i]);
+    //         }
+    //
+    //         return;
+    //     }
+    //
+    //     if (flagName !== undefined && status !== undefined)
+    //         rowData[flagName] = status;
+    //
+    //     this.apiService.toggleActive(rowData.id)
+    //         .then(data => {
+    //             this.source.update(rowData, this.newEntity(data));
+    //             this.source.refresh();
+    //             this.alert.buildAlert(1, this.labels.update.success);
+    //             this.reload();
+    //
+    //         }, error => { this.alert.handleResponseError(error); });
+    // }
 }

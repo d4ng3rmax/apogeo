@@ -7,7 +7,7 @@ import { Ng2SmartTableModule, ViewCell, LocalDataSource } from 'ng2-smart-table'
             <input class="tgl tgl-skewed" type="checkbox"
               id="checkbox{{ rowData.id }}"
               name="checkbox{{ rowData.id }}"
-              (click)="saveStatus(rowData, flagName, !rowData[flagName])"
+              (click)="toggleActive(rowData)"
               [checked]="rowData[flagName]" />
             <label class="tgl-btn" data-tg-off="NÃO" data-tg-on="SIM" for="checkbox{{ rowData.id }}"></label>
         </div>
@@ -15,7 +15,7 @@ import { Ng2SmartTableModule, ViewCell, LocalDataSource } from 'ng2-smart-table'
 })
 export class CheckboxComponent implements ViewCell, OnInit {
 
-    saveStatus: any;
+    toggleActive: any;
     row: any;
     flagName: string;
 
