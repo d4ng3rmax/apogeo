@@ -1,0 +1,103 @@
+@import "../../app.component";
+
+.table-bordered {
+    border: 0 none;
+}
+
+i.fa {
+    &:before {
+        padding-right: 3px;
+    }
+
+    span {
+        font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
+    }
+}
+
+th.ng2-smart-actions {
+    width: 210px;
+}
+
+th.ng2-smart-actions-title,
+td.ng2-smart-actions {
+    text-align: center;
+}
+
+a.ng2-smart-action {
+    @include radius(4px);
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: rems(12px);
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.ng2-smart-action-add-add {
+    color: #ffffff !important;
+    background-color: #6958CC;
+    border-color: #6A58C4;
+}
+
+a.ng2-smart-action-edit-edit {
+    // color: #fff !important;
+    // background-color: #286090;
+    // border-color: #204d74;
+
+    color: #286090;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+a.ng2-smart-action-delete-delete {
+    // color: #fff !important;
+    // background-color: #d9534f;
+    // border-color: #d43f3a;
+
+    color: #d9534f !important;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+a.ng2-smart-action-edit-edit,
+a.ng2-smart-action-delete-delete {
+    &:hover {
+        background-color: #f1f1f1;
+    }
+}
+
+a.ng2-smart-action-add-create,
+a.ng2-smart-action-edit-save {
+    color: #fff !important;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+a.ng2-smart-action-add-cancel,
+a.ng2-smart-action-edit-cancel {
+    color: #333 !important;
+    background-color: #e1e1e1;
+    border-color: #ccc;
+}
+
+.ng2-smart-pagination-nav {
+    margin-top: 15px;
+}
+
+h4 {
+    font-size: rems(20px);
+}
+
+button.btn {
+    @include cursor-hand();
+}
+
+.box-filter {
+    @include radius(4px);
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #e9e9e9;
+}

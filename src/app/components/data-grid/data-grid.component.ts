@@ -20,7 +20,7 @@ export class DataGridComponent implements OnInit {
     labels: any = {
         title: '',
         create: {
-            success: 'Item criado com sucesso!'
+            success: 'Item salvo com sucesso!'
         },
         update: {
             success: 'Item salvo com sucesso!'
@@ -41,7 +41,7 @@ export class DataGridComponent implements OnInit {
         },
         edit: {
             confirmSave: true,
-            editButtonContent: '<i class="fa fa-pencil"><span>Editar</span></i>',
+            editButtonContent: '<i class="fa fa-pencil"><span>Salvar</span></i>',
             saveButtonContent: '<i class="fa fa-check"><span>Salvar</span></i>',
             cancelButtonContent: '<i class="fa fa-close"><span>Cancelar</span></i>',
         },
@@ -96,6 +96,7 @@ export class DataGridComponent implements OnInit {
             this.apiService.deleteData(event.data['id'])
                 .then(data => {
                     this.source.remove(event.data);
+                    this.empty = this.source.count() === 0;
                     this.alert.buildAlert(1, this.labels.delete.success);
                 }, error => {
                     this.alert.buildAlert(0, JSON.parse(error._body).errorMessage);

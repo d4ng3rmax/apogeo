@@ -1,0 +1,24 @@
+import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { ApiService } from '../../components';
+import { AuthService } from '../../auth';
+import { environment } from '../../../environments/environment';
+
+@Injectable()
+export class SurveyService extends ApiService {
+
+    constructor(protected  http: Http, protected authService: AuthService) {
+        super(http, authService);
+        this.apiRoot = environment.api.surveys;
+    }
+
+    async setStatus(id: number): Promise<any> {
+        return this.http.post(`${this.apiRoot}/${id}/setActive`, {}, this.options)
+            .toPromise()
+            .then((res) => res.json() || {})
+            .catch((error) => Promise.reject(error.message || error));
+    }
+
+}

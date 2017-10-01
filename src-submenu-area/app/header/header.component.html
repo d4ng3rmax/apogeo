@@ -1,0 +1,96 @@
+<header class="container-fluid" *ngIf="menuEnabled && user === null">
+    <ul class="nav-item nav nav-pills">
+        <li class="nav-item ml-auto"></li>
+        <li class="nav-item">
+            <a class="nav-link" [href]="loginUrl" class="nav-link">Login</a>
+        </li>
+    </ul>
+</header>
+
+<header class="container-fluid" *ngIf="menuEnabled && user !== null">
+    <ul class="nav nav-pills">
+        <li class="nav-item nav-item-main">
+            <a class="nav-link" href="javascript:void(0)" (click)="selectArea('processes')" [class]="area == 'processes' ? 'nav-link active' : 'nav-link'">Processes</a>
+        </li>
+
+        <li class="nav-item nav-item-main">
+            <a class="nav-link" href="javascript:void(0)" (click)="selectArea('users')" [class]="area == 'users' ? 'nav-link active' : 'nav-link'">Users</a>
+        </li>
+
+        <li class="nav-item nav-item-main">
+            <a class="nav-link" href="javascript:void(0)" (click)="selectArea('settings')" [class]="area == 'settings' ? 'nav-link active' : 'nav-link'">Settings</a>
+        </li>
+
+        <li class="nav-item"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+
+        <!-- area = Settings -->
+        <li class="nav-item" *ngIf="area == 'settings'">
+            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('surveys')" [class]="module == 'surveys' ? 'nav-link active' : 'nav-link'">Questionários</a>
+        </li>
+
+        <li class="nav-item" *ngIf="area == 'settings'">
+            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('solutions')" [class]="module == 'solutions' ? 'nav-link active' : 'nav-link'">Soluções</a>
+        </li>
+
+        <li class="nav-item" *ngIf="area == 'settings'">
+            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('mail')" [class]="module == 'mail' ? 'nav-link active' : 'nav-link'">Email</a>
+        </li>
+
+        <!-- area = Users -->
+        <li class="nav-item" *ngIf="area == 'users'">
+            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('users')" [class]="module == 'users' ? 'nav-link active' : 'nav-link'">Users</a>
+        </li>
+
+        <li class="nav-item" *ngIf="area == 'users'">
+            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('tokens')" [class]="module == 'tokens' ? 'nav-link active' : 'nav-link'">Tokens</a>
+        </li>
+
+        <!-- area = Processes -->
+        <li class="nav-item" *ngIf="area == 'processes'">
+            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('processes')" [class]="module == 'processes' ? 'nav-link active' : 'nav-link'">Processes</a>
+        </li>
+
+        <li class="nav-item ml-auto"></li>
+
+        <ul class="nav-item nav nav-pills">
+            <li class="nav-item nav-link" *ngIf="!!user && !!user.email">Olá, {{ user.email }}</li>
+            <li class="nav-item">
+                <a class="nav-link text-danger" href="javascript:void(0)" (click)="logout()">Logout</a>
+            </li>
+        </ul>
+    </ul>
+
+    <!-- Surveys -->
+    <ul class="nav nav-pills nav-pills-secondary mt-2" *ngIf="area == 'settings' && module == 'surveys'">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/surveys/question/list" routerLinkActive="active">Frases</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/surveys/page/list" routerLinkActive="active">Páginas</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/surveys/survey/list" routerLinkActive="active">Questionários</a>
+        </li>
+    </ul>
+
+    <!-- Solutions -->
+    <ul class="nav nav-pills nav-pills-secondary mt-2" *ngIf="area == 'settings' && module == 'solutions'">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/solutions/result/list" routerLinkActive="active">Resultados</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/solutions/solution/list" routerLinkActive="active">Soluções</a>
+        </li>
+    </ul>
+
+    <!-- Mail -->
+    <ul class="nav nav-pills nav-pills-secondary mt-2" *ngIf="area == 'settings' && module == 'mail'">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/mail/template/list" routerLinkActive="active">Templates</a>
+        </li>
+    </ul>
+
+</header>

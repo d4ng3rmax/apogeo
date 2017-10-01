@@ -71,6 +71,7 @@ export class ModalComponent implements OnInit {
             .then(data => {
                 this.object = data;
                 this.source.add(this.object);
+                this.dataGrid.empty = this.source.count() === 0;
                 this.source.refresh();
                 this.dataGrid.alert.buildAlert(1, this.labels.save.success);
                 this.alert.reset();

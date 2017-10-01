@@ -1,0 +1,50 @@
+@import "../../../assets/mixins/global-imports";
+
+h4 {
+    font-size: rems(20px);
+}
+
+.no-mg {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.mg-top-1 {
+    margin-top: 10px;
+}
+
+.mg-top-2 {
+    margin-top: 50px;
+}
+
+.mg-left-2 {
+    margin-left: 30px;
+}
+
+.col-1 button.btn {
+    @include cursor-hand();
+    font-size: rems(25px);
+    min-width: 70px;
+}
+
+select.sel-multiple {
+    background-color: #f1f1f1;
+    width: 100%;
+    height: 450px;
+}
+
+
+/* Mobile */
+@media (max-width: #{$tablet-width - 1px}) {
+
+}
+
+/* Tablet */
+@media (min-width:#{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
+
+}
+
+/* 1024px */
+@media (min-width:#{$tablet-width}) and (max-width: 1024px) {
+
+}

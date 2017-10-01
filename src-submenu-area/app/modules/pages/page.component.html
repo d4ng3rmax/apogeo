@@ -1,0 +1,94 @@
+<app-header [menuEnabled]="menuEnabled"></app-header>
+
+<section>
+    <div class="container-fluid container" *ngIf="!loaded">
+        <div class="col-lg-10 lds-css ng-scope">
+            <div style="margin: 0 auto;" class="lds-eclipse">
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <persist-navigation *ngIf="loaded" (save)="save($event)" (update)="update($event)" (deleteOne)="delete($event)" [listPath]="listPath" [urlId]="urlId" [loaded]="loaded"></persist-navigation>
+        <alert #alert></alert>
+    </div>
+
+    <div class="container-fluid" *ngIf="loaded">
+        <div class="row mg-top-2">
+            <div class="col-12 col-md-3 form-group">
+                <label for="txt-nome">Nome da página:</label>
+                <input type="text" id="txt-nome" class="form-control" [value]="object.title" [(ngModel)]="object.title" />
+            </div>
+            <div class="col-12 col-sm-1 form-group">
+                <label for="active">Ativo:</label>
+                <div class="check no-mg">
+                    <input class="tgl tgl-skewed" type="checkbox" name="active" id="active" (click)="setActive(!object.active)" [checked]="object.active" />
+                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="active"></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mg-top-1">
+            <div class="col">
+                <div class="form-group">
+                    <label for="sel-available">Frases disponíveis:</label>
+                    <select multiple="multiple" #selAvailable id="sel-available" class="form-control sel-multiple">
+                        <option *ngFor="let item of availableItems" [value]="item.id">
+                            {{ item.question }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-1 align-self-center">
+                <div class="col-12 d-flex justify-content-center">
+                    <button (click)="moveAll( availableItems, selectedItems )" class="btn btn-primary"><i class="fa fa-chevron-right" aria-hidden="true"></i><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+
+                <div class="col-12 d-flex justify-content-center mg-top-1">
+                    <button (click)="moveItem( selAvailable, availableItems, selectedItems )" class="btn btn-primary"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+
+                <div class="col-12 d-flex justify-content-center mg-top-1">
+                    <button (click)="moveItem( selSelected, selectedItems, availableItems )" class="btn btn-danger"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                </div>
+
+                <div class="col-12 d-flex justify-content-center mg-top-1">
+                    <button (click)="moveAll( selectedItems, availableItems )" class="btn btn-danger"><i class="fa fa-chevron-left" aria-hidden="true"></i><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <label for="sel-selected">Frases inseridas:</label>
+                    <select multiple="multiple" #selSelected id="sel-selected" class="form-control sel-multiple">
+                        <option *ngFor="let item of selectedItems" [value]="item.id">
+                            {{ item.question }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-1 align-self-center">
+                <div class="col-12 d-flex justify-content-center">
+                    <button (click)="moveTop( selSelected, selectedItems )" class="btn btn-default"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+                </div>
+
+                <div class="col-12 d-flex justify-content-center mg-top-1">
+                    <button (click)="moveUp( selSelected, selectedItems )" class="btn btn-default"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+                </div>
+
+                <div class="col-12 d-flex justify-content-center mg-top-1">
+                    <button (click)="moveDown( selSelected, selectedItems )" class="btn btn-default"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+                </div>
+
+                <div class="col-12 d-flex justify-content-center mg-top-1">
+                    <button (click)="moveBottom( selSelected, selectedItems )" class="btn btn-default"><i class="fa fa-arrow-down" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>

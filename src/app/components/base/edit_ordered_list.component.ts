@@ -19,7 +19,7 @@ export class EditOrderedListComponent implements OnInit {
 
     labels: any = {
         create: {
-            success: 'Item criado com sucesso!'
+            success: 'Item salvo com sucesso!'
         },
         save: {
             success: 'Item salvo com sucesso!'

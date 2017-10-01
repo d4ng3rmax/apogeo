@@ -1,0 +1,327 @@
+@import "../assets/mixins/global-imports";
+
+.mg-top-1 {
+    margin-top: 5px;
+}
+
+.mg-top-2 {
+    margin-top: 10px;
+}
+
+.mg-top-3 {
+    margin-top: 15px;
+}
+
+.mg-top-4 {
+    margin-top: 20px;
+}
+
+.container {
+    position: fixed;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+.check {
+    width: 50px;
+    height: 10px !important;
+    margin: 3px auto 0;
+    text-align: center;
+
+    *,
+    :after,
+    :before {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        /*transition*/
+        -webkit-transition: 0.25s ease-in-out;
+        -moz-transition: 0.25s ease-in-out;
+        -o-transition: 0.25s ease-in-out;
+        transition: 0.25s ease-in-out;
+        outline: none;
+        font-family: Helvetica Neue,helvetica,arial,verdana,sans-serif;
+    }
+
+    .ios-toggle,
+    .ios-toggle:active {
+        position: absolute;
+        top: -5000px;
+        height: 0;
+        width: 0;
+        opacity: 0;
+        border: none;
+        outline: none;
+    }
+
+    .checkbox-label {
+        display: block;
+        position: relative;
+        padding: 10px;
+        font-size: 12px;
+        line-height: 16px;
+        width: 100%;
+        height: 24px;
+        /*border-radius*/
+        -webkit-border-radius: 18px;
+        -moz-border-radius: 18px;
+        border-radius: 18px;
+        background: #f8f8f8;
+        cursor: pointer;
+    }
+
+    .checkbox-label:before {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 1;
+        line-height: 22px;
+        text-indent: 28px;
+        height: 24px;
+        width: 24px;
+        /*border-radius*/
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        border-radius: 100%;
+        top: 0;
+        left: 0;
+        right: auto;
+        background: white;
+        /*box-shadow*/
+        -webkit-box-shadow: 0 3px 3px rgba(0,0,0,.2), 0 0 0 2px #dddddd;
+        -moz-box-shadow: 0 3px 3px rgba(0,0,0,.2), 0 0 0 2px #dddddd;
+        box-shadow: 0 3px 3px rgba(0,0,0,.2), 0 0 0 2px #dddddd;
+    }
+
+    .checkbox-label:after {
+        content: attr(data-off);
+        display: block;
+        position: absolute;
+        z-index: 0;
+        top: -5px;
+        left: -296px;
+        padding: 10px;
+        height: 100%;
+        // width: 300px;
+        text-align: right;
+        color: #bfbfbf;
+        white-space: nowrap;
+    }
+
+    .ios-toggle:checked + .checkbox-label {
+        /*box-shadow*/
+        -webkit-box-shadow: inset 0 0 0 20px rgba(19,191,17,1), 0 0 0 2px rgba(19,191,17,1);
+        -moz-box-shadow: inset 0 0 0 20px rgba(19,191,17,1), 0 0 0 2px rgba(19,191,17,1);
+        box-shadow: inset 0 0 0 20px rgba(19,191,17,1), 0 0 0 2px rgba(19,191,17,1);
+    }
+
+    .ios-toggle:checked + .checkbox-label:before {
+        left: calc(100% - 24px);
+        /*box-shadow*/
+        -webkit-box-shadow: 0 0 0 2px transparent, 0 3px 3px rgba(0,0,0,.3);
+        -moz-box-shadow: 0 0 0 2px transparent, 0 3px 3px rgba(0,0,0,.3);
+        box-shadow: 0 0 0 2px transparent, 0 3px 3px rgba(0,0,0,.3);
+    }
+
+    .ios-toggle:checked + .checkbox-label:after {
+        content: attr(data-on);
+        left: 50px;
+        width: 24px;
+        color: #333;
+    }
+}
+
+.no-mg {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.no-pd-right {
+    padding-right: 0;
+}
+
+.mg-right {
+    margin-right: 15px;
+}
+
+.mg-left {
+    margin-left: 5px;
+}
+/* Mobile */
+@media (max-width: #{$tablet-width - 1px}) {}
+/* Tablet */
+@media (min-width:#{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {}
+/* 1024px */
+@media (min-width:#{$tablet-width}) and (max-width: 1024px) {}
+// Loading
+@keyframes lds-eclipse {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    50% {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes lds-eclipse {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    50% {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.lds-eclipse {
+    position: relative;
+}
+
+.lds-eclipse div {
+    position: absolute;
+    -webkit-animation: lds-eclipse 1s linear infinite;
+    animation: lds-eclipse 1s linear infinite;
+    width: 160px;
+    height: 160px;
+    top: 20px;
+    left: 20px;
+    border-radius: 50%;
+    box-shadow: 0 4px 0 0 #93dbe9;
+    -webkit-transform-origin: 80px 82px;
+    transform-origin: 80px 82px;
+}
+
+.lds-eclipse {
+    width: 200px !important;
+    height: 200px !important;
+    -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+    transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+}
+// Toggle
+.tgl {
+    display: none;
+    // add default box-sizing for this scope
+    &,
+    & *,
+    & *:after,
+    & *:before,
+    & + .tgl-btn,
+    &:after,
+    &:before {
+        box-sizing: border-box;
+
+        &::selection {
+            background: none;
+        }
+    }
+
+    + .tgl-btn {
+        outline: 0;
+        display: block;
+        width: 4em;
+        height: 2em;
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+
+        &:after,
+        &:before {
+            position: relative;
+            display: block;
+            content: "";
+            width: 50%;
+            height: 100%;
+        }
+
+        &:after {
+            left: 0;
+        }
+
+        &:before {
+            display: none;
+        }
+    }
+
+    &:checked + .tgl-btn:after {
+        left: 50%;
+    }
+}
+// themes
+.tgl-skewed {
+    + .tgl-btn {
+        overflow: hidden;
+        transform: skew(-10deg);
+        backface-visibility: hidden;
+        transition: all 0.2s ease;
+        font-family: sans-serif;
+        background: #888;
+
+        &:after,
+        &:before {
+            transform: skew(10deg);
+            display: inline-block;
+            transition: all 0.2s ease;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            line-height: 2em;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 1px 0 rgba(0,0,0,.4);
+        }
+
+        &:after {
+            left: 100%;
+            content: attr(data-tg-on);
+        }
+
+        &:before {
+            left: 0;
+            content: attr(data-tg-off);
+        }
+
+        &:active {
+            background: #888;
+
+            &:before {
+                left: -10%;
+            }
+        }
+    }
+
+    &:checked + .tgl-btn {
+        background: #86d993;
+
+        &:before {
+            left: -100%;
+        }
+
+        &:after {
+            left: 0;
+        }
+
+        &:active:after {
+            left: 10%;
+        }
+    }
+}
+
+
+.modal-header {
+  padding-bottom: 0px !important;
+}

@@ -1,0 +1,81 @@
+/* Colors */
+
+$color-blue-pan: #0a3094;
+
+/* Mixins */
+
+$default-legacy-ie: 7 8 9 !default;
+
+@mixin legacy-ie($versions: $default-legacy-ie) {
+    $sel: ();
+    @each $v in $versions {
+        $sel: append($sel, unquote('.ie#{$v} &'), comma);
+    }
+
+    #{$sel} {
+        @content;
+    }
+}
+
+@function rems($px) {
+    @return $px / 16px * 1rem;
+}
+
+@mixin gradient($colorIni, $colorEnd, $percIni: 1%, $percEnd: 100%, $topBottom: top, $leftRight: left, $inverse: null) {
+
+    @if $topBottom == top {
+        $inverse: bottom
+    } @else if $topBottom == bottom {
+        $inverse: top
+    }
+
+    background: $colorIni; /* Old browsers */
+    background: -moz-linear-gradient($topBottom,  $colorIni $percIni, $colorEnd $percEnd); /* FF3.6+ */
+    background: -webkit-gradient(linear, $leftRight $topBottom, $leftRight $inverse, color-stop($percIni,$colorIni), color-stop($percEnd,$colorEnd)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient($topBottom,  $colorIni $percIni,$colorEnd $percEnd); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient($topBottom,  $colorIni $percIni,$colorEnd $percEnd); /* Opera 11.10+ */
+    background: -ms-linear-gradient($topBottom,  $colorIni $percIni,$colorEnd $percEnd); /* IE10+ */
+    background: linear-gradient(to $inverse,  $colorIni $percIni,$colorEnd $percEnd); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$colorIni}', endColorstr='#{$colorEnd}',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin transform-origin($align1: left, $align2: center) {
+    -webkit-transform-origin: $align1 $align2;
+    -moz-transform-origin: $align1 $align2;
+    -o-transform-origin: $align1 $align2;
+    transform-origin: $align1 $align2;
+}
+
+@mixin transform-rotate($val: 0deg) {
+    -webkit-transform: rotate($val);
+    -moz-transform: rotate($val);
+    -o-transform: rotate($val);
+    transform: rotate($val);
+}
+
+@mixin transition($val: .5s ease-in-out) {
+    -webkit-transition: $val;
+    -moz-transition: $val;
+    -o-transition: $val;
+    transition: $val;
+}
+
+@mixin cursor-hand() {
+    cursor: pointer;
+    @include legacy-ie(7 8) {
+        cursor: hand;
+    }
+}
+
+@mixin shadow($sets: 3px 3px 2px 0px rgba(194,194,194,0.81)) {
+    -webkit-box-shadow: $sets;
+    -moz-box-shadow: $sets;
+    box-shadow: $sets;
+    /* or boxshadow: 3px 3px 2px 0px #999999 */
+}
+
+@mixin radius($size: 5px) {
+	-moz-border-radius: $size;
+	-webkit-border-radius: $size;
+	border-radius: $size;
+}

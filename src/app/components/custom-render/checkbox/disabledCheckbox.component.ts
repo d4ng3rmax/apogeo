@@ -9,7 +9,7 @@ import { Ng2SmartTableModule, ViewCell, LocalDataSource } from 'ng2-smart-table'
               name="checkbox{{ rowData.flagName }}"
               [checked]="rowData[flagName]"
               disabled="true" />
-            <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="checkbox{{ rowData.flagName }}"></label>
+            <label class="tgl-btn" data-tg-off="NÃO" data-tg-on="SIM" for="checkbox{{ rowData.flagName }}"></label>
         </div>
     `,
 })
