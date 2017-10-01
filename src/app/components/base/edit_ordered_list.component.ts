@@ -26,7 +26,7 @@ export class EditOrderedListComponent implements OnInit {
         },
         delete: {
             confirm: 'Deseja mesmo excluir esse item?',
-            success: 'Item excluida com sucesso!'
+            success: 'Item excluido com sucesso!'
         }
     }
 

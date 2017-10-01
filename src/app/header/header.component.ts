@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
     // menuMap:any = { 'settings': ['solutions', 'surveys', 'mail'], 'users': ['users', 'tokens'], 'processes': ['processes'] };
 
     constructor(private route: ActivatedRoute, private router: Router, private authService: AuthService) {
-        this.loginUrl = environment.api.login;
+        this.loginUrl = environment.api.forceLogin;
         this.router.events.subscribe((res) => {
             this.url = this.router.url;
             // Pega o modulo na primeira parte depois da barra para definir menu ativo

@@ -8,7 +8,7 @@
 </header>
 
 <header class="container-fluid" *ngIf="menuEnabled && user !== null">
-    <ul class="nav nav-pills">
+    <ul class="nav nav-pills nav-pills-main">
         <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)" (click)="selectModule('surveys')" [class]="module == 'surveys' ? 'nav-link active' : 'nav-link'">Questionários</a>
         </li>
@@ -43,6 +43,10 @@
 
         <li class="nav-item">
             <a class="nav-link" routerLink="/surveys/survey/list" routerLinkActive="active">Questionários</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/jobs/jobPosition/list" routerLinkActive="active">Job Positions</a>
         </li>
     </ul>
 

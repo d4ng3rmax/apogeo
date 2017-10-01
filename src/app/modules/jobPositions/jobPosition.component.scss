@@ -1,50 +1,64 @@
 @import "../../../assets/mixins/global-imports";
 
-h4 {
-    font-size: rems(20px);
+
+.map svg {
+    height: auto;
+    width: 550px;
+    margin: 0 auto;
+    display: block;
 }
 
-.no-mg {
-    margin-left: 0;
-    margin-right: 0;
+.map g {
+    fill: #ccc;
+    stroke: #333;
+    stroke-width: 1;
 }
 
-.mg-top-1 {
-    margin-top: 10px;
+.map g:hover {
+    fill: #fc0 !important;
+    stroke: #4c9;
+    fill-opacity: 1;
+    stroke-width: 5;
+    // border: 6px solid blue !important;
+    cursor: help;
 }
 
-.mg-top-2 {
-    margin-top: 50px;
+.map_tooltip {
+    position: absolute !important;
+    background-color: rgba(255,255,255, .8);
+    padding: 5px;
+    font-size: 12px;
+    font-family: Helvetica, Arial, sans-serif;
+    border: 1px solid #333;
+    color: #333;
+    white-space: nowrap;
 }
 
-.mg-left-2 {
-    margin-left: 30px;
+.map_tooltip:first-line {
+    font-weight: bold;
 }
 
-.col-1 button.btn {
-    @include cursor-hand();
-    font-size: rems(25px);
-    min-width: 70px;
+.imgMap > svg > g > path {
+    stroke: #000;
+    fill-opacity: 0.5;
+    fill-rule: nonzero;
+    stroke-width: 3;
+    stroke-width: 30px;
+    stroke-opacity: 1;
 }
 
-select.sel-multiple {
-    background-color: #f1f1f1;
-    width: 100%;
-    height: 450px;
+.mapArea {
+    stroke: #000;
+    fill-opacity: 0.5;
+    fill-rule: nonzero;
+    stroke-width: 3;
+    stroke-width: 30px;
+    stroke-opacity: 1;
 }
 
-
-/* Mobile */
-@media (max-width: #{$tablet-width - 1px}) {
-
-}
-
-/* Tablet */
-@media (min-width:#{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
-
-}
-
-/* 1024px */
-@media (min-width:#{$tablet-width}) and (max-width: 1024px) {
-
+.mapArea:hover {
+    fill: #AADDFF !important;
+    stroke: #4499FF !important;
+    fill-opacity: 10;
+    stroke-width: 75px;
 }

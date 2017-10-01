@@ -34,7 +34,7 @@ import { JobPositionsComponent, JobPositionModalComponent, JobPositionsDataGridC
         // Shared
         AppComponent, HeaderComponent, HomeComponent,
         AlertComponent, FilterControlsComponent, CheckboxComponent, DisabledCheckboxComponent, PersistNavigationComponent,
-        
+
         // Directives
         AutofocusDirective,
 
