@@ -15,6 +15,7 @@ export class ModalComponent implements OnInit {
     selectedRow: any;
     defaultValues: any;
     type: string; // 'create' or 'edit'
+    defaultSize: string;
 
     @ViewChild('modal')
     modal: ModalComponent;
@@ -26,6 +27,7 @@ export class ModalComponent implements OnInit {
     ngOnInit(): void {
         this.object = this.newEntity(this.defaultValues);
         this.form = this.fb.group(this.object);
+        this.defaultSize = 'lg';
     }
 
     getInstance = (instance): any => {
@@ -37,7 +39,7 @@ export class ModalComponent implements OnInit {
         this.modal.open(size);
     }
 
-    openModal(dataGrid, event?) {
+    openModal(dataGrid: any, event: any, size?: string) {
         this.dataGrid = dataGrid;
         this.source = dataGrid.source;
         if (this.type === undefined || this.type == 'create') {
@@ -47,7 +49,7 @@ export class ModalComponent implements OnInit {
             this.selectedRow = event.data;
         }
         this.form = this.fb.group(this.object);
-        this.open('lg');
+        this.open(size === undefined ? this.defaultSize : size);
     }
 
     onSubmit({ value }: { value: any }) {

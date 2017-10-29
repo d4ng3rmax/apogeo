@@ -16,6 +16,7 @@ export class DataGridComponent implements OnInit {
     filters: any = {};
     empty: boolean = true;
     reloading: boolean = false;
+    perPage: number;
 
     labels: any = {
         title: '',
@@ -81,6 +82,7 @@ export class DataGridComponent implements OnInit {
     }
 
     changePerPage = (value: number): void => {
+        this.perPage = value;
         this.source.setPaging(1, value, false);
         this.source.refresh();
     }
@@ -139,9 +141,12 @@ export class DataGridComponent implements OnInit {
     // };
 
     clearFilter() {
+        console.log('clearFilter ');
+        this.filters = {};
         this.source.reset();
         this.source.refresh();
-        this.filters = {};
+        this.perPage = 10;
+        this.source.setPaging(1, this.perPage, true);
     }
 
     // Abstract

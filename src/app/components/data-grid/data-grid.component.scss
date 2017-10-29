@@ -10,16 +10,19 @@ i.fa {
     }
 
     span {
-        font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
+        font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     }
 }
 
 th.ng2-smart-actions {
-    width: 210px;
+    min-width: 150px !important;
+    width: 150px !important;
+    max-width: 150px !important;
+    white-space: nowrap;
 }
 
-th.ng2-smart-actions-title,
-td.ng2-smart-actions {
+td.ng2-smart-actions,
+th.ng2-smart-actions-title {
     text-align: center;
 }
 
@@ -46,7 +49,6 @@ a.ng2-smart-action-edit-edit {
     // color: #fff !important;
     // background-color: #286090;
     // border-color: #204d74;
-
     color: #286090;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -56,14 +58,13 @@ a.ng2-smart-action-delete-delete {
     // color: #fff !important;
     // background-color: #d9534f;
     // border-color: #d43f3a;
-
     color: #d9534f !important;
     background-color: #fff;
     border: 1px solid #ddd;
 }
 
-a.ng2-smart-action-edit-edit,
-a.ng2-smart-action-delete-delete {
+a.ng2-smart-action-delete-delete,
+a.ng2-smart-action-edit-edit {
     &:hover {
         background-color: #f1f1f1;
     }

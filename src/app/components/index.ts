@@ -2,6 +2,7 @@ export * from './base/alert.component';
 export * from './base/api.service';
 export * from './base/modal.component';
 export * from './base/crud.component';
+export * from './base/edit.component';
 export * from './base/edit_ordered_list.component';
 export * from './data-grid/data-grid.component';
 export * from './data-grid/filter-controls.component';

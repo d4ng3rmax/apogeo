@@ -13,7 +13,8 @@ import { ResultsComponent } from './modules/results';
 
 import { TemplatesComponent } from './modules/templates';
 
-import { JobPositionsComponent } from './modules/jobPositions';
+import { JobPositionsComponent, JobPositionComponent } from './modules/jobPositions';
+import { DepartmentsComponent, DepartmentComponent } from './modules/departments';
 
 const routes: Routes = [
     {
@@ -52,7 +53,12 @@ const routes: Routes = [
             },
             {
                 path: 'jobs', children: [
-                    { path: 'jobPosition/list', component: JobPositionsComponent }
+                  { path: 'jobPosition/list', component: JobPositionsComponent },
+                  { path: 'jobPosition/:id', component: JobPositionComponent },
+                  { path: 'jobPosition', component: JobPositionComponent },
+                  { path: 'department/list', component: DepartmentsComponent },
+                  { path: 'department/:id', component: DepartmentComponent },
+                  { path: 'department', component: DepartmentComponent }
                 ]
             },
             // ]

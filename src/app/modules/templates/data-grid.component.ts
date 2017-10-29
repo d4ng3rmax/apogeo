@@ -20,7 +20,7 @@ import { AuthService } from '../../auth';
         </div>
         <mm-template-modal></mm-template-modal>
         `,
-    styleUrls: ['../../components/data-grid/data-grid.component.scss'],
+    styleUrls: ['./modal.component.scss', '../../components/data-grid/data-grid.component.scss'],
     providers: [TemplateService],
     encapsulation: ViewEncapsulation.None
 })
@@ -34,26 +34,32 @@ export class TemplatesDataGridComponent extends DataGridComponent {
         // this.labels.delete.confirm = 'Deseja mesmo excluir esse template?';
         this.labels.add = 'Adicionar Template';
         this.settings.columns = {
-            name: {
-                title: 'Nome', width: "20%", filter: false, editor: { type: 'textarea' }
-            },
+            // edit: { title: 'Edit', width: "10%", type: 'html', filter:false, valuePrepareFunction: (cell,row) => {
+                // return '<a class="ng2-smart-action ng2-smart-action-edit-edit" href="#" (click)="onSave(\'\');"><i class="fa fa-pencil"><span>Editar</span></i></a>';
+            // }},
             description: {
-                title: 'Descrição', width: "40%", filter: false, editor: { type: 'textarea' }
-            },
-            subject: {
-                title: 'Assunto', width: "30%", filter: false, editor: { type: 'textarea' }
+                title: 'Descrição', width: "80%", filter: false, editor: { type: 'textarea' }
             }
         };
+
+
+        // if(authService.isManager() || authService.isAdmin()) {
+        //     this.settings.columns.clientId = {
+        //         title: 'Cliente', width: "30%", filter: false, editor: { type: 'textarea' }
+        //     };
+        // }
         if(this.authService.isAdmin() || this.authService.isDistributor()) {
-            this.settings.columns.client = { title: 'Cliente', width: '10%', filter: false };
+            console.log('isAdmin: ' + this.authService.isAdmin() + ', isDistributor=' + this.authService.isDistributor())
+            this.settings.columns.clientId = { title: 'Cliente', width: '10%', filter: false };
         }
         this.settings.actions.add = false;
+        // this.settings.actions.edit = false;
         this.settings.actions.delete = false;
         this.settings.hideSubHeader = true;
     }
 
     newEntity = (rowData): Object => {
-        return new Template(rowData.id, rowData.name, rowData.description, rowData.subject, rowData.senderName, rowData.senderEmail, rowData.content, rowData.clientId, rowData.clientName);
+        return new Template(rowData.id, rowData.name, rowData.description, rowData.subject, rowData.senderName, rowData.senderEmail, rowData.mailTo, rowData.content, rowData.clientId, rowData.clientName);
     }
 
     // Modal editor
@@ -63,11 +69,12 @@ export class TemplatesDataGridComponent extends DataGridComponent {
     onCreate(event: any) {
         this.alert.obj.status = false;
         this.modalComponent.type = 'create';
-        this.modalComponent.openModal(this);
+        this.modalComponent.openModal(this, event, 'modal-xl');
     }
 
     onSave(event: any) {
+        console.log('OnSave ' + event);
         this.modalComponent.type = 'edit';
-        this.modalComponent.openModal(this, event);
+        this.modalComponent.openModal(this, event, 'modal-xl');
     }
 }

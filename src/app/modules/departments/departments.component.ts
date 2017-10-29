@@ -1,16 +1,16 @@
 import { Component, ViewChild, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { CrudComponent, DataGridComponent } from '../../components'
-import { JobPositionsDataGridComponent } from './data-grid.component';
+import { DepartmentsDataGridComponent } from './data-grid.component';
 import { Subject } from 'rxjs/Rx';
 
 @Component({
-    selector: 'app-job-positions',
-    templateUrl: './jobPositions.component.html',
+    selector: 'app-departments',
+    templateUrl: './departments.component.html',
     styleUrls: ['../../components/data-grid/data-grid.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class JobPositionsComponent extends CrudComponent {
+export class DepartmentsComponent extends CrudComponent {
 
-    @ViewChild(JobPositionsDataGridComponent) dataGrid: DataGridComponent;
+    @ViewChild(DepartmentsDataGridComponent) dataGrid: DataGridComponent;
 
 }

@@ -6,4 +6,8 @@ export * from './solution.model';
 export * from './survey.model';
 export * from './template.model';
 export * from './jobPosition.model';
+export * from './areaProfissional.model';
+export * from './department.model';
+export * from './formula.model';
+export * from './industry.model';
 export * from './user.model';

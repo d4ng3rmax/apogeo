@@ -27,7 +27,8 @@ import { ResultsComponent, ResultsDataGridComponent, ResultModalComponent } from
 import { TemplatesComponent, TemplatesDataGridComponent, TemplateModalComponent } from './modules/templates';
 
 // Job Positions
-import { JobPositionsComponent, JobPositionModalComponent, JobPositionsDataGridComponent } from './modules/jobPositions';
+import { JobPositionsComponent, JobPositionComponent, JobPositionsDataGridComponent, AreaPrincipalFormComponent, AbordagemPrincipalFormComponent, MotivacaoFormComponent, AutoGerenciamentoFormComponent } from './modules/jobPositions';
+import { DepartmentsComponent, DepartmentComponent, DepartmentsDataGridComponent } from './modules/departments';
 
 @NgModule({
     declarations: [
@@ -51,7 +52,8 @@ import { JobPositionsComponent, JobPositionModalComponent, JobPositionsDataGridC
         TemplatesComponent, TemplatesDataGridComponent, TemplateModalComponent,
 
         // Job Positions
-        JobPositionsComponent, JobPositionModalComponent, JobPositionsDataGridComponent
+        JobPositionsComponent, JobPositionComponent, JobPositionsDataGridComponent, AreaPrincipalFormComponent, AbordagemPrincipalFormComponent, MotivacaoFormComponent, AutoGerenciamentoFormComponent,
+        DepartmentsComponent, DepartmentComponent, DepartmentsDataGridComponent
     ],
     imports: [
         BrowserModule,

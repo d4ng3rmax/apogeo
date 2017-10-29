@@ -55,7 +55,7 @@ export class QuestionsDataGridComponent extends DataGridComponent {
     onCreate(event: any) {
         this.alert.obj.status = false;
         this.modalComponent.type = 'create';
-        this.modalComponent.openModal(this);
+        this.modalComponent.openModal(this, event);
     }
 
     onSave(event: any) {

@@ -18,15 +18,16 @@ export class TemplateModalComponent extends ModalComponent implements AfterViewI
 
     constructor(protected fb: FormBuilder, protected service: TemplateService, protected authService: AuthService) {
         super(fb, service);
-        this.defaultValues = { id: 0, name: '', description: '', subject: '', senderName: '', senderEmail: '', content: '' };
+        this.defaultValues = { id: 0, name: '', description: '', subject: '', senderName: '', senderEmail: '', mailTo: '', content: '' };
     }
 
     ngOnInit() {
         super.ngOnInit();
+        // this.defaultSize = 'modal-xl';
     }
 
     newEntity = (params): Object => {
-        return new Template(params.id, params.name, params.description, params.subject, params.senderName, params.senderEmail, params.content, params.clientId, params.clientName);
+        return new Template(params.id, params.name, params.description, params.subject, params.senderName, params.senderEmail, params.mailTo, params.content, params.clientId, params.clientName);
     }
 
     validate(value: any) {
@@ -78,7 +79,7 @@ export class TemplateModalComponent extends ModalComponent implements AfterViewI
     open(size: string) {
         this.editor.setContent(this.object.content);
         this.alert.reset();
-        this.modal.open(size);
+        this.modal.open('modal-xl');
     }
 
 }

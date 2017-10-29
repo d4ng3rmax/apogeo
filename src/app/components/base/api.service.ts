@@ -62,8 +62,8 @@ export class ApiService {
 
     async toggleActive(objId: number): Promise<any> {
         return this.http.post(`${this.apiRoot}/${objId}/toggleActive`, {}, this.options)
-            .toPromise()
-            .then((res) => res.json() || {})
-            .catch((error) => Promise.reject(error.message || error));
+            .toPromise();
+            // .then((res) => res.json() || {})
+            // .catch((error) => Promise.reject(error.message || error));
     }
 }

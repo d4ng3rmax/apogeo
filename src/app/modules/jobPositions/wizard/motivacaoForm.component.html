@@ -1,0 +1,64 @@
+<div class="container-fluid">
+    <div class="row">
+      Motivacao
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4 form-group">
+            <label for="txt-nome">Motivação 1:</label>
+            <select #selMotivacao1 id="sel-motivacao1" class="form-control" [(ngModel)]="motivacao1.motivacao">
+              <option *ngFor="let item of motivacoes" [ngValue]="item">
+                  {{ item }}
+              </option>
+          </select>
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4 form-group">
+            <label for="txt-nome">Motivação 2:</label>
+            <select #selMotivacao2 id="sel-motivacao2" class="form-control" [(ngModel)]="motivacao2.motivacao">
+              <option *ngFor="let item of motivacoes">
+                  {{ item }}
+              </option>
+          </select>
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4 form-group">
+            <label for="txt-nome">Motivação 3:</label>
+            <select #selMotivacao3 id="sel-motivacao3" class="form-control" [(ngModel)]="motivacao3.motivacao">
+              <option *ngFor="let item of motivacoes">
+                  {{ item }}
+              </option>
+          </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4 form-group">
+            <label for="txt-nome">Motivação Alternativa 1:</label>
+            <select #selMotivacaoAlternativa1 id="sel-motivacaoAlternativa1" class="form-control" [(ngModel)]="motivacaoAlternativa1.motivacao">
+              <option *ngFor="let item of motivacoes">
+                  {{ item }}
+              </option>
+          </select>
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4 form-group">
+            <label for="txt-nome">Motivação Alternativa 2:</label>
+            <select #selMotivacaoAlternativa2 id="sel-motivacaoAlternativa2" class="form-control" [(ngModel)]="motivacaoAlternativa2.motivacao">
+              <option *ngFor="let item of motivacoes">
+                  {{ item }}
+              </option>
+          </select>
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4 form-group">
+            <label for="txt-nome">Motivação Alternativa 3:</label>
+            <select #selMotivacaoAlternativa3 id="sel-motivacaoAlternativa3" class="form-control" [(ngModel)]="motivacaoAlternativa3.motivacao">
+              <option *ngFor="let item of motivacoes">
+                  {{ item }}
+              </option>
+          </select>
+        </div>
+    </div>
+
+</div>

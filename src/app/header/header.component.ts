@@ -71,6 +71,9 @@ export class HeaderComponent implements OnInit {
         } else if (module == 'mail') {
             this.router.navigate(['/mail/template/list']);
 
+        } else if (module == 'jobs') {
+            this.router.navigate(['/jobs/jobPosition/list']);
+
         } else if (module == 'users') {
             this.router.navigate(['/users/user/list']);
         } else if (module == 'tokens') {
@@ -83,6 +86,8 @@ export class HeaderComponent implements OnInit {
 
     logout() {
         this.authService.logout();
-        this.router.navigate(['home']);
+        // this.router.navigate(['home']);
+        // this.router.navigate([environment.api.login]);
+        document.location.href = environment.api.login;
     }
 }

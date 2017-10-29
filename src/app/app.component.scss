@@ -43,9 +43,11 @@
 /* Mobile */
 @media (max-width: #{$tablet-width - 1px}) {}
 /* Tablet */
-@media (min-width:#{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {}
+@media (min-width:#{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
+}
 /* 1024px */
-@media (min-width:#{$tablet-width}) and (max-width: 1024px) {}
+@media (min-width:#{$tablet-width}) and (max-width: 1024px) {
+}
 
 // Loading animation
 @keyframes lds-eclipse {
@@ -224,4 +226,13 @@
 // data-grid overrides
 .ng2-smart-actions {
     white-space: nowrap;
+}
+
+
+.modal-lg {
+  // height:50vh;
+  // min-width: 50%;
+  // width: 50%;
+  max-width: 50%;
+  // overflow: scroll;
 }

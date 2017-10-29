@@ -9,6 +9,6 @@ export const environment = {
     solutions: 'https://apogeo-solution-svc.cfapps.io/solutions',
     templates: 'https://apogeo-mail-svc.cfapps.io/templates',
     surveys: 'https://apogeo-survey-svc.cfapps.io/surveys',
-    jobPositions: 'https://apogeo-survey-svc.cfapps.io/jobPositions'
+    jobPositions: 'https://apogeo-jobposition-svc.cfapps.io/jobPositions'
   }
 };

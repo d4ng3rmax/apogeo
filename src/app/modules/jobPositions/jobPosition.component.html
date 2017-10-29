@@ -1,0 +1,57 @@
+<app-header [menuEnabled]="menuEnabled"></app-header>
+
+<section>
+
+    <div class="container-fluid container" *ngIf="!loaded">
+        <div class="col-lg-10 lds-css ng-scope">
+            <div style="margin: 0 auto;" class="lds-eclipse">
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div class="row bg-top-menu" *ngIf="!!loaded">
+        <div class="col" (save)="save($event)" (update)="update($event)" (deleteOne)="delete($event)">
+            <ul class="top-menu d-flex flex-row">
+                <li class="p-2"><a class="btn btn-secondary" (click)="previous()"><i class="fa fa-arrow-left"></i> Voltar</a></li>
+                <li class="p-2" *ngIf="!urlId && phase == 8"><a href="javascript:void(0)" (click)="save(); false"  class="btn btn-success"><i class="fa fa-check"></i> Salvar</a></li>
+                <li class="p-2" *ngIf="urlId && phase == 8"><a href="javascript:void(0)" (click)="update(); false" class="btn btn-success"><i class="fa fa-save"></i> Salvar</a></li>
+                <li class="p-2" *ngIf="phase < 8"><a class="btn btn-primary" (click)="next()">Continuar <i class="fa fa-arrow-right"></i></a></li>
+                <li class="p-2 mg-left-2" *ngIf="urlId"><a href="javascript:void(0)" (click)="delete($event)" class="btn btn-danger"><i class="fa fa-close"></i> Excluir</a></li>
+                <li class="p-2">Etapa {{ phase }} de 8</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <alert #alert></alert>
+
+        <div class="container-fluid mg-top-2" *ngIf="phase == 0">
+            <a href="javascript:void(0)" (click)="test()">Test</a>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 form-group">
+                    <label for="txt-nome">Nome da posição:</label>
+                    <input type="text" id="txt-nome" class="form-control" [value]="object.name" [(ngModel)]="object.name" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 form-group">
+                    <label for="txt-nome">Departamento:</label>
+                    <select #selDepartment id="sel-department" class="form-control" [(ngModel)]="object.department" [compareWith]="departmentCompareFn">
+                      <option *ngFor="let item of departments" [ngValue]="item">
+                          {{ item.name }}
+                      </option>
+                  </select>
+                </div>
+            </div>
+        </div>
+
+        <areaPrincipalForm #areaPrincipalForm *ngIf="phase == 1 || phase == 2 || phase == 3"></areaPrincipalForm>
+        <abordagemPrincipalForm #abordagemPrincipalForm *ngIf="phase == 4 || phase == 5 || phase == 6"></abordagemPrincipalForm>
+        <motivacaoForm #motivacaoForm *ngIf="phase == 7"></motivacaoForm>
+        <autoGerenciamentoForm #autoGerenciamentoForm *ngIf="phase == 8"></autoGerenciamentoForm>
+
+    </div>
+
+</section>

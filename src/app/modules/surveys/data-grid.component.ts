@@ -45,7 +45,7 @@ export class SurveysDataGridComponent extends DataGridComponent {
     }
 
     toggleActive = (rowData): void => {
-        if (rowData.active && !status) {
+        if (rowData.active) {
             this.alert.buildAlert(0, "Você só poderá ter 1 questionário ativo por vez. Selecione um questionário inativo para desativar este.");
 
             for (let i = 0; i < this.source['data'].length; i++) {
@@ -59,12 +59,12 @@ export class SurveysDataGridComponent extends DataGridComponent {
         if (window.confirm("Você só poderá ter 1 questionário ativo por vez. Ao ativar este, o anterior será automaticamente inativado. Deseja continuar?")) {
             this.apiService.toggleActive(rowData.id)
                 .then(data => {
-                    this.source.update(rowData, this.newEntity(data));
-                    this.source.refresh();
+                    // this.source.update(rowData, this.newEntity(data));
+                    // this.source.refresh();
                     this.alert.buildAlert(1, this.labels.update.success);
                     this.reload();
 
-                }, error => { this.alert.handleResponseError(error); });
+                }, error => { this.alert.handleResponseError(error); this.reload(); });
         } else {
             // rowData.active = false;
             for (let i = 0; i < this.source['data'].length; i++) {

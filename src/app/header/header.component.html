@@ -14,6 +14,10 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('jobs')" [class]="module == 'jobs' ? 'nav-link active' : 'nav-link'">Cargos</a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)" (click)="selectModule('solutions')" [class]="module == 'solutions' ? 'nav-link active' : 'nav-link'">Soluções</a>
         </li>
 
@@ -44,9 +48,20 @@
         <li class="nav-item">
             <a class="nav-link" routerLink="/surveys/survey/list" routerLinkActive="active">Questionários</a>
         </li>
+    </ul>
 
+    <!-- Jobs -->
+    <ul class="nav nav-pills nav-pills-secondary mt-2" *ngIf="module == 'jobs'">
         <li class="nav-item">
             <a class="nav-link" routerLink="/jobs/jobPosition/list" routerLinkActive="active">Job Positions</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/jobs/department/list" routerLinkActive="active">Departments</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/jobs/industry/list" routerLinkActive="active">Industries</a>
         </li>
     </ul>
 

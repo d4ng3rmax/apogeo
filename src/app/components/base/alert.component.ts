@@ -25,7 +25,8 @@ export class AlertComponent {
         this.obj = new Alert(0, "Title", "Message", "cssClass", false);
     }
 
-    public buildAlert = (type: number, msg: string): void => {
+    public buildAlert = (type: number, msg: string, seconds: number = 10): void => {
+        var interval = seconds * 1000;
         if (type == 1) {
             this.obj.type = 1;
             this.obj.title = "";
@@ -43,7 +44,7 @@ export class AlertComponent {
 
         setTimeout(() => {
             this.reset();
-        }, 15000);
+        }, interval);
     }
 
     public reset = (): void => {
@@ -51,6 +52,7 @@ export class AlertComponent {
     }
 
     public handleResponseError = (error: any): void => {
+      try{
         var errorObj = JSON.parse(error._body);
         if (errorObj.errorMessage) {
             this.buildAlert(0, errorObj.errorMessage);
@@ -59,5 +61,8 @@ export class AlertComponent {
         } else {
             this.buildAlert(0, JSON.stringify(error._body));
         }
+      } catch (e) {
+        this.buildAlert(0, 'Error: ' + error);
+      }
     }
 }
