@@ -44,7 +44,7 @@ export class AuthService {
         this.token = token;
 
         let url = environment.api.user;
-        url = '/mock.json';
+        // url = '/mock.json';
         var request = this.http.get(url, new RequestOptions({ headers: this.getHeaders() }));
         request.subscribe(response => {
             this.validating = false;
