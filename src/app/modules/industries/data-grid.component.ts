@@ -1,13 +1,12 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { DepartmentModalComponent } from './modal.component';
+import { IndustryModalComponent } from './modal.component';
 import { DataGridComponent } from '../../components';
-import { DepartmentService } from './department.service';
-import { Alert, Department } from '../../models';
-import { IndustryService } from '../industries';
+import { IndustryService } from './industry.service';
+import { Alert, Industry } from '../../models';
 
 @Component({
-    selector: 'data-grid-departments',
+    selector: 'data-grid-industries',
     template: `<ng2-smart-table
         [settings]="settings"
         [source]="source"
@@ -19,32 +18,32 @@ import { IndustryService } from '../industries';
             <a (click)="this.reload()" href="javascript:void(0)"> Tentar novamente</a>
             <img *ngIf="this.reloading" src="images/refresh.svg" width="16" height="16" />
         </div>
-        <mm-department-modal></mm-department-modal>
+        <mm-industry-modal></mm-industry-modal>
     `,
     styleUrls: ['../../components/data-grid/data-grid.component.scss'],
-    providers: [DepartmentService, IndustryService],
+    providers: [IndustryService],
     encapsulation: ViewEncapsulation.None
 })
-export class DepartmentsDataGridComponent extends DataGridComponent {
+export class IndustriesDataGridComponent extends DataGridComponent {
 
-    constructor(protected router: Router, protected service: DepartmentService) {
+    constructor(protected router: Router, protected service: IndustryService) {
         super(router, service);
-        this.baseUrl = '/jobs/department';
-        this.labels.add = 'Adicionar Departamento';
+        this.baseUrl = '/jobs/industry';
+        this.labels.add = 'Adicionar Ramo';
         this.settings.columns = {
             name: {
-                name: 'Departamento', width: "100%", filter: false, editor: { type: 'textarea' }
+                name: 'Ramo', width: "100%", filter: false, editor: { type: 'textarea' }
             }
         };
     }
 
     newEntity = (rowData): Object => {
-        return new Department(rowData.id, rowData.name, rowData.industry, rowData.clientId);
+        return new Industry(rowData.id, rowData.name, rowData.clientId);
     }
 
     // Modal editor
-    @ViewChild(DepartmentModalComponent)
-    modalComponent: DepartmentModalComponent;
+    @ViewChild(IndustryModalComponent)
+    modalComponent: IndustryModalComponent;
 
     onCreate(event: any) {
         this.alert.obj.status = false;
@@ -54,7 +53,6 @@ export class DepartmentsDataGridComponent extends DataGridComponent {
 
     onSave(event: any) {
         this.modalComponent.type = 'edit';
-        console.log('Opening ' + JSON.stringify(event.data));
         this.modalComponent.openModal(this, event, 'lg', true);
     }
 }

@@ -1,0 +1,34 @@
+<modal #modal>
+    <modal-header [show-close]="true">
+        <h4 class="flex-first" *ngIf="type == 'create'">Preencha os campos abaixo:</h4>
+        <h4 class="flex-first" *ngIf="type == 'edit'">Edite os campos abaixo:</h4>
+    </modal-header>
+    <modal-body>
+        <alert #alert></alert>
+
+        <form novalidate [formGroup]="form" (ngSubmit)="onSubmit(form)">
+
+            <!-- Form -->
+            <label for="name">Nome do departamento:</label>
+            <input type="text" formControlName="name" class="form-control" />
+            <br />
+            <label for="industry">Ramo:</label>
+              <select #industry id="industry" formControlName="industry" [(ngModel)]="object.industry" [compareWith]="industryCompareFn">
+                <option *ngFor="let item of industries" [ngValue]="item" [selected]="object.industry.id == item.id">
+                    {{ item.name }}
+                </option>
+            </select>
+            <a href="javascript:void(0)" (click)="addIndustry($event)">Adicionar Ramo</a>
+            <!-- <br /><a class="btn btn-primary" href="javascript:void(0)" (click)="test($event)">Test</a> -->
+
+            <br />
+
+            <button type="submit" class="btn btn-success" [disabled]="form.invalid" *ngIf="type == 'create'">Salvar</button>
+            <button type="button" class="btn btn-default" (click)="close()" *ngIf="type == 'create'">Cancelar</button>
+            <button type="submit" class="btn btn-success" [disabled]="form.invalid" *ngIf="type == 'edit'">Salvar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.dismiss()" *ngIf="type == 'edit'">Cancelar</button>
+        </form>
+    </modal-body>
+</modal>
+
+<mm-industry-modal></mm-industry-modal>

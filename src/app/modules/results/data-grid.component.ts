@@ -29,13 +29,10 @@ export class ResultsDataGridComponent extends DataGridComponent {
     constructor(protected router: Router, protected service: ResultService) {
         super(router, service);
         this.baseUrl = '/solutions/result';
-        // this.labels.update.success = 'Resultado atualizado com sucesso!';
-        // this.labels.delete.success = 'Resultado excluido com sucesso!';
-        // this.labels.delete.confirm = 'Deseja mesmo excluir esse resultado?';
         this.labels.add = 'Adicionar Resultado';
         this.settings.columns = {
-            codigo: { title: 'Código', editor: { type: 'input' }, width: "10%", filter: false },
-            description: { title: 'Descrição', editor: { type: 'textarea' }, width: "60%", filter: false },
+            codigo: { title: 'Código', editor: { type: 'input' }, width: "15%", filter: false },
+            description: { title: 'Descrição', editor: { type: 'textarea' }, width: "85%", filter: false },
             active: {
                 title: 'Ativo', type: 'custom', valuePrepareFunction: 'custom', width: '10%', renderComponent: CheckboxComponent, filter: false,
                 onComponentInitFunction: (instance: any) => { instance.toggleActive = this.toggleActive; }
@@ -54,11 +51,11 @@ export class ResultsDataGridComponent extends DataGridComponent {
     onCreate(event: any) {
         this.alert.obj.status = false;
         this.modalComponent.type = 'create';
-        this.modalComponent.openModal(this, event);
+        this.modalComponent.openModal(this, event, 'lg', true);
     }
 
     onSave(event: any) {
         this.modalComponent.type = 'edit';
-        this.modalComponent.openModal(this, event);
+        this.modalComponent.openModal(this, event, 'lg', true);
     }
 }

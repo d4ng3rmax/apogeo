@@ -13,6 +13,7 @@ export const environment = {
     surveys: 'https://apogeo-survey-svc.cfapps.io/surveys',
     jobPositions: 'https://apogeo-jobposition-svc.cfapps.io/jobpositions',
     departments: 'https://apogeo-jobposition-svc.cfapps.io/departments',
+    industries: 'https://apogeo-jobposition-svc.cfapps.io/industries',
     areas: 'https://apogeo-jobposition-svc.cfapps.io/areas'
   }
 };

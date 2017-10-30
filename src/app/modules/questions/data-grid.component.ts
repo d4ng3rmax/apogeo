@@ -29,13 +29,10 @@ export class QuestionsDataGridComponent extends DataGridComponent {
     constructor(protected router: Router, protected service: QuestionService) {
         super(router, service);
         this.baseUrl = '/surveys/question';
-        // this.labels.update.success = 'Frase atualizada com sucesso!';
-        // this.labels.delete.success = 'Frase excluida com sucesso!';
-        // this.labels.delete.confirm = 'Deseja mesmo excluir essa frase?';
         this.labels.add = 'Adicionar Frase';
         this.settings.columns = {
             question: {
-                title: 'Nome', width: "70%", filter: false, editor: { type: 'textarea' }
+                title: 'Nome', width: "90%", filter: false, editor: { type: 'textarea' }
             },
             active: {
                 title: 'Ativo', type: 'custom', valuePrepareFunction: 'custom', width: '10%', renderComponent: CheckboxComponent, filter: false,
@@ -55,11 +52,11 @@ export class QuestionsDataGridComponent extends DataGridComponent {
     onCreate(event: any) {
         this.alert.obj.status = false;
         this.modalComponent.type = 'create';
-        this.modalComponent.openModal(this, event);
+        this.modalComponent.openModal(this, event, 'lg', true);
     }
 
     onSave(event: any) {
         this.modalComponent.type = 'edit';
-        this.modalComponent.openModal(this, event);
+        this.modalComponent.openModal(this, event, 'lg', true);
     }
 }

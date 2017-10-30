@@ -14,7 +14,8 @@ import { ResultsComponent } from './modules/results';
 import { TemplatesComponent } from './modules/templates';
 
 import { JobPositionsComponent, JobPositionComponent } from './modules/jobPositions';
-import { DepartmentsComponent, DepartmentComponent } from './modules/departments';
+import { DepartmentsComponent } from './modules/departments';
+import { IndustriesComponent } from './modules/industries';
 
 const routes: Routes = [
     {
@@ -57,8 +58,9 @@ const routes: Routes = [
                   { path: 'jobPosition/:id', component: JobPositionComponent },
                   { path: 'jobPosition', component: JobPositionComponent },
                   { path: 'department/list', component: DepartmentsComponent },
-                  { path: 'department/:id', component: DepartmentComponent },
-                  { path: 'department', component: DepartmentComponent }
+                  { path: 'industry/list', component: IndustriesComponent }
+                  // { path: 'department/:id', component: DepartmentComponent },
+                  // { path: 'department', component: DepartmentComponent }
                 ]
             },
             // ]

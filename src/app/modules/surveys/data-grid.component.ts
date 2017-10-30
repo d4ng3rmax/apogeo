@@ -27,12 +27,9 @@ export class SurveysDataGridComponent extends DataGridComponent {
     constructor(protected router: Router, protected service: SurveyService) {
         super(router, service);
         this.baseUrl = '/surveys/survey';
-        // this.labels.update.success = 'Página atualizada com sucesso!';
-        // this.labels.delete.success = 'Página excluida com sucesso!';
-        // this.labels.delete.confirm = 'Deseja mesmo excluir essa página?';
         this.labels.add = 'Adicionar Página';
         this.settings.columns = {
-            title: { title: 'Página', width: "70%", filter: false, editor: { type: 'textarea' } },
+            title: { title: 'Página', width: "90%", filter: false, editor: { type: 'textarea' } },
             active: {
                 title: 'Ativo', type: 'custom', valuePrepareFunction: 'custom', width: '10%', renderComponent: CheckboxComponent, filter: false,
                 onComponentInitFunction: (instance: any) => { instance.toggleActive = this.toggleActive; }
@@ -73,30 +70,4 @@ export class SurveysDataGridComponent extends DataGridComponent {
             }
         }
     }
-
-    // saveStatus = (rowData, flagName, status): void => {
-    //     console.log(JSON.stringify(rowData));
-    //     if (rowData.active && !status) {
-    //         this.alert.buildAlert(0, "Você só poderá ter 1 questionário ativo por vez. Ao ativar este, o anterior será automaticamente inativado. Deseja continuar?");
-    //
-    //         for (let i = 0; i < this.source['data'].length; i++) {
-    //             let newS = { id: rowData.id, active: rowData.active, title: rowData.title };
-    //             this.source.update(this.source['data'][i], this.source['data'][i]);
-    //         }
-    //
-    //         return;
-    //     }
-    //
-    //     if (flagName !== undefined && status !== undefined)
-    //         rowData[flagName] = status;
-    //
-    //     this.apiService.toggleActive(rowData.id)
-    //         .then(data => {
-    //             this.source.update(rowData, this.newEntity(data));
-    //             this.source.refresh();
-    //             this.alert.buildAlert(1, this.labels.update.success);
-    //             this.reload();
-    //
-    //         }, error => { this.alert.handleResponseError(error); });
-    // }
 }

@@ -16,6 +16,7 @@ export class ModalComponent implements OnInit {
     defaultValues: any;
     type: string; // 'create' or 'edit'
     defaultSize: string;
+    updateGrid: boolean;
 
     @ViewChild('modal')
     modal: ModalComponent;
@@ -39,10 +40,12 @@ export class ModalComponent implements OnInit {
         this.modal.open(size);
     }
 
-    openModal(dataGrid: any, event: any, size?: string) {
+    openModal(dataGrid: any, event: any, size: string, updateGrid: boolean) {
         this.dataGrid = dataGrid;
         this.source = dataGrid.source;
+        this.updateGrid = updateGrid;
         if (this.type === undefined || this.type == 'create') {
+            console.log('[base][openModal] Creating new entity');
             this.object = this.newEntity(this.defaultValues);
         } else {
             this.object = event.data;
@@ -72,12 +75,15 @@ export class ModalComponent implements OnInit {
         this.service.createData(value)
             .then(data => {
                 this.object = data;
-                this.source.add(this.object);
-                this.dataGrid.empty = this.source.count() === 0;
-                this.source.refresh();
-                this.dataGrid.alert.buildAlert(1, this.labels.save.success);
+                if(this.updateGrid !== undefined && this.updateGrid) {
+                  console.log('[modal][createData] Adding: ' + JSON.stringify(this.object));
+                  this.source.add(this.object);
+                  this.dataGrid.empty = this.source.count() === 0;
+                  this.source.refresh();
+                  this.dataGrid.alert.buildAlert(1, this.labels.save.success);
+                }
                 this.alert.reset();
-                this.form.setValue(JSON.parse(JSON.stringify(this.defaultValues)));
+                // this.form.setValue(JSON.parse(JSON.stringify(this.defaultValues)));
 
             }, error => {
                 this.open('lg');
@@ -94,11 +100,13 @@ export class ModalComponent implements OnInit {
         this.service.updateData(value.id, value)
             .then(data => {
                 this.object = data;
-                this.source.update(this.selectedRow, this.object);
-                this.source.reset();
-                this.source.refresh();
+                if(this.updateGrid !== undefined && this.updateGrid) {
+                  this.source.update(this.selectedRow, this.object);
+                  this.source.reset();
+                  this.source.refresh();
+                  this.dataGrid.alert.buildAlert(1, this.labels.save.success);
+                }
                 this.alert.reset();
-                this.dataGrid.alert.buildAlert(1, this.labels.save.success);
 
             }, error => {
                 this.open('lg');

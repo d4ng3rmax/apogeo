@@ -29,19 +29,12 @@ export class TemplatesDataGridComponent extends DataGridComponent {
     constructor(protected router: Router, protected service: TemplateService, protected authService: AuthService) {
         super(router, service);
         this.baseUrl = '/mail/template';
-        // this.labels.update.success = 'Template atualizado com sucesso!';
-        // this.labels.delete.success = 'Template excluido com sucesso!';
-        // this.labels.delete.confirm = 'Deseja mesmo excluir esse template?';
         this.labels.add = 'Adicionar Template';
         this.settings.columns = {
-            // edit: { title: 'Edit', width: "10%", type: 'html', filter:false, valuePrepareFunction: (cell,row) => {
-                // return '<a class="ng2-smart-action ng2-smart-action-edit-edit" href="#" (click)="onSave(\'\');"><i class="fa fa-pencil"><span>Editar</span></i></a>';
-            // }},
             description: {
-                title: 'Descrição', width: "80%", filter: false, editor: { type: 'textarea' }
+                title: 'Descrição', width: "100%", filter: false, editor: { type: 'textarea' }
             }
         };
-
 
         // if(authService.isManager() || authService.isAdmin()) {
         //     this.settings.columns.clientId = {
@@ -69,12 +62,12 @@ export class TemplatesDataGridComponent extends DataGridComponent {
     onCreate(event: any) {
         this.alert.obj.status = false;
         this.modalComponent.type = 'create';
-        this.modalComponent.openModal(this, event, 'modal-xl');
+        this.modalComponent.openModal(this, event, 'modal-xl', true);
     }
 
     onSave(event: any) {
         console.log('OnSave ' + event);
         this.modalComponent.type = 'edit';
-        this.modalComponent.openModal(this, event, 'modal-xl');
+        this.modalComponent.openModal(this, event, 'modal-xl', true);
     }
 }

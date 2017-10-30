@@ -22,7 +22,7 @@ export class JobPositionService extends ApiService {
     //         .toPromise()
     //     return response.json();
     // }
-    //
+
     // async getResult(): Promise<any> {
     //     const response = await this.http.get('/jobPositions.json', this.options)
     //         .toPromise()

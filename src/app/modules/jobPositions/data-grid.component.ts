@@ -31,23 +31,13 @@ export class JobPositionsDataGridComponent extends DataGridComponent {
         this.labels.add = 'Adicionar Posição';
         this.settings.columns = {
             name: {
-                title: 'Posição', width: "70%", filter: false, editor: { type: 'textarea' }
+                title: 'Posição', width: "100%", filter: false, editor: { type: 'textarea' }
             }
         };
     }
 
     newEntity = (rowData): Object => {
         return new JobPosition(rowData.id, rowData.name, rowData.department, rowData.clientId, rowData.areaPrincipal, rowData.outrasAreasPrincipais, rowData.outrasAreasAlternativas, rowData.abordagemPrincipal, rowData.outrasAbordagensPrincipais, rowData.outrasAbordagensAlternativas);
-    // id: number;
-    // name: string;
-    // department: any;
-    // clientId: number;
-    // areaPrincipal: string;
-    // rowData.outrasAreasPrincipais: string[];
-    // rowData.outrasAreasAlternativas: string[];
-    // rowData.abordagemPrincipal: string;
-    // rowData.outrasAbordagensPrincipais: string[];
-    // rowData.outrasAbordagensAlternativas: string[];
     }
 
 }

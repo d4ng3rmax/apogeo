@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JobPositionService } from './jobPosition.service';
-import { DepartmentService } from '../departments';
+import { DepartmentService, DepartmentModalComponent } from '../departments';
+import { IndustryService } from '../industries';
 import { Alert, JobPosition } from '../../models';
 import { EditComponent } from '../../components';
 import { AreaPrincipalFormComponent } from './wizard/areaPrincipalForm.component';
@@ -17,7 +18,7 @@ declare var $: any;
     templateUrl: './jobPosition.component.html',
     styleUrls: ['./jobPosition.component.scss', '../../app.component.scss', '../../components/persist-navigation/persist-navigation.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    providers: [JobPositionService, DepartmentService]
+    providers: [JobPositionService, DepartmentService, IndustryService]
 })
 export class JobPositionComponent extends EditComponent {
 
@@ -32,6 +33,12 @@ export class JobPositionComponent extends EditComponent {
 
     @ViewChild('autoGerenciamentoForm')
     autoGerenciamentoForm: AutoGerenciamentoFormComponent;
+
+    // Modal editor
+    @ViewChild(DepartmentModalComponent)
+    departmentModal: DepartmentModalComponent;
+
+
 
     selectedDepartment: any;
     departments: any[];
@@ -56,6 +63,11 @@ export class JobPositionComponent extends EditComponent {
         super(route, router, service);
         this.listPath = '/jobs/jobPosition/list';
         this.object = this.newEntity({ id: 0, name: '', department: {}, clientId: 0 });
+
+        this.departmentService.objectEmitter.subscribe((data) => {
+            this.object.department = data;
+            this.loadDepartments();
+        });
     }
 
     newEntity(serverObject: any) {
@@ -129,58 +141,47 @@ export class JobPositionComponent extends EditComponent {
 
     populateJobAreas() {
         var jobAreas = [];
+
         let areaPrincipal = this.areas.filter(a => a.phase == 1)[0];
-        jobAreas.push({ "areaProfissional": { "id": areaPrincipal.id }, "jobAreaClassification": "AREA_PRINCIPAL" });
-        let outrasAreasPrincipais = this.areas.filter(a => a.phase == 2);
-        if (outrasAreasPrincipais.length > 0) jobAreas.push({ "areaProfissional": { "id": outrasAreasPrincipais[0].id }, "jobAreaClassification": "OUTRA_AREA_PRINCIPAL_1" });
-        if (outrasAreasPrincipais.length > 1) jobAreas.push({ "areaProfissional": { "id": outrasAreasPrincipais[1].id }, "jobAreaClassification": "OUTRA_AREA_PRINCIPAL_2" });
-        if (outrasAreasPrincipais.length > 2) jobAreas.push({ "areaProfissional": { "id": outrasAreasPrincipais[2].id }, "jobAreaClassification": "OUTRA_AREA_PRINCIPAL_3" });
-        if (outrasAreasPrincipais.length > 3) jobAreas.push({ "areaProfissional": { "id": outrasAreasPrincipais[3].id }, "jobAreaClassification": "OUTRA_AREA_PRINCIPAL_4" });
-        if (outrasAreasPrincipais.length > 4) jobAreas.push({ "areaProfissional": { "id": outrasAreasPrincipais[4].id }, "jobAreaClassification": "OUTRA_AREA_PRINCIPAL_5" });
-        if (outrasAreasPrincipais.length > 5) jobAreas.push({ "areaProfissional": { "id": outrasAreasPrincipais[5].id }, "jobAreaClassification": "OUTRA_AREA_PRINCIPAL_6" });
-        if (outrasAreasPrincipais.length > 6) jobAreas.push({ "areaProfissional": { "id": outrasAreasPrincipais[6].id }, "jobAreaClassification": "OUTRA_AREA_PRINCIPAL_7" });
+        jobAreas.push(this.createJobArea(areaPrincipal, "AREA_PRINCIPAL"));
 
-        let outrasAreasAlternativas = this.areas.filter(a => a.phase == 3);
-        if (outrasAreasAlternativas.length > 0) jobAreas.push({ "areaProfissional": { "id": outrasAreasAlternativas[0].id }, "jobAreaClassification": "OUTRA_AREA_ALTERNATIVA_1" });
-        if (outrasAreasAlternativas.length > 1) jobAreas.push({ "areaProfissional": { "id": outrasAreasAlternativas[1].id }, "jobAreaClassification": "OUTRA_AREA_ALTERNATIVA_2" });
-        if (outrasAreasAlternativas.length > 2) jobAreas.push({ "areaProfissional": { "id": outrasAreasAlternativas[2].id }, "jobAreaClassification": "OUTRA_AREA_ALTERNATIVA_3" });
-        if (outrasAreasAlternativas.length > 3) jobAreas.push({ "areaProfissional": { "id": outrasAreasAlternativas[3].id }, "jobAreaClassification": "OUTRA_AREA_ALTERNATIVA_4" });
-        if (outrasAreasAlternativas.length > 4) jobAreas.push({ "areaProfissional": { "id": outrasAreasAlternativas[4].id }, "jobAreaClassification": "OUTRA_AREA_ALTERNATIVA_5" });
-        if (outrasAreasAlternativas.length > 5) jobAreas.push({ "areaProfissional": { "id": outrasAreasAlternativas[5].id }, "jobAreaClassification": "OUTRA_AREA_ALTERNATIVA_6" });
-        if (outrasAreasAlternativas.length > 6) jobAreas.push({ "areaProfissional": { "id": outrasAreasAlternativas[6].id }, "jobAreaClassification": "OUTRA_AREA_ALTERNATIVA_7" });
-
+        var outrasAreasPrincipaisMap = { 0: "OUTRA_AREA_PRINCIPAL_1", 1: "OUTRA_AREA_PRINCIPAL_2", 2: "OUTRA_AREA_PRINCIPAL_3", 3: "OUTRA_AREA_PRINCIPAL_4", 4: "OUTRA_AREA_PRINCIPAL_5", 5: "OUTRA_AREA_PRINCIPAL_6", 6: "OUTRA_AREA_PRINCIPAL_7" };
+        let outrasAreasPrincipais = this.abordagens.filter(a => a.phase == 5);
+        for(let i = 0; i<outrasAreasPrincipais.length; i++) jobAreas.push(this.createJobArea(outrasAreasPrincipais[i], outrasAreasPrincipaisMap[i]));
+        
+        var outrasAreasAlternativasMap = { 0: "OUTRA_AREA_ALTERNATIVA_1", 1: "OUTRA_AREA_ALTERNATIVA_2", 2: "OUTRA_AREA_ALTERNATIVA_3", 3: "OUTRA_AREA_ALTERNATIVA_4", 4: "OUTRA_AREA_ALTERNATIVA_5", 5: "OUTRA_AREA_ALTERNATIVA_6", 6: "OUTRA_AREA_ALTERNATIVA_7" };
+        let outrasAreasAlternativas = this.abordagens.filter(a => a.phase == 5);
+        for(let i = 0; i<outrasAreasAlternativas.length; i++) jobAreas.push(this.createJobArea(outrasAreasAlternativas[i], outrasAreasAlternativasMap[i]));
+        
         let abordagemPrincipal = this.abordagens.filter(a => a.phase == 4)[0];
-        jobAreas.push({ "areaProfissional": { "id": abordagemPrincipal.id }, "jobAreaClassification": "ABORDAGEM_PRINCIPAL" });
+        jobAreas.push(this.createJobArea(abordagemPrincipal, "ABORDAGEM_PRINCIPAL"));
 
+        var outrasAbordagensMap = { 0: "OUTRA_ABORDAGEM_PRINCIPAL_1", 1: "OUTRA_ABORDAGEM_PRINCIPAL_2", 2: "OUTRA_ABORDAGEM_PRINCIPAL_3", 3: "OUTRA_ABORDAGEM_PRINCIPAL_4", 4: "OUTRA_ABORDAGEM_PRINCIPAL_5", 5: "OUTRA_ABORDAGEM_PRINCIPAL_6", 6: "OUTRA_ABORDAGEM_PRINCIPAL_7" };
         let outrasAbordagemPrincipais = this.abordagens.filter(a => a.phase == 5);
-        if (outrasAbordagemPrincipais.length > 0) jobAreas.push({ "areaProfissional": { "id": outrasAbordagemPrincipais[0].id }, "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_1" });
-        if (outrasAbordagemPrincipais.length > 1) jobAreas.push({ "areaProfissional": { "id": outrasAbordagemPrincipais[1].id }, "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_2" });
-        if (outrasAbordagemPrincipais.length > 2) jobAreas.push({ "areaProfissional": { "id": outrasAbordagemPrincipais[2].id }, "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_3" });
-        if (outrasAbordagemPrincipais.length > 3) jobAreas.push({ "areaProfissional": { "id": outrasAbordagemPrincipais[3].id }, "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_4" });
-        if (outrasAbordagemPrincipais.length > 4) jobAreas.push({ "areaProfissional": { "id": outrasAbordagemPrincipais[4].id }, "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_5" });
-        if (outrasAbordagemPrincipais.length > 5) jobAreas.push({ "areaProfissional": { "id": outrasAbordagemPrincipais[5].id }, "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_6" });
-        if (outrasAbordagemPrincipais.length > 6) jobAreas.push({ "areaProfissional": { "id": outrasAbordagemPrincipais[6].id }, "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_7" });
-
+        for(let i = 0; i<outrasAbordagemPrincipais.length; i++) jobAreas.push(this.createJobArea(outrasAbordagemPrincipais[i], outrasAbordagensMap[i]));
+        
+        var outrasAbordagemAlternativasMap = { 0: "OUTRA_ABORDAGEM_ALTERNATIVA_1", 1: "OUTRA_ABORDAGEM_ALTERNATIVA_2", 2: "OUTRA_ABORDAGEM_ALTERNATIVA_3", 3: "OUTRA_ABORDAGEM_ALTERNATIVA_4", 4: "OUTRA_ABORDAGEM_ALTERNATIVA_5", 5: "OUTRA_ABORDAGEM_ALTERNATIVA_6", 6: "OUTRA_ABORDAGEM_ALTERNATIVA_7" };
         let outrasAbordagemAlternativas = this.abordagens.filter(a => a.phase == 6);
-        if (outrasAbordagemAlternativas.length > 0) jobAreas.push({ "areaProfissional": { "id": outrasAbordagemAlternativas[0].id }, "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_1" });
-        if (outrasAbordagemAlternativas.length > 1) jobAreas.push({ "areaProfissional": { "id": outrasAbordagemAlternativas[1].id }, "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_2" });
-        if (outrasAbordagemAlternativas.length > 2) jobAreas.push({ "areaProfissional": { "id": outrasAbordagemAlternativas[2].id }, "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_3" });
-        if (outrasAbordagemAlternativas.length > 3) jobAreas.push({ "areaProfissional": { "id": outrasAbordagemAlternativas[3].id }, "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_4" });
-        if (outrasAbordagemAlternativas.length > 4) jobAreas.push({ "areaProfissional": { "id": outrasAbordagemAlternativas[4].id }, "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_5" });
-        if (outrasAbordagemAlternativas.length > 5) jobAreas.push({ "areaProfissional": { "id": outrasAbordagemAlternativas[5].id }, "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_6" });
-        if (outrasAbordagemAlternativas.length > 6) jobAreas.push({ "areaProfissional": { "id": outrasAbordagemAlternativas[6].id }, "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_7" });
+        for(let i = 0; i<outrasAbordagemAlternativas.length; i++) { 
+            jobAreas.push(this.createJobArea(outrasAbordagemAlternativas[i], outrasAbordagemAlternativasMap[i]));
+            console.log('outrasAbordagemAlternativasMap[i] = ' + outrasAbordagemAlternativasMap[i] + ' , i = ' + i);
+        }
 
         this.object.jobAreas = jobAreas;
     }
 
+    createJobArea(area: any, jobAreaClassification: string) {
+        return { "areaProfissional": { "id": area.id, "area": area.area, "familia": area.familia}, "jobAreaClassification": jobAreaClassification };
+    }
+
     populateJobMotivacoes() {
         var jobMotivacoes = [];
-        if(this.motivacaoForm.motivacao1 !== undefined) jobMotivacoes.push(this.motivacaoForm.motivacao1);
-        if(this.motivacaoForm.motivacao2 !== undefined) jobMotivacoes.push(this.motivacaoForm.motivacao2);
-        if(this.motivacaoForm.motivacao3 !== undefined) jobMotivacoes.push(this.motivacaoForm.motivacao3);
-        if(this.motivacaoForm.motivacaoAlternativa1 !== undefined) jobMotivacoes.push(this.motivacaoForm.motivacaoAlternativa1);
-        if(this.motivacaoForm.motivacaoAlternativa2 !== undefined) jobMotivacoes.push(this.motivacaoForm.motivacaoAlternativa2);
-        if(this.motivacaoForm.motivacaoAlternativa3 !== undefined) jobMotivacoes.push(this.motivacaoForm.motivacaoAlternativa3);
+        if (this.motivacaoForm.motivacao1 !== undefined) jobMotivacoes.push(this.motivacaoForm.motivacao1);
+        if (this.motivacaoForm.motivacao2 !== undefined) jobMotivacoes.push(this.motivacaoForm.motivacao2);
+        if (this.motivacaoForm.motivacao3 !== undefined) jobMotivacoes.push(this.motivacaoForm.motivacao3);
+        if (this.motivacaoForm.motivacaoAlternativa1 !== undefined) jobMotivacoes.push(this.motivacaoForm.motivacaoAlternativa1);
+        if (this.motivacaoForm.motivacaoAlternativa2 !== undefined) jobMotivacoes.push(this.motivacaoForm.motivacaoAlternativa2);
+        if (this.motivacaoForm.motivacaoAlternativa3 !== undefined) jobMotivacoes.push(this.motivacaoForm.motivacaoAlternativa3);
         // if(this.object.motivacao1 !== undefined) jobMotivacoes.push({ "id": this.object.motivacao1.id, "jobMotivacaoClassification": "MOTIVACAO_PRINCIPAL_1", "motivacao": this.object.motivacao1.motivacao });
         // if(this.object.motivacao2 !== undefined) jobMotivacoes.push({ "id": this.object.motivacao2.id, "jobMotivacaoClassification": "MOTIVACAO_PRINCIPAL_2", "motivacao": this.object.motivacao2.motivacao });
         // if(this.object.motivacao3 !== undefined) jobMotivacoes.push({ "id": this.object.motivacao3.id, "jobMotivacaoClassification": "MOTIVACAO_PRINCIPAL_3", "motivacao": this.object.motivacao3.motivacao });
@@ -188,5 +189,16 @@ export class JobPositionComponent extends EditComponent {
         // if(this.object.motivacaoAlternativa2 !== undefined) jobMotivacoes.push({ "id": this.object.motivacaoAlternativa2.id, "jobMotivacaoClassification": "MOTIVACAO_ALTERNATIVA_2", "motivacao": this.object.motivacaoAlternativa2.motivacao });
         // if(this.object.motivacaoAlternativa3 !== undefined) jobMotivacoes.push({ "id": this.object.motivacaoAlternativa3.id, "jobMotivacaoClassification": "MOTIVACAO_ALTERNATIVA_3", "motivacao": this.object.motivacaoAlternativa3.motivacao });
         this.object.jobMotivacao = jobMotivacoes;
+        this.object.autoGerenciamento1 = 3;
+        this.object.autoGerenciamento2 = 4;
+        this.object.apogeo1 = 1;
+        this.object.apogeo2 = 2;
     }
+
+    addDepartment(event: any) {
+        this.alert.obj.status = false;
+        this.departmentModal.type = 'create';
+        this.departmentModal.openModal(this, event, 'lg', false);
+    }
+
 }

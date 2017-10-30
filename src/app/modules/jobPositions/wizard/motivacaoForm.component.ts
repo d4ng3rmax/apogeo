@@ -42,7 +42,7 @@ export class MotivacaoFormComponent implements OnInit {
         // this.motivacoes1 = await this.service.getMotivacoes1();
         // this.motivacoes2 = await this.service.getMotivacoes2();
         // this.motivacoes3 = await this.service.getMotivacoes3();
-        this.motivacoes = ["aaaaaaa aaaaaaaa aaaaaaaa aaaaaaaa", "bbbbbbb bbbbbbbb bbbbbbbbbb bbbbbbbbbbb", "ccccccccccc cccccccccc cccccccccccc ccccccccccc", "dddddddddd ddddddddddd ddddddddddd", "aaaaaa aaaaaa aaaaaaa", "bbbbbb bbbbbb bbbbbb", "cccccc cccccc cccccc cccccc", "dddddd dddddd dddddd ddddd", "aaaaaaa", "bbbbbbb", "ccccccc", "ddddddd"];
+        this.motivacoes = ["abcdefg", "I", "Fr", "aaaaaaa aaaaaaaa aaaaaaaa aaaaaaaa", "bbbbbbb bbbbbbbb bbbbbbbbbb bbbbbbbbbbb", "ccccccccccc cccccccccc cccccccccccc ccccccccccc", "dddddddddd ddddddddddd ddddddddddd", "aaaaaa aaaaaa aaaaaaa", "bbbbbb bbbbbb bbbbbb", "cccccc cccccc cccccc cccccc", "dddddd dddddd dddddd ddddd", "aaaaaaa", "bbbbbbb", "ccccccc", "ddddddd"];
         this.loadMotivacoes();
     }
 

@@ -1,0 +1,32 @@
+@import "../../../assets/mixins/global-imports";
+
+.map_tooltip {
+    position: absolute !important;
+    background-color: rgba(255,255,255, .8);
+    padding: 5px;
+    font-size: 12px;
+    font-family: Helvetica, Arial, sans-serif;
+    border: 1px solid #333;
+    color: #333;
+    white-space: nowrap;
+}
+
+.map_tooltip:first-line {
+    font-weight: bold;
+}
+
+.imgMap > svg > g > path {
+    stroke: #000;
+    fill-opacity: 0.5;
+    fill-rule: nonzero;
+    stroke-width: 3;
+    stroke-width: 30px;
+    stroke-opacity: 1;
+}
+
+.mapArea:hover {
+    // fill: #AADDFF !important;
+    // stroke: #4499FF !important;
+    fill-opacity: 10;
+    stroke-width: 75px;
+}

@@ -15,6 +15,7 @@ export class AuthService {
     token: string;
     validated: Boolean = false;
     validating: Boolean = false;
+    clientId: number;
 
     constructor(private http: Http, private route: ActivatedRoute, private router: Router) { }
 

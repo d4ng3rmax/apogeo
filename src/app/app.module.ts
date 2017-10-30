@@ -28,7 +28,8 @@ import { TemplatesComponent, TemplatesDataGridComponent, TemplateModalComponent 
 
 // Job Positions
 import { JobPositionsComponent, JobPositionComponent, JobPositionsDataGridComponent, AreaPrincipalFormComponent, AbordagemPrincipalFormComponent, MotivacaoFormComponent, AutoGerenciamentoFormComponent } from './modules/jobPositions';
-import { DepartmentsComponent, DepartmentComponent, DepartmentsDataGridComponent } from './modules/departments';
+import { DepartmentsComponent, DepartmentModalComponent, DepartmentsDataGridComponent } from './modules/departments';
+import { IndustriesComponent, IndustriesDataGridComponent, IndustryModalComponent } from './modules/industries';
 
 @NgModule({
     declarations: [
@@ -53,7 +54,8 @@ import { DepartmentsComponent, DepartmentComponent, DepartmentsDataGridComponent
 
         // Job Positions
         JobPositionsComponent, JobPositionComponent, JobPositionsDataGridComponent, AreaPrincipalFormComponent, AbordagemPrincipalFormComponent, MotivacaoFormComponent, AutoGerenciamentoFormComponent,
-        DepartmentsComponent, DepartmentComponent, DepartmentsDataGridComponent
+        DepartmentsComponent, DepartmentModalComponent, DepartmentsDataGridComponent,
+        IndustriesComponent, IndustriesDataGridComponent, IndustryModalComponent
     ],
     imports: [
         BrowserModule,

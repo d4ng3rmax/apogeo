@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -11,6 +11,7 @@ export class ApiService {
     apiRoot: string;
     options: RequestOptions;
     lastRequestCount: number = 0;
+    objectEmitter: EventEmitter<any> = new EventEmitter<any>();
 
     constructor(protected http: Http, protected authService: AuthService) {
         this.headers = authService.getHeaders();
@@ -40,6 +41,7 @@ export class ApiService {
     }
 
     async createData(obj: Object): Promise<any> {
+      console.log('[createData] ' + JSON.stringify(obj));
         return this.http.post(`${this.apiRoot}`, JSON.stringify(obj), this.options)
             .toPromise()
             .then((res) => res.json() || {})

@@ -17,7 +17,7 @@
                 <li class="p-2" *ngIf="urlId && phase == 8"><a href="javascript:void(0)" (click)="update(); false" class="btn btn-success"><i class="fa fa-save"></i> Salvar</a></li>
                 <li class="p-2" *ngIf="phase < 8"><a class="btn btn-primary" (click)="next()">Continuar <i class="fa fa-arrow-right"></i></a></li>
                 <li class="p-2 mg-left-2" *ngIf="urlId"><a href="javascript:void(0)" (click)="delete($event)" class="btn btn-danger"><i class="fa fa-close"></i> Excluir</a></li>
-                <li class="p-2">Etapa {{ phase }} de 8</li>
+                <li class="p-2">Etapa {{ phase + 1 }} de 9</li>
             </ul>
         </div>
     </div>
@@ -26,7 +26,6 @@
         <alert #alert></alert>
 
         <div class="container-fluid mg-top-2" *ngIf="phase == 0">
-            <a href="javascript:void(0)" (click)="test()">Test</a>
 
             <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-6 form-group">
@@ -36,17 +35,25 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-6 form-group">
+                <div class="col-sm-6 col-md-6 col-lg-6">
                     <label for="txt-nome">Departamento:</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 form-group">
                     <select #selDepartment id="sel-department" class="form-control" [(ngModel)]="object.department" [compareWith]="departmentCompareFn">
-                      <option *ngFor="let item of departments" [ngValue]="item">
-                          {{ item.name }}
-                      </option>
-                  </select>
+                        <option *ngFor="let item of departments" [ngValue]="item" [selected]="object.department.id == item.id">
+                            {{ item.name }}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 form-group">
+                    <a href="javascript:void(0)" (click)="addDepartment($event)">Adicionar Departmento</a>
                 </div>
             </div>
         </div>
-
+        
         <areaPrincipalForm #areaPrincipalForm *ngIf="phase == 1 || phase == 2 || phase == 3"></areaPrincipalForm>
         <abordagemPrincipalForm #abordagemPrincipalForm *ngIf="phase == 4 || phase == 5 || phase == 6"></abordagemPrincipalForm>
         <motivacaoForm #motivacaoForm *ngIf="phase == 7"></motivacaoForm>
@@ -55,3 +62,4 @@
     </div>
 
 </section>
+<mm-department-modal></mm-department-modal>

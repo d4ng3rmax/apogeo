@@ -225,6 +225,10 @@
 
 // data-grid overrides
 .ng2-smart-actions {
+    // background-color: rgb(245, 145, 111);
+    min-width: 180px !important;
+    width: 180px !important;
+    max-width: 180px !important;
     white-space: nowrap;
 }
 

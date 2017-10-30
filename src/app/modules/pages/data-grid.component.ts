@@ -27,12 +27,9 @@ export class PagesDataGridComponent extends DataGridComponent {
     constructor(protected router: Router, protected service: PageService) {
         super(router, service);
         this.baseUrl = '/surveys/page';
-        // this.labels.update.success = 'Página atualizado com sucesso!';
-        // this.labels.delete.success = 'Página excluida com sucesso!';
-        // this.labels.delete.confirm = 'Deseja mesmo excluir esta página?';
         this.labels.add = 'Adicionar Página';
         this.settings.columns = {
-            title: { title: 'Título', width: "70%", filter: false, editor: { type: 'textarea' } },
+            title: { title: 'Título', width: "90%", filter: false, editor: { type: 'textarea' } },
             active: {
                 title: 'Ativo', type: 'custom', valuePrepareFunction: 'custom', width: '10%', renderComponent: CheckboxComponent, filter: false,
                 onComponentInitFunction: (instance: any) => { instance.toggleActive = this.toggleActive; }
