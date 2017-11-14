@@ -29,11 +29,15 @@ export class DepartmentModalComponent extends ModalComponent {
 
     // test() {
     //     console.log('this.object.industry = ' + JSON.stringify(this.object.industry));
-    //     console.log('this.fb.control["industry"] = ' + JSON.stringify(this.fb.control["industry"]));
+    //     console.log('this.fb.control['industry'] = ' + JSON.stringify(this.fb.control['industry']));
     // }
 
-    async ngOnInit() {
-        super.ngOnInit();
+    // async ngOnInit() {
+    //     super.ngOnInit();
+    // }
+
+    open(size: string) {
+        super.open(size);
         this.reloadIndustries();
     }
 
@@ -46,12 +50,15 @@ export class DepartmentModalComponent extends ModalComponent {
     }
 
     validate(value: any) {
-        let o = value['name'];
-        if (o === null || o === '' || o.length < 3) {
-            this.alert.buildAlert(0, "O nome do departamento requer ao menos 3 caracteres");
+        if (!value['name'] || value['name'].length < 3) {
+            this.alert.buildAlert(0, 'O nome do departamento requer ao menos 3 caracteres');
             return false;
         }
-        // if(this.object.clientId == 0) delete this.object.clientId;
+        console.log('VALIDATE - INDUSTRY: ' + JSON.stringify(value['industry']));
+        if (!value['industry'] || Object.keys(value['industry']).length === 0) {
+            this.alert.buildAlert(0, 'O ramo precisa ser escolhido');
+            return false;
+        }
         return true;
     }
 

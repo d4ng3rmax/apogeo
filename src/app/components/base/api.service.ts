@@ -40,8 +40,8 @@ export class ApiService {
         return response.json();
     }
 
-    async createData(obj: Object): Promise<any> {
-      console.log('[createData] ' + JSON.stringify(obj));
+    async createData(obj: any): Promise<any> {
+      delete obj.id;
         return this.http.post(`${this.apiRoot}`, JSON.stringify(obj), this.options)
             .toPromise()
             .then((res) => res.json() || {})

@@ -21,11 +21,11 @@ export class IndustryModalComponent extends ModalComponent {
     }
 
     validate(value: any) {
-        let o = value['name'];
-        if (o === null || o === '' || o.length < 3) {
-            this.alert.buildAlert(0, "O nome do ramo requer ao menos 3 caracteres");
+        if (!value['name'] || value['name'].length < 3) {
+            this.alert.buildAlert(0, 'O nome do ramo requer ao menos 3 caracteres');
             return false;
         }
+
         return true;
     }
 }

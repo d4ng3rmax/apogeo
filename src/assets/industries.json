@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Primeiro Ramo",
+    "clientId": 1
+  },
+  {
+    "id": 11,
+    "name": "Segundo Ramo",
+    "clientId": null
+  },
+  {
+    "id": 301,
+    "name": "Ramo1",
+    "clientId": 0
+  },
+  {
+    "id": 311,
+    "name": "Ramo2",
+    "clientId": 0
+  },
+  {
+    "id": 321,
+    "name": "Ramo33",
+    "clientId": 0
+  },
+  {
+    "id": 331,
+    "name": "Ramo4",
+    "clientId": 0
+  },
+  {
+    "id": 341,
+    "name": "Ramo8",
+    "clientId": 0
+  },
+  {
+    "id": 351,
+    "name": "Ramo5",
+    "clientId": 0
+  },
+  {
+    "id": 361,
+    "name": "Ramo daniel",
+    "clientId": 0
+  }
+]

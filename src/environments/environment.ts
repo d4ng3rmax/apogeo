@@ -5,6 +5,7 @@ export const environment = {
     login: 'https://apogeo-oauth-server.cfapps.io/oauth/authorize?response_type=token&client_id=apogeo-app-local&redirect_uri=http://localhost:4200/#/login',
     forceLogin: 'https://apogeo-oauth-server.cfapps.io/login?response_type=token&client_id=apogeo-app-local&redirect_uri=http://localhost:4200/#/login',
     user: 'https://apogeo-oauth-server.cfapps.io/api/user',
+    clients: 'https://apogeo-oauth-server.cfapps.io/api/clients',
     results: 'https://apogeo-solution-svc.cfapps.io/results',
     questions: 'https://apogeo-survey-svc.cfapps.io/questions',
     pages: 'https://apogeo-survey-svc.cfapps.io/pages',

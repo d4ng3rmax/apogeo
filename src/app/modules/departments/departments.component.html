@@ -1,5 +1,6 @@
 <app-header [menuEnabled]="menuEnabled"></app-header>
 <section>
+    <alert #alert></alert>
     <div class="container-fluid">
         <div class="row no-mg">
             <div class="col-12 col-sm-2 box-filter">
@@ -19,7 +20,6 @@
                 </form>
             </div>
             <div class="col no-pd-right">
-                <alert #alert></alert>
 
                 <!-- Datagrid -->
                 <data-grid-departments [alert]="alert" class="table table-hover table-bordered"></data-grid-departments>

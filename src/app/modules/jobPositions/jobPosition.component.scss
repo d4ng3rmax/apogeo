@@ -1,5 +1,10 @@
 @import "../../../assets/mixins/global-imports";
 
+input, select, .label {
+    // font-size: 11px !important;
+    // height: 30px !important;
+}
+
 .map_tooltip {
     position: absolute !important;
     background-color: rgba(255,255,255, .8);
@@ -15,26 +20,27 @@
     font-weight: bold;
 }
 
-.imgMap > svg > g > path {
-    stroke: #000;
-    fill-opacity: 0.5;
-    fill-rule: nonzero;
-    stroke-width: 3;
-    stroke-width: 30px;
-    stroke-opacity: 1;
+.mapArea > g > path {
+  // stroke: #000;
+  fill: #000;
+  fill-opacity: 1;
+  // stroke-width: 1px;
 }
 
-.mapArea:hover {
-    // fill: #AADDFF !important;
-    // stroke: #4499FF !important;
+.mapArea > path {
+    stroke: #000;
+    // stroke-width: 1px;
+}
+
+.mapArea:hover > path {
     fill-opacity: 10;
-    stroke-width: 75px;
 }
 
 .row {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
     // white-space: nowrap;
+    margin: 0px auto;
 }
 
 .taglist, .taglist>li { display: inline; list-style: none; margin: 0; padding: 0; }
@@ -46,4 +52,93 @@
 }
 .taglist:nth-last-of-type(2):after {
   content: " e ";
+}
+
+.imgDiv {
+    padding: 0px;
+    margin: 0px;
+}
+
+.cardHeader {
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: left;
+    font-size: 13px;
+}
+
+.cardTitle {
+    font-weight: bold;
+    font-size: 12px;
+    vertical-align: middle;
+    line-height: 36px;
+}
+
+.cardBlue {
+    color: #5566AA;
+    font-size: 12px;
+}
+
+.cardGreen {
+    color: #55AA66;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.cardRed {
+    color: #AA5566;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.jobCard {
+    font-size: 10px;
+    vertical-align: middle;
+    text-align: left;
+    margin-top: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.jobCard:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.cardRowSeparator {
+    margin: 0px;
+    padding: 0px;
+    height: 10px;
+}
+
+.formInput {
+    font-size: 13px;
+    margin: 0px;
+}
+
+
+.clear-sides {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    clear: both;
+}
+
+.wizardPage {
+    margin-left: 0px auto;
+    margin-right: 0px auto;
+}
+
+.innerPage {
+    margin: 0px auto;
+    // border: solid red 2px;
+}
+
+svg {
+    margin: 0px;
+}
+
+.marginTop {
+    margin-top: 5px;
 }

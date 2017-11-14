@@ -10,7 +10,8 @@
 
             <!-- Form -->
             <label for="name">Nome do ramo:</label>
-            <input type="text" formControlName="name" class="form-control" />
+            <input type="text" formControlName="name" class="form-control" autofocus />
+            <br />
             <br />
 
             <button type="submit" class="btn btn-success" [disabled]="form.invalid" *ngIf="type == 'create'">Salvar</button>

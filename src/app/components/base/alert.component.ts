@@ -5,15 +5,11 @@ import { Alert } from '../../models';
     selector: 'alert',
 
     template: `
-    <div class="row">
-      <div class="col-12">
-        <div class="alert {{ obj.cssClass }} alert-dismissible fade show" role="alert" *ngIf="obj.status">
-          <button type="button" class="close" aria-label="Close" (click)="reset(); false;">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <span [innerHTML]="obj.title"></span>{{ obj.message }}
-        </div>
-      </div>
+    <div class="alert {{ obj.cssClass }} alert-dismissible fade show" role="alert" *ngIf="obj.status">
+      <button type="button" class="close" aria-label="Close" (click)="reset(); false;">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <span [innerHTML]="obj.title"></span>{{ obj.message }}
     </div>
     `
 })

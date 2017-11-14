@@ -19,17 +19,32 @@ export class MotivacaoFormComponent implements OnInit {
 
     parent: JobPositionComponent;
     motivacoes: any[];
-    public motivacao1: any;
-    motivacao2: any;
-    motivacao3: any;
-    motivacaoAlternativa1: any;
-    motivacaoAlternativa2: any;
-    motivacaoAlternativa3: any;
-    // motivacoes2: any[];
-    // motivacoes3: any[];
-    // motivacao1: string;
-    // motivacao2: string;
-    // motivacao3: string;
+    formObjects: any = {
+        'motivacaoPrincipal1': '',
+        'motivacaoPrincipal2': '',
+        'motivacaoPrincipal3': '',
+        'motivacaoAlternativa1': '',
+        'motivacaoAlternativa2': '',
+        'motivacaoAlternativa3': ''
+    }
+
+    motivacoesMap: any = [
+        { 'code': 'Fe', 'motivacao': 'Formadores emocionais' },
+        { 'code': 'I', 'motivacao': 'Incentivadores' },
+        { 'code': 'Fr', 'motivacao': 'Formadores racionais' },
+        { 'code': 'Pe', 'motivacao': 'Preservadores emocionais' },
+        { 'code': 'R', 'motivacao': 'Realizadores' },
+        { 'code': 'Pr', 'motivacao': 'Preservadores racionais' },
+        { 'code': 'Ie', 'motivacao': 'Integradores emocionais' },
+        { 'code': 'C', 'motivacao': 'Criativos' },
+        { 'code': 'Ir', 'motivacao': 'Integradores racionais' }
+    ]
+
+    autoGerenciamentoMap: any = [
+        { 'id': 1, 'text': 'Mínimo' },
+        { 'id': 2, 'text': 'Mediano (Padrão)' },
+        { 'id': 3, 'text': 'Máximo' }
+    ]
 
     constructor(protected route: ActivatedRoute,
         protected router: Router,
@@ -39,35 +54,71 @@ export class MotivacaoFormComponent implements OnInit {
     }
 
     async ngOnInit() {
-        // this.motivacoes1 = await this.service.getMotivacoes1();
-        // this.motivacoes2 = await this.service.getMotivacoes2();
-        // this.motivacoes3 = await this.service.getMotivacoes3();
-        this.motivacoes = ["abcdefg", "I", "Fr", "aaaaaaa aaaaaaaa aaaaaaaa aaaaaaaa", "bbbbbbb bbbbbbbb bbbbbbbbbb bbbbbbbbbbb", "ccccccccccc cccccccccc cccccccccccc ccccccccccc", "dddddddddd ddddddddddd ddddddddddd", "aaaaaa aaaaaa aaaaaaa", "bbbbbb bbbbbb bbbbbb", "cccccc cccccc cccccc cccccc", "dddddd dddddd dddddd ddddd", "aaaaaaa", "bbbbbbb", "ccccccc", "ddddddd"];
-        this.loadMotivacoes();
+        // this.motivacoesMap = await this.service.getMotivacoesMap();
+        // this.autoGerenciamentoMap = await this.service.getAutoGerenciamentoMap();
+        // this.apogeoMap = await this.service.getApogeoMap();
+        this.refresh();
     }
 
-    loadMotivacoes() {
-        let obj = this.parent.object;
-        if (obj.jobMotivacao === undefined) obj.jobMotivacao = [];
-        for (let m of obj.jobMotivacao) {
-            if (m.jobMotivacaoClassification == "MOTIVACAO_PRINCIPAL_1") this.motivacao1 = m;
-            if (m.jobMotivacaoClassification == "MOTIVACAO_PRINCIPAL_2") this.motivacao2 = m;
-            if (m.jobMotivacaoClassification == "MOTIVACAO_PRINCIPAL_3") this.motivacao3 = m;
-            if (m.jobMotivacaoClassification == "MOTIVACAO_ALTERNATIVA_1") this.motivacaoAlternativa1 = m;
-            if (m.jobMotivacaoClassification == "MOTIVACAO_ALTERNATIVA_2") this.motivacaoAlternativa2 = m;
-            if (m.jobMotivacaoClassification == "MOTIVACAO_ALTERNATIVA_3") this.motivacaoAlternativa3 = m;
-        }
-        if(this.motivacao1 === undefined) this.motivacao1 = { "motivacao": "", "jobMotivacaoClassification": "MOTIVACAO_PRINCIPAL_1" };
-        if(this.motivacao2 === undefined) this.motivacao2 = { "motivacao": "", "jobMotivacaoClassification": "MOTIVACAO_PRINCIPAL_2" };
-        if(this.motivacao3 === undefined) this.motivacao3 = { "motivacao": "", "jobMotivacaoClassification": "MOTIVACAO_PRINCIPAL_3" };
-        if(this.motivacaoAlternativa1 === undefined) this.motivacaoAlternativa1 = { "motivacao": "", "jobMotivacaoClassification": "MOTIVACAO_ALTERNATIVA_1" };
-        if(this.motivacaoAlternativa2 === undefined) this.motivacaoAlternativa2 = { "motivacao": "", "jobMotivacaoClassification": "MOTIVACAO_ALTERNATIVA_2" };
-        if(this.motivacaoAlternativa3 === undefined) this.motivacaoAlternativa3 = { "motivacao": "", "jobMotivacaoClassification": "MOTIVACAO_ALTERNATIVA_3" };
-        console.log('>>> motivacao1=' + this.motivacao1 + ', motivacao2=' + this.motivacao2 + ', motivacao3=' + this.motivacao3 + ', motivacaoAlternativa1=' + this.motivacaoAlternativa1);
+    submit() {
+        const parent = this.parent;
+        const objectMotivacoes = parent.object.jobMotivacao;
+        const motivacoes = [];
+        motivacoes.push(parent.createJobMotivacao(this.formObjects.motivacaoPrincipal1, parent.motivacoesPrincipaisClassifications[0]));
+        motivacoes.push(parent.createJobMotivacao(this.formObjects.motivacaoPrincipal2, parent.motivacoesPrincipaisClassifications[1]));
+        motivacoes.push(parent.createJobMotivacao(this.formObjects.motivacaoPrincipal3, parent.motivacoesPrincipaisClassifications[2]));
+
+        motivacoes.push(parent.createJobMotivacao(this.formObjects.motivacaoAlternativa1, parent.motivacoesAlternativasClassifications[0]));
+        motivacoes.push(parent.createJobMotivacao(this.formObjects.motivacaoAlternativa2, parent.motivacoesAlternativasClassifications[1]));
+        motivacoes.push(parent.createJobMotivacao(this.formObjects.motivacaoAlternativa3, parent.motivacoesAlternativasClassifications[2]));
+
+        parent.object.jobMotivacao = motivacoes;
+        parent.object.autoGerenciamento1 = this.formObjects.autoGerenciamento1;
+        parent.object.autoGerenciamento2 = this.formObjects.autoGerenciamento2;
+        parent.object.apogeo1 = this.formObjects.apogeo1;
+        parent.object.apogeo2 = this.formObjects.apogeo2;
+        parent.refreshLabels();
+    }
+
+    refresh() {
+        const phase = this.parent.phase;
+        const parent = this.parent;
+        const motivacoes = parent.object.jobMotivacao;
+
+        if (motivacoes == null || motivacoes.length === 0) { return; }
+
+        motivacoes.filter(m => m.jobMotivacaoClassification === parent.motivacoesPrincipaisClassifications[0]).map(m => this.formObjects.motivacaoPrincipal1 = m.motivacao);
+        motivacoes.filter(m => m.jobMotivacaoClassification === parent.motivacoesPrincipaisClassifications[1]).map(m => this.formObjects.motivacaoPrincipal2 = m.motivacao);
+        motivacoes.filter(m => m.jobMotivacaoClassification === parent.motivacoesPrincipaisClassifications[2]).map(m => this.formObjects.motivacaoPrincipal3 = m.motivacao);
+
+        motivacoes.filter(m => m.jobMotivacaoClassification === parent.motivacoesAlternativasClassifications[0]).map(m => this.formObjects.motivacaoAlternativa1 = m.motivacao);
+        motivacoes.filter(m => m.jobMotivacaoClassification === parent.motivacoesAlternativasClassifications[1]).map(m => this.formObjects.motivacaoAlternativa2 = m.motivacao);
+        motivacoes.filter(m => m.jobMotivacaoClassification === parent.motivacoesAlternativasClassifications[2]).map(m => this.formObjects.motivacaoAlternativa3 = m.motivacao);
+
+        this.formObjects.autoGerenciamento1 = parent.object.autoGerenciamento1;
+        this.formObjects.autoGerenciamento2 = parent.object.autoGerenciamento2;
+        this.formObjects.apogeo1 = parent.object.apogeo1;
+        this.formObjects.apogeo2 = parent.object.apogeo2;
     }
 
     validate() {
-        this.parent.populateJobMotivacoes();
+        const parent = this.parent;
+        let valid = false;
+        parent.object.jobMotivacao.filter(m => m.jobMotivacaoClassification === parent.motivacoesPrincipaisClassifications[0] && m.motivacao).map(m => valid = true);
+        if (!valid) {
+            this.parent.alert.buildAlert(0, 'Motivação principal precisa ser escolhida', 4);
+            return false;
+        }
+
+        if (!parent.object.autoGerenciamento1) {
+            this.parent.alert.buildAlert(0, 'Indicador de Autogerenciamento principal precisa ser escolhido', 4);
+            return false;
+        }
+        if (!parent.object.apogeo1) {
+            this.parent.alert.buildAlert(0, 'Indicador APOGEO principal precisa ser escolhido', 4);
+            return false;
+        }
+
         return true;
     }
 }

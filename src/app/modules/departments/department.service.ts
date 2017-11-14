@@ -21,10 +21,11 @@ export class DepartmentService extends ApiService {
         });
         return response;
     }
-    // async getResult(): Promise<any> {
-    //     const response = await this.http.get('/departments.json', this.options)
-    //         .toPromise()
-    //     return response.json();
-    // }
+
+    async getResult(): Promise<any> {
+        const response = await this.http.get('/departments.json', this.options)
+            .toPromise()
+        return response.json();
+    }
 
 }

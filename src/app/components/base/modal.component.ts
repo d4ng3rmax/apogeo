@@ -44,7 +44,7 @@ export class ModalComponent implements OnInit {
         this.dataGrid = dataGrid;
         this.source = dataGrid.source;
         this.updateGrid = updateGrid;
-        if (this.type === undefined || this.type == 'create') {
+        if (this.type === undefined || this.type === 'create') {
             console.log('[base][openModal] Creating new entity');
             this.object = this.newEntity(this.defaultValues);
         } else {

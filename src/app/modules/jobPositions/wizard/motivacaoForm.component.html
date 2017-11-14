@@ -1,64 +1,135 @@
-<div class="container-fluid">
-    <div class="row">
-      Motivacao
-    </div>
-
-    <div class="row">
-        <div class="col-sm-4 col-md-4 col-lg-4 form-group">
-            <label for="txt-nome">Motivação 1:</label>
-            <select #selMotivacao1 id="sel-motivacao1" class="form-control" [(ngModel)]="motivacao1.motivacao">
-              <option *ngFor="let item of motivacoes" [ngValue]="item">
-                  {{ item }}
-              </option>
-          </select>
-        </div>
-
-        <div class="col-sm-4 col-md-4 col-lg-4 form-group">
-            <label for="txt-nome">Motivação 2:</label>
-            <select #selMotivacao2 id="sel-motivacao2" class="form-control" [(ngModel)]="motivacao2.motivacao">
-              <option *ngFor="let item of motivacoes">
-                  {{ item }}
-              </option>
-          </select>
-        </div>
-
-        <div class="col-sm-4 col-md-4 col-lg-4 form-group">
-            <label for="txt-nome">Motivação 3:</label>
-            <select #selMotivacao3 id="sel-motivacao3" class="form-control" [(ngModel)]="motivacao3.motivacao">
-              <option *ngFor="let item of motivacoes">
-                  {{ item }}
-              </option>
-          </select>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-4 col-md-4 col-lg-4 form-group">
-            <label for="txt-nome">Motivação Alternativa 1:</label>
-            <select #selMotivacaoAlternativa1 id="sel-motivacaoAlternativa1" class="form-control" [(ngModel)]="motivacaoAlternativa1.motivacao">
-              <option *ngFor="let item of motivacoes">
-                  {{ item }}
-              </option>
-          </select>
-        </div>
-
-        <div class="col-sm-4 col-md-4 col-lg-4 form-group">
-            <label for="txt-nome">Motivação Alternativa 2:</label>
-            <select #selMotivacaoAlternativa2 id="sel-motivacaoAlternativa2" class="form-control" [(ngModel)]="motivacaoAlternativa2.motivacao">
-              <option *ngFor="let item of motivacoes">
-                  {{ item }}
-              </option>
-          </select>
-        </div>
-
-        <div class="col-sm-4 col-md-4 col-lg-4 form-group">
-            <label for="txt-nome">Motivação Alternativa 3:</label>
-            <select #selMotivacaoAlternativa3 id="sel-motivacaoAlternativa3" class="form-control" [(ngModel)]="motivacaoAlternativa3.motivacao">
-              <option *ngFor="let item of motivacoes">
-                  {{ item }}
-              </option>
-          </select>
-        </div>
-    </div>
-
+<div class="row">
+  <div class="col-sm-5 col-md-5 col-lg-5 cardTitle">
+    Motivação Principal
+  </div>
+  <div class="col-sm-2 col-md-2 col-lg-2">
+    <select #motivacaoPrincipal1 id="sel-motivacao1" class="form-control" (change)="submit()" [(ngModel)]="formObjects.motivacaoPrincipal1">
+      <option></option>
+      <option *ngFor="let item of motivacoesMap" [ngValue]="item.motivacao">
+        {{ item.motivacao }}
+      </option>
+    </select>
+  </div>
+  <div class="col-sm-2 col-md-2 col-lg-2">
+    <select #motivacaoPrincipal2 id="sel-motivacao2" class="form-control" (change)="submit()" [(ngModel)]="formObjects.motivacaoPrincipal2">
+      <option></option>
+      <option *ngFor="let item of motivacoesMap" [ngValue]="item.motivacao">
+        {{ item.motivacao }}
+      </option>
+    </select>
+  </div>
+  <div class="col-sm-2 col-md-2 col-lg-2">
+    <select #motivacaoPrincipal3 id="sel-motivacao3" class="form-control" (change)="submit()" [(ngModel)]="formObjects.motivacaoPrincipal3">
+      <option></option>
+      <option *ngFor="let item of motivacoesMap" [ngValue]="item.motivacao">
+        {{ item.motivacao }}
+      </option>
+    </select>
+  </div>
+  <div class="col-sm-1 col-md-1 col-lg-1">
+    <a href="javascript:void(0)" (click)="parent.openInfoModal(parent.infoModalMap.motivacaoPrincipal)" class="questionLink"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+  </div>
 </div>
+
+<div class="row">
+  <div class="col-sm-5 col-md-5 col-lg-5 cardTitle">
+    Motivação Alternativa
+  </div>
+  <div class="col-sm-2 col-md-2 col-lg-2">
+    <select #motivacaoAlternativa1 id="sel-motivacaoAlternativa1" class="form-control" (change)="submit()" [(ngModel)]="formObjects.motivacaoAlternativa1">
+      <option></option>
+      <option *ngFor="let item of motivacoesMap" [ngValue]="item.motivacao">
+        {{ item.motivacao }}
+      </option>
+    </select>
+  </div>
+  <div class="col-sm-2 col-md-2 col-lg-2">
+    <select #selMotivacaoAlternativa2 id="sel-motivacaoAlternativa2" class="form-control" (change)="submit()" [(ngModel)]="formObjects.motivacaoAlternativa2">
+      <option></option>
+      <option *ngFor="let item of motivacoesMap" [ngValue]="item.motivacao">
+        {{ item.motivacao }}
+      </option>
+    </select>
+  </div>
+  <div class="col-sm-2 col-md-2 col-lg-2">
+    <select #selMotivacaoAlternativa3 id="sel-motivacaoAlternativa3" class="form-control" (change)="submit()" [(ngModel)]="formObjects.motivacaoAlternativa3">
+      <option></option>
+      <option *ngFor="let item of motivacoesMap" [ngValue]="item.motivacao">
+        {{ item.motivacao }}
+      </option>
+    </select>
+  </div>
+  <div class="col-sm-1 col-md-1 col-lg-1">
+    <a href="javascript:void(0)" (click)="parent.openInfoModal(parent.infoModalMap.motivacaoAlternativa)" class="questionLink"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<div class="row cardRowSeparator">&nbsp;</div>
+
+<div class="row">
+  <div class="col-sm-5 col-md-5 col-lg-5 cardTitle">
+    Autogerenciamento principal
+  </div>
+  <div class="col-sm-2 col-md-2 col-lg-2">
+    <select #autoGerenciamento1 id="autoGerenciamento1" class="form-control" (change)="submit()" [(ngModel)]="formObjects.autoGerenciamento1">
+      <option></option>
+      <option *ngFor="let item of autoGerenciamentoMap" [ngValue]="item.id">
+        {{ item.text }}
+      </option>
+    </select>
+  </div>
+  <div class="col-sm-1 col-md-1 col-lg-1">
+    <a href="javascript:void(0)" (click)="parent.openInfoModal(parent.infoModalMap.autoGerenciamento)" class="questionLink"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-5 col-md-5 col-lg-5 cardTitle">
+    Autogerenciamento alternativo
+  </div>
+  <div class="col-sm-2 col-md-2 col-lg-2">
+    <select #autoGerenciamento2 id="autoGerenciamento2" class="form-control" (change)="submit()" [(ngModel)]="formObjects.autoGerenciamento2">
+      <option></option>
+      <option *ngFor="let item of autoGerenciamentoMap" [ngValue]="item.id">
+        {{ item.text }}
+      </option>
+    </select>
+  </div>
+</div>
+
+<div class="row cardRowSeparator">&nbsp;</div>
+
+<div class="row">
+  <div class="col-sm-5 col-md-5 col-lg-5 cardTitle">
+    Indicador APOGEO principal
+  </div>
+  <div class="col-sm-2 col-md-2 col-lg-2">
+    <select #apogeo1 id="apogeo1" class="form-control" (change)="submit()" [(ngModel)]="formObjects.apogeo1">
+      <option></option>
+      <option *ngFor="let item of autoGerenciamentoMap" [ngValue]="item.id">
+        {{ item.text }}
+      </option>
+    </select>
+  </div>
+  <div class="col-sm-1 col-md-1 col-lg-1">
+    <a href="javascript:void(0)" (click)="parent.openInfoModal(parent.infoModalMap.indicadorApogeo)" class="questionLink"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-5 col-md-5 col-lg-5 cardTitle">
+    Indicador APOGEO alternativo
+  </div>
+  <div class="col-sm-2 col-md-2 col-lg-2">
+    <select #apogeo2 id="apogeo2" class="form-control" (change)="submit()" [(ngModel)]="formObjects.apogeo2">
+      <option></option>
+      <option *ngFor="let item of autoGerenciamentoMap" [ngValue]="item.id">
+        {{ item.text }}
+      </option>
+    </select>
+  </div>
+</div>
+
+<div class="row cardRowSeparator">&nbsp;</div>

@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header';
 import { HomeComponent } from './modules/home'
-import { AlertComponent, AutofocusDirective, CheckboxComponent, DisabledCheckboxComponent, PersistNavigationComponent, FilterControlsComponent } from './components';
+import { AlertComponent, AutofocusDirective, InfoModalComponent, CheckboxComponent, DisabledCheckboxComponent, PersistNavigationComponent, FilterControlsComponent } from './components';
 import { AuthFilter, AuthService } from './auth';
 
 // Survey
@@ -27,15 +27,18 @@ import { ResultsComponent, ResultsDataGridComponent, ResultModalComponent } from
 import { TemplatesComponent, TemplatesDataGridComponent, TemplateModalComponent } from './modules/templates';
 
 // Job Positions
-import { JobPositionsComponent, JobPositionComponent, JobPositionsDataGridComponent, AreaPrincipalFormComponent, AbordagemPrincipalFormComponent, MotivacaoFormComponent, AutoGerenciamentoFormComponent } from './modules/jobPositions';
+import { JobPositionsComponent, JobPositionComponent, JobPositionsDataGridComponent, TemperamentoMapFormComponent, ComportamentoMapFormComponent, MotivacaoFormComponent } from './modules/jobPositions';
 import { DepartmentsComponent, DepartmentModalComponent, DepartmentsDataGridComponent } from './modules/departments';
 import { IndustriesComponent, IndustriesDataGridComponent, IndustryModalComponent } from './modules/industries';
+
+// Client
+// import { ClientComponent } from './modules/clients';
 
 @NgModule({
     declarations: [
         // Shared
         AppComponent, HeaderComponent, HomeComponent,
-        AlertComponent, FilterControlsComponent, CheckboxComponent, DisabledCheckboxComponent, PersistNavigationComponent,
+        AlertComponent, InfoModalComponent, FilterControlsComponent, CheckboxComponent, DisabledCheckboxComponent, PersistNavigationComponent,
 
         // Directives
         AutofocusDirective,
@@ -53,9 +56,12 @@ import { IndustriesComponent, IndustriesDataGridComponent, IndustryModalComponen
         TemplatesComponent, TemplatesDataGridComponent, TemplateModalComponent,
 
         // Job Positions
-        JobPositionsComponent, JobPositionComponent, JobPositionsDataGridComponent, AreaPrincipalFormComponent, AbordagemPrincipalFormComponent, MotivacaoFormComponent, AutoGerenciamentoFormComponent,
+        JobPositionsComponent, JobPositionComponent, JobPositionsDataGridComponent, TemperamentoMapFormComponent, ComportamentoMapFormComponent, MotivacaoFormComponent,
         DepartmentsComponent, DepartmentModalComponent, DepartmentsDataGridComponent,
-        IndustriesComponent, IndustriesDataGridComponent, IndustryModalComponent
+        IndustriesComponent, IndustriesDataGridComponent, IndustryModalComponent,
+
+        // Clients
+        // ClientComponent
     ],
     imports: [
         BrowserModule,

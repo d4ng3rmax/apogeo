@@ -1,6 +1,8 @@
-<app-header [menuEnabled]="menuEnabled"></app-header>
+ <app-header [menuEnabled]="menuEnabled"></app-header>
 
-<section>
+ <section>
+
+    <alert #alert></alert>
 
     <div class="container-fluid container" *ngIf="!loaded">
         <div class="col-lg-10 lds-css ng-scope">
@@ -10,56 +12,346 @@
         </div>
     </div>
     <div class="row bg-top-menu" *ngIf="!!loaded">
-        <div class="col" (save)="save($event)" (update)="update($event)" (deleteOne)="delete($event)">
+        <div class="col" (save)="next($event)" (update)="next($event)" (deleteOne)="delete($event)">
             <ul class="top-menu d-flex flex-row">
-                <li class="p-2"><a class="btn btn-secondary" (click)="previous()"><i class="fa fa-arrow-left"></i> Voltar</a></li>
-                <li class="p-2" *ngIf="!urlId && phase == 8"><a href="javascript:void(0)" (click)="save(); false"  class="btn btn-success"><i class="fa fa-check"></i> Salvar</a></li>
-                <li class="p-2" *ngIf="urlId && phase == 8"><a href="javascript:void(0)" (click)="update(); false" class="btn btn-success"><i class="fa fa-save"></i> Salvar</a></li>
-                <li class="p-2" *ngIf="phase < 8"><a class="btn btn-primary" (click)="next()">Continuar <i class="fa fa-arrow-right"></i></a></li>
+                <li class="p-2"><a class="btn btn-secondary" routerLink="/jobs/jobPosition/list">Voltar</a></li>
+                <li class="p-2"><a class="btn btn-primary" (click)="next()" *ngIf="phase === 0 || (!object.id && phase < 7)">Próximo <i class="fa fa-arrow-right"></i></a></li>
+                <li class="p-2"><a href="javascript:void(0)" (click)="validateAndSave();" class="btn btn-success" *ngIf="(object.id && phase > 0) || phase === 7" ><i class="fa fa-check"></i> Salvar</a></li>
                 <li class="p-2 mg-left-2" *ngIf="urlId"><a href="javascript:void(0)" (click)="delete($event)" class="btn btn-danger"><i class="fa fa-close"></i> Excluir</a></li>
-                <li class="p-2">Etapa {{ phase + 1 }} de 9</li>
             </ul>
         </div>
     </div>
 
     <div class="container-fluid">
-        <alert #alert></alert>
 
-        <div class="container-fluid mg-top-2" *ngIf="phase == 0">
-
+        <div class="container-fluid mg-top-2">
             <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-6 form-group">
-                    <label for="txt-nome">Nome da posição:</label>
-                    <input type="text" id="txt-nome" class="form-control" [value]="object.name" [(ngModel)]="object.name" />
+                <div class="col-1">
+                    <label for="txt-nome" class="formInput nowrap">Nome do cargo:</label>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-6">
-                    <label for="txt-nome">Departamento:</label>
+                <div class="col-2">
+                    <input type="text" id="txt-nome" class="form-control formInput" [value]="object.name" [(ngModel)]="object.name" autofocus />
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-6 form-group">
-                    <select #selDepartment id="sel-department" class="form-control" [(ngModel)]="object.department" [compareWith]="departmentCompareFn">
+                <div class="col-1">
+                    <label for="txt-nome" class="formInput">Departamento:</label>
+                </div>
+                <div class="col-3">
+                    <select #selDepartment id="sel-department" class="form-control formInput" [(ngModel)]="object.department" [compareWith]="entityCompareFn">
                         <option *ngFor="let item of departments" [ngValue]="item" [selected]="object.department.id == item.id">
                             {{ item.name }}
                         </option>
                     </select>
                 </div>
-                <div class="col-sm-4 col-md-4 col-lg-4 form-group">
-                    <a href="javascript:void(0)" (click)="addDepartment($event)">Adicionar Departmento</a>
+                <div class="col-2">
+                    <a href="javascript:void(0)" class="formInput" (click)="addDepartment($event)">Adicionar Departmento</a>
+                </div>
+
+                <div class="col-3">
+                    &nbsp;
                 </div>
             </div>
+
+            <div class="row marginTop">
+                <div class="col-1">
+                    <label for="txt-nome" class="formInput">Descrição:</label>
+                </div>
+                <div class="col-7">
+                    <input type="text" id="txt-description" class="form-control formInput" [value]="object.description" [(ngModel)]="object.description" />
+                </div>
+                <div class="col-1">
+                    <label for="txt-nome" class="formInput">Cliente:</label>
+                </div>
+                <div class="col-2">
+                    <div *ngIf="this.authService.isManager()">{{ client.name }}</div>
+                    <select #selClient id="sel-client" class="form-control formInput" [(ngModel)]="object.client" [compareWith]="entityCompareFn" *ngIf="!this.authService.isManager()">
+                        <option *ngFor="let item of clients" [ngValue]="item" [selected]="object.client.id == item.id">
+                            {{ item.name }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-1">
+                    &nbsp;
+                </div>
+            </div>
+
+
         </div>
-        
-        <areaPrincipalForm #areaPrincipalForm *ngIf="phase == 1 || phase == 2 || phase == 3"></areaPrincipalForm>
-        <abordagemPrincipalForm #abordagemPrincipalForm *ngIf="phase == 4 || phase == 5 || phase == 6"></abordagemPrincipalForm>
-        <motivacaoForm #motivacaoForm *ngIf="phase == 7"></motivacaoForm>
-        <autoGerenciamentoForm #autoGerenciamentoForm *ngIf="phase == 8"></autoGerenciamentoForm>
 
-    </div>
+        <div class="row mg-top-2" *ngIf="phase > 0">
 
-</section>
-<mm-department-modal></mm-department-modal>
+            <div id="left" class="col-6 jobCard" *ngIf="!displayTooltip">
+                <!-- <div class="container-fluid jobCard"> -->
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-5 col-md-5 col-lg-5">
+                            <a href="javascript:void(0)" (click)="openInfoModal(infoModalMap.areasPrincipais)" class="questionLink"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 cardHeader">
+                            Áreas Principais
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 cardHeader">
+                            Áreas Alternativas
+                        </div>
+
+                    </div>
+
+                    <div class="row cardRowSeparator"></div>
+
+                    <div class="row">
+                        <div class="col-sm-5 col-md-5 col-lg-5 cardTitle">
+                            Temperamento - Área ideal
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <span class="cardText">{{ formLabels.temperamentoAreaIdeal }}</span>
+                            <a href="javascript:void(0)" (click)="setPhase(1)" *ngIf="phase !== 1">(Alterar)</a>
+                            <span class="cardGreen" *ngIf="phase === 1">Você está aqui</span>
+                            <span class="cardRed" *ngIf="showUndefined(1) && phase != 1"><br/>Não definido</span>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                        </div>
+                    </div>
+
+                    <div class="row cardRowSeparator"></div>
+
+                    <div class="row">
+                        <div class="col-sm-5 col-md-5 col-lg-5 cardTitle">
+                            Temperamento - Outras áreas
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <span class="cardText">{{ formLabels.temperamentoAreasPrincipais }}</span>
+                            <a href="javascript:void(0)" (click)="setPhase(2)" *ngIf="phase !== 2">(Alterar)</a>
+                            <span class="cardGreen" *ngIf="phase === 2">Você está aqui</span>
+                            <span class="cardRed" *ngIf="showUndefined(2) && phase != 2"><br/>Não definido</span>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <span class="cardText">{{ formLabels.temperamentoAreasAlternativas }}</span>
+                            <a href="javascript:void(0)" (click)="setPhase(3)" *ngIf="phase !== 3">(Alterar)</a>
+                            <span class="cardGreen" *ngIf="phase === 3">Você está aqui</span>
+                            <span class="cardRed" *ngIf="showUndefined(3) && phase != 3"><br/>Não definido</span>
+                        </div>
+                    </div>
+
+                    <div class="row cardRowSeparator"></div>
+
+                    <div class="row">
+                        <div class="col-sm-5 col-md-5 col-lg-5 cardTitle">
+                            Comportamento - Área ideal
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <span class="cardText">{{ formLabels.comportamentoAreaIdeal }}</span>
+                            <a href="javascript:void(0)" (click)="setPhase(4)" *ngIf="phase !== 4">(Alterar)</a>
+                            <span class="cardGreen" *ngIf="phase === 4">Você está aqui</span>
+                            <span class="cardRed" *ngIf="showUndefined(4) && phase != 4"><br/>Não definido</span>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                        </div>
+                    </div>
+
+                    <div class="row cardRowSeparator"></div>
+
+                    <div class="row">
+                        <div class="col-sm-5 col-md-5 col-lg-5 cardTitle">
+                            Comportamento - Outras áreas
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <span class="cardText">{{ formLabels.comportamentoAreasPrincipais }}</span>
+                            <a href="javascript:void(0)" (click)="setPhase(5)" *ngIf="phase !== 5">(Alterar)</a>
+                            <span class="cardGreen" *ngIf="phase === 5">Você está aqui</span>
+                            <span class="cardRed" *ngIf="showUndefined(5) && phase != 5"><br/>Não definido</span>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <span class="cardText">{{ formLabels.comportamentoAreasAlternativas }}</span>
+                            <a href="javascript:void(0)" (click)="setPhase(6)" *ngIf="phase !== 6">(Alterar)</a>
+                            <span class="cardGreen" *ngIf="phase === 6">Você está aqui</span>
+                            <span class="cardRed" *ngIf="showUndefined(6) && phase != 6"><br/>Não definido</span>
+                        </div>
+                    </div>
+
+                    <div class="row cardRowSeparator"></div>
+
+                    <div class="row">
+                        <div class="col-sm-5 col-md-5 col-lg-5 cardTitle">
+                            Motivações
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <span class="cardText">{{ formLabels.motivacoesPrincipais }}</span>
+                            <br *ngIf="!showUndefined(7)" />
+                            <span class="cardGreen" *ngIf="phase === 7">Você está aqui</span>
+                            <span class="cardRed" *ngIf="showUndefined(7)">Não definido</span>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <span class="cardText">{{ formLabels.motivacoesAlternativas }}</span> <br />
+                            <br *ngIf="!showUndefined(7)" />
+                            <span class="cardGreen" *ngIf="phase === 7">Você está aqui</span>
+                            <span class="cardRed" *ngIf="showUndefined(7)">Não definido</span>
+                        </div>
+                    </div>
+
+                    <div class="row cardRowSeparator"></div>
+
+                    <div class="row">
+                        <div class="col-sm-5 col-md-5 col-lg-5 cardTitle">
+                            Indicador Autogerenciamento
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <span class="cardText">{{ formLabels.autoGerenciamento1 }}</span>
+                            <br *ngIf="!showUndefined(7)" />
+                            <span class="cardGreen" *ngIf="phase === 7">Você está aqui</span>
+                            <span class="cardRed" *ngIf="showUndefined(7)">Não definido</span>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <span class="cardText">{{ formLabels.autoGerenciamento2 }}</span>
+                            <br *ngIf="!showUndefined(7)" />
+                            <span class="cardGreen" *ngIf="phase === 7">Você está aqui</span>
+                            <span class="cardRed" *ngIf="showUndefined(7)">Não definido</span>
+                        </div>
+                    </div>
+
+                    <div class="row cardRowSeparator"></div>
+
+                    <div class="row">
+                        <div class="col-sm-5 col-md-5 col-lg-5 cardTitle">
+                            Indicador APOGEO
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <span class="cardText">{{ formLabels.apogeo1 }}</span>
+                            <br *ngIf="!showUndefined(7)" />
+                            <span class="cardGreen" *ngIf="phase === 7">Você está aqui</span>
+                            <span class="cardRed" *ngIf="showUndefined(7)">Não definido</span>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <span class="cardText">{{ formLabels.apogeo2 }}</span>
+                            <br *ngIf="!showUndefined(7)" />
+                            <span class="cardGreen" *ngIf="phase === 7">Você está aqui</span>
+                            <span class="cardRed" *ngIf="showUndefined(7)">Não definido</span>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+
+
+
+                <!-- Tooltip on map area hover -->
+                <div id="left" class="col-6 jobCard" *ngIf="displayTooltip">
+                    <div class="row" *ngIf="phase >=1 && phase < 3">
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <img src="{{ hoverArea.femaleUrl }}" />
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <img src="{{ hoverArea.maleUrl }}" />
+                        </div>
+                    </div>
+
+                    <div class="row" *ngIf="phase >=1 && phase < 3">
+                        <div class="col-sm-4 col-md-4 col-lg-4 cardTitle">
+                            <h6>Temperamento</h6>
+                            <h6>Área</h6>
+                        </div>
+                        <div class="col-sm-8 col-md-8 col-lg-8">
+                            <h6>{{ hoverArea.temperamento}} - {{ hoverArea.temperamentoDescription }}</h6>
+                            <h6>{{ hoverArea.areaNome }}</h6>
+                        </div>
+                    </div>
+
+                    <div class="row" *ngIf="phase >=4 && phase < 6">
+                        <div class="col-sm-4 col-md-4 col-lg-4 cardTitle">
+                            <h6>Comportamento</h6>
+                            <h6>Área</h6>
+                        </div>
+                        <div class="col-sm-8 col-md-8 col-lg-8">
+                            {{ hoverArea.temperamento}} - {{ hoverArea.temperamentoDescription }}
+                        </div>
+                    </div>
+
+                    <div class="row cardRowSeparator">&nbsp;</div>
+
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4 cardTitle">
+                            Palavras descritivas
+                        </div>
+                        <div class="col-sm-8 col-md-8 col-lg-8">
+                            {{ hoverArea.palavrasDescritivas}}
+                        </div>
+                    </div>
+
+                    <div class="row cardRowSeparator">&nbsp;</div>
+
+                    <div class="row"><div class="col-sm-12 col-md-12 col-lg-12">{{ hoverArea.breveRelato1 }}</div></div>
+                    <div class="row"><div class="col-sm-12 col-md-12 col-lg-12">{{ hoverArea.breveRelato2 }}</div></div>
+                    <div class="row"><div class="col-sm-12 col-md-12 col-lg-12">{{ hoverArea.breveRelato3 }}</div></div>
+                    <div class="row"><div class="col-sm-12 col-md-12 col-lg-12">{{ hoverArea.breveRelato4 }}</div></div>
+
+                    <div class="row cardRowSeparator">&nbsp;</div>
+
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4 cardTitle">
+                            Áreas e Funções
+                        </div>
+                        <div class="col-sm-8 col-md-8 col-lg-8">
+                            <p>{{ hoverArea.funcoesDescricao}}</p>
+                            <p>{{ hoverArea.areasDescricao }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row cardRowSeparator">&nbsp;</div>
+
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4 cardTitle">
+                            Pode precisar gerir
+                        </div>
+                        <div class="col-sm-8 col-md-8 col-lg-8">
+                            {{ hoverArea.precisaGerir}}
+                        </div>
+                    </div>
+
+                    <div class="row cardRowSeparator">&nbsp;</div>
+
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4 cardTitle">
+                            Aproveitar
+                        </div>
+                        <div class="col-sm-8 col-md-8 col-lg-8">
+                            {{ hoverArea.aproveitar}}
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Wizard pages -->
+                <div id="right" class="col-6 wizardPage">
+                    <div class="row">
+                        <div class="col-12">
+                            <h6>{{ pageTitles[phase] }}</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+
+                            <temperamentoMapForm #temperamentoMapForm *ngIf="phase >= 1 && phase <= 3"></temperamentoMapForm>
+                            <comportamentoMapForm #comportamentoMapForm *ngIf="phase >= 4 && phase <= 6"></comportamentoMapForm>
+                            <motivacaoForm #motivacaoForm *ngIf="phase === 7"></motivacaoForm>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <a *ngIf="phase > 1" class="btn btn-primary" (click)="previous()"><i class="fa fa-arrow-left"></i> Anterior</a>
+                            &nbsp;
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4 textCenter">
+                            <p>{{ phase }} de 7</p>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4 textRight">
+                            <a *ngIf="phase < 7" class="btn btn-primary" (click)="next()">Próximo <i class="fa fa-arrow-right"></i></a>
+                            <a *ngIf="phase === 7" class="btn btn-primary" (click)="next()">Finalizar</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <mm-department-modal></mm-department-modal>
+    <infoModal #infoModal></infoModal>

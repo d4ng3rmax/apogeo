@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Alert } from '../../models';
+import { InfoModalComponent } from '../../components';
 import { ApiService } from './api.service';
 import { AlertComponent } from './alert.component';
 
@@ -8,7 +9,11 @@ export class EditComponent implements OnInit {
 
     @ViewChild('alert')
     alert: AlertComponent;
-    menuEnabled: boolean = false;
+
+    @ViewChild('infoModal')
+    infoModal: InfoModalComponent;
+
+    menuEnabled = false;
     urlId: number;
     object: any;
     listPath: string;
@@ -31,7 +36,7 @@ export class EditComponent implements OnInit {
         protected route: ActivatedRoute,
         protected router: Router,
         protected service: ApiService
-    ) {
+        ) {
         this.urlId = (this.route.snapshot.params['id']) ? this.route.snapshot.params['id'] : false;
         this.loaded = false;
     }
@@ -57,57 +62,70 @@ export class EditComponent implements OnInit {
     save = (event): void => {
         this.loaded = false;
         this.service.createData(this.populatedObject())
-            .then(data => {
-                this.loaded = true;
-                this.alert.buildAlert(1, this.labels.create.success);
+        .then(data => {
+            this.loaded = true;
+            this.alert.buildAlert(1, this.labels.create.success);
 
-                setTimeout(() => {
-                    this.router.navigate([this.listPath]);
-                }, 2000);
+            setTimeout(() => {
+                this.router.navigate([this.listPath]);
+            }, 2000);
 
-            }, error => {
-                this.loaded = true;
-                this.alert.buildAlert(0, JSON.parse(error._body).errorMessage);
-            });
+        }, error => {
+            this.loaded = true;
+            this.alert.buildAlert(0, JSON.parse(error._body).errorMessage);
+        });
     }
 
     update = (event): void => {
         this.loaded = false;
         this.service.updateData(this.urlId, this.populatedObject())
-            .then(data => {
-                this.loaded = true;
-                this.alert.buildAlert(1, this.labels.save.success);
+        .then(data => {
+            this.loaded = true;
+            this.alert.buildAlert(1, this.labels.save.success);
 
-                setTimeout(() => {
-                    this.router.navigate([this.listPath]);
-                }, 2000);
+            setTimeout(() => {
+                this.router.navigate([this.listPath]);
+            }, 2000);
 
-            }, error => {
-                this.loaded = true;
-                this.alert.buildAlert(0, JSON.parse(error._body).errorMessage);
-            });
+        }, error => {
+            this.loaded = true;
+            this.alert.buildAlert(0, JSON.parse(error._body).errorMessage);
+        });
     }
 
     delete = (event) => {
         this.loaded = false;
         if (window.confirm(this.labels.delete.confirm)) {
             this.service.deleteData(this.urlId)
-                .then(data => {
-                    this.loaded = true;
-                    this.alert.buildAlert(1, this.labels.delete.success);
+            .then(data => {
+                this.loaded = true;
+                this.alert.buildAlert(1, this.labels.delete.success);
 
-                    setTimeout(() => {
-                        this.router.navigate([this.listPath]);
-                    }, 2000);
+                setTimeout(() => {
+                    this.router.navigate([this.listPath]);
+                }, 2000);
 
-                }, error => {
-                    this.loaded = true;
-                    this.alert.buildAlert(0, JSON.parse(error._body).errorMessage);
-                });
+            }, error => {
+                this.loaded = true;
+                this.alert.buildAlert(0, JSON.parse(error._body).errorMessage);
+            });
             return false;
         }
         this.loaded = true;
         return false;
+    }
+
+    validateAndSave = (event) => {
+        if(!this.validate())  { return; }
+        if(!this.object.id) {
+            this.save(event);
+        } else {
+            this.update(event);
+        }
+    }
+
+    validate() {
+        return true;
     }
 
     populatedObject = (): Object => {

@@ -37,7 +37,7 @@ export class JobPositionsDataGridComponent extends DataGridComponent {
     }
 
     newEntity = (rowData): Object => {
-        return new JobPosition(rowData.id, rowData.name, rowData.department, rowData.clientId, rowData.areaPrincipal, rowData.outrasAreasPrincipais, rowData.outrasAreasAlternativas, rowData.abordagemPrincipal, rowData.outrasAbordagensPrincipais, rowData.outrasAbordagensAlternativas);
+        return new JobPosition(rowData.id, rowData.name, rowData.department, rowData.clientId, rowData.areaPrincipal, rowData.outrasAreasPrincipais, rowData.outrasAreasAlternativas, rowData.abordagemPrincipal, rowData.outrasAbordagensPrincipais, rowData.outrasAbordagensAlternativas, rowData.areaNome, rowData.temperamento, rowData.maleUrl, rowData.femaleUrl);
     }
 
 }
