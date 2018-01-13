@@ -28,7 +28,7 @@ export class ModalComponent implements OnInit {
     ngOnInit(): void {
         this.object = this.newEntity(this.defaultValues);
         this.form = this.fb.group(this.object);
-        this.defaultSize = 'lg';
+        this.defaultSize = 'center';
     }
 
     getInstance = (instance): any => {
@@ -45,7 +45,6 @@ export class ModalComponent implements OnInit {
         this.source = dataGrid.source;
         this.updateGrid = updateGrid;
         if (this.type === undefined || this.type === 'create') {
-            console.log('[base][openModal] Creating new entity');
             this.object = this.newEntity(this.defaultValues);
         } else {
             this.object = event.data;
@@ -72,24 +71,26 @@ export class ModalComponent implements OnInit {
         if (!value) {
             return;
         }
+        this.preSave(value);
         this.service.createData(value)
-            .then(data => {
-                this.object = data;
-                if(this.updateGrid !== undefined && this.updateGrid) {
-                  console.log('[modal][createData] Adding: ' + JSON.stringify(this.object));
-                  this.source.add(this.object);
-                  this.dataGrid.empty = this.source.count() === 0;
-                  this.source.refresh();
-                  this.dataGrid.alert.buildAlert(1, this.labels.save.success);
-                }
-                this.alert.reset();
-                // this.form.setValue(JSON.parse(JSON.stringify(this.defaultValues)));
+        .then(data => {
+            this.object = data;
+            if(this.updateGrid !== undefined && this.updateGrid) {
+                // console.log('[modal][createData] Adding: ' + JSON.stringify(this.object));
+                this.preUpdateGrid(this.object);
+                this.source.add(this.object);
+                this.dataGrid.empty = this.source.count() === 0;
+                this.source.refresh();
+                this.dataGrid.alert.buildAlert(1, this.labels.save.success);
+            }
+            this.alert.reset();
+            // this.form.setValue(JSON.parse(JSON.stringify(this.defaultValues)));
 
-            }, error => {
-                this.open('lg');
-                this.alert.handleResponseError(error);
-                this.dataGrid.alert.handleResponseError(error);
-            });
+        }, error => {
+            this.open('lg');
+            this.alert.handleResponseError(error);
+            this.dataGrid.alert.handleResponseError(error);
+        });
 
     }
 
@@ -97,22 +98,26 @@ export class ModalComponent implements OnInit {
         if (!value) {
             return;
         }
+        // console.log('[edit] Before preSave: ' + JSON.stringify(value));
+        this.preSave(value);
+        // console.log('[edit] After preSave: ' + JSON.stringify(value));
         this.service.updateData(value.id, value)
-            .then(data => {
-                this.object = data;
-                if(this.updateGrid !== undefined && this.updateGrid) {
-                  this.source.update(this.selectedRow, this.object);
-                  this.source.reset();
-                  this.source.refresh();
-                  this.dataGrid.alert.buildAlert(1, this.labels.save.success);
-                }
-                this.alert.reset();
+        .then(data => {
+            this.object = data;
+            if(this.updateGrid !== undefined && this.updateGrid) {
+                this.preUpdateGrid(this.object);
+                this.source.update(this.selectedRow, this.object);
+                this.source.reset();
+                this.source.refresh();
+                this.dataGrid.alert.buildAlert(1, this.labels.save.success);
+            }
+            this.alert.reset();
 
-            }, error => {
-                this.open('lg');
-                this.alert.handleResponseError(error);
-                this.dataGrid.alert.handleResponseError(error);
-            });
+        }, error => {
+            this.open('lg');
+            this.alert.handleResponseError(error);
+            this.dataGrid.alert.handleResponseError(error);
+        });
     }
 
     close() {
@@ -128,5 +133,16 @@ export class ModalComponent implements OnInit {
 
     validate(value: any) {
         return true;
+    }
+
+    entityCompareFn(d1: any, d2: any): boolean {
+        console.log('comparing ' + d1 + ' with ' + d2);
+        return d1 && d2 ? d1.id === d2.id : d1 === d2;
+    }
+
+    preUpdateGrid(object: any) {
+    }
+
+    preSave(value: any) {
     }
 }

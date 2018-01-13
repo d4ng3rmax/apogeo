@@ -10,22 +10,28 @@
 <header class="container-fluid" *ngIf="menuEnabled && user !== null">
     <ul class="nav nav-pills nav-pills-main">
         <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('surveys')" [class]="module == 'surveys' ? 'nav-link active' : 'nav-link'">Questionários</a>
+            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('surveys')" [class]="module == 'surveys' ? 'nav-link active' : 'nav-link'" *ngIf="this.authService.isAdmin()">Questionários</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('jobs')" [class]="module == 'jobs' ? 'nav-link active' : 'nav-link'">Cargos</a>
+            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('jobs')" [class]="module == 'jobs' ? 'nav-link active' : 'nav-link'" *ngIf="!this.authService.isRespondent()">Cargos</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('solutions')" [class]="module == 'solutions' ? 'nav-link active' : 'nav-link'">Soluções</a>
+            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('solutions')" [class]="module == 'solutions' ? 'nav-link active' : 'nav-link'" *ngIf="this.authService.isAdmin()">Soluções</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('mail')" [class]="module == 'mail' ? 'nav-link active' : 'nav-link'">Email</a>
+            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('mail')" [class]="module == 'mail' ? 'nav-link active' : 'nav-link'" *ngIf="!this.authService.isRespondent()">Email</a>
         </li>
 
         <li class="nav-item ml-auto"></li>
+
+        <ul class="nav-item nav nav-pills">
+            <li class="nav-item">
+                <a href="javascript:void(0)" (click)="openHelpModal()" class="questionLink"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+            </li>
+        </ul>
 
         <ul class="nav-item nav nav-pills">
             <li class="nav-item nav-link" *ngIf="!!user && !!user.email">Olá, {{ user.email }} ({{ user.roles }})</li>
@@ -53,15 +59,15 @@
     <!-- Jobs -->
     <ul class="nav nav-pills nav-pills-secondary mt-2" *ngIf="module == 'jobs'">
         <li class="nav-item">
-            <a class="nav-link" routerLink="/jobs/jobPosition/list" routerLinkActive="active">Job Positions</a>
+            <a class="nav-link" routerLink="/jobs/jobPosition/list" routerLinkActive="active">Cargos</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" routerLink="/jobs/department/list" routerLinkActive="active">Departments</a>
+            <a class="nav-link" routerLink="/jobs/department/list" routerLinkActive="active">Departmentos</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" routerLink="/jobs/industry/list" routerLinkActive="active">Industries</a>
+            <a class="nav-link" routerLink="/jobs/industry/list" routerLinkActive="active">Ramos</a>
         </li>
     </ul>
 
@@ -82,5 +88,6 @@
             <a class="nav-link" routerLink="/mail/template/list" routerLinkActive="active">Templates</a>
         </li>
     </ul>
-
 </header>
+
+<infoModal #infoModal></infoModal>

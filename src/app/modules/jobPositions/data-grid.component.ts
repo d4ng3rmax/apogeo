@@ -4,6 +4,7 @@ import { JobPositionComponent } from './jobPosition.component';
 import { DataGridComponent } from '../../components';
 import { JobPositionService } from './jobPosition.service';
 import { Alert, JobPosition } from '../../models';
+import { AuthService } from '../../auth';
 
 @Component({
     selector: 'data-grid-job-positions',
@@ -14,9 +15,9 @@ import { Alert, JobPosition } from '../../models';
     (edit)="onEdit($event)"
     (delete)="onDeleteConfirm($event)"></ng2-smart-table>
     <div *ngIf="this.empty">
-        <br />
-        <a (click)="this.reload()" href="javascript:void(0)"> Tentar novamente</a>
-        <img *ngIf="this.reloading" src="images/refresh.svg" width="16" height="16" />
+    <br />
+    <a (click)="this.reload()" href="javascript:void(0)"> Tentar novamente</a>
+    <img *ngIf="this.reloading" src="images/refresh.svg" width="16" height="16" />
     </div>
     `,
     styleUrls: ['../../components/data-grid/data-grid.component.scss'],
@@ -25,15 +26,26 @@ import { Alert, JobPosition } from '../../models';
 })
 export class JobPositionsDataGridComponent extends DataGridComponent {
 
-    constructor(protected router: Router, protected service: JobPositionService) {
+    constructor(protected router: Router, protected service: JobPositionService, protected authService: AuthService) {
         super(router, service);
         this.baseUrl = '/jobs/jobPosition';
         this.labels.add = 'Adicionar Posição';
-        this.settings.columns = {
-            name: {
-                title: 'Posição', width: "100%", filter: false, editor: { type: 'textarea' }
-            }
-        };
+        if(this.authService.isAdmin() || this.authService.isDistributor()) {
+            this.settings.columns = {
+                name: {
+                    title: 'Posição', width: "80%", filter: false, editor: { type: 'textarea' }
+                },
+                clientName: {
+                    title: 'Cliente', width: "20%", filter: false, editor: { type: 'textarea' }
+                }
+            };
+        } else {
+            this.settings.columns = {
+                name: {
+                    title: 'Posição', width: "100%", filter: false, editor: { type: 'textarea' }
+                }
+            };
+        }
     }
 
     newEntity = (rowData): Object => {

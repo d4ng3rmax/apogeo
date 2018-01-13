@@ -26,6 +26,9 @@
                     </div>
                     <br />
 
+                    <label *ngIf="this.authService.isAdminOrDistributor()">Por cliente:</label>
+                    <input #clientSearch *ngIf="this.authService.isAdminOrDistributor()" type="text" placeholder="Buscar por..." (keyup)="dataGrid.search('clientName', clientSearch.value)" class="form-control" />
+                    <br *ngIf="this.authService.isAdminOrDistributor()" />
                     <!-- Form fields -->
 
                     <filter-controls [form]="form" [dataGrid]="dataGrid"></filter-controls>

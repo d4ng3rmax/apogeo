@@ -1,1 +1,48 @@
-{"id":51,"name":"Primeiro Cargo","department":{"id":281},"clientId":41,"jobAreas":[{"id":351,"areaProfissional":{"id":2},"jobAreaClassification":"AREA_PRINCIPAL"},{"id":361,"areaProfissional":{"id":1},"jobAreaClassification":"OUTRA_AREA_PRINCIPAL_1"},{"id":371,"areaProfissional":{"id":3},"jobAreaClassification":"OUTRA_AREA_PRINCIPAL_2"},{"id":381,"areaProfissional":{"id":4},"jobAreaClassification":"OUTRA_AREA_PRINCIPAL_3"},{"id":391,"areaProfissional":{"id":6},"jobAreaClassification":"OUTRA_AREA_PRINCIPAL_4"},{"id":401,"areaProfissional":{"id":7},"jobAreaClassification":"OUTRA_AREA_PRINCIPAL_5"},{"id":411,"areaProfissional":{"id":8},"jobAreaClassification":"OUTRA_AREA_PRINCIPAL_6"},{"id":421,"areaProfissional":{"id":9},"jobAreaClassification":"OUTRA_AREA_PRINCIPAL_7"},{"id":431,"areaProfissional":{"id":5},"jobAreaClassification":"OUTRA_AREA_ALTERNATIVA_1"},{"id":441,"areaProfissional":{"id":10},"jobAreaClassification":"OUTRA_AREA_ALTERNATIVA_2"},{"id":451,"areaProfissional":{"id":12},"jobAreaClassification":"OUTRA_AREA_ALTERNATIVA_3"},{"id":461,"areaProfissional":{"id":13},"jobAreaClassification":"OUTRA_AREA_ALTERNATIVA_4"},{"id":471,"areaProfissional":{"id":14},"jobAreaClassification":"OUTRA_AREA_ALTERNATIVA_5"},{"id":481,"areaProfissional":{"id":15},"jobAreaClassification":"OUTRA_AREA_ALTERNATIVA_6"},{"id":491,"areaProfissional":{"id":16},"jobAreaClassification":"OUTRA_AREA_ALTERNATIVA_7"},{"id":501,"areaProfissional":{"id":21},"jobAreaClassification":"ABORDAGEM_PRINCIPAL"},{"id":511,"areaProfissional":{"id":11},"jobAreaClassification":"OUTRA_ABORDAGEM_PRINCIPAL_1"},{"id":521,"areaProfissional":{"id":14},"jobAreaClassification":"OUTRA_ABORDAGEM_PRINCIPAL_2"},{"id":531,"areaProfissional":{"id":17},"jobAreaClassification":"OUTRA_ABORDAGEM_PRINCIPAL_3"},{"id":541,"areaProfissional":{"id":18},"jobAreaClassification":"OUTRA_ABORDAGEM_PRINCIPAL_4"},{"id":551,"areaProfissional":{"id":20},"jobAreaClassification":"OUTRA_ABORDAGEM_PRINCIPAL_5"},{"id":561,"areaProfissional":{"id":22},"jobAreaClassification":"OUTRA_ABORDAGEM_PRINCIPAL_5"},{"id":571,"areaProfissional":{"id":24},"jobAreaClassification":"OUTRA_ABORDAGEM_PRINCIPAL_6"},{"id":581,"areaProfissional":{"id":19},"jobAreaClassification":"OUTRA_ABORDAGEM_ALTERNATIVA_1"},{"id":591,"areaProfissional":{"id":21},"jobAreaClassification":"OUTRA_ABORDAGEM_ALTERNATIVA_2"},{"id":601,"areaProfissional":{"id":23},"jobAreaClassification":"OUTRA_ABORDAGEM_ALTERNATIVA_3"},{"id":611,"areaProfissional":{"id":25},"jobAreaClassification":"OUTRA_ABORDAGEM_ALTERNATIVA_4"},{"id":621,"areaProfissional":{"id":26},"jobAreaClassification":"OUTRA_ABORDAGEM_ALTERNATIVA_5"},{"id":631,"areaProfissional":{"id":27},"jobAreaClassification":"OUTRA_ABORDAGEM_ALTERNATIVA_6"},{"id":641,"areaProfissional":{"id":28},"jobAreaClassification":"OUTRA_ABORDAGEM_ALTERNATIVA_7"}],"jobMotivacao":[{"id":331,"motivacao":"Fr","jobMotivacaoClassification":"MOTIVACAO_PRINCIPAL_1"},{"id":341,"motivacao":"I","jobMotivacaoClassification":"MOTIVACAO_PRINCIPAL_2"},{"id":351,"motivacao":"Ab","jobMotivacaoClassification":"MOTIVACAO_PRINCIPAL_3"},{"id":361,"motivacao":"Cd","jobMotivacaoClassification":"MOTIVACAO_ALTERNATIVA_1"},{"id":371,"motivacao":"Re","jobMotivacaoClassification":"MOTIVACAO_ALTERNATIVA_2"},{"id":381,"motivacao":"I","jobMotivacaoClassification":"MOTIVACAO_ALTERNATIVA_3"}],"autoGerenciamento1":3,"autoGerenciamento2":4,"apogeo1":1,"apogeo2":2}
+{
+    "apogeo1": 3,
+    "apogeo2": null,
+    "autoGerenciamento1": 2,
+    "autoGerenciamento2": 1,
+    "clientId": null,
+    "clientName": null,
+    "department": {
+        "id": 251
+    },
+    "description": null,
+    "id": 421,
+    "jobAreas": [
+    ],
+    "jobMotivacao": [
+        {
+            "id": 4171,
+            "jobMotivacaoClassification": "MOTIVACAO_PRINCIPAL_1",
+            "motivacao": "Fe"
+        },
+        {
+            "id": 4181,
+            "jobMotivacaoClassification": "MOTIVACAO_PRINCIPAL_2",
+            "motivacao": "I"
+        },
+        {
+            "id": 4191,
+            "jobMotivacaoClassification": "MOTIVACAO_PRINCIPAL_3",
+            "motivacao": "Fr"
+        },
+        {
+            "id": 4201,
+            "jobMotivacaoClassification": "MOTIVACAO_ALTERNATIVA_1",
+            "motivacao": "Pe"
+        },
+        {
+            "id": 4211,
+            "jobMotivacaoClassification": "MOTIVACAO_ALTERNATIVA_2",
+            "motivacao": "R"
+        },
+        {
+            "id": 4221,
+            "jobMotivacaoClassification": "MOTIVACAO_ALTERNATIVA_3",
+            "motivacao": "Ie"
+        }
+    ],
+    "name": "teste3"
+}

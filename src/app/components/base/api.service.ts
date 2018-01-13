@@ -20,21 +20,18 @@ export class ApiService {
     }
 
     async getResult(): Promise<any> {
-
         const response = await this.http.get(`${this.apiRoot}`, this.options)
             .toPromise()
         return response.json();
     }
 
     async getActiveResult(): Promise<any> {
-
         const response = await this.http.get(`${this.apiRoot}/active`, this.options)
             .toPromise()
         return response.json();
     }
 
     async getSingleResult(id): Promise<any> {
-
         const response = await this.http.get(`${this.apiRoot}/${id}`, this.options)
             .toPromise()
         return response.json();

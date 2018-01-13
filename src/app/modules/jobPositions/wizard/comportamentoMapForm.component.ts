@@ -43,15 +43,9 @@ export class ComportamentoMapFormComponent implements AfterViewInit {
         this.initMap();
 
         if (parent.object.jobAreas == null) { return; }
-        if (phase === 4) {
-            this.setSelectedAreas(parent.object.jobAreas, parent.comportamentoAreaIdealClassification);
-
-        } else if (phase === 5) {
-            this.setSelectedAreas(parent.object.jobAreas, parent.comportamentoAreasPrincipaisClassifications);
-
-        } else if (phase === 6) {
-            this.setSelectedAreas(parent.object.jobAreas, parent.comportamentoAreasAlternativasClassifications);
-        }
+        this.setSelectedAreas(parent.object.jobAreas, parent.comportamentoAreaIdealClassification, 4);
+        this.setSelectedAreas(parent.object.jobAreas, parent.comportamentoAreasPrincipaisClassifications, 5);
+        this.setSelectedAreas(parent.object.jobAreas, parent.comportamentoAreasAlternativasClassifications, 6);
 
         this.areas.map(a => {
             if (a.selected === true) {
@@ -70,11 +64,12 @@ export class ComportamentoMapFormComponent implements AfterViewInit {
         return area;
     }
 
-    setSelectedAreas(jobAreas: any[], classifications: string[]) {
+    setSelectedAreas(jobAreas: any[], classifications: string[], phase: number) {
         jobAreas.filter(a => classifications.indexOf(a.jobAreaClassification) > -1).map(a => {
             this.areas.filter(area => area.id === a.areaProfissional.id)
                 .map(area => {
                     area.selected = true;
+                    area.phase = phase;
                 });
         });
     }
@@ -84,21 +79,31 @@ export class ComportamentoMapFormComponent implements AfterViewInit {
         const phase = this.parent.phase;
         const areas = this.areas;
         const self = this;
+        let areasFaseAtual;
+        if (phase === 4) {
+            areasFaseAtual = parent.comportamentoAreaIdealClassification;
+        } else if (phase === 5) {
+            areasFaseAtual = parent.comportamentoAreasPrincipaisClassifications;
+        } else if (phase === 6) {
+            areasFaseAtual = parent.comportamentoAreasAlternativasClassifications;
+        }
         $('.mapArea').off();
         this.repaint();
         $('.mapArea').click(function(e) {
             const area = self.getArea(this.id);
-            const selectedCount = areas.filter(a => a.selected === true).length;
+
+            const selectedCount = areas.filter(a => a.selected === true && a.phase === phase).length;
             if (area == null) { return; }
 
-            if (phase > 4 && selectedCount == 8 && !area.selected) {
+            if (phase > 4 && selectedCount === 8 && !area.selected) {
                 self.parent.alert.buildAlert(0, 'Numero máximo de áreas alcançado', 4);
                 return;
             }
 
             if (phase === 4 && selectedCount === 1 && !area.selected) {
-                areas.filter(a => a.selected === true).map(a => {
+                areas.filter(a => a.selected === true && a.phase === phase).map(a => {
                     a.selected = false;
+                    delete a.phase;
                     $('#' + a.temperamento + '_area').css('fill', 'white');
                 });
             }
@@ -106,14 +111,18 @@ export class ComportamentoMapFormComponent implements AfterViewInit {
             // Seleciona area
             if (!area.selected) {
                 area.selected = true;
+                area.phase = phase;
                 $('#' + this.id + '_area').css('fill', area.color);
                 self.submit();
 
             } else {
-                // Remove selecao da area clicada
-                $('#' + this.id + '_area').css('fill', 'white');
-                area.selected = false;
-                self.submit();
+                if (area.phase === phase) {
+                    // Remove selecao da area clicada
+                    $('#' + this.id + '_area').css('fill', 'white');
+                    area.selected = false;
+                    delete area.phase;
+                    self.submit();
+                }
             }
 
         }).mouseenter(function(e) {
@@ -164,7 +173,7 @@ export class ComportamentoMapFormComponent implements AfterViewInit {
         // Delete existing & add new
         objectAreas = objectAreas.filter(a => classifications.indexOf(a.jobAreaClassification) === -1);
 
-        formAreas.filter((a) => a.selected).map((a, index) => {
+        formAreas.filter((a) => a.selected && a.phase === phase).map((a, index) => {
             objectAreas.push(parent.createJobArea(a, classifications[index]));
         });
 

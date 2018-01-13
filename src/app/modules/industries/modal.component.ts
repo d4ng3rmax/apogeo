@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { AlertComponent, ModalComponent } from '../../components';
 import { IndustryService } from './industry.service';
 import { Industry } from '../../models';
+import { AuthService } from '../../auth';
 
 @Component({
     selector: 'mm-industry-modal',
@@ -11,9 +12,16 @@ import { Industry } from '../../models';
 })
 export class IndustryModalComponent extends ModalComponent {
 
-    constructor(protected fb: FormBuilder, protected service: IndustryService) {
+    clients: any[];
+
+    constructor(protected fb: FormBuilder, protected service: IndustryService, public authService: AuthService) {
         super(fb, service);
         this.defaultValues = { id: 0, name: '', clientId: 0 };
+    }
+
+    async ngOnInit() {
+        super.ngOnInit();
+        this.clients = this.dataGrid && this.dataGrid.clients ? this.dataGrid.clients : [];
     }
 
     newEntity = (params): Object => {
@@ -28,4 +36,21 @@ export class IndustryModalComponent extends ModalComponent {
 
         return true;
     }
+
+    open(size: string) {
+        this.clients = this.dataGrid && this.dataGrid.clients ? this.dataGrid.clients : [];
+        super.open(size);
+    }
+
+    preUpdateGrid(object: any) {
+        const result = this.clients.filter(c => c.id === object.clientId);
+        if(result && result[0]) { object.clientName = result[0].name; }
+    }
+
+    preSave(value: any) {
+        if(!value.clientId || !this.authService.isAdminOrDistributor()) {
+            delete value.clientId;
+        }
+    }
+
 }

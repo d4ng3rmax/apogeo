@@ -13,15 +13,10 @@ export class ClientService extends ApiService {
         super(http, authService);
         this.apiRoot = environment.api.clients;
     }
-    // async getSingleResult(id): Promise<any> {
-    //     const response = await this.http.get('/jobPosition.json', this.options)
-    //         .toPromise()
-    //     return response.json();
-    // }
 
     // async getResult(): Promise<any> {
-    //     const response = await this.http.get('/jobPositions.json', this.options)
-    //         .toPromise()
+    //     const response = await this.http.get('/clients.json', this.options)
+    //     .toPromise()
     //     return response.json();
     // }
 

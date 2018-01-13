@@ -1,759 +1,906 @@
 [
-    {
-        "aproveitar": "Além disso, quer ser querido, embora não comunique abertamente",
-        "area": "EMPREENDEDORA",
-        "areaNome": "Empreendedora",
-        "areasAssociadas": [
-            {
-                "areaAssociada": {
-                    "aproveitar": "A facilidade com que assume o comando em função do seu foco e segurança ao falar e agir.",
-                    "area": "EMPREENDEDORA",
-                    "areaNome": "Empreendedora",
-                    "areasAssociadas": [],
-                    "areasDescricao": "Comercial / Supervisão de áreas operacionais dinâmicas / Empreendedorismo em geral",
-                    "breveRelato1": "Necessita estar em movimento contínuo, responde prontamente às demandas externas. Decide rápidamente e, vai com muito",
-                    "breveRelato2": "foco e energia atrás dos seus objetivos. Sua aproximação social é bastante direta e, às vezes, ousada. Precisa estar no comando ",
-                    "breveRelato3": "de sua vida, tende a estabelecer um comando sobre seu ambiente e as pessoas nele contidas. Apresenta uma tendência para ",
-                    "breveRelato4": "racionalização, trabalha e persegue metas de forma obstinada. Questões pouco objetivas não são consideradas relevantes.",
-                    "color": "rgba(40, 185, 255, 0.75)",
-                    "familia": "A",
-                    "femaleUrl": null,
-                    "formula": {
-                        "id": 252
-                    },
-                    "funcoesDescricao": "Coordenação de áreas de projetos ou pesquisa / Desenvolvimento de produtos",
-                    "id": 2,
-                    "maleUrl": null,
-                    "palavrasDescritivas": "Pró-ativo / Em prontidão / Direto / Determinado / Focado / Comandante",
-                    "precisaGerir": "A intensidade com que atua, pode acelerar o fluxo dos acontecimentos, mas pode criar arestas. ",
-                    "temperamento": "1A",
-                    "temperamentoDescription": "Ação"
-                },
-                "id": 1,
-                "jobAreaClassification": "ABORDAGEM_PRINCIPAL"
-            },
-            {
-                "areaAssociada": {
-                    "aproveitar": "Seu elevado potencial empreendedor.",
-                    "area": "EMPREENDEDORA",
-                    "areaNome": "Empreendedora",
-                    "areasAssociadas": [],
-                    "areasDescricao": "Empreendedorismo / Construção e ampliação de negócios / Comercial",
-                    "breveRelato1": "Permanece em ação, evita gastar energia com o que não dá resultados. Racional e direto, às vezes, perde a paciência e sua critíca",
-                    "breveRelato2": "vem à tona mas, via de regra, sua interação é controlada e suas falas bem articuladas. Percebe o que as pessoas desejam e ",
-                    "breveRelato3": "precisam. Pode desenvolver projetos e negócios, assim como, estabelecer parcerias e contar com o apoio de colabodores.",
-                    "breveRelato4": null,
-                    "color": "rgba(40, 185, 255, 0.75)",
-                    "familia": "EQ",
-                    "femaleUrl": null,
-                    "formula": {
-                        "id": 353
-                    },
-                    "funcoesDescricao": "Gestor executivo de áreas dinâmicas / Coordenador de equipes executivas / Desenvolvimento de projetos",
-                    "id": 3,
-                    "maleUrl": "http",
-                    "palavrasDescritivas": "Ativo e disposto / Enérgico / Persegue objetivos / Controlado e perspicaz / Elabora racionalmente / Delibera rápido  ",
-                    "precisaGerir": "A elevada exigência consigo, com os outros e com os fatos, pode complicar o andamento das coisas.",
-                    "temperamento": "1EQ",
-                    "temperamentoDescription": "Equilibrados"
-                },
-                "id": 11,
-                "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_1"
-            },
-            {
-                "areaAssociada": {
-                    "aproveitar": "Sua disciplina e elevado foco ao desenvolver projetos, negócios ou produtos.",
-                    "area": "EMPREENDEDORA",
-                    "areaNome": "Empreendedora",
-                    "areasAssociadas": [],
-                    "areasDescricao": "Empreendedorismo em geral / Construção e ampliação de negócios / Desenvolvimento de projetos",
-                    "breveRelato1": "Elabora estratégias e planos. Persegue objetivos bem definidos. A interação social ocorre na medida da necessidade de resultados.  ",
-                    "breveRelato2": "Apresenta elevada mobilidade, permanece focado, em ação. Racional e direto, às vezes, perde a paciência e sua critíca vem à tona.",
-                    "breveRelato3": "Quando não está conseguindo alcançar o que programou, dedica-se totalmente, pode irritar-se e ser muito incisivo ou contundente.",
-                    "breveRelato4": "Segue seu instinto, controla seu território e suas atividades. Precisa de liberdade para agir segundo suas convicções e conclusões.",
-                    "color": "rgba(40, 185, 255, 0.75)",
-                    "familia": "AP",
-                    "femaleUrl": null,
-                    "formula": {
-                        "id": 253
-                    },
-                    "funcoesDescricao": "Consultoria organizacional",
-                    "id": 4,
-                    "maleUrl": null,
-                    "palavrasDescritivas": "Ativo e disposto / Enérgico / Persegue objetivos / Direto / Elabora racionalmente / Delibera rápido  ",
-                    "precisaGerir": "Pode ser muito direto e incisivo e, com isso, não produzir empatia e espiríto colaborativo.",
-                    "temperamento": "1AP",
-                    "temperamentoDescription": "Ação e Análise e ponderação"
-                },
-                "id": 21,
-                "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_2"
-            }
-        ],
-        "areasDescricao": "Comercial / Empreendedorismo em geral / Palestras",
-        "breveRelato1": "Necessita estar em movimento, gosta de novidades, constrói uma rede de contatos",
-        "breveRelato2": "Pode decidir e agir muito rápido e, acabar não direcionando adequadamente suas ações, com isso, não obtendo os resultados esperados",
-        "breveRelato3": "Tem muita energia, gosta de estar com pessoas próximas, tende a protegê-las",
-        "breveRelato4": "Apresenta uma tendência para expandir horizontes, pode abrir caminhos e iniciar contatos",
-        "color": "rgba(40, 185, 255, 0.75)",
-        "familia": "AR",
-        "femaleUrl": "http",
-        "formula": {
-            "id": 352
-        },
-        "funcoesDescricao": "Áreas executivas e operacionais dinâmicas",
-        "id": 1,
-        "maleUrl": null,
-        "palavrasDescritivas": "Cheio de energia / Ativo e disposto / Direto / Quer agradar / Espontâneo",
-        "precisaGerir": "Ser admirado pelo seu esforço e generosidade é importante",
-        "temperamento": "1AR",
-        "temperamentoDescription": "Ação e Relacionamentos"
+  {
+    "aproveitar": "Além disso, quer ser querido, embora não comunique abertamente",
+    "area": "EMPREENDEDORA",
+    "areaNome": "Empreendedora",
+    "areasAssociadas": [
+      {
+        "areaAssociada": { "id": 20 },
+        "jobAreaClassification": "ABORDAGEM_PRINCIPAL"
+      },
+      {
+        "areaAssociada": { "id": 21 },
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_1"
+      },
+      {
+        "areaAssociada": { "id": 22 },
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_2"
+      },
+      {
+        "areaAssociada": { "id": 23 },
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_3"
+      },
+      {
+        "areaAssociada": { "id": 24 },
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_1"
+      },
+      {
+        "areaAssociada": { "id": 25 },
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_2"
+      },
+      {
+        "areaAssociada": { "id": 26 },
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_3"
+      }
+    ],
+    "areasDescricao": "Comercial / Empreendedorismo em geral / Palestras",
+    "breveRelato1": "Necessita estar em movimento, gosta de novidades, constrói uma rede de contatos",
+    "breveRelato2": "Pode decidir e agir muito rápido e, acabar não direcionando adequadamente suas ações, com isso, não obtendo os resultados esperados",
+    "breveRelato3": "Tem muita energia, gosta de estar com pessoas próximas, tende a protegê-las",
+    "breveRelato4": "Apresenta uma tendência para expandir horizontes, pode abrir caminhos e iniciar contatos",
+    "color": "rgba(40, 185, 255, 0.75)",
+    "familia": "AR",
+    "femaleUrl": null,
+    "formula": {
+      "id": 352
     },
-    {
-        "aproveitar": "A facilidade com que assume o comando em função do seu foco e segurança ao falar e agir.",
-        "area": "EMPREENDEDORA",
-        "areaNome": "Empreendedora",
-        "areasAssociadas": [],
-        "areasDescricao": "Comercial / Supervisão de áreas operacionais dinâmicas / Empreendedorismo em geral",
-        "breveRelato1": "Necessita estar em movimento contínuo, responde prontamente às demandas externas. Decide rápidamente e, vai com muito",
-        "breveRelato2": "foco e energia atrás dos seus objetivos. Sua aproximação social é bastante direta e, às vezes, ousada. Precisa estar no comando ",
-        "breveRelato3": "de sua vida, tende a estabelecer um comando sobre seu ambiente e as pessoas nele contidas. Apresenta uma tendência para ",
-        "breveRelato4": "racionalização, trabalha e persegue metas de forma obstinada. Questões pouco objetivas não são consideradas relevantes.",
-        "color": "rgba(40, 185, 255, 0.75)",
-        "familia": "A",
-        "femaleUrl": null,
-        "formula": {
-            "id": 252
-        },
-        "funcoesDescricao": "Coordenação de áreas de projetos ou pesquisa / Desenvolvimento de produtos",
-        "id": 2,
-        "maleUrl": null,
-        "palavrasDescritivas": "Pró-ativo / Em prontidão / Direto / Determinado / Focado / Comandante",
-        "precisaGerir": "A intensidade com que atua, pode acelerar o fluxo dos acontecimentos, mas pode criar arestas. ",
-        "temperamento": "1A",
-        "temperamentoDescription": "Ação"
+    "funcoesDescricao": "Áreas executivas e operacionais dinâmicas",
+    "id": 1,
+    "maleUrl": null,
+    "palavrasDescritivas": "Cheio de energia / Ativo e disposto / Direto / Quer agradar / Espontâneo",
+    "precisaGerir": "Ser admirado pelo seu esforço e generosidade é importante",
+    "temperamento": "1AR",
+    "temperamentoDescription": "Ação e Relacionamentos"
+  },
+  {
+    "aproveitar": "A facilidade com que assume o comando em função do seu foco e segurança ao falar e agir.",
+    "area": "EMPREENDEDORA",
+    "areaNome": "Empreendedora",
+    "areasAssociadas": [
+      {
+        "areaAssociada": 28,
+        "jobAreaClassification": "ABORDAGEM_PRINCIPAL"
+      },
+      {
+        "areaAssociada": 20,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_1"
+      },
+      {
+        "areaAssociada": 21,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_2"
+      },
+      {
+        "areaAssociada": 22,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_3"
+      },
+      {
+        "areaAssociada": 23,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_1"
+      },
+      {
+        "areaAssociada": 24,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_2"
+      },
+      {
+        "areaAssociada": 25,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_3"
+      }
+    ],
+    "areasDescricao": "Comercial / Supervisão de áreas operacionais dinâmicas / Empreendedorismo em geral",
+    "breveRelato1": "Necessita estar em movimento contínuo, responde prontamente às demandas externas. Decide rápidamente e, vai com muito",
+    "breveRelato2": "foco e energia atrás dos seus objetivos. Sua aproximação social é bastante direta e, às vezes, ousada. Precisa estar no comando ",
+    "breveRelato3": "de sua vida, tende a estabelecer um comando sobre seu ambiente e as pessoas nele contidas. Apresenta uma tendência para ",
+    "breveRelato4": "racionalização, trabalha e persegue metas de forma obstinada. Questões pouco objetivas não são consideradas relevantes.",
+    "color": "rgba(40, 185, 255, 0.75)",
+    "familia": "A",
+    "femaleUrl": null,
+    "formula": {
+      "id": 252
     },
-    {
-        "aproveitar": "Seu elevado potencial empreendedor.",
-        "area": "EMPREENDEDORA",
-        "areaNome": "Empreendedora",
-        "areasAssociadas": [],
-        "areasDescricao": "Empreendedorismo / Construção e ampliação de negócios / Comercial",
-        "breveRelato1": "Permanece em ação, evita gastar energia com o que não dá resultados. Racional e direto, às vezes, perde a paciência e sua critíca",
-        "breveRelato2": "vem à tona mas, via de regra, sua interação é controlada e suas falas bem articuladas. Percebe o que as pessoas desejam e ",
-        "breveRelato3": "precisam. Pode desenvolver projetos e negócios, assim como, estabelecer parcerias e contar com o apoio de colabodores.",
-        "breveRelato4": null,
-        "color": "rgba(40, 185, 255, 0.75)",
-        "familia": "EQ",
-        "femaleUrl": null,
-        "formula": {
-            "id": 353
-        },
-        "funcoesDescricao": "Gestor executivo de áreas dinâmicas / Coordenador de equipes executivas / Desenvolvimento de projetos",
-        "id": 3,
-        "maleUrl": "http",
-        "palavrasDescritivas": "Ativo e disposto / Enérgico / Persegue objetivos / Controlado e perspicaz / Elabora racionalmente / Delibera rápido  ",
-        "precisaGerir": "A elevada exigência consigo, com os outros e com os fatos, pode complicar o andamento das coisas.",
-        "temperamento": "1EQ",
-        "temperamentoDescription": "Equilibrados"
+    "funcoesDescricao": "Coordenação de áreas de projetos ou pesquisa / Desenvolvimento de produtos",
+    "id": 2,
+    "maleUrl": null,
+    "palavrasDescritivas": "Pró-ativo / Em prontidão / Direto / Determinado / Focado / Comandante",
+    "precisaGerir": "A intensidade com que atua, pode acelerar o fluxo dos acontecimentos, mas pode criar arestas. ",
+    "temperamento": "1A",
+    "temperamentoDescription": "Ação"
+  },
+  {
+    "aproveitar": "Seu elevado potencial empreendedor.",
+    "area": "EMPREENDEDORA",
+    "areaNome": "Empreendedora",
+    "areasAssociadas": [
+      {
+        "areaAssociada": 28,
+        "jobAreaClassification": "ABORDAGEM_PRINCIPAL"
+      },
+      {
+        "areaAssociada": 20,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_1"
+      },
+      {
+        "areaAssociada": 21,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_2"
+      },
+      {
+        "areaAssociada": 22,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_3"
+      },
+      {
+        "areaAssociada": 23,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_1"
+      },
+      {
+        "areaAssociada": 24,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_2"
+      },
+      {
+        "areaAssociada": 25,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_3"
+      }
+    ],
+    "areasDescricao": "Empreendedorismo / Construção e ampliação de negócios / Comercial",
+    "breveRelato1": "Permanece em ação, evita gastar energia com o que não dá resultados. Racional e direto, às vezes, perde a paciência e sua critíca",
+    "breveRelato2": "vem à tona mas, via de regra, sua interação é controlada e suas falas bem articuladas. Percebe o que as pessoas desejam e ",
+    "breveRelato3": "precisam. Pode desenvolver projetos e negócios, assim como, estabelecer parcerias e contar com o apoio de colabodores.",
+    "breveRelato4": null,
+    "color": "rgba(40, 185, 255, 0.75)",
+    "familia": "EQ",
+    "femaleUrl": null,
+    "formula": {
+      "id": 353
     },
-    {
-        "aproveitar": "Sua disciplina e elevado foco ao desenvolver projetos, negócios ou produtos.",
-        "area": "EMPREENDEDORA",
-        "areaNome": "Empreendedora",
-        "areasAssociadas": [],
-        "areasDescricao": "Empreendedorismo em geral / Construção e ampliação de negócios / Desenvolvimento de projetos",
-        "breveRelato1": "Elabora estratégias e planos. Persegue objetivos bem definidos. A interação social ocorre na medida da necessidade de resultados.  ",
-        "breveRelato2": "Apresenta elevada mobilidade, permanece focado, em ação. Racional e direto, às vezes, perde a paciência e sua critíca vem à tona.",
-        "breveRelato3": "Quando não está conseguindo alcançar o que programou, dedica-se totalmente, pode irritar-se e ser muito incisivo ou contundente.",
-        "breveRelato4": "Segue seu instinto, controla seu território e suas atividades. Precisa de liberdade para agir segundo suas convicções e conclusões.",
-        "color": "rgba(40, 185, 255, 0.75)",
-        "familia": "AP",
-        "femaleUrl": null,
-        "formula": {
-            "id": 253
-        },
-        "funcoesDescricao": "Consultoria organizacional",
-        "id": 4,
-        "maleUrl": null,
-        "palavrasDescritivas": "Ativo e disposto / Enérgico / Persegue objetivos / Direto / Elabora racionalmente / Delibera rápido  ",
-        "precisaGerir": "Pode ser muito direto e incisivo e, com isso, não produzir empatia e espiríto colaborativo.",
-        "temperamento": "1AP",
-        "temperamentoDescription": "Ação e Análise e ponderação"
+    "funcoesDescricao": "Gestor executivo de áreas dinâmicas / Coordenador de equipes executivas / Desenvolvimento de projetos",
+    "id": 3,
+    "maleUrl": null,
+    "palavrasDescritivas": "Ativo e disposto / Enérgico / Persegue objetivos / Controlado e perspicaz / Elabora racionalmente / Delibera rápido  ",
+    "precisaGerir": "A elevada exigência consigo, com os outros e com os fatos, pode complicar o andamento das coisas.",
+    "temperamento": "1EQ",
+    "temperamentoDescription": "Equilibrados"
+  },
+  {
+    "aproveitar": "Sua disciplina e elevado foco ao desenvolver projetos, negócios ou produtos.",
+    "area": "EMPREENDEDORA",
+    "areaNome": "Empreendedora",
+    "areasAssociadas": [
+      {
+        "areaAssociada": 28,
+        "jobAreaClassification": "ABORDAGEM_PRINCIPAL"
+      },
+      {
+        "areaAssociada": 20,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_1"
+      },
+      {
+        "areaAssociada": 21,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_2"
+      },
+      {
+        "areaAssociada": 22,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_3"
+      },
+      {
+        "areaAssociada": 23,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_1"
+      },
+      {
+        "areaAssociada": 24,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_2"
+      },
+      {
+        "areaAssociada": 25,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_3"
+      }
+    ],
+    "areasDescricao": "Empreendedorismo em geral / Construção e ampliação de negócios / Desenvolvimento de projetos",
+    "breveRelato1": "Elabora estratégias e planos. Persegue objetivos bem definidos. A interação social ocorre na medida da necessidade de resultados.  ",
+    "breveRelato2": "Apresenta elevada mobilidade, permanece focado, em ação. Racional e direto, às vezes, perde a paciência e sua critíca vem à tona.",
+    "breveRelato3": "Quando não está conseguindo alcançar o que programou, dedica-se totalmente, pode irritar-se e ser muito incisivo ou contundente.",
+    "breveRelato4": "Segue seu instinto, controla seu território e suas atividades. Precisa de liberdade para agir segundo suas convicções e conclusões.",
+    "color": "rgba(40, 185, 255, 0.75)",
+    "familia": "AP",
+    "femaleUrl": null,
+    "formula": {
+      "id": 253
     },
-    {
-        "aproveitar": "Sua boa disposição e disponibilidade para participar e ajudar.",
-        "area": "EXECUTIVA",
-        "areaNome": "Executiva",
-        "areasAssociadas": [],
-        "areasDescricao": "Áreas executivas operacionais / Gestão de relacionamentos e negócios",
-        "breveRelato1": "Gosta de estar com as pessoas, é amigável e ávido por afeto. Aceita bem os outros, é sociavel e direto ao interagir. Disponível para",
-        "breveRelato2": "quem precisa de sua ajuda, responde as demandas externas com boa disposição. Aceita os outros indiscriminadamente, tende a",
-        "breveRelato3": "não prejulgar. Multi-focado, gosta de estar em atividade, apresenta uma tendência para dispersão. Tem facilidade para se envolver em ",
-        "breveRelato4": "vivências e novas experiências. Pode apresentar dificuldades para frear seus impulsos e ponderar um pouco mais antes de agir.",
-        "color": "rgba(196, 4, 82, 0.75)",
-        "familia": "RA",
-        "femaleUrl": null,
-        "formula": {
-            "id": 442
-        },
-        "funcoesDescricao": "Gestão de processos administrativos",
-        "id": 5,
-        "maleUrl": null,
-        "palavrasDescritivas": "Amigável / Gregário / Disponível / Ativo e disposto / Multi-focado",
-        "precisaGerir": "A tendência de extender momentos de interação com as pessoas e, com isso, perder tempo ou perder o foco.",
-        "temperamento": "2RA",
-        "temperamentoDescription": "Relacionamentos e Ação"
+    "funcoesDescricao": "Consultoria organizacional",
+    "id": 4,
+    "maleUrl": null,
+    "palavrasDescritivas": "Ativo e disposto / Enérgico / Persegue objetivos / Direto / Elabora racionalmente / Delibera rápido  ",
+    "precisaGerir": "Pode ser muito direto e incisivo e, com isso, não produzir empatia e espiríto colaborativo.",
+    "temperamento": "1AP",
+    "temperamentoDescription": "Ação e Análise e ponderação"
+  },
+  {
+    "aproveitar": "Sua boa disposição e disponibilidade para participar e ajudar.",
+    "area": "EXECUTIVA",
+    "areaNome": "Executiva",
+    "areasAssociadas": [
+      {
+        "areaAssociada": 28,
+        "jobAreaClassification": "ABORDAGEM_PRINCIPAL"
+      },
+      {
+        "areaAssociada": 20,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_1"
+      },
+      {
+        "areaAssociada": 21,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_2"
+      },
+      {
+        "areaAssociada": 22,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_3"
+      },
+      {
+        "areaAssociada": 23,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_1"
+      },
+      {
+        "areaAssociada": 24,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_2"
+      },
+      {
+        "areaAssociada": 25,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_3"
+      }
+    ],
+    "areasDescricao": "Áreas executivas operacionais / Gestão de relacionamentos e negócios",
+    "breveRelato1": "Gosta de estar com as pessoas, é amigável e ávido por afeto. Aceita bem os outros, é sociavel e direto ao interagir. Disponível para",
+    "breveRelato2": "quem precisa de sua ajuda, responde as demandas externas com boa disposição. Aceita os outros indiscriminadamente, tende a",
+    "breveRelato3": "não prejulgar. Multi-focado, gosta de estar em atividade, apresenta uma tendência para dispersão. Tem facilidade para se envolver em ",
+    "breveRelato4": "vivências e novas experiências. Pode apresentar dificuldades para frear seus impulsos e ponderar um pouco mais antes de agir.",
+    "color": "rgba(196, 4, 82, 0.75)",
+    "familia": "RA",
+    "femaleUrl": null,
+    "formula": {
+      "id": 442
     },
-    {
-        "aproveitar": "Sua pró-atividade e capacidade de descomplicar, facilitar as relações e, fazer com que as coisas caminhem.",
-        "area": "EXECUTIVA",
-        "areaNome": "Executiva",
-        "areasAssociadas": [],
-        "areasDescricao": "Áreas executivas operacionais / Áreas administrativas processuais",
-        "breveRelato1": "Ativo, precisa estar em ação cumprindo com aquilo com o que se propõe. É um facilitador que descomplica e dá andamento ao que",
-        "breveRelato2": "tem que ser feito. Preocupa-se com as demandas externas, quer atender quando requisitado. As necessidades das pessoas são ",
-        "breveRelato3": "importantes. Não fica elaborando racionalmente, vai direto ao ponto, em função disso, é tido como uma pessoa acessível e solicita. ",
-        "breveRelato4": "Aprende, atravéz da experiência prática e do contato com as pessoas e com as situações que surgem no dia a dia. Não é um teórico.",
-        "color": "rgba(40, 185, 255, 0.75)",
-        "familia": "AR",
-        "femaleUrl": null,
-        "formula": {
-            "id": 342
-        },
-        "funcoesDescricao": "Comercial - Gestão de carteira de clientes / Gestão administrativa",
-        "id": 6,
-        "maleUrl": null,
-        "palavrasDescritivas": "Ativo e disposto / Em prontidão / Direto / Acessível / Quer agradar",
-        "precisaGerir": "A falta de uma maior ponderação ao agir, podendo desfavorecer o acompanhamento minucioso das situações.",
-        "temperamento": "2AR",
-        "temperamentoDescription": "Ação e Relacionamentos"
+    "funcoesDescricao": "Gestão de processos administrativos",
+    "id": 5,
+    "maleUrl": null,
+    "palavrasDescritivas": "Amigável / Gregário / Disponível / Ativo e disposto / Multi-focado",
+    "precisaGerir": "A tendência de extender momentos de interação com as pessoas e, com isso, perder tempo ou perder o foco.",
+    "temperamento": "2RA",
+    "temperamentoDescription": "Relacionamentos e Ação"
+  },
+  {
+    "aproveitar": "Sua pró-atividade e capacidade de descomplicar, facilitar as relações e, fazer com que as coisas caminhem.",
+    "area": "EXECUTIVA",
+    "areaNome": "Executiva",
+    "areasAssociadas": [
+      {
+        "areaAssociada": 28,
+        "jobAreaClassification": "ABORDAGEM_PRINCIPAL"
+      },
+      {
+        "areaAssociada": 20,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_1"
+      },
+      {
+        "areaAssociada": 21,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_2"
+      },
+      {
+        "areaAssociada": 22,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_3"
+      },
+      {
+        "areaAssociada": 23,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_1"
+      },
+      {
+        "areaAssociada": 24,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_2"
+      },
+      {
+        "areaAssociada": 25,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_3"
+      }
+    ],
+    "areasDescricao": "Áreas executivas operacionais / Áreas administrativas processuais",
+    "breveRelato1": "Ativo, precisa estar em ação cumprindo com aquilo com o que se propõe. É um facilitador que descomplica e dá andamento ao que",
+    "breveRelato2": "tem que ser feito. Preocupa-se com as demandas externas, quer atender quando requisitado. As necessidades das pessoas são ",
+    "breveRelato3": "importantes. Não fica elaborando racionalmente, vai direto ao ponto, em função disso, é tido como uma pessoa acessível e solicita. ",
+    "breveRelato4": "Aprende, atravéz da experiência prática e do contato com as pessoas e com as situações que surgem no dia a dia. Não é um teórico.",
+    "color": "rgba(40, 185, 255, 0.75)",
+    "familia": "AR",
+    "femaleUrl": null,
+    "formula": {
+      "id": 342
     },
-    {
-        "aproveitar": "Sua energia para ação e seu foco, assim como, a racionalidade e clareza com que trata dos assuntos.",
-        "area": "EXECUTIVA",
-        "areaNome": "Executiva",
-        "areasAssociadas": [],
-        "areasDescricao": "Áreas executivas operacionais / Áreas administrativas processuais",
-        "breveRelato1": "Necessita estar em movimento contínuo, responde prontamente às demandas externas. Sua aproximação social é direta e clara.",
-        "breveRelato2": "Foca e vai com energia atrás dos seus objetivos. Sente necessidade de ter controle sobre suas atividades, seguir os planos que ",
-        "breveRelato3": "pré-estabelece para si. Apresenta mais facilidade para decidir e agir por conta própria do que ser complascente e aderir ao ponto ",
-        "breveRelato4": "de vista dos outros. Procura trazer as pessoas para ação ou faz sozinho. Tende a dirigir suas ações racionalmente.",
-        "color": "rgba(40, 185, 255, 0.75)",
-        "familia": "A",
-        "femaleUrl": null,
-        "formula": {
-            "id": 242
-        },
-        "funcoesDescricao": "Coordenação ou supervisão com foco em alcançar metas",
-        "id": 7,
-        "maleUrl": null,
-        "palavrasDescritivas": "Pró-ativo / Em prontidão / Direto / Focado / Decidido",
-        "precisaGerir": "Eventual falta de abertura para caminhos alternativos.",
-        "temperamento": "2A",
-        "temperamentoDescription": "Ação"
+    "funcoesDescricao": "Comercial - Gestão de carteira de clientes / Gestão administrativa",
+    "id": 6,
+    "maleUrl": null,
+    "palavrasDescritivas": "Ativo e disposto / Em prontidão / Direto / Acessível / Quer agradar",
+    "precisaGerir": "A falta de uma maior ponderação ao agir, podendo desfavorecer o acompanhamento minucioso das situações.",
+    "temperamento": "2AR",
+    "temperamentoDescription": "Ação e Relacionamentos"
+  },
+  {
+    "aproveitar": "Sua energia para ação e seu foco, assim como, a racionalidade e clareza com que trata dos assuntos.",
+    "area": "EXECUTIVA",
+    "areaNome": "Executiva",
+    "areasAssociadas": [
+      {
+        "areaAssociada": 28,
+        "jobAreaClassification": "ABORDAGEM_PRINCIPAL"
+      },
+      {
+        "areaAssociada": 20,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_1"
+      },
+      {
+        "areaAssociada": 21,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_2"
+      },
+      {
+        "areaAssociada": 22,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_3"
+      },
+      {
+        "areaAssociada": 23,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_1"
+      },
+      {
+        "areaAssociada": 24,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_2"
+      },
+      {
+        "areaAssociada": 25,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_3"
+      }
+    ],
+    "areasDescricao": "Áreas executivas operacionais / Áreas administrativas processuais",
+    "breveRelato1": "Necessita estar em movimento contínuo, responde prontamente às demandas externas. Sua aproximação social é direta e clara.",
+    "breveRelato2": "Foca e vai com energia atrás dos seus objetivos. Sente necessidade de ter controle sobre suas atividades, seguir os planos que ",
+    "breveRelato3": "pré-estabelece para si. Apresenta mais facilidade para decidir e agir por conta própria do que ser complascente e aderir ao ponto ",
+    "breveRelato4": "de vista dos outros. Procura trazer as pessoas para ação ou faz sozinho. Tende a dirigir suas ações racionalmente.",
+    "color": "rgba(40, 185, 255, 0.75)",
+    "familia": "A",
+    "femaleUrl": null,
+    "formula": {
+      "id": 242
     },
-    {
-        "aproveitar": "A pró-atividade sem extremos, resultado de sua concernência com as pessoas e em tomar decisões acertadas.",
-        "area": "EXECUTIVA",
-        "areaNome": "Executiva",
-        "areasAssociadas": [],
-        "areasDescricao": "Gestão administrativa / Coordenação de áreas executiva",
-        "breveRelato1": "Ativo e estavel em sua atuação. Delimita seu espaço, mas procura não ser contundente, conversa e pondera para depois agir.",
-        "breveRelato2": "Ávido por resultados, deseja cumprir com suas atividades, quer entregar e, também corresponder com as expectativas dos outros,",
-        "breveRelato3": "quer ser bem visto. Responde com agilidade as demandas externas. Persegue seus objetivos, procura ter controle sobre suas ",
-        "breveRelato4": "atividades, administra seu ímpeto por ação. Tem concernência com as necessidades das pessoas, sua interação é equilibrada.",
-        "color": "rgba(40, 185, 255, 0.75)",
-        "familia": "EQ",
-        "femaleUrl": null,
-        "formula": {
-            "id": 343
-        },
-        "funcoesDescricao": "Consultoria empresarial / Comerial - Gestão de carteira de clientes",
-        "id": 8,
-        "maleUrl": null,
-        "palavrasDescritivas": "Ativo e disposto / Direto /  Procura Agradar / Acessível / Pondera e delibera",
-        "precisaGerir": "A falta de autonomia e ação diante de situações que pedem decisões unilaterais e maior exposição.",
-        "temperamento": "2EQ",
-        "temperamentoDescription": "Equilibrados"
+    "funcoesDescricao": "Coordenação ou supervisão com foco em alcançar metas",
+    "id": 7,
+    "maleUrl": null,
+    "palavrasDescritivas": "Pró-ativo / Em prontidão / Direto / Focado / Decidido",
+    "precisaGerir": "Eventual falta de abertura para caminhos alternativos.",
+    "temperamento": "2A",
+    "temperamentoDescription": "Ação"
+  },
+  {
+    "aproveitar": "A pró-atividade sem extremos, resultado de sua concernência com as pessoas e em tomar decisões acertadas.",
+    "area": "EXECUTIVA",
+    "areaNome": "Executiva",
+    "areasAssociadas": [
+      {
+        "areaAssociada": 28,
+        "jobAreaClassification": "ABORDAGEM_PRINCIPAL"
+      },
+      {
+        "areaAssociada": 20,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_1"
+      },
+      {
+        "areaAssociada": 21,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_2"
+      },
+      {
+        "areaAssociada": 22,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_PRINCIPAL_3"
+      },
+      {
+        "areaAssociada": 23,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_1"
+      },
+      {
+        "areaAssociada": 24,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_2"
+      },
+      {
+        "areaAssociada": 25,
+        "jobAreaClassification": "OUTRA_ABORDAGEM_ALTERNATIVA_3"
+      }
+    ],
+    "areasDescricao": "Gestão administrativa / Coordenação de áreas executiva",
+    "breveRelato1": "Ativo e estavel em sua atuação. Delimita seu espaço, mas procura não ser contundente, conversa e pondera para depois agir.",
+    "breveRelato2": "Ávido por resultados, deseja cumprir com suas atividades, quer entregar e, também corresponder com as expectativas dos outros,",
+    "breveRelato3": "quer ser bem visto. Responde com agilidade as demandas externas. Persegue seus objetivos, procura ter controle sobre suas ",
+    "breveRelato4": "atividades, administra seu ímpeto por ação. Tem concernência com as necessidades das pessoas, sua interação é equilibrada.",
+    "color": "rgba(40, 185, 255, 0.75)",
+    "familia": "EQ",
+    "femaleUrl": null,
+    "formula": {
+      "id": 343
     },
-    {
-        "aproveitar": "Seu foco em ação visando alcançar resultados concretos.",
-        "area": "EXECUTIVA",
-        "areaNome": "Executiva",
-        "areasAssociadas": [],
-        "areasDescricao": "Áreas processuais focadas em metas / Áreas executivas dinâmicas e/ou competitivas",
-        "breveRelato1": "Elabora planos de ação, persegue objetivos bem definidos. Seu foco faz com que direcione sua vida para realização profissional,",
-        "breveRelato2": "questões de ordem pessoal e emocional são secundárias, embora tenda a cumprir com as obrigações sociais básicas. Entende que",
-        "breveRelato3": "é preciso manter as relações. Eventualmente suas falas podem ser consideradas muito diretas e incisivas, na verdade só quer ",
-        "breveRelato4": "objetivar para não perder tempo. Continuamente em ação, concentra-se em dar andamento às suas atividades e seus objetivos.",
-        "color": "rgba(40, 185, 255, 0.75)",
-        "familia": "AP",
-        "femaleUrl": null,
-        "formula": {
-            "id": 243
-        },
-        "funcoesDescricao": "Profissional liberal com viés racional / Gestão executiva de áreas processuais",
-        "id": 9,
-        "maleUrl": null,
-        "palavrasDescritivas": "Pró-ativo / Focado / Persegue objetivos / Atento e controlado / Elabora racionalmente",
-        "precisaGerir": "O excesso de racionalidade e pragmatismo com que lida com suas questões e situações em geral.",
-        "temperamento": "2AP",
-        "temperamentoDescription": "Ação e Análise e ponderação"
+    "funcoesDescricao": "Consultoria empresarial / Comerial - Gestão de carteira de clientes",
+    "id": 8,
+    "maleUrl": null,
+    "palavrasDescritivas": "Ativo e disposto / Direto /  Procura Agradar / Acessível / Pondera e delibera",
+    "precisaGerir": "A falta de autonomia e ação diante de situações que pedem decisões unilaterais e maior exposição.",
+    "temperamento": "2EQ",
+    "temperamentoDescription": "Equilibrados"
+  },
+  {
+    "aproveitar": "Seu foco em ação visando alcançar resultados concretos.",
+    "area": "EXECUTIVA",
+    "areaNome": "Executiva",
+    "areasAssociadas": [],
+    "areasDescricao": "Áreas processuais focadas em metas / Áreas executivas dinâmicas e/ou competitivas",
+    "breveRelato1": "Elabora planos de ação, persegue objetivos bem definidos. Seu foco faz com que direcione sua vida para realização profissional,",
+    "breveRelato2": "questões de ordem pessoal e emocional são secundárias, embora tenda a cumprir com as obrigações sociais básicas. Entende que",
+    "breveRelato3": "é preciso manter as relações. Eventualmente suas falas podem ser consideradas muito diretas e incisivas, na verdade só quer ",
+    "breveRelato4": "objetivar para não perder tempo. Continuamente em ação, concentra-se em dar andamento às suas atividades e seus objetivos.",
+    "color": "rgba(40, 185, 255, 0.75)",
+    "familia": "AP",
+    "femaleUrl": null,
+    "formula": {
+      "id": 243
     },
-    {
-        "aproveitar": "Sua disposição para ação, agindo e interagindo segundo uma estratégia bem definida.",
-        "area": "EXECUTIVA",
-        "areaNome": "Executiva",
-        "areasAssociadas": [],
-        "areasDescricao": "Comercial, vendas consultivas com foco em metas / Áreas executivas consultivas",
-        "breveRelato1": "Desempenha melhor individualmente, persegue objetivos ativamente. Analisa e delibera com perspicácia e segurança. A interação",
-        "breveRelato2": "é política, visa alcançar o que deseja. Define as metas, planeja suas ações e segue à risca. Não existe uma predisposição natural ",
-        "breveRelato3": "para construção de um comportamento mais flexível, tende a defender seus pontos de vista e não mudar de posição. Controlado",
-        "breveRelato4": "em suas decisões e ações. Sua predisposição para projeção está acima da média geral, principalmente dentro da área executiva.",
-        "color": "rgba(30, 240, 159, 0.75)",
-        "familia": "PA",
-        "femaleUrl": null,
-        "formula": {
-            "id": 245
-        },
-        "funcoesDescricao": "Profissão liberal com forte víes racional / Coordenação de áreas executivas estratégicas",
-        "id": 10,
-        "maleUrl": null,
-        "palavrasDescritivas": "Análitico e controlado / Visão projetiva / Pró-ativo / Persegue metas individuais / Perspicaz",
-        "precisaGerir": "A tendência de construir avaliações e julgamentos segundo um crivo muito severo.",
-        "temperamento": "2PA",
-        "temperamentoDescription": "Análise e ponderação e Ação"
+    "funcoesDescricao": "Profissional liberal com viés racional / Gestão executiva de áreas processuais",
+    "id": 9,
+    "maleUrl": null,
+    "palavrasDescritivas": "Pró-ativo / Focado / Persegue objetivos / Atento e controlado / Elabora racionalmente",
+    "precisaGerir": "O excesso de racionalidade e pragmatismo com que lida com suas questões e situações em geral.",
+    "temperamento": "2AP",
+    "temperamentoDescription": "Ação e Análise e ponderação"
+  },
+  {
+    "aproveitar": "Sua disposição para ação, agindo e interagindo segundo uma estratégia bem definida.",
+    "area": "EXECUTIVA",
+    "areaNome": "Executiva",
+    "areasAssociadas": [],
+    "areasDescricao": "Comercial, vendas consultivas com foco em metas / Áreas executivas consultivas",
+    "breveRelato1": "Desempenha melhor individualmente, persegue objetivos ativamente. Analisa e delibera com perspicácia e segurança. A interação",
+    "breveRelato2": "é política, visa alcançar o que deseja. Define as metas, planeja suas ações e segue à risca. Não existe uma predisposição natural ",
+    "breveRelato3": "para construção de um comportamento mais flexível, tende a defender seus pontos de vista e não mudar de posição. Controlado",
+    "breveRelato4": "em suas decisões e ações. Sua predisposição para projeção está acima da média geral, principalmente dentro da área executiva.",
+    "color": "rgba(30, 240, 159, 0.75)",
+    "familia": "PA",
+    "femaleUrl": null,
+    "formula": {
+      "id": 245
     },
-    {
-        "aproveitar": "Sua maneira atenciosa e criteriosa de encaminhar as atividades e as relações.",
-        "area": "GERENCIAL",
-        "areaNome": "Gerencial",
-        "areasAssociadas": [],
-        "areasDescricao": "Atividades que demandem interação com pessoas, critério e qualidade",
-        "breveRelato1": "Preocupa-se com avaliação social, aproveita as relações interpessoais, liga-se afetivamente. Bom trato social, não gera atritos, sua ",
-        "breveRelato2": "aproximação é amigável. É estavel em sua atuação. Elabora racionalmente, para agir precisa ponderar primeiro, sua postura tende",
-        "breveRelato3": "a ser mais contida do que arrojada. Sua preocupação em atender as necessidades das pessoas e, sua concernência racional mais",
-        "breveRelato4": "elevada, ou seja, seu elevado critério, fazem com que seu ritmo de ação e entrega seja cadenciado e não acelerado.",
-        "color": "rgba(196, 4, 82, 0.75)",
-        "familia": "RP",
-        "femaleUrl": null,
-        "formula": {
-            "id": 434
-        },
-        "funcoesDescricao": "Gestão de pessoas / Área educacional / Relações internacionais",
-        "id": 11,
-        "maleUrl": null,
-        "palavrasDescritivas": "Agradável / Prazer na sociabilização / Estável / Perspicaz / Ponderado",
-        "precisaGerir": "O excesso de zelo que pode retardar ou complicar o encaminhamento e conclusão das atividades.",
-        "temperamento": "3RP",
-        "temperamentoDescription": "Relacionamentos e Análise e ponderação"
+    "funcoesDescricao": "Profissão liberal com forte víes racional / Coordenação de áreas executivas estratégicas",
+    "id": 10,
+    "maleUrl": null,
+    "palavrasDescritivas": "Análitico e controlado / Visão projetiva / Pró-ativo / Persegue metas individuais / Perspicaz",
+    "precisaGerir": "A tendência de construir avaliações e julgamentos segundo um crivo muito severo.",
+    "temperamento": "2PA",
+    "temperamentoDescription": "Análise e ponderação e Ação"
+  },
+  {
+    "aproveitar": "Sua maneira atenciosa e criteriosa de encaminhar as atividades e as relações.",
+    "area": "GERENCIAL",
+    "areaNome": "Gerencial",
+    "areasAssociadas": [],
+    "areasDescricao": "Atividades que demandem interação com pessoas, critério e qualidade",
+    "breveRelato1": "Preocupa-se com avaliação social, aproveita as relações interpessoais, liga-se afetivamente. Bom trato social, não gera atritos, sua ",
+    "breveRelato2": "aproximação é amigável. É estavel em sua atuação. Elabora racionalmente, para agir precisa ponderar primeiro, sua postura tende",
+    "breveRelato3": "a ser mais contida do que arrojada. Sua preocupação em atender as necessidades das pessoas e, sua concernência racional mais",
+    "breveRelato4": "elevada, ou seja, seu elevado critério, fazem com que seu ritmo de ação e entrega seja cadenciado e não acelerado.",
+    "color": "rgba(196, 4, 82, 0.75)",
+    "familia": "RP",
+    "femaleUrl": null,
+    "formula": {
+      "id": 434
     },
-    {
-        "aproveitar": "Favorece a integração entre as pessoas e a criação de um bom ambiente para o desenvolvimento.",
-        "area": "GERENCIAL",
-        "areaNome": "Gerencial",
-        "areasAssociadas": [],
-        "areasDescricao": "Área acadêmica / Palestrante / Recursos humanos - Treinamentos / Música",
-        "breveRelato1": "Sociável, aceita bem os outros, tem prazer em estar com as pessoas. As trocas interpessoais são importantes fonte de bem estar.",
-        "breveRelato2": "Apresenta interesse humano. Tem uma boa percepção das necessidades ao seu redor. É espontâneo, sabe escutar e interage de ",
-        "breveRelato3": "forma agradável. Procura colaborar com o grupo, conversa e pondera antes de agir. Responde as demandas externas com calma.",
-        "breveRelato4": "Gosta de ambientes estáveis. Quer corresponder com o que lhe é demandado. Com elevada atenção periférica, tende a dispersar.",
-        "color": "rgba(196, 4, 82, 0.75)",
-        "familia": "RA",
-        "femaleUrl": null,
-        "formula": {
-            "id": 433
-        },
-        "funcoesDescricao": "Intermediação em áreas estratégicas e gerenciais / Preservação de carteira de clientes",
-        "id": 12,
-        "maleUrl": null,
-        "palavrasDescritivas": "Agradável / Acessível / Participativo / Perspicaz / Ponderado ",
-        "precisaGerir": "A elevada atenção periférica, o foco muito aberto, pode prejudicar o alcance das metas.",
-        "temperamento": "3RA",
-        "temperamentoDescription": "Relacionamentos e Ação"
+    "funcoesDescricao": "Gestão de pessoas / Área educacional / Relações internacionais",
+    "id": 11,
+    "maleUrl": null,
+    "palavrasDescritivas": "Agradável / Prazer na sociabilização / Estável / Perspicaz / Ponderado",
+    "precisaGerir": "O excesso de zelo que pode retardar ou complicar o encaminhamento e conclusão das atividades.",
+    "temperamento": "3RP",
+    "temperamentoDescription": "Relacionamentos e Análise e ponderação"
+  },
+  {
+    "aproveitar": "Favorece a integração entre as pessoas e a criação de um bom ambiente para o desenvolvimento.",
+    "area": "GERENCIAL",
+    "areaNome": "Gerencial",
+    "areasAssociadas": [],
+    "areasDescricao": "Área acadêmica / Palestrante / Recursos humanos - Treinamentos / Música",
+    "breveRelato1": "Sociável, aceita bem os outros, tem prazer em estar com as pessoas. As trocas interpessoais são importantes fonte de bem estar.",
+    "breveRelato2": "Apresenta interesse humano. Tem uma boa percepção das necessidades ao seu redor. É espontâneo, sabe escutar e interage de ",
+    "breveRelato3": "forma agradável. Procura colaborar com o grupo, conversa e pondera antes de agir. Responde as demandas externas com calma.",
+    "breveRelato4": "Gosta de ambientes estáveis. Quer corresponder com o que lhe é demandado. Com elevada atenção periférica, tende a dispersar.",
+    "color": "rgba(196, 4, 82, 0.75)",
+    "familia": "RA",
+    "femaleUrl": null,
+    "formula": {
+      "id": 433
     },
-    {
-        "aproveitar": "A predisposição para exposição e para uma comunicação influente.",
-        "area": "GERENCIAL",
-        "areaNome": "Gerencial",
-        "areasAssociadas": [],
-        "areasDescricao": "Palestrante / Consultoria empresarial - Treinamentos / Coordenação de projetos",
-        "breveRelato1": "Apresenta boa disposição e precisa estar em movimento. Gosta das trocas interpessoais e utiliza sua eloquencia para promover-se.",
-        "breveRelato2": "Tem sempre muitas coisas na mente, pode dividir sua energia entre diversas atividades diferentes, em função disso, pode acabar",
-        "breveRelato3": "tendo dificuldades com finalização. Porém, gosta de vivenciar o que está em andamento, desfruta a experiência presente. Pode ",
-        "breveRelato4": "desenvolve-se em áreas que demandem mais comunicação e intermediação e, menos prontidão para execução.",
-        "color": "rgba(40, 185, 255, 0.75)",
-        "familia": "AR",
-        "femaleUrl": null,
-        "formula": {
-            "id": 443
-        },
-        "funcoesDescricao": "Gestão de pessoas / Relações internacionais / Relações públicas",
-        "id": 13,
-        "maleUrl": null,
-        "palavrasDescritivas": "Ativo e disposto / Multi-focado / Agradável / Gregário / Raciocínio rápido / Articulado",
-        "precisaGerir": "A indisposição para tomada de ações executivas que sejam mais elaboradas ou trabalhosas.",
-        "temperamento": "3AR",
-        "temperamentoDescription": "Ação e Relacionamentos"
+    "funcoesDescricao": "Intermediação em áreas estratégicas e gerenciais / Preservação de carteira de clientes",
+    "id": 12,
+    "maleUrl": null,
+    "palavrasDescritivas": "Agradável / Acessível / Participativo / Perspicaz / Ponderado ",
+    "precisaGerir": "A elevada atenção periférica, o foco muito aberto, pode prejudicar o alcance das metas.",
+    "temperamento": "3RA",
+    "temperamentoDescription": "Relacionamentos e Ação"
+  },
+  {
+    "aproveitar": "A predisposição para exposição e para uma comunicação influente.",
+    "area": "GERENCIAL",
+    "areaNome": "Gerencial",
+    "areasAssociadas": [],
+    "areasDescricao": "Palestrante / Consultoria empresarial - Treinamentos / Coordenação de projetos",
+    "breveRelato1": "Apresenta boa disposição e precisa estar em movimento. Gosta das trocas interpessoais e utiliza sua eloquencia para promover-se.",
+    "breveRelato2": "Tem sempre muitas coisas na mente, pode dividir sua energia entre diversas atividades diferentes, em função disso, pode acabar",
+    "breveRelato3": "tendo dificuldades com finalização. Porém, gosta de vivenciar o que está em andamento, desfruta a experiência presente. Pode ",
+    "breveRelato4": "desenvolve-se em áreas que demandem mais comunicação e intermediação e, menos prontidão para execução.",
+    "color": "rgba(40, 185, 255, 0.75)",
+    "familia": "AR",
+    "femaleUrl": null,
+    "formula": {
+      "id": 443
     },
-    {
-        "aproveitar": "O potencial diversificado, o dinâmismo e a pluralidade nos relacionamentos.",
-        "area": "GERENCIAL",
-        "areaNome": "Gerencial",
-        "areasAssociadas": [],
-        "areasDescricao": "Palestrante / Recursos humanos - Treinamentos / Consultoria e coordenação de projetos",
-        "breveRelato1": "Tem prazer em estar com as pessoas, sua aproximação social é agradável. Interessa-se por tudo o que é novo, envolve-se com ",
-        "breveRelato2": "diferentes atividades e experiências, permanece em contínuo movimento. Pode ter dificuldades para focar e definir prioridades e",
-        "breveRelato3": "predileções. Costuma sofrer de ansiedade em função da mente muito ativa, projeta possibilidades futuras. Apresenta disposição ",
-        "breveRelato4": "para ação, assim como gosta de estar com amigos e de uma boa leitura. Multi-focado, tende a destacar-se pelo poder de influencia.",
-        "color": "rgba(196, 4, 82, 0.75)",
-        "familia": "EQ",
-        "femaleUrl": null,
-        "formula": {
-            "id": 444
-        },
-        "funcoesDescricao": "Artes em geral / Jornalismo / Relações internacionais / Relações públicas",
-        "id": 14,
-        "maleUrl": null,
-        "palavrasDescritivas": "Agradável / Gregário / Multi-focado / Dinâmico / Ativo e disposto / Raciocínio rápido / Visão projetiva",
-        "precisaGerir": "A ansiedade resultado do envolvimento com muitas atividades e a dificuldade para elencar prioridades.",
-        "temperamento": "3EQ",
-        "temperamentoDescription": "Equilibrados"
+    "funcoesDescricao": "Gestão de pessoas / Relações internacionais / Relações públicas",
+    "id": 13,
+    "maleUrl": null,
+    "palavrasDescritivas": "Ativo e disposto / Multi-focado / Agradável / Gregário / Raciocínio rápido / Articulado",
+    "precisaGerir": "A indisposição para tomada de ações executivas que sejam mais elaboradas ou trabalhosas.",
+    "temperamento": "3AR",
+    "temperamentoDescription": "Ação e Relacionamentos"
+  },
+  {
+    "aproveitar": "O potencial diversificado, o dinâmismo e a pluralidade nos relacionamentos.",
+    "area": "GERENCIAL",
+    "areaNome": "Gerencial",
+    "areasAssociadas": [],
+    "areasDescricao": "Palestrante / Recursos humanos - Treinamentos / Consultoria e coordenação de projetos",
+    "breveRelato1": "Tem prazer em estar com as pessoas, sua aproximação social é agradável. Interessa-se por tudo o que é novo, envolve-se com ",
+    "breveRelato2": "diferentes atividades e experiências, permanece em contínuo movimento. Pode ter dificuldades para focar e definir prioridades e",
+    "breveRelato3": "predileções. Costuma sofrer de ansiedade em função da mente muito ativa, projeta possibilidades futuras. Apresenta disposição ",
+    "breveRelato4": "para ação, assim como gosta de estar com amigos e de uma boa leitura. Multi-focado, tende a destacar-se pelo poder de influencia.",
+    "color": "rgba(196, 4, 82, 0.75)",
+    "familia": "EQ",
+    "femaleUrl": null,
+    "formula": {
+      "id": 444
     },
-    {
-        "aproveitar": "A tendência para eficiência no que faz e para construção de uma comunicação bem direcionada.",
-        "area": "GERENCIAL",
-        "areaNome": "Gerencial",
-        "areasAssociadas": [],
-        "areasDescricao": "Comercial consultivo / Consultoria empresarial / Coordenação de projetos ",
-        "breveRelato1": "Gosta estar em movimento, persegue metas individuais. É racional e ponderado em suas conclusões. Sua forma de aproximação é ",
-        "breveRelato2": "direta e, comumente, bem humorada. Com elaboração mental acentuada, avalia e delibera continuamente. Preocupa-se em projetar ",
-        "breveRelato3": "uma imagem favorável. Sabe estabelecer relações agradáveis, articula para alcançar seus objetivos. Apresenta concernência com ",
-        "breveRelato4": "as pessoas, compreende suas necessidades, mas não gosta de consumir seu tempo com relações que não levam a nada. ",
-        "color": "rgba(40, 185, 255, 0.75)",
-        "familia": "AP",
-        "femaleUrl": null,
-        "formula": {
-            "id": 344
-        },
-        "funcoesDescricao": "Profissional liberal - Áreas biológicas / Gestão de áreas executivas com foco em resultados",
-        "id": 15,
-        "maleUrl": null,
-        "palavrasDescritivas": "Pró-ativo / Atento e Focado / Visão projetiva / Elaboração racional / Articulado e perspicaz",
-        "precisaGerir": "O excesso de exigência e dificuldade para delegar e a predisposição para o exagero na autovalorização.",
-        "temperamento": "3AP",
-        "temperamentoDescription": "Ação e Análise e ponderação"
+    "funcoesDescricao": "Artes em geral / Jornalismo / Relações internacionais / Relações públicas",
+    "id": 14,
+    "maleUrl": null,
+    "palavrasDescritivas": "Agradável / Gregário / Multi-focado / Dinâmico / Ativo e disposto / Raciocínio rápido / Visão projetiva",
+    "precisaGerir": "A ansiedade resultado do envolvimento com muitas atividades e a dificuldade para elencar prioridades.",
+    "temperamento": "3EQ",
+    "temperamentoDescription": "Equilibrados"
+  },
+  {
+    "aproveitar": "A tendência para eficiência no que faz e para construção de uma comunicação bem direcionada.",
+    "area": "GERENCIAL",
+    "areaNome": "Gerencial",
+    "areasAssociadas": [],
+    "areasDescricao": "Comercial consultivo / Consultoria empresarial / Coordenação de projetos ",
+    "breveRelato1": "Gosta estar em movimento, persegue metas individuais. É racional e ponderado em suas conclusões. Sua forma de aproximação é ",
+    "breveRelato2": "direta e, comumente, bem humorada. Com elaboração mental acentuada, avalia e delibera continuamente. Preocupa-se em projetar ",
+    "breveRelato3": "uma imagem favorável. Sabe estabelecer relações agradáveis, articula para alcançar seus objetivos. Apresenta concernência com ",
+    "breveRelato4": "as pessoas, compreende suas necessidades, mas não gosta de consumir seu tempo com relações que não levam a nada. ",
+    "color": "rgba(40, 185, 255, 0.75)",
+    "familia": "AP",
+    "femaleUrl": null,
+    "formula": {
+      "id": 344
     },
-    {
-        "aproveitar": "Sua habilidade para direcionar esforços estratégicamente, inclusive com uma comunicação bem direcionada.",
-        "area": "GERENCIAL",
-        "areaNome": "Gerencial",
-        "areasAssociadas": [],
-        "areasDescricao": "Áreas administrativas ou estratégicas com vies racional",
-        "breveRelato1": "Sua atuação é estável, planeja suas atividades e pondera antes de agir, com isso, evita falhar. Atende as demandas externas em",
-        "breveRelato2": "um ritmo cadenciado. Sua aproximação social é branda e cordial, não gera atritos. Percebe as necessidades das pessoas e tem ",
-        "breveRelato3": "concernência com elas, quando possível, procura atendê-las. Gosta de organizar a vida para poder dar andamento as rotinas que ",
-        "breveRelato4": "pré-estabeleceu para si. Contido e reservado, se adequa melhor em ambientes onde exista menos mudanças e confrontos.",
-        "color": "rgba(30, 240, 159, 0.75)",
-        "familia": "PA",
-        "femaleUrl": null,
-        "formula": {
-            "id": 334
-        },
-        "funcoesDescricao": "Gestão de áreas especialistas com vies racional",
-        "id": 16,
-        "maleUrl": null,
-        "palavrasDescritivas": "Reservado e analítico / Atento e Contido / Ponderado / Agradável / Estável",
-        "precisaGerir": "A tendência para o excesso de rigor, com o qual pode tratar a si mesmo e os outros.",
-        "temperamento": "3PA",
-        "temperamentoDescription": "Análise e ponderação e Ação"
+    "funcoesDescricao": "Profissional liberal - Áreas biológicas / Gestão de áreas executivas com foco em resultados",
+    "id": 15,
+    "maleUrl": null,
+    "palavrasDescritivas": "Pró-ativo / Atento e Focado / Visão projetiva / Elaboração racional / Articulado e perspicaz",
+    "precisaGerir": "O excesso de exigência e dificuldade para delegar e a predisposição para o exagero na autovalorização.",
+    "temperamento": "3AP",
+    "temperamentoDescription": "Ação e Análise e ponderação"
+  },
+  {
+    "aproveitar": "Sua habilidade para direcionar esforços estratégicamente, inclusive com uma comunicação bem direcionada.",
+    "area": "GERENCIAL",
+    "areaNome": "Gerencial",
+    "areasAssociadas": [],
+    "areasDescricao": "Áreas administrativas ou estratégicas com vies racional",
+    "breveRelato1": "Sua atuação é estável, planeja suas atividades e pondera antes de agir, com isso, evita falhar. Atende as demandas externas em",
+    "breveRelato2": "um ritmo cadenciado. Sua aproximação social é branda e cordial, não gera atritos. Percebe as necessidades das pessoas e tem ",
+    "breveRelato3": "concernência com elas, quando possível, procura atendê-las. Gosta de organizar a vida para poder dar andamento as rotinas que ",
+    "breveRelato4": "pré-estabeleceu para si. Contido e reservado, se adequa melhor em ambientes onde exista menos mudanças e confrontos.",
+    "color": "rgba(30, 240, 159, 0.75)",
+    "familia": "PA",
+    "femaleUrl": null,
+    "formula": {
+      "id": 334
     },
-    {
-        "aproveitar": "Sua perspicácia, forma inteligente e simples de lidar com as situações e pessoas. ",
-        "area": "GERENCIAL",
-        "areaNome": "Gerencial",
-        "areasAssociadas": [],
-        "areasDescricao": "Áreas estratégicas ou de especialização com vies racional / Trabalhos autônomos",
-        "breveRelato1": "Apresenta um bom trato interpessoal, é afável. Seu tom de voz é suave e sua aproximação é branda, não gera atritos. Quer levar a",
-        "breveRelato2": "vida de forma leve, sem complicações. Compromete-se com o que pode cumprir, sem exageros. Seu ritmo de ação é cadênciado.",
-        "breveRelato3": "Perspicaz, tem boa visão periférica, percebe as necessidades ao seu redor. Também tem boa visão projetiva, costuma acertar em",
-        "breveRelato4": "suas análises futuras. Sua ponderação e intelectualidade fina, dependendo do contexto, pode ser vista como uma fragilidade.",
-        "color": "rgba(30, 240, 159, 0.75)",
-        "familia": "PR",
-        "femaleUrl": null,
-        "formula": {
-            "id": 435
-        },
-        "funcoesDescricao": "Profissional liberal especialista / Área administrativa lidando com pessoas / Consultoria",
-        "id": 17,
-        "maleUrl": null,
-        "palavrasDescritivas": "Atento e contido / Ponderado / Visão projetiva / Perspicaz / Agradável / Sereno",
-        "precisaGerir": "Sua indisponibilidade para se envolver com trabalhos muito pesados ou ter que lidar com situações difíceis.",
-        "temperamento": "3PR",
-        "temperamentoDescription": "Análise e ponderação e Relacionamentos"
+    "funcoesDescricao": "Gestão de áreas especialistas com vies racional",
+    "id": 16,
+    "maleUrl": null,
+    "palavrasDescritivas": "Reservado e analítico / Atento e Contido / Ponderado / Agradável / Estável",
+    "precisaGerir": "A tendência para o excesso de rigor, com o qual pode tratar a si mesmo e os outros.",
+    "temperamento": "3PA",
+    "temperamentoDescription": "Análise e ponderação e Ação"
+  },
+  {
+    "aproveitar": "Sua perspicácia, forma inteligente e simples de lidar com as situações e pessoas. ",
+    "area": "GERENCIAL",
+    "areaNome": "Gerencial",
+    "areasAssociadas": [],
+    "areasDescricao": "Áreas estratégicas ou de especialização com vies racional / Trabalhos autônomos",
+    "breveRelato1": "Apresenta um bom trato interpessoal, é afável. Seu tom de voz é suave e sua aproximação é branda, não gera atritos. Quer levar a",
+    "breveRelato2": "vida de forma leve, sem complicações. Compromete-se com o que pode cumprir, sem exageros. Seu ritmo de ação é cadênciado.",
+    "breveRelato3": "Perspicaz, tem boa visão periférica, percebe as necessidades ao seu redor. Também tem boa visão projetiva, costuma acertar em",
+    "breveRelato4": "suas análises futuras. Sua ponderação e intelectualidade fina, dependendo do contexto, pode ser vista como uma fragilidade.",
+    "color": "rgba(30, 240, 159, 0.75)",
+    "familia": "PR",
+    "femaleUrl": null,
+    "formula": {
+      "id": 435
     },
-    {
-        "aproveitar": "A tendência para criatividade e facilidade com que lida com as situações usando sua habilidade nas relações.",
-        "area": "ESTRATEGICA",
-        "areaNome": "Estratégica",
-        "areasAssociadas": [],
-        "areasDescricao": "Áreas criátivas / Música e artes em geral / Recursos Humanos - Treinamentos",
-        "breveRelato1": "Apresenta um bom trato social, quando deseja, consegue agradar. Estável em sua atuação, age no seu ritmo, vai devagar e sempre. ",
-        "breveRelato2": "Agradável e controlado, é perspicaz, percebe intuitivamente acontecimentos que podem passar despercebidos aos outros. Sensível",
-        "breveRelato3": "com relação as necessidades das pessoas. Boa elaboração mental, combina sua percepção intuítiva com sua percpção racionai e  ",
-        "breveRelato4": "tem ideias criativas. Às vezes elabora demais e pode apresentar ideias interessantes mas, difíceis de implementar na prática. ",
-        "color": "rgba(196, 4, 82, 0.75)",
-        "familia": "RP",
-        "femaleUrl": null,
-        "formula": {
-            "id": 424
-        },
-        "funcoesDescricao": "Consultoria em áreas estratégicas / Profissional liberal especialista",
-        "id": 18,
-        "maleUrl": null,
-        "palavrasDescritivas": "Agradável / Gregário / Estável / Perspicaz / Ponderado / Controlado",
-        "precisaGerir": "A possibilidade de criar caminhos pouco práticos ou elaborar muito e retardar a tomada de ação.",
-        "temperamento": "4RP",
-        "temperamentoDescription": "Relacionamentos e Análise e ponderação"
+    "funcoesDescricao": "Profissional liberal especialista / Área administrativa lidando com pessoas / Consultoria",
+    "id": 17,
+    "maleUrl": null,
+    "palavrasDescritivas": "Atento e contido / Ponderado / Visão projetiva / Perspicaz / Agradável / Sereno",
+    "precisaGerir": "Sua indisponibilidade para se envolver com trabalhos muito pesados ou ter que lidar com situações difíceis.",
+    "temperamento": "3PR",
+    "temperamentoDescription": "Análise e ponderação e Relacionamentos"
+  },
+  {
+    "aproveitar": "A tendência para criatividade e facilidade com que lida com as situações usando sua habilidade nas relações.",
+    "area": "ESTRATEGICA",
+    "areaNome": "Estratégica",
+    "areasAssociadas": [],
+    "areasDescricao": "Áreas criátivas / Música e artes em geral / Recursos Humanos - Treinamentos",
+    "breveRelato1": "Apresenta um bom trato social, quando deseja, consegue agradar. Estável em sua atuação, age no seu ritmo, vai devagar e sempre. ",
+    "breveRelato2": "Agradável e controlado, é perspicaz, percebe intuitivamente acontecimentos que podem passar despercebidos aos outros. Sensível",
+    "breveRelato3": "com relação as necessidades das pessoas. Boa elaboração mental, combina sua percepção intuítiva com sua percpção racionai e  ",
+    "breveRelato4": "tem ideias criativas. Às vezes elabora demais e pode apresentar ideias interessantes mas, difíceis de implementar na prática. ",
+    "color": "rgba(196, 4, 82, 0.75)",
+    "familia": "RP",
+    "femaleUrl": null,
+    "formula": {
+      "id": 424
     },
-    {
-        "aproveitar": "A facilidade para o acolhimento e a construção de ambientes estimulantes e favoráveis ao aprendizado.",
-        "area": "ESTRATEGICA",
-        "areaNome": "Estratégica",
-        "areasAssociadas": [],
-        "areasDescricao": "Área educacional / Vendas receptivas / Recursos humanos - Áreas de treinamento",
-        "breveRelato1": "Bom trato social, o convívio com as pessoas é muito importante. Ávido por afeto, constrói e preserva as relações. Precisa responder ",
-        "breveRelato2": "à suas demandas internas para poder dar o melhor de si aos outros. Responde às demandas externas em ritmo cadênciado, não ",
-        "breveRelato3": "se apressa. Propicia um clima harmonioso e de integração. As pessoas se sentem à vontade para expressar suas vontades e suas",
-        "breveRelato4": "necessidades. Com sua postura tolerante, fomenta o aprendizado e estimula a tomada de ação nos outros.",
-        "color": "rgba(196, 4, 82, 0.75)",
-        "familia": "R",
-        "femaleUrl": null,
-        "formula": {
-            "id": 422
-        },
-        "funcoesDescricao": "Atividades ligadas a área de humanas.",
-        "id": 19,
-        "maleUrl": null,
-        "palavrasDescritivas": "Estável / Amável /  Gregário / Tolerante / Sereno / Perspicaz",
-        "precisaGerir": "O eventual excesso de complascência e a perda do melhor ritmo ou direcionamento das ações.",
-        "temperamento": "4R",
-        "temperamentoDescription": "Relacionamentos"
+    "funcoesDescricao": "Consultoria em áreas estratégicas / Profissional liberal especialista",
+    "id": 18,
+    "maleUrl": null,
+    "palavrasDescritivas": "Agradável / Gregário / Estável / Perspicaz / Ponderado / Controlado",
+    "precisaGerir": "A possibilidade de criar caminhos pouco práticos ou elaborar muito e retardar a tomada de ação.",
+    "temperamento": "4RP",
+    "temperamentoDescription": "Relacionamentos e Análise e ponderação"
+  },
+  {
+    "aproveitar": "A facilidade para o acolhimento e a construção de ambientes estimulantes e favoráveis ao aprendizado.",
+    "area": "ESTRATEGICA",
+    "areaNome": "Estratégica",
+    "areasAssociadas": [],
+    "areasDescricao": "Área educacional / Vendas receptivas / Recursos humanos - Áreas de treinamento",
+    "breveRelato1": "Bom trato social, o convívio com as pessoas é muito importante. Ávido por afeto, constrói e preserva as relações. Precisa responder ",
+    "breveRelato2": "à suas demandas internas para poder dar o melhor de si aos outros. Responde às demandas externas em ritmo cadênciado, não ",
+    "breveRelato3": "se apressa. Propicia um clima harmonioso e de integração. As pessoas se sentem à vontade para expressar suas vontades e suas",
+    "breveRelato4": "necessidades. Com sua postura tolerante, fomenta o aprendizado e estimula a tomada de ação nos outros.",
+    "color": "rgba(196, 4, 82, 0.75)",
+    "familia": "R",
+    "femaleUrl": null,
+    "formula": {
+      "id": 422
     },
-    {
-        "aproveitar": "Sua habilidade para construir relações amistosas que favorecem negóciações e o trabalho em equipe.",
-        "area": "ESTRATEGICA",
-        "areaNome": "Estratégica",
-        "areasAssociadas": [],
-        "areasDescricao": "Comercial - Gestão de carteria de clientes / Novos negócios / Áreas gerencias com foco em pessoas",
-        "breveRelato1": "É espontâneo, sabe escutar, coloca-se de forma serena. É acessível, não complica as coisas. Responde às demandas externas em ",
-        "breveRelato2": "ritmo cadênciado. Sociável e gregário, aceita bem os outros, gosta do convívio com amigos, familiares e colegas de trabalho. Precisa",
-        "breveRelato3": "se colocar em movimento, gosta de atividades em grupo e trabalho em equipe. É acessível, oferece atenção a quem precisa de sua ",
-        "breveRelato4": "ajuda. Apresenta elevada atenção periférica e isso reduz o foco em sua atuação. Tende a ser mais tolerante do que rigoroso.",
-        "color": "rgba(196, 4, 82, 0.75)",
-        "familia": "RA",
-        "femaleUrl": null,
-        "formula": {
-            "id": 432
-        },
-        "funcoesDescricao": "Recursos humanos / Área administrativa voltado para relacionamentos",
-        "id": 20,
-        "maleUrl": null,
-        "palavrasDescritivas": "Agradável / Gregário / Acessível / Participativo / Disposto",
-        "precisaGerir": "A eventual falta de foco e direcionamento, em função da abertura excessiva ao encaminhar as relações.",
-        "temperamento": "4RA",
-        "temperamentoDescription": "Relacionamentos e Ação"
+    "funcoesDescricao": "Atividades ligadas a área de humanas.",
+    "id": 19,
+    "maleUrl": null,
+    "palavrasDescritivas": "Estável / Amável /  Gregário / Tolerante / Sereno / Perspicaz",
+    "precisaGerir": "O eventual excesso de complascência e a perda do melhor ritmo ou direcionamento das ações.",
+    "temperamento": "4R",
+    "temperamentoDescription": "Relacionamentos"
+  },
+  {
+    "aproveitar": "Sua habilidade para construir relações amistosas que favorecem negóciações e o trabalho em equipe.",
+    "area": "ESTRATEGICA",
+    "areaNome": "Estratégica",
+    "areasAssociadas": [],
+    "areasDescricao": "Comercial - Gestão de carteria de clientes / Novos negócios / Áreas gerencias com foco em pessoas",
+    "breveRelato1": "É espontâneo, sabe escutar, coloca-se de forma serena. É acessível, não complica as coisas. Responde às demandas externas em ",
+    "breveRelato2": "ritmo cadênciado. Sociável e gregário, aceita bem os outros, gosta do convívio com amigos, familiares e colegas de trabalho. Precisa",
+    "breveRelato3": "se colocar em movimento, gosta de atividades em grupo e trabalho em equipe. É acessível, oferece atenção a quem precisa de sua ",
+    "breveRelato4": "ajuda. Apresenta elevada atenção periférica e isso reduz o foco em sua atuação. Tende a ser mais tolerante do que rigoroso.",
+    "color": "rgba(196, 4, 82, 0.75)",
+    "familia": "RA",
+    "femaleUrl": null,
+    "formula": {
+      "id": 432
     },
-    {
-        "aproveitar": "A predisposição para agir com linearidade e estabilidade, dando boa sustentação para diferentes atividades.",
-        "area": "ESTRATEGICA",
-        "areaNome": "Estratégica",
-        "areasAssociadas": [],
-        "areasDescricao": "Gestão de áreas estratégicas ou administrativas / Atividades autônomas",
-        "breveRelato1": "Analisa as situações antes de agir, é atento e ponderado. Atua em ritmo cadênciado, precisa garantir uma entrega satisfatória,",
-        "breveRelato2": "por isso, não se apressa. De forma geral, é estável em sua atuação. Sua aproximação social é agradável e branda, não gera atritos.",
-        "breveRelato3": "Apresenta boa disposição, procura estar acessível quando é solicitado. Preza pela manutenção de relações amigáveis e cordiais.",
-        "breveRelato4": "Procura não se sobrecarregar e não se expor, tende a ser contido e discreto. Comumente projeta uma boa impressão sobre si.",
-        "color": "rgba(30, 240, 159, 0.75)",
-        "familia": "EQ",
-        "femaleUrl": null,
-        "formula": {
-            "id": 333
-        },
-        "funcoesDescricao": "Área organizacional voltada para projetos / Consultoria organizacional",
-        "id": 21,
-        "maleUrl": null,
-        "palavrasDescritivas": "Agradável / Acessível / Disposto / Estável / Atento e contido / Ponderado",
-        "precisaGerir": "A tendência a não se arriscar, não adotar uma postura mais arrojada e de transformação.",
-        "temperamento": "4EQ",
-        "temperamentoDescription": "Equilibrados"
+    "funcoesDescricao": "Recursos humanos / Área administrativa voltado para relacionamentos",
+    "id": 20,
+    "maleUrl": null,
+    "palavrasDescritivas": "Agradável / Gregário / Acessível / Participativo / Disposto",
+    "precisaGerir": "A eventual falta de foco e direcionamento, em função da abertura excessiva ao encaminhar as relações.",
+    "temperamento": "4RA",
+    "temperamentoDescription": "Relacionamentos e Ação"
+  },
+  {
+    "aproveitar": "A predisposição para agir com linearidade e estabilidade, dando boa sustentação para diferentes atividades.",
+    "area": "ESTRATEGICA",
+    "areaNome": "Estratégica",
+    "areasAssociadas": [],
+    "areasDescricao": "Gestão de áreas estratégicas ou administrativas / Atividades autônomas",
+    "breveRelato1": "Analisa as situações antes de agir, é atento e ponderado. Atua em ritmo cadênciado, precisa garantir uma entrega satisfatória,",
+    "breveRelato2": "por isso, não se apressa. De forma geral, é estável em sua atuação. Sua aproximação social é agradável e branda, não gera atritos.",
+    "breveRelato3": "Apresenta boa disposição, procura estar acessível quando é solicitado. Preza pela manutenção de relações amigáveis e cordiais.",
+    "breveRelato4": "Procura não se sobrecarregar e não se expor, tende a ser contido e discreto. Comumente projeta uma boa impressão sobre si.",
+    "color": "rgba(30, 240, 159, 0.75)",
+    "familia": "EQ",
+    "femaleUrl": null,
+    "formula": {
+      "id": 333
     },
-    {
-        "aproveitar": "A predisposição para organização e o seguimento linear daquilo que estabelece como responsabilidades.",
-        "area": "ESTRATEGICA",
-        "areaNome": "Estratégica",
-        "areasAssociadas": [],
-        "areasDescricao": "Engenharia / Profissões área de exatas / Área estratégica - Projetos",
-        "breveRelato1": "Elaboração mental elevada, analisa e delibera antes de agir. Tende a destacar-se intelectualmente. Reservado, quando interage,",
-        "breveRelato2": "é racional e direto, embora procure se colocar de forma adequada, educada. Evita confrontos, prefere ambientes mais previsíveis ",
-        "breveRelato3": "onde as atividades ocorram de forma planejada. Trabalha melhor sozinho perseguindo metas individuais. Procura estabelecer",
-        "breveRelato4": "uma rotina, precisa seguir sua programação. Sente-se bem quando consegue atingir suas metas e manter sua estabilidade.",
-        "color": "rgba(30, 240, 159, 0.75)",
-        "familia": "PA",
-        "femaleUrl": null,
-        "formula": {
-            "id": 134
-        },
-        "funcoesDescricao": "Tecnologia / Área administrativa voltada para organização",
-        "id": 22,
-        "maleUrl": null,
-        "palavrasDescritivas": "Reservado e Analítico / Atento e contido / Concentrado / Persegue metas individuais / Disposto / Estável",
-        "precisaGerir": "A dificuldade para lidar com situações inusitadas ou, agir fora do estipulado previamente.",
-        "temperamento": "4PA",
-        "temperamentoDescription": "Análise e ponderação e Ação"
+    "funcoesDescricao": "Área organizacional voltada para projetos / Consultoria organizacional",
+    "id": 21,
+    "maleUrl": null,
+    "palavrasDescritivas": "Agradável / Acessível / Disposto / Estável / Atento e contido / Ponderado",
+    "precisaGerir": "A tendência a não se arriscar, não adotar uma postura mais arrojada e de transformação.",
+    "temperamento": "4EQ",
+    "temperamentoDescription": "Equilibrados"
+  },
+  {
+    "aproveitar": "A predisposição para organização e o seguimento linear daquilo que estabelece como responsabilidades.",
+    "area": "ESTRATEGICA",
+    "areaNome": "Estratégica",
+    "areasAssociadas": [],
+    "areasDescricao": "Engenharia / Profissões área de exatas / Área estratégica - Projetos",
+    "breveRelato1": "Elaboração mental elevada, analisa e delibera antes de agir. Tende a destacar-se intelectualmente. Reservado, quando interage,",
+    "breveRelato2": "é racional e direto, embora procure se colocar de forma adequada, educada. Evita confrontos, prefere ambientes mais previsíveis ",
+    "breveRelato3": "onde as atividades ocorram de forma planejada. Trabalha melhor sozinho perseguindo metas individuais. Procura estabelecer",
+    "breveRelato4": "uma rotina, precisa seguir sua programação. Sente-se bem quando consegue atingir suas metas e manter sua estabilidade.",
+    "color": "rgba(30, 240, 159, 0.75)",
+    "familia": "PA",
+    "femaleUrl": null,
+    "formula": {
+      "id": 134
     },
-    {
-        "aproveitar": "O bom senso de observação e análise que, predispõe a atenção aos detalhes e precisão no que faz e fala.",
-        "area": "ESTRATEGICA",
-        "areaNome": "Estratégica",
-        "areasAssociadas": [],
-        "areasDescricao": "Tecnologia / Especialista com vies racional / Áreas Científicas ",
-        "breveRelato1": "Reservado, controla seu tom de voz, procura não aparecer. Apresenta elaboração mental intensa, permanece atento a tudo ao seu",
-        "breveRelato2": "redor. Precisa de tempo privativo para ponderar sobre os acontecimentos do dia e deliberar sobre o melhor caminho a ser seguido.",
-        "breveRelato3": "Seu ritmo de ação é mais lento. Análitico, demora para tomar decisões, mas decide acertadamente. Apesar de tímido e contido, ",
-        "breveRelato4": "apresenta uma conduta social política e adequada. Prefere ambientes estáveis, diante de conflitos e confrontos tende a se afastar.",
-        "color": "rgba(30, 240, 159, 0.75)",
-        "familia": "P",
-        "femaleUrl": null,
-        "formula": {
-            "id": 224
-        },
-        "funcoesDescricao": "Profissional liberal em atividades com rotinas bem estabelecidas",
-        "id": 23,
-        "maleUrl": null,
-        "palavrasDescritivas": "Reservado e analítico / Atento e contido / Concentrado / Tendência para o distanciamento / Postura social política",
-        "precisaGerir": "A falta de maior envolvimento com situações fora do programado ou que demandam enfrentamento.",
-        "temperamento": "4P",
-        "temperamentoDescription": "Análise e ponderação"
+    "funcoesDescricao": "Tecnologia / Área administrativa voltada para organização",
+    "id": 22,
+    "maleUrl": null,
+    "palavrasDescritivas": "Reservado e Analítico / Atento e contido / Concentrado / Persegue metas individuais / Disposto / Estável",
+    "precisaGerir": "A dificuldade para lidar com situações inusitadas ou, agir fora do estipulado previamente.",
+    "temperamento": "4PA",
+    "temperamentoDescription": "Análise e ponderação e Ação"
+  },
+  {
+    "aproveitar": "O bom senso de observação e análise que, predispõe a atenção aos detalhes e precisão no que faz e fala.",
+    "area": "ESTRATEGICA",
+    "areaNome": "Estratégica",
+    "areasAssociadas": [],
+    "areasDescricao": "Tecnologia / Especialista com vies racional / Áreas Científicas ",
+    "breveRelato1": "Reservado, controla seu tom de voz, procura não aparecer. Apresenta elaboração mental intensa, permanece atento a tudo ao seu",
+    "breveRelato2": "redor. Precisa de tempo privativo para ponderar sobre os acontecimentos do dia e deliberar sobre o melhor caminho a ser seguido.",
+    "breveRelato3": "Seu ritmo de ação é mais lento. Análitico, demora para tomar decisões, mas decide acertadamente. Apesar de tímido e contido, ",
+    "breveRelato4": "apresenta uma conduta social política e adequada. Prefere ambientes estáveis, diante de conflitos e confrontos tende a se afastar.",
+    "color": "rgba(30, 240, 159, 0.75)",
+    "familia": "P",
+    "femaleUrl": null,
+    "formula": {
+      "id": 224
     },
-    {
-        "aproveitar": "Sua solicitude e preocupação em efetuar boas entregas. Aproveitar também sua boa visão projetiva.",
-        "area": "ESTRATEGICA",
-        "areaNome": "Estratégica",
-        "areasAssociadas": [],
-        "areasDescricao": "Profissões de especialização com viés racional / Estátistica e Marketing",
-        "breveRelato1": "Agradável e controlado,  percebe acontecimentos que podem passar despercebidos aos outros. Observa, detecta e faz considerações",
-        "breveRelato2": "mas, normalmente, não é quem inicia os processos. Apresenta boa visão projetiva e elevada capacidade de análise e síntese.",
-        "breveRelato3": "Bom trato com as pessoas, apresenta uma postura política, adequada. Não gera atritos, favorece um convívio agradável e brando.",
-        "breveRelato4": "Utiliza seu intelecto para preservar sua comodidade. Prefere conviver em ambientes estáveis, com pessoas e situações conhecidas.",
-        "color": "rgba(30, 240, 159, 0.75)",
-        "familia": "PR",
-        "femaleUrl": null,
-        "formula": {
-            "id": 324
-        },
-        "funcoesDescricao": "Tecnologia / Áreas estratégicas com vies racional / Matemática",
-        "id": 24,
-        "maleUrl": null,
-        "palavrasDescritivas": "Reservado e analítico / Atento e contido / Visão projetiva / Solícito / Agradável e brando / Estável",
-        "precisaGerir": "A ansiedade e insegurança gerada pela excesso de projeção mental ou, gerada por situações inusitadas.",
-        "temperamento": "4PR",
-        "temperamentoDescription": "Análise e ponderação e Relacionamentos"
+    "funcoesDescricao": "Profissional liberal em atividades com rotinas bem estabelecidas",
+    "id": 23,
+    "maleUrl": null,
+    "palavrasDescritivas": "Reservado e analítico / Atento e contido / Concentrado / Tendência para o distanciamento / Postura social política",
+    "precisaGerir": "A falta de maior envolvimento com situações fora do programado ou que demandam enfrentamento.",
+    "temperamento": "4P",
+    "temperamentoDescription": "Análise e ponderação"
+  },
+  {
+    "aproveitar": "Sua solicitude e preocupação em efetuar boas entregas. Aproveitar também sua boa visão projetiva.",
+    "area": "ESTRATEGICA",
+    "areaNome": "Estratégica",
+    "areasAssociadas": [],
+    "areasDescricao": "Profissões de especialização com viés racional / Estátistica e Marketing",
+    "breveRelato1": "Agradável e controlado,  percebe acontecimentos que podem passar despercebidos aos outros. Observa, detecta e faz considerações",
+    "breveRelato2": "mas, normalmente, não é quem inicia os processos. Apresenta boa visão projetiva e elevada capacidade de análise e síntese.",
+    "breveRelato3": "Bom trato com as pessoas, apresenta uma postura política, adequada. Não gera atritos, favorece um convívio agradável e brando.",
+    "breveRelato4": "Utiliza seu intelecto para preservar sua comodidade. Prefere conviver em ambientes estáveis, com pessoas e situações conhecidas.",
+    "color": "rgba(30, 240, 159, 0.75)",
+    "familia": "PR",
+    "femaleUrl": null,
+    "formula": {
+      "id": 324
     },
-    {
-        "aproveitar": "Sua percepção sensível e perspicaz sobre os acontecimentos e as pessoas.",
-        "area": "ESPECIALISTA",
-        "areaNome": "Especialista",
-        "areasAssociadas": [],
-        "areasDescricao": "Área educacional / Atividades com contato com pessoas com rotinas bem estabelecidas.",
-        "breveRelato1": "Apresenta um bom trato social, gosta de ter pessoas por perto. É sensível e ávido por afeto. Precisa responder às suas demandas",
-        "breveRelato2": "internas, para poder dar o melhor de si aos outros. Seu ritmo para tomada de decisão e ação é mais lento, tende a tomar decisões",
-        "breveRelato3": "familíares que não geram impactos indesejados. No geral, é estável em sua atuação. Perspicaz, faz uma boa análise das situações",
-        "breveRelato4": "e uma boa leitura das necessidades das pessoas, pode acolher e ajudar. Tem um intelecto diferenciado que deve ser aproveitado.",
-        "color": "rgba(196, 4, 82, 0.75)",
-        "familia": "RP",
-        "femaleUrl": null,
-        "formula": {
-            "id": 313
-        },
-        "funcoesDescricao": "Áreas estratégicas e de especialização onde seus conhecimentos e inteligência sejam diferenciais.",
-        "id": 25,
-        "maleUrl": null,
-        "palavrasDescritivas": "Agradável / Brando  e Tolerante / Sensível / Perspicaz / Reservado e analítico / Ponderado",
-        "precisaGerir": "O excesso de serenidade e possível imobilidade que isso possa vir a gerar.",
-        "temperamento": "5RP",
-        "temperamentoDescription": "Relacionamentos e Análise e ponderação"
+    "funcoesDescricao": "Tecnologia / Áreas estratégicas com vies racional / Matemática",
+    "id": 24,
+    "maleUrl": null,
+    "palavrasDescritivas": "Reservado e analítico / Atento e contido / Visão projetiva / Solícito / Agradável e brando / Estável",
+    "precisaGerir": "A ansiedade e insegurança gerada pela excesso de projeção mental ou, gerada por situações inusitadas.",
+    "temperamento": "4PR",
+    "temperamentoDescription": "Análise e ponderação e Relacionamentos"
+  },
+  {
+    "aproveitar": "Sua percepção sensível e perspicaz sobre os acontecimentos e as pessoas.",
+    "area": "ESPECIALISTA",
+    "areaNome": "Especialista",
+    "areasAssociadas": [],
+    "areasDescricao": "Área educacional / Atividades com contato com pessoas com rotinas bem estabelecidas.",
+    "breveRelato1": "Apresenta um bom trato social, gosta de ter pessoas por perto. É sensível e ávido por afeto. Precisa responder às suas demandas",
+    "breveRelato2": "internas, para poder dar o melhor de si aos outros. Seu ritmo para tomada de decisão e ação é mais lento, tende a tomar decisões",
+    "breveRelato3": "familíares que não geram impactos indesejados. No geral, é estável em sua atuação. Perspicaz, faz uma boa análise das situações",
+    "breveRelato4": "e uma boa leitura das necessidades das pessoas, pode acolher e ajudar. Tem um intelecto diferenciado que deve ser aproveitado.",
+    "color": "rgba(196, 4, 82, 0.75)",
+    "familia": "RP",
+    "femaleUrl": null,
+    "formula": {
+      "id": 313
     },
-    {
-        "aproveitar": "Sua elevada capacidade para criar uma ambiente de acolhimento, aceitação e bem estar",
-        "area": "ESPECIALISTA",
-        "areaNome": "Especialista",
-        "areasAssociadas": [],
-        "areasDescricao": "Área educacional / Vendas receptivas / Recursos humanos - Áreas de treinamento",
-        "breveRelato1": "Bom trato social, o convívio com as pessoas é muito importante. Ávido por afeto, constrói e preserva as relações. Precisa responder ",
-        "breveRelato2": "à suas demandas internas para poder dar o melhor de si aos outros. Responde às demandas externas em ritmo mais lento, não ",
-        "breveRelato3": "se apressa. Propicia um clima harmonioso e de integração. As pessoas se sentem à vontade para expressar suas vontades e suas",
-        "breveRelato4": "necessidades. Com sua postura de aceitação e acolhimento, fomenta o aprendizado e estimula a tomada de ação nos outros.",
-        "color": "rgba(196, 4, 82, 0.75)",
-        "familia": "R",
-        "femaleUrl": null,
-        "formula": {
-            "id": 412
-        },
-        "funcoesDescricao": "Atividades ligadas a área de humanas.",
-        "id": 26,
-        "maleUrl": null,
-        "palavrasDescritivas": "Estável / Amável /  Gregário / Complascente / Sensível / Perspicaz",
-        "precisaGerir": "O excesso de complascência e acolhimento que não favorece mobilizar esforços de mudança.",
-        "temperamento": "5R",
-        "temperamentoDescription": "Relacionamentos"
+    "funcoesDescricao": "Áreas estratégicas e de especialização onde seus conhecimentos e inteligência sejam diferenciais.",
+    "id": 25,
+    "maleUrl": null,
+    "palavrasDescritivas": "Agradável / Brando  e Tolerante / Sensível / Perspicaz / Reservado e analítico / Ponderado",
+    "precisaGerir": "O excesso de serenidade e possível imobilidade que isso possa vir a gerar.",
+    "temperamento": "5RP",
+    "temperamentoDescription": "Relacionamentos e Análise e ponderação"
+  },
+  {
+    "aproveitar": "Sua elevada capacidade para criar uma ambiente de acolhimento, aceitação e bem estar",
+    "area": "ESPECIALISTA",
+    "areaNome": "Especialista",
+    "areasAssociadas": [],
+    "areasDescricao": "Área educacional / Vendas receptivas / Recursos humanos - Áreas de treinamento",
+    "breveRelato1": "Bom trato social, o convívio com as pessoas é muito importante. Ávido por afeto, constrói e preserva as relações. Precisa responder ",
+    "breveRelato2": "à suas demandas internas para poder dar o melhor de si aos outros. Responde às demandas externas em ritmo mais lento, não ",
+    "breveRelato3": "se apressa. Propicia um clima harmonioso e de integração. As pessoas se sentem à vontade para expressar suas vontades e suas",
+    "breveRelato4": "necessidades. Com sua postura de aceitação e acolhimento, fomenta o aprendizado e estimula a tomada de ação nos outros.",
+    "color": "rgba(196, 4, 82, 0.75)",
+    "familia": "R",
+    "femaleUrl": null,
+    "formula": {
+      "id": 412
     },
-    {
-        "aproveitar": "Seu elevado potencial intelectual que pode ser aplicado em tantas áreas importantes.",
-        "area": "ESPECIALISTA",
-        "areaNome": "Especialista",
-        "areasAssociadas": [],
-        "areasDescricao": "Tecnologia / Especialista com vies racional / Áreas Científicas ",
-        "breveRelato1": "Reservado, controla seu tom de voz, procura não aparecer. Apresenta elaboração mental intensa, precisa ocupar sua mente com  ",
-        "breveRelato2": "atividades intelectuais. Seu ritmo de ação é mais lento, precisa de tempo privativo para ponderar e organizar suas ideias. Pode",
-        "breveRelato3": "irritar-se diante de muitos estimulos externos. Análitico, demora para tomar decisões, mas decide com segurança. Tímido, costuma ",
-        "breveRelato4": "não ter facílidade com a interação social, tende a se afastar e se ocupar com atividades intelectuais que possa realizar sozinho.",
-        "color": "rgba(30, 240, 159, 0.75)",
-        "familia": "P",
-        "femaleUrl": null,
-        "formula": {
-            "id": 116
-        },
-        "funcoesDescricao": "Programador de computadores / Profissional liberal intelectual",
-        "id": 27,
-        "maleUrl": null,
-        "palavrasDescritivas": "Elaboração racional / Reservado e analítico / Atento e contido / Concentrado / Tendência para o distanciamento",
-        "precisaGerir": "Sua tendência para o isolamento e escape de qualquer atividade social.",
-        "temperamento": "5P",
-        "temperamentoDescription": "Análise e ponderação"
+    "funcoesDescricao": "Atividades ligadas a área de humanas.",
+    "id": 26,
+    "maleUrl": null,
+    "palavrasDescritivas": "Estável / Amável /  Gregário / Complascente / Sensível / Perspicaz",
+    "precisaGerir": "O excesso de complascência e acolhimento que não favorece mobilizar esforços de mudança.",
+    "temperamento": "5R",
+    "temperamentoDescription": "Relacionamentos"
+  },
+  {
+    "aproveitar": "Seu elevado potencial intelectual que pode ser aplicado em tantas áreas importantes.",
+    "area": "ESPECIALISTA",
+    "areaNome": "Especialista",
+    "areasAssociadas": [],
+    "areasDescricao": "Tecnologia / Especialista com vies racional / Áreas Científicas ",
+    "breveRelato1": "Reservado, controla seu tom de voz, procura não aparecer. Apresenta elaboração mental intensa, precisa ocupar sua mente com  ",
+    "breveRelato2": "atividades intelectuais. Seu ritmo de ação é mais lento, precisa de tempo privativo para ponderar e organizar suas ideias. Pode",
+    "breveRelato3": "irritar-se diante de muitos estimulos externos. Análitico, demora para tomar decisões, mas decide com segurança. Tímido, costuma ",
+    "breveRelato4": "não ter facílidade com a interação social, tende a se afastar e se ocupar com atividades intelectuais que possa realizar sozinho.",
+    "color": "rgba(30, 240, 159, 0.75)",
+    "familia": "P",
+    "femaleUrl": null,
+    "formula": {
+      "id": 116
     },
-    {
-        "aproveitar": "Sua visão projetiva e concernência com as necessidades das pessoas.",
-        "area": "ESPECIALISTA",
-        "areaNome": "Especialista",
-        "areasAssociadas": [],
-        "areasDescricao": "Profissões de especialização com viés racional / Estátistica e Ciências",
-        "breveRelato1": "Atento e contido, percebe acontecimentos que podem passar despercebidos aos outros. Observa, detecta e avalia, mas não é quem",
-        "breveRelato2": "inicia os processos. Apresenta boa visão projetiva e elevada capacidade de análise e síntese. Sua elaboração intelectual é intensa.",
-        "breveRelato3": "Retraído, procura evitar atritos, em geral, favorece um convívio brando. Pode gostar de momentos de solidão, mais do que convívio ",
-        "breveRelato4": "social. Usa seu intelecto para preservar a comodidade. Prefere conviver em ambientes estáveis, com pessoas e situações conhecidas.",
-        "color": "rgba(30, 240, 159, 0.75)",
-        "familia": "PR",
-        "femaleUrl": null,
-        "formula": {
-            "id": 314
-        },
-        "funcoesDescricao": "Tecnologia / Áreas estratégicas com vies racional / Matemática",
-        "id": 28,
-        "maleUrl": null,
-        "palavrasDescritivas": "Reservado e analítico / Atento e contido / Visão projetiva / Agradável / Brando / Retraído",
-        "precisaGerir": "A ansiedade causada pelo desejo de corresponder, em conflito com seu desejo por privacidade e solidão.",
-        "temperamento": "5PR",
-        "temperamentoDescription": "Análise e ponderação e Relacionamentos"
-    }
+    "funcoesDescricao": "Programador de computadores / Profissional liberal intelectual",
+    "id": 27,
+    "maleUrl": null,
+    "palavrasDescritivas": "Elaboração racional / Reservado e analítico / Atento e contido / Concentrado / Tendência para o distanciamento",
+    "precisaGerir": "Sua tendência para o isolamento e escape de qualquer atividade social.",
+    "temperamento": "5P",
+    "temperamentoDescription": "Análise e ponderação"
+  },
+  {
+    "aproveitar": "Sua visão projetiva e concernência com as necessidades das pessoas.",
+    "area": "ESPECIALISTA",
+    "areaNome": "Especialista",
+    "areasAssociadas": [],
+    "areasDescricao": "Profissões de especialização com viés racional / Estátistica e Ciências",
+    "breveRelato1": "Atento e contido, percebe acontecimentos que podem passar despercebidos aos outros. Observa, detecta e avalia, mas não é quem",
+    "breveRelato2": "inicia os processos. Apresenta boa visão projetiva e elevada capacidade de análise e síntese. Sua elaboração intelectual é intensa.",
+    "breveRelato3": "Retraído, procura evitar atritos, em geral, favorece um convívio brando. Pode gostar de momentos de solidão, mais do que convívio ",
+    "breveRelato4": "social. Usa seu intelecto para preservar a comodidade. Prefere conviver em ambientes estáveis, com pessoas e situações conhecidas.",
+    "color": "rgba(30, 240, 159, 0.75)",
+    "familia": "PR",
+    "femaleUrl": null,
+    "formula": {
+      "id": 314
+    },
+    "funcoesDescricao": "Tecnologia / Áreas estratégicas com vies racional / Matemática",
+    "id": 28,
+    "maleUrl": null,
+    "palavrasDescritivas": "Reservado e analítico / Atento e contido / Visão projetiva / Agradável / Brando / Retraído",
+    "precisaGerir": "A ansiedade causada pelo desejo de corresponder, em conflito com seu desejo por privacidade e solidão.",
+    "temperamento": "5PR",
+    "temperamentoDescription": "Análise e ponderação e Relacionamentos"
+  }
 ]

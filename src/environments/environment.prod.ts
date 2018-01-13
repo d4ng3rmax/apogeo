@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   api: {
     login: 'https://apogeo-oauth-server.cfapps.io/oauth/authorize?response_type=token&client_id=apogeo-app&redirect_uri=https://apogeo-app-dev.cfapps.io/#/login',
-    forceLogin: 'https://apogeo-oauth-server.cfapps.io/login?response_type=token&client_id=apogeo-app-local&redirect_uri=https://apogeo-app-dev.cfapps.io/#/login',
+    forceLogin: 'https://apogeo-oauth-server.cfapps.io/login?response_type=token&client_id=apogeo-app&redirect_uri=https://apogeo-app-dev.cfapps.io/#/login',
     user: 'https://apogeo-oauth-server.cfapps.io/api/user',
     clients: 'https://apogeo-oauth-server.cfapps.io/api/clients',
     results: 'https://apogeo-solution-svc.cfapps.io/results',

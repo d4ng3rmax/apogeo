@@ -43,15 +43,9 @@ export class TemperamentoMapFormComponent implements AfterViewInit {
         this.initMap();
 
         if (parent.object.jobAreas == null) { return; }
-        if (phase === 1) {
-            this.setSelectedAreas(parent.object.jobAreas, parent.temperamentoAreaIdealClassification);
-
-        } else if (phase === 2) {
-            this.setSelectedAreas(parent.object.jobAreas, parent.temperamentoAreasPrincipaisClassifications);
-
-        } else if (phase === 3) {
-            this.setSelectedAreas(parent.object.jobAreas, parent.temperamentoAreasAlternativasClassifications);
-        }
+        this.setSelectedAreas(parent.object.jobAreas, parent.temperamentoAreaIdealClassification, 1);
+        this.setSelectedAreas(parent.object.jobAreas, parent.temperamentoAreasPrincipaisClassifications, 2);
+        this.setSelectedAreas(parent.object.jobAreas, parent.temperamentoAreasAlternativasClassifications, 3);
 
         this.areas.map(a => {
             if (a.selected === true) {
@@ -70,12 +64,13 @@ export class TemperamentoMapFormComponent implements AfterViewInit {
         return area;
     }
 
-    setSelectedAreas(jobAreas: any[], classifications: string[]) {
+    setSelectedAreas(jobAreas: any[], classifications: string[], phase: number) {
         jobAreas.filter(a => classifications.indexOf(a.jobAreaClassification) > -1).map(a => {
             this.areas.filter(area => area.id === a.areaProfissional.id)
-                .map(area => {
-                    area.selected = true;
-                });
+            .map(area => {
+                area.selected = true;
+                area.phase = phase;
+            });
         });
     }
 
@@ -84,41 +79,58 @@ export class TemperamentoMapFormComponent implements AfterViewInit {
         const phase = this.parent.phase;
         const areas = this.areas;
         const self = this;
+        let areasFaseAtual;
+        if (phase === 1) {
+            areasFaseAtual = parent.temperamentoAreaIdealClassification;
+        } else if (phase === 2) {
+            areasFaseAtual = parent.temperamentoAreasPrincipaisClassifications;
+        } else if (phase === 3) {
+            areasFaseAtual = parent.temperamentoAreasAlternativasClassifications;
+        }
         $('.mapArea').off();
         this.repaint();
         $('.mapArea').click(function(e) {
             const area = self.getArea(this.id);
-            const selectedCount = areas.filter(a => a.selected === true).length;
+
+            const selectedCount = areas.filter(a => a.selected === true && a.phase === phase).length;
+            // console.log('[before] Phase: ' + phase + ', selected: ' + selectedCount);
             if (area == null) { return; }
 
-            if (phase > 1 && selectedCount == 8 && !area.selected) {
+            if (phase > 1 && selectedCount === 8 && !area.selected) {
                 self.parent.alert.buildAlert(0, 'Numero máximo de áreas alcançado', 4);
                 return;
             }
 
             if (phase === 1 && selectedCount === 1 && !area.selected) {
-                areas.filter(a => a.selected === true).map(a => {
+                areas.filter(a => a.selected === true && a.phase === phase).map(a => {
                     a.selected = false;
+                    delete a.phase;
                     $('#' + a.temperamento + '_area').css('fill', 'white');
                 });
             }
-            let out = '';
-            area.areasAssociadas.map(a => out += '(' + a.areaAssociada.temperamento + ' - '  + a.jobAreaClassification + ') ');
-            // console.log('>>> area ' + area.temperamento + ' => ' + JSON.stringify(area.areasAssociadas));
-            console.log('>>> area ' + area.temperamento + ' => ' + out);
+            // let out = '';
+            // area.areasAssociadas.map(a => out += '(' + a.areaAssociada.temperamento + ' - '  + a.jobAreaClassification + ') ');
 
             // Seleciona area
             if (!area.selected) {
                 area.selected = true;
+                area.phase = phase;
+                if(phase === 1) {
+                    self.setAreasAssociadas(area);
+                }
                 $('#' + this.id + '_area').css('fill', area.color);
                 self.submit();
 
             } else {
-                // Remove selecao da area clicada
-                $('#' + this.id + '_area').css('fill', 'white');
-                area.selected = false;
-                self.submit();
+                if (area.phase === phase) {
+                    // Remove selecao da area clicada
+                    $('#' + this.id + '_area').css('fill', 'white');
+                    area.selected = false;
+                    delete area.phase;
+                    self.submit();
+                }
             }
+            // console.log('[after] Phase: ' + phase + ', selected: ' + JSON.stringify(areas.filter(a => a.selected === true && a.phase === phase)));
 
         }).mouseenter(function(e) {
             const area = self.getArea(this.id);
@@ -168,7 +180,7 @@ export class TemperamentoMapFormComponent implements AfterViewInit {
         // Delete existing & add new
         objectAreas = objectAreas.filter(a => classifications.indexOf(a.jobAreaClassification) === -1);
 
-        formAreas.filter((a) => a.selected).map((a, index) => {
+        formAreas.filter((a) => a.selected && a.phase === phase).map((a, index) => {
             objectAreas.push(parent.createJobArea(a, classifications[index]));
         });
 
@@ -184,5 +196,30 @@ export class TemperamentoMapFormComponent implements AfterViewInit {
             return false;
         }
         return true;
+    }
+
+    setAreasAssociadas(areaSelecionada) {
+        const parent = this.parent;
+        let objectAreas = parent.object.jobAreas;
+        // console.log('[before] JobAreas: ' + JSON.stringify(parent.object.jobAreas));
+        objectAreas = objectAreas.filter(a => this.parent.comportamentoAreaIdealClassification.indexOf(a.jobAreaClassification) === -1);
+        objectAreas = objectAreas.filter(a => this.parent.comportamentoAreasPrincipaisClassifications.indexOf(a.jobAreaClassification) === -1);
+        objectAreas = objectAreas.filter(a => this.parent.comportamentoAreasAlternativasClassifications.indexOf(a.jobAreaClassification) === -1);
+        // console.log('[setRelatedComportamentos] Areas associadas: ' + JSON.stringify(areaSelecionada.areasAssociadas));
+        for(let areaAssociada of areaSelecionada.areasAssociadas) {
+            const classification = areaAssociada.jobAreaClassification;
+            // console.log('Setting comportamento: ' + classification);
+            parent.object.jobAreas = parent.object.jobAreas.filter(a => a.jobAreaClassification !== classification);
+            let areaAssociadaObj = parent.areas.filter(a => a.id === areaAssociada.areaAssociada)[0];
+            // let areaAssociadaObj = parent.areas.filter(a => a.id === areaAssociada.areaAssociada);
+            // console.log('[setRelatedComportamentos] areaAssociadaObj=' + JSON.stringify(areaAssociada));
+            // console.log('[setRelatedComportamentos] classification=' + classification + ', areaAssociadaObj=' + JSON.stringify(areaAssociadaObj));
+            objectAreas.push(parent.createJobArea(areaAssociadaObj, classification));
+            // objectAreas.push(parent.createJobArea(areaAssociadaObj, classification));
+        }
+        parent.object.jobAreas = objectAreas;
+        // console.log('[after] JobAreas: ' + JSON.stringify(parent.object.jobAreas));
+        // this.refresh();
+        parent.refreshLabels();
     }
 }

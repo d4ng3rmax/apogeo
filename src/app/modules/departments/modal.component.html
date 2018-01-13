@@ -9,18 +9,52 @@
         <form novalidate [formGroup]="form" (ngSubmit)="onSubmit(form)">
 
             <!-- Form -->
-            <label for="name">Nome do departamento:</label>
-            <input #name type="text" formControlName="name" class="form-control" autofocus />
-            <br />
-            <label for="industry">Ramo:</label>
-            <select #industry id="industry" formControlName="industry" [(ngModel)]="object.industry" [compareWith]="industryCompareFn">
-                <option *ngFor="let item of industries" [ngValue]="item" [selected]="object.industry.id == item.id">
-                    {{ item.name }}
-                </option>
-            </select>
-            <a href="javascript:void(0)" (click)="addIndustry($event)">Adicionar Ramo</a>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-4">
+                        <label for="name">Departamento</label>
+                    </div>
+                    <div class="col-5">
+                        <input #name type="text" formControlName="name" class="form-control" placeholder="Nome do departamento" autofocus />
+                    </div>
+                </div>
 
-            <br />
+                <div class="row cardRowSeparator"></div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <label for="industry">Ramo:</label>
+                    </div>
+                    <div class="col-5">
+                        <select #industry id="industry" formControlName="industry" class="form-control" [(ngModel)]="object.industry" [compareWith]="industryCompareFn">
+                            <option *ngFor="let item of industries" [ngValue]="item" [selected]="object.industry.id == item.id">
+                                {{ item.name }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-3 cardRow">
+                        <a href="javascript:void(0)" (click)="addIndustry($event)">Adicionar Ramo</a>
+                    </div>
+                </div>
+
+                <div class="row cardRowSeparator"></div>
+
+                <div class="row" *ngIf="this.authService.isAdminOrDistributor()">
+                    <div class="col-4">
+                        <label>Cliente</label>
+                    </div>
+                    <div class="col-5">
+
+                        <select #selClient id="sel-client" formControlName="clientId" class="form-control" >
+                            <option></option>
+                            <option *ngFor="let item of clients" [ngValue]="item.id">
+                                {{ item.name }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
             <br />
 
             <button type="submit" class="btn btn-success" [disabled]="form.invalid" *ngIf="type == 'create'">Salvar</button>

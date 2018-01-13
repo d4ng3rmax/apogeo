@@ -67,7 +67,7 @@ export class JobPositionComponent extends EditComponent {
         '4': 'Etapa 4 - Escolha a área principal para o cargo segundo o Comportamento',
         '5': 'Etapa 5 - Escolha outras áreas principais para o cargo segundo o Comportamento',
         '6': 'Etapa 6 - Escolha áreas alternativas para o cargo segundo o Comportamento',
-        '7': 'Etapa 7 - Escolha as motivações e o nível dos Indicadores adequados para o cargo'
+        '7': 'Etapa 7 - Escolha as motivações e os Indicadores'
     }
 
     // --------------------------------------------------
@@ -91,11 +91,11 @@ export class JobPositionComponent extends EditComponent {
 
     // Mappings used to serialize/deserialize jobAreas and jobMotivacoes
     temperamentoAreaIdealClassification: any = ['AREA_PRINCIPAL'];
-    temperamentoAreasPrincipaisClassifications: any = ['OUTRA_AREA_PRINCIPAL_1', 'OUTRA_AREA_PRINCIPAL_2', 'OUTRA_AREA_PRINCIPAL_3', 'OUTRA_AREA_PRINCIPAL_4', 'OUTRA_AREA_PRINCIPAL_5', 'OUTRA_AREA_PRINCIPAL_6', 'OUTRA_AREA_PRINCIPAL_7'];
-    temperamentoAreasAlternativasClassifications: any = ['OUTRA_AREA_ALTERNATIVA_1', 'OUTRA_AREA_ALTERNATIVA_2', 'OUTRA_AREA_ALTERNATIVA_3', 'OUTRA_AREA_ALTERNATIVA_4', 'OUTRA_AREA_ALTERNATIVA_5', 'OUTRA_AREA_ALTERNATIVA_6', 'OUTRA_AREA_ALTERNATIVA_7'];
+    temperamentoAreasPrincipaisClassifications: any = ['OUTRA_AREA_PRINCIPAL_1', 'OUTRA_AREA_PRINCIPAL_2', 'OUTRA_AREA_PRINCIPAL_3', 'OUTRA_AREA_PRINCIPAL_4', 'OUTRA_AREA_PRINCIPAL_5', 'OUTRA_AREA_PRINCIPAL_6', 'OUTRA_AREA_PRINCIPAL_7', 'OUTRA_AREA_PRINCIPAL_8'];
+    temperamentoAreasAlternativasClassifications: any = ['OUTRA_AREA_ALTERNATIVA_1', 'OUTRA_AREA_ALTERNATIVA_2', 'OUTRA_AREA_ALTERNATIVA_3', 'OUTRA_AREA_ALTERNATIVA_4', 'OUTRA_AREA_ALTERNATIVA_5', 'OUTRA_AREA_ALTERNATIVA_6', 'OUTRA_AREA_ALTERNATIVA_7', 'OUTRA_AREA_ALTERNATIVA_8'];
     comportamentoAreaIdealClassification: any = ['ABORDAGEM_PRINCIPAL'];
-    comportamentoAreasPrincipaisClassifications: any = ['OUTRA_ABORDAGEM_PRINCIPAL_1', 'OUTRA_ABORDAGEM_PRINCIPAL_2', 'OUTRA_ABORDAGEM_PRINCIPAL_3', 'OUTRA_ABORDAGEM_PRINCIPAL_4', 'OUTRA_ABORDAGEM_PRINCIPAL_5', 'OUTRA_ABORDAGEM_PRINCIPAL_5', 'OUTRA_ABORDAGEM_PRINCIPAL_6'];
-    comportamentoAreasAlternativasClassifications: any = ['OUTRA_ABORDAGEM_ALTERNATIVA_1', 'OUTRA_ABORDAGEM_ALTERNATIVA_2', 'OUTRA_ABORDAGEM_ALTERNATIVA_3', 'OUTRA_ABORDAGEM_ALTERNATIVA_4', 'OUTRA_ABORDAGEM_ALTERNATIVA_5', 'OUTRA_ABORDAGEM_ALTERNATIVA_6', 'OUTRA_ABORDAGEM_ALTERNATIVA_7'];
+    comportamentoAreasPrincipaisClassifications: any = ['OUTRA_ABORDAGEM_PRINCIPAL_1', 'OUTRA_ABORDAGEM_PRINCIPAL_2', 'OUTRA_ABORDAGEM_PRINCIPAL_3', 'OUTRA_ABORDAGEM_PRINCIPAL_4', 'OUTRA_ABORDAGEM_PRINCIPAL_5', 'OUTRA_ABORDAGEM_PRINCIPAL_5', 'OUTRA_ABORDAGEM_PRINCIPAL_6', 'OUTRA_ABORDAGEM_PRINCIPAL_7', 'OUTRA_ABORDAGEM_PRINCIPAL_8'];
+    comportamentoAreasAlternativasClassifications: any = ['OUTRA_ABORDAGEM_ALTERNATIVA_1', 'OUTRA_ABORDAGEM_ALTERNATIVA_2', 'OUTRA_ABORDAGEM_ALTERNATIVA_3', 'OUTRA_ABORDAGEM_ALTERNATIVA_4', 'OUTRA_ABORDAGEM_ALTERNATIVA_5', 'OUTRA_ABORDAGEM_ALTERNATIVA_6', 'OUTRA_ABORDAGEM_ALTERNATIVA_7', 'OUTRA_ABORDAGEM_ALTERNATIVA_8'];
     motivacoesPrincipaisClassifications: any = ['MOTIVACAO_PRINCIPAL_1', 'MOTIVACAO_PRINCIPAL_2', 'MOTIVACAO_PRINCIPAL_3'];
     motivacoesAlternativasClassifications: any = ['MOTIVACAO_ALTERNATIVA_1', 'MOTIVACAO_ALTERNATIVA_2', 'MOTIVACAO_ALTERNATIVA_3'];
     displayTooltip = false;
@@ -106,27 +106,50 @@ export class JobPositionComponent extends EditComponent {
     // --------------------------------------------------
 
     infoModalMap: any = {
-        'areasPrincipais': {
-            'title': 'Áreas Principais',
+        'temperamentoAreaIdeal': {
+            'title': 'Temperamento Area Ideal',
             'size': 'lg',
-            'content': `Informacoes sobre areas principais. teste de linha longa ajuste automatico de largura teste mais texto,
+            'url': 'https://www.youtube.com/embed/C0DPdy98e4c',
+            'content': `Informacoes sobre temperamento area ideal. teste de linha longa ajuste automatico de largura teste mais texto,
             Informacoes sobre areas principais. teste de linha longa ajuste automatico de largura teste mais texto
+            teste de linha longa ajuste automatico de largura teste mais texto<br />
+            teste de linha longa ajuste automatico<br />
+            Video
+            Outra linha`
+        }, 'temperamentoOutrasAreas': {
+            'title': 'Temperamento - Outras Áreas',
+            'size': 'lg',
+            'url': 'https://www.youtube.com/embed/C0DPdy98e4c',
+            'content': `Informacoes sobre temperamento outras áreas, Modal menor, <br />
+            Informacoes sobre areas principais. teste de linha longa ajuste automatico de largura teste mais texto<br />
             teste de linha longa ajuste automatico de largura teste mais texto<br />
             teste de linha longa ajuste automatico<br />
             Outra linha <br />
             Outra linha`
-        }, 'motivacaoPrincipal': {
+        }, 'comportamentoAreaIdeal': {
             'title': 'Motivação Principal',
-            'size': 'md',
+            'size': 'lg',
+            'url': 'https://www.youtube.com/embed/C0DPdy98e4c',
             'content': `Informacoes sobre motivação principal, Modal menor, <br />
             Informacoes sobre areas principais. teste de linha longa ajuste automatico de largura teste mais texto<br />
             teste de linha longa ajuste automatico de largura teste mais texto<br />
             teste de linha longa ajuste automatico<br />
             Outra linha <br />
             Outra linha`
-        }, 'motivacaoAlternativa': {
+        }, 'comportamentoOutrasAreas': {
+            'title': 'Motivação Principal',
+            'size': 'lg',
+            'url': '',
+            'content': `Informacoes sobre motivação principal, Modal menor, <br />
+            Informacoes sobre areas principais. teste de linha longa ajuste automatico de largura teste mais texto<br />
+            teste de linha longa ajuste automatico de largura teste mais texto<br />
+            teste de linha longa ajuste automatico<br />
+            Outra linha <br />
+            Outra linha`
+        }, 'motivacoes': {
             'title': 'Motivação Alternativa',
             'size': 'md',
+            'url': '',
             'content': `Informacoes sobre motivação Alternativa, Modal menor, <br />
             Informacoes sobre areas principais. teste de linha longa ajuste <br />
             teste de linha longa ajuste automatico de largura teste mais texto<br />
@@ -137,6 +160,7 @@ export class JobPositionComponent extends EditComponent {
         'autoGerenciamento': {
             'title': 'Índice de Auto Gerenciamento',
             'size': 'md',
+            'url': '',
             'content': `Informacoes sobre Índice de Auto Gerenciamento, <br />
             Informacoes sobre areas principais. teste de linha longa ajuste automatico <br />
             teste de linha longa ajuste automatico de largura teste mais texto<br />
@@ -147,6 +171,7 @@ export class JobPositionComponent extends EditComponent {
         'indicadorApogeo': {
             'title': 'Indicador Apogeo',
             'size': 'md',
+            'url': '',
             'content': `Informacoes sobre Indicador Apogeo <br />
             Informacoes sobre areas principais. teste de linha longa ajuste automatico<br />
             teste de linha longa ajuste automatico de largura teste mais texto<br />
@@ -156,7 +181,7 @@ export class JobPositionComponent extends EditComponent {
         }
 
         openInfoModal(data: any) {
-            this.infoModal.open(data.title, data.content, data.size);
+            this.infoModal.open(data.title, data.content, data.url, data.size);
         }
 
         // --------------------------------------------------
@@ -169,76 +194,84 @@ export class JobPositionComponent extends EditComponent {
             this.object = this.newEntity({ id: 0, name: '', department: {}, clientId: '' });
             if (authService.isManager()) {
                 this.object.clientId = authService.user.client.id;
-                }
-                this.object.client = { 'id': this.object.clientId };
-                this.departmentService.objectEmitter.subscribe((data) => {
-                    this.object.department = data;
-                    this.loadDepartments();
-                });
             }
-
-            newEntity(serverObject: any) {
-                return new JobPosition(serverObject.id, serverObject.name, serverObject.department, serverObject.clientId, serverObject.jobAreas, serverObject.jobMotivacao, serverObject.autoGerenciamento1, serverObject.autoGerenciamento2, serverObject.apogeo1, serverObject.apogeo2, serverObject.areaNome, serverObject.temperamento, serverObject.maleUrl, serverObject.femaleUrl);
-            }
-
-            async ngOnInit() {
+            this.object.client = { 'id': this.object.clientId };
+            this.departmentService.objectEmitter.subscribe((data) => {
+                this.object.department = data;
                 this.loadDepartments();
-                const areas = await this.service.getAreas();
-                this.clients = await this.clientService.getResult();
-                if (this.authService.isManager()) {
-                    this.client = this.clients[0];
-                }
-                // Enrich areas
-                this.areas = areas.map(a => {
-                    a.selected = false;
-                    a.femaleUrl = 'https://avatars.dicebear.com/v1/female/jane-doe/200.png';
-                    a.maleUrl = 'https://avatars.dicebear.com/v1/male/john-doe/200.png';
-                    return a;
-                });
-                super.ngOnInit();
+            });
+            this.phase = 0;
+        }
+
+        newEntity(serverObject: any) {
+            return new JobPosition(serverObject.id, serverObject.name, serverObject.department, serverObject.clientId, serverObject.jobAreas, serverObject.jobMotivacao, serverObject.autoGerenciamento1, serverObject.autoGerenciamento2, serverObject.apogeo1, serverObject.apogeo2, serverObject.areaNome, serverObject.temperamento, serverObject.maleUrl, serverObject.femaleUrl);
+        }
+
+        async ngOnInit() {
+            this.loadDepartments();
+            const areas = await this.service.getAreas();
+            this.clients = await this.clientService.getResult();
+            if (this.authService.isManager()) {
+                this.client = this.clients[0];
             }
+            // Enrich areas
+            this.areas = areas.map(a => {
+                a.selected = false;
+                a.femaleUrl = '/images/female.png';
+                a.maleUrl = '/images/male.png';
+                a.chartUrl = '/images/chart.png';
+                return a;
+            });
+            super.ngOnInit();
 
-            postInit() {
-                if(this.object.id && this.object.name && this.object.department && Object.keys(this.object.department).length > 0) {
-                    this.phase = 1;
-                } else {
-                    this.phase = 0;
-                }
-                this.object.client = { 'id': this.object.clientId };
-                this.refreshForm();
+            // this.displayTooltip = true;
+            // this.hoverArea = areas[2];
+            // this.openInfoModal(this.infoModalMap.temperamentoAreaIdeal);
+        }
+
+        postInit() {
+            if(this.object.id && this.object.name && this.object.department && Object.keys(this.object.department).length > 0) {
+                this.phase = 1;
+            } else {
+                this.phase = 0;
             }
+            this.object.client = { 'id': this.object.clientId };
+            // this.phase = 7;
+            this.refreshForm();
+        }
 
-            populatedObject = (): Object => {
-                if (this.authService.isManager()) {
-                    this.object.clientId = this.authService.user.client.id;
-                } else {
-                    this.object.clientId = this.client.id;
-                }
-                if (this.object.id === 0)  { delete this.object.id; }
-                if(this.authService.isManager()) {
-                    delete this.object.clientId;
-                } else {
-                    this.object.clientId = this.object.client.id;
-                }
-                // delete this.object.clientId;
-                // delete this.object.client;
-                return this.object;
+        populatedObject = (): Object => {
+            if (this.authService.isManager()) {
+                this.object.clientId = this.authService.user.client.id;
+            } else {
+                this.object.clientId = this.client.id;
             }
+            if (this.object.id === 0)  { delete this.object.id; }
+
+            if(this.authService.isManager()) {
+                delete this.object.clientId;
+            } else {
+                this.object.clientId = this.object.client.id;
+            }
+            // delete this.object.clientId;
+            // delete this.object.client;
+            return this.object;
+        }
 
 
-            // Called by next() on phase 0 or by the save button on other phases
-            validate() {
-                // Validate child form if called by save button instead of Next/Finish
-                if (this.phase > 0 && !this.validateForm()) { return; }
-                if (!this.object.name) {
-                    this.alert.buildAlert(0, 'O nome do cargo precisa ser informado', 4);
-                    return false;
-                }
-                if (!this.object.department || Object.keys(this.object.department).length === 0) {
-                    this.alert.buildAlert(0, 'O departamento precisa ser escolhido', 4);
-                    return false;
-                }
-                // if (!this.authService.isManager() && !this.object.client) {
+        // Called by next() on phase 0 or by the save button on other phases
+        validate() {
+            // Validate child form if called by save button instead of Next/Finish
+            if (this.phase > 0 && !this.validateForm()) { return; }
+            if (!this.object.name) {
+                this.alert.buildAlert(0, 'O nome do cargo precisa ser informado', 4);
+                return false;
+            }
+            if (!this.object.department || Object.keys(this.object.department).length === 0) {
+                this.alert.buildAlert(0, 'O departamento precisa ser escolhido', 4);
+                return false;
+            }
+            // if (!this.authService.isManager() && !this.object.client) {
                 //     this.alert.buildAlert(0, 'O cliente precisa ser escolhido', 4);
                 //     return false;
                 // }
@@ -282,7 +315,7 @@ export class JobPositionComponent extends EditComponent {
                     return;
                 }
                 this.phase++;
-                this.areas.map(a => a.selected = false);
+                this.areas.map(a => { a.selected = false; delete a.phase; });
                 this.refreshForm();
             }
 
@@ -292,7 +325,7 @@ export class JobPositionComponent extends EditComponent {
                 if (!this.validateForm()) { return; }
                 this.submitForm();
                 this.phase--;
-                this.areas.map(a => a.selected = false);
+                this.areas.map(a => { a.selected = false; delete a.phase; });
                 this.refreshForm();
             }
 
@@ -300,7 +333,7 @@ export class JobPositionComponent extends EditComponent {
                 if (this.phase === 0 && !this.validate()) { return; }
                 if (this.phase > 0 && !this.validateForm()) { return; }
                 this.phase = phase;
-                this.areas.map(a => a.selected = false);
+                this.areas.map(a => { a.selected = false; delete a.phase; });
                 this.refreshForm();
             }
 
@@ -321,7 +354,7 @@ export class JobPositionComponent extends EditComponent {
             addDepartment(event: any) {
                 this.alert.obj.status = false;
                 this.departmentModal.type = 'create';
-                this.departmentModal.openModal(this, event, 'lg', false);
+                this.departmentModal.openModal(this, event, 'center', false);
             }
 
             entityCompareFn(d1: any, d2: any): boolean {
@@ -335,6 +368,7 @@ export class JobPositionComponent extends EditComponent {
 
             // Called by children submit()
             createJobArea(area: any, jobAreaClassification: string) {
+                // console.log('[createJobArea] Creating ' + jobAreaClassification);
                 return { 'areaProfissional': { 'id': area.id, 'area': area.area, 'familia': area.familia }, 'jobAreaClassification': jobAreaClassification };
             }
 
@@ -410,6 +444,10 @@ export class JobPositionComponent extends EditComponent {
                 if (phase === 7 && this.phase !== 7) { return isPristine; }
 
                 return false;
+            }
+
+            isAreaPrincipalSelected() {
+                return this.formLabels.temperamentoAreaIdeal.length !== 0;
             }
 
             // --------------------------------------------------

@@ -1,0 +1,18 @@
+<modal #modal class="modal-xl">
+    <modal-header [show-close]="true">
+        <h4 class="flex-first">{{labels.title}}</h4>
+    </modal-header>
+    <modal-body>
+
+        <div class="row">
+            <div class="col-10">
+                <div class="row">
+                    <div class="col-12">
+                        <span class="infoModalContent" [innerHTML]="labels.content"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </modal-body>
+</modal>

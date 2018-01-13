@@ -17,21 +17,21 @@ export class JobPositionService extends ApiService {
         this.apiRoot = environment.api.jobPositions;
     }
 
-    async getSingleResult(id): Promise<any> {
-        const response = await this.http.get('/jobPosition.json', this.options)
-            .toPromise()
-        return response.json();
-    }
+    // async getSingleResult(id): Promise<any> {
+    //     const response = await this.http.get('/jobPosition.json', this.options)
+    //         .toPromise()
+    //     return response.json();
+    // }
 
-    async getResult(): Promise<any> {
-        const response = await this.http.get('/jobPositions.json', this.options)
-            .toPromise()
-        return response.json();
-    }
+    // async getResult(): Promise<any> {
+    //     const response = await this.http.get('/jobPositions.json', this.options)
+    //         .toPromise()
+    //     return response.json();
+    // }
 
     async getAreas(): Promise<any> {
-        // const areasUrl = environment.api.areas;
-        const areasUrl = '/areas.json';
+        const areasUrl = environment.api.areas;
+        // const areasUrl = '/areas.json';
         const response = await this.http.get(`${areasUrl}`, this.options).toPromise();
         return response.json();
     }

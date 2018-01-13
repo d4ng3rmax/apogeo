@@ -24,6 +24,7 @@ export class AuthFilter implements CanActivate {
         if (token !== null && token !== undefined && token !== '') {
             // console.log('[AuthFilter] Validating token from access_token parameter: ' + token);
             // localStorage.setItem('returnUrl', state.url.split('#')[0]);
+            // console.log('[AuthFilter] validating token...');
             this.authService.validateToken(token);
             return false
         }

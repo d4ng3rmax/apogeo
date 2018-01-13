@@ -2,6 +2,7 @@ import { Component, ViewChild, Input, OnInit } from '@angular/core';
 import { CrudComponent, DataGridComponent } from '../../components'
 import { TemplatesDataGridComponent } from './data-grid.component';
 import { Subject } from 'rxjs/Rx';
+import { AuthService } from '../../auth';
 
 @Component({
     selector: 'app-templates',
@@ -11,4 +12,8 @@ import { Subject } from 'rxjs/Rx';
 export class TemplatesComponent extends CrudComponent {
 
     @ViewChild(TemplatesDataGridComponent) dataGrid: DataGridComponent;
+
+    constructor(public authService: AuthService) {
+    	super();
+    }
 }

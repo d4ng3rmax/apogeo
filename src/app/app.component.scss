@@ -1,6 +1,6 @@
 @import "../assets/mixins/global-imports";
 
-.nowrap { 
+.nowrap {
     white-space: nowrap;
 }
 
@@ -246,11 +246,34 @@
 
 
 .modal-lg {
-  // height:50vh;
-  // min-width: 50%;
+  top: 10%;
   // width: 50%;
   max-width: 50%;
   // overflow: scroll;
+}
+
+.modal-xl {
+    top: 10%;
+    // width: 80%;
+    max-width: 80%;
+}
+
+.modal-full {
+    max-width: 100%;
+}
+
+.modal-center {
+    width: 60%;
+    // top: 10%;
+    max-width: 100%;
+}
+
+.modal {
+}
+
+.modal-dialog{
+    // display: table-cell;
+    vertical-align: middle;
 }
 
 .alertBox {
@@ -307,4 +330,33 @@
 
 .questionLink {
     font-size: 24px;
+}
+
+.title {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 30px;
+    vertical-align: middle;
+    padding: 5px;
+}
+
+
+// Cards
+.cardRowSeparator {
+    margin: 0px;
+    padding: 0px;
+    height: 15px;
+    line-height: 15px;
+}
+
+.formRowSeparator {
+    margin: 0px;
+    padding: 0px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.cardRow {
+    line-height: 36px;
+    vertical-align: middle;
 }

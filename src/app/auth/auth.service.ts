@@ -33,9 +33,10 @@ export class AuthService {
     logout() {
         this.token = null;
         this.user = null;
-        localStorage.removeItem('token');
-        localStorage.removeItem('returnUrl');
-        this.userEmitter.emit();
+        this.validating = false;
+        this.validated = false;
+        this.authenticated = false;
+        localStorage.clear();
     }
 
     validateToken(token: string) {
@@ -45,7 +46,9 @@ export class AuthService {
         this.token = token;
 
         let url = environment.api.user;
-        url = '/mock.json';
+        // url = '/mock.json';
+        // console.log('[AuthService] validating token...');
+
         var request = this.http.get(url, new RequestOptions({ headers: this.getHeaders() }));
         request.subscribe(response => {
             this.validating = false;
@@ -79,8 +82,9 @@ export class AuthService {
             this.validating = false;
             this.validated = false;
             this.authenticated = false;
-            localStorage.removeItem('token');
-            localStorage.removeItem('returnUrl');
+            localStorage.clear();
+            // localStorage.removeItem('token');
+            // localStorage.removeItem('returnUrl');
         });
 
         return request;
@@ -106,6 +110,16 @@ export class AuthService {
         if(this.user === null || this.user === undefined) return;
         if(this.user.roles === undefined) this.user.roles = [];
         return this.user.roles.indexOf('MANAGER') > -1;
+    }
+
+    isRespondent() {
+        if(this.user === null || this.user === undefined) return;
+        if(this.user.roles === undefined) this.user.roles = [];
+        return this.user.roles.indexOf('RESPONDENT') > -1;
+    }
+
+    isAdminOrDistributor() {
+        return this.isAdmin() || this.isDistributor();
     }
 
 }

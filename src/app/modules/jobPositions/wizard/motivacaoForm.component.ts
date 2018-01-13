@@ -29,21 +29,21 @@ export class MotivacaoFormComponent implements OnInit {
     }
 
     motivacoesMap: any = [
-        { 'code': 'Fe', 'motivacao': 'Formadores emocionais' },
-        { 'code': 'I', 'motivacao': 'Incentivadores' },
-        { 'code': 'Fr', 'motivacao': 'Formadores racionais' },
-        { 'code': 'Pe', 'motivacao': 'Preservadores emocionais' },
-        { 'code': 'R', 'motivacao': 'Realizadores' },
-        { 'code': 'Pr', 'motivacao': 'Preservadores racionais' },
-        { 'code': 'Ie', 'motivacao': 'Integradores emocionais' },
-        { 'code': 'C', 'motivacao': 'Criativos' },
-        { 'code': 'Ir', 'motivacao': 'Integradores racionais' }
+    { 'code': 'Fe', 'motivacao': 'Formadores emocionais' },
+    { 'code': 'I', 'motivacao': 'Incentivadores' },
+    { 'code': 'Fr', 'motivacao': 'Formadores racionais' },
+    { 'code': 'Pe', 'motivacao': 'Preservadores emocionais' },
+    { 'code': 'R', 'motivacao': 'Realizadores' },
+    { 'code': 'Pr', 'motivacao': 'Preservadores racionais' },
+    { 'code': 'Ie', 'motivacao': 'Integradores emocionais' },
+    { 'code': 'C', 'motivacao': 'Criativos' },
+    { 'code': 'Ir', 'motivacao': 'Integradores racionais' }
     ]
 
     autoGerenciamentoMap: any = [
-        { 'id': 1, 'text': 'Mínimo' },
-        { 'id': 2, 'text': 'Mediano (Padrão)' },
-        { 'id': 3, 'text': 'Máximo' }
+    { 'code': 1, 'text': 'Mínimo' },
+    { 'code': 2, 'text': 'Mediano (Padrão)' },
+    { 'code': 3, 'text': 'Máximo' }
     ]
 
     constructor(protected route: ActivatedRoute,
@@ -51,6 +51,23 @@ export class MotivacaoFormComponent implements OnInit {
         protected service: JobPositionService,
         protected inj: Injector) {
         this.parent = this.inj.get(JobPositionComponent);
+
+        // autoselect
+        if(this.parent.object.id == null || this.parent.object.id === 0) {
+            this.parent.object.apogeo1 = 2;
+            this.parent.object.apogeo2 = 2;
+            this.parent.object.autoGerenciamento1 = 2;
+            this.parent.object.autoGerenciamento2 = 2;
+            this.formObjects.apogeo1 = 2;
+            this.formObjects.apogeo2 = 2;
+            this.formObjects.autoGerenciamento1 = 2;
+            this.formObjects.autoGerenciamento2 = 2;
+            this.parent.refreshLabels();
+            // this.formObjects.apogeo1 = this.autoGerenciamentoMap.filter(a => a.code === 2)[0].text;
+            // this.formObjects.apogeo2 = this.autoGerenciamentoMap.filter(a => a.code === 2)[0].text;
+            // this.formObjects.autoGerenciamento1 = this.autoGerenciamentoMap.filter(a => a.code === 2)[0].text;
+            // this.formObjects.autoGerenciamento2 = this.autoGerenciamentoMap.filter(a => a.code === 2)[0].text;
+        }
     }
 
     async ngOnInit() {

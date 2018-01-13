@@ -4,6 +4,10 @@ import { AlertComponent, ModalComponent } from '../../components';
 import { DepartmentService } from './department.service';
 import { Department, Industry } from '../../models';
 import { IndustryService, IndustryModalComponent } from '../industries';
+import { AuthService } from '../../auth';
+
+declare var jquery: any;
+declare var $: any;
 
 @Component({
     selector: 'mm-department-modal',
@@ -16,8 +20,9 @@ export class DepartmentModalComponent extends ModalComponent {
     industryModal: IndustryModalComponent;
 
     industries: any[];
+    clients: any[];
 
-    constructor(protected fb: FormBuilder, protected service: DepartmentService, protected industryService: IndustryService) {
+    constructor(protected fb: FormBuilder, public authService: AuthService, protected service: DepartmentService, protected industryService: IndustryService) {
         super(fb, service);
         this.defaultValues = { id: 0, name: '', industry: {}, clientId: '' };
         this.industryService.objectEmitter.subscribe((data) => {
@@ -27,17 +32,21 @@ export class DepartmentModalComponent extends ModalComponent {
         });
     }
 
-    // test() {
-    //     console.log('this.object.industry = ' + JSON.stringify(this.object.industry));
-    //     console.log('this.fb.control['industry'] = ' + JSON.stringify(this.fb.control['industry']));
-    // }
-
-    // async ngOnInit() {
-    //     super.ngOnInit();
-    // }
+    async ngOnInit() {
+        super.ngOnInit();
+        this.clients = this.dataGrid && this.dataGrid.clients ? this.dataGrid.clients : [];
+    }
 
     open(size: string) {
+        this.clients = this.dataGrid && this.dataGrid.clients ? this.dataGrid.clients : [];
+         $('.modal-dialog').removeClass('modal-center');
+        $('.modal-dialog').removeClass('modal-full');
+        $('.modal-dialog').removeClass('modal-xl');
+        $('.modal-dialog').removeClass('modal-lg');
+        $('.modal-dialog').removeClass('modal-md');
+        $('.modal-dialog').removeClass('modal-sm');
         super.open(size);
+        $('.modal-dialog').addClass('modal-' + size);
         this.reloadIndustries();
     }
 
@@ -54,18 +63,13 @@ export class DepartmentModalComponent extends ModalComponent {
             this.alert.buildAlert(0, 'O nome do departamento requer ao menos 3 caracteres');
             return false;
         }
-        console.log('VALIDATE - INDUSTRY: ' + JSON.stringify(value['industry']));
+        // console.log('VALIDATE - INDUSTRY: ' + JSON.stringify(value['industry']));
         if (!value['industry'] || Object.keys(value['industry']).length === 0) {
             this.alert.buildAlert(0, 'O ramo precisa ser escolhido');
             return false;
         }
         return true;
     }
-
-    // edit(value: any): void {
-    //     console.log('Editing ' + JSON.stringify(value));
-    //     super.edit(value);
-    // }
 
     industryCompareFn(d1: any, d2: any): boolean {
         return d1 && d2 ? d1.id === d2.id : d1 === d2;
@@ -76,4 +80,16 @@ export class DepartmentModalComponent extends ModalComponent {
         this.industryModal.type = 'create';
         this.industryModal.openModal(this, event, 'lg', false);
     }
+
+    preUpdateGrid(object: any) {
+        const result = this.clients.filter(c => c.id === object.clientId);
+        if(result && result[0]) { object.clientName = result[0].name; }
+    }
+
+    preSave(value: any) {
+        if(!value.clientId || !this.authService.isAdminOrDistributor()) {
+            delete value.clientId;
+        }
+    }
+
 }

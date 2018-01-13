@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../auth';
+import { InfoModalComponent } from '../components';
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -13,6 +14,7 @@ export class HeaderComponent implements OnInit {
     @Input() menuEnabled: boolean;
     // /: string; // processes | users | settings
     module: string; // settings: { solutions | surveys | mail }, users: { users | tokens }, processes: { processes }
+    subModule: string; // used to get path for infoModal
     url: string;
     token: string;
     user: any;
@@ -20,23 +22,36 @@ export class HeaderComponent implements OnInit {
     isAdmin: boolean = false;
     isDistributor: boolean = false;
 
+    @ViewChild('infoModal')
+    infoModal: InfoModalComponent;
+
+    helpModalMap: any = {
+        'solutions/result': {'title': 'Resultados', 'size': 'lg', 'content': 'Teste', 'url': ''},
+        'solutions/solution': {'title': 'Soluções', 'size': 'lg', 'content': 'Teste', 'url': ''},
+        'surveys/question': {'title': 'Questões', 'size': 'center', 'content': 'Teste', 'url': ''},
+        'surveys/page': {'title': 'Páginas', 'size': 'center', 'content': 'Teste', 'url': ''},
+        'surveys/survey': {'title': 'Questionários', 'size': 'center', 'content': 'Teste', 'url': ''},
+        'jobs/jobPosition': {'title': 'Cargos', 'size': 'center', 'content': 'Teste de Conteudo<br/>De cargos Teste teste teste teste teste teste', 'url': ''},
+        'jobs/department': {'title': 'Departamentos', 'size': 'center', 'content': 'Teste', 'url': ''},
+        'jobs/industry': {'title': 'Ramos', 'size': 'center', 'content': 'Teste', 'url': ''},
+        'mail/template': {'title': 'Emails', 'size': 'center', 'content': 'Teste', 'url': ''},
+        'sers': {'title': 'Usuários', 'size': 'center', 'content': 'Teste', 'url': ''},
+        'tokens': {'title': 'Tokens', 'size': 'center', 'content': 'Teste', 'url': ''},
+        'processes': {'title': 'Processos', 'size': 'lg', 'content': 'Teste', 'url': ''}
+    };
+
     // menuMap:any = { 'settings': ['solutions', 'surveys', 'mail'], 'users': ['users', 'tokens'], 'processes': ['processes'] };
 
-    constructor(private route: ActivatedRoute, private router: Router, private authService: AuthService) {
+    constructor(private route: ActivatedRoute, private router: Router, public authService: AuthService) {
         this.loginUrl = environment.api.forceLogin;
         this.router.events.subscribe((res) => {
             this.url = this.router.url;
             // Pega o modulo na primeira parte depois da barra para definir menu ativo
             var exp = this.url.split('/');
             this.module = exp[1];
-            // Get area based on module from menuMap
-            // for (var area in this.menuMap) {
-            //     if (!this.menuMap.hasOwnProperty(area)) { continue; }
-            //     if (this.menuMap[area].indexOf(this.module) > -1) {
-            //         this.area = area;
-            //         break;
-            //     }
-            // }
+            if(exp.length > 1) {
+                this.subModule = exp[2];
+            }
         });
 
         this.user = this.authService.user;
@@ -48,46 +63,43 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit() {
+        // this.openHelpModal();
     }
-
-    // selectArea(area: string) {
-        // this.route.params['area'] = area;
-        // this.area = area;
-        // if (module == 'processes') {
-        //     this.router.navigate(['/solutions/result/list']);
-        // } else if (module == 'settings') {
-        //     this.router.navigate(['/surveys/question/list']);
-        // } else if (module == 'users') {
-        //     this.router.navigate(['/mail/template/list']);
-        // }
-    // }
 
     selectModule(module: string) {
         this.module = module;
-        if (module == 'solutions') {
+        if (module === 'solutions') {
             this.router.navigate(['/solutions/result/list']);
-        } else if (module == 'surveys') {
+        } else if (module === 'surveys') {
             this.router.navigate(['/surveys/question/list']);
-        } else if (module == 'mail') {
+        } else if (module === 'mail') {
             this.router.navigate(['/mail/template/list']);
 
-        } else if (module == 'jobs') {
+        } else if (module === 'jobs') {
             this.router.navigate(['/jobs/jobPosition/list']);
 
-        } else if (module == 'users') {
+        } else if (module === 'users') {
             this.router.navigate(['/users/user/list']);
-        } else if (module == 'tokens') {
+        } else if (module === 'tokens') {
             this.router.navigate(['/users/user/list']);
 
-        } else if (module == 'processes') {
+        } else if (module === 'processes') {
             this.router.navigate(['/processes/process/list']);
         }
     }
 
+    openHelpModal() {
+        if(!this.module) {
+            return {};
+        }
+        const data = this.helpModalMap[this.module + '/' + this.subModule];
+        this.infoModal.open(data.title, data.content, data.url, data.size);
+    }
+
     logout() {
         this.authService.logout();
-        // this.router.navigate(['home']);
-        // this.router.navigate([environment.api.login]);
-        document.location.href = environment.api.login;
+        // window.location.replace(environment.api.login);
+        window.location.replace(environment.api.forceLogin);
+        // document.location.href = environment.api.login;
     }
 }

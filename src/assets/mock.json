@@ -1,1 +1,1 @@
-{"exp":1604460893,"user_name":"dani.bonilha@gmail.com","authorities":["ADMIN"],"client_id":"apogeo-app","scope":["read","write"]}
+{"id":61,"client":{"id":41},"email":"caiombonilha@gmail.com","document":"30.123.154/0001-12","name":"Primeiro Gerente","passwordExpiration":[2018,10,16,20,59,35],"roles":[{"id":31,"name":"MANAGER"}],"phones":[],"addresses":[],"enabled":true,"accountNonExpired":true,"accountNonLocked":true,"credentialsNonExpired":true}

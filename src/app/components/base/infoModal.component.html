@@ -1,0 +1,23 @@
+<modal #modal class="modal">
+    <modal-header [show-close]="true">
+        <h4 class="flex-first">{{labels.title}}</h4>
+    </modal-header>
+    <modal-body>
+<!--
+        <div class="row">
+            <div class="col-12">
+            -->
+                <!-- *** Without this *ngIf="safeUrl", it causes iframe reload app recursively, including with AJAX calls, until it crashes *** -->
+<!-- </div> -->
+<!-- </div> -->
+
+        <div class="modal-inner">
+            <div class="textCenter" *ngIf="safeUrl">
+                <iframe id="video" [width]="labels.videoWidth" [height]="labels.videoHeight" [src]="safeUrl" frameborder="0" allowfullscreen></iframe><br />
+            </div>
+            <span class="infoModalContent" [innerHTML]="labels.content"></span>
+        </div>
+
+
+    </modal-body>
+</modal>

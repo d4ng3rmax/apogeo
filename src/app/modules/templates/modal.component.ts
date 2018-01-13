@@ -4,26 +4,28 @@ import { ModalComponent } from '../../components';
 import { TemplateService } from './template.service';
 import { Template } from '../../models';
 import { AuthService } from '../../auth';
+import { ClientService } from '../clients';
 
 @Component({
     selector: 'mm-template-modal',
     templateUrl: './modal.component.html',
-    styleUrls: ['./modal.component.scss']
+    styleUrls: ['./modal.component.scss'],
+    providers: [ClientService]
 })
 export class TemplateModalComponent extends ModalComponent implements AfterViewInit {
 
     names: string[] = ['ADMIN_QUESTIONARIO_RESPONDIDO', 'AVALIADO_NOVO_QUESTIONARIO', 'GERENTE_QUESTIONARIO_RESPONDIDO', 'GERENTE_NOVO_QUESTIONARIO'];
-    isAdmin: boolean = false;
-    isDistributor: boolean = false;
+    client: any = {};
+    clients: any[];
 
-    constructor(protected fb: FormBuilder, protected service: TemplateService, protected authService: AuthService) {
+    constructor(protected fb: FormBuilder, protected service: TemplateService, public authService: AuthService, protected clientService: ClientService) {
         super(fb, service);
         this.defaultValues = { id: 0, name: '', description: '', subject: '', senderName: '', senderEmail: '', mailTo: '', content: '' };
     }
 
-    ngOnInit() {
+    async ngOnInit() {
         super.ngOnInit();
-        // this.defaultSize = 'modal-xl';
+        if (this.dataGrid) { this.clients = this.dataGrid.clients; }
     }
 
     newEntity = (params): Object => {
@@ -44,10 +46,9 @@ export class TemplateModalComponent extends ModalComponent implements AfterViewI
     @Output() onEditorKeyup = new EventEmitter<any>();
     editor: any;
 
-
     ngAfterViewInit() {
-        this.isAdmin = this.authService.isAdmin();
-        this.isDistributor = this.authService.isDistributor();
+        // this.isAdmin = this.authService.isAdmin();
+        // this.isDistributor = this.authService.isDistributor();
         this.onEditorKeyup.subscribe((content) => {
             // console.log('content: ' + content);
             this.form.controls['content'].setValue(content);
@@ -68,7 +69,7 @@ export class TemplateModalComponent extends ModalComponent implements AfterViewI
     }
 
     ngOnDestroy() {
-        console.log('destroying editor');
+        // console.log('destroying editor');
         tinymce.remove(this.editor);
     }
 
@@ -77,9 +78,15 @@ export class TemplateModalComponent extends ModalComponent implements AfterViewI
     }
 
     open(size: string) {
+        this.clients = this.dataGrid.clients;
         this.editor.setContent(this.object.content);
         this.alert.reset();
         this.modal.open('modal-xl');
+    }
+
+    preUpdateGrid(object: any) {
+        const result = this.clients.filter(c => c.id === object.clientId);
+        if(result && result[0]) { object.clientName = result[0].name; }
     }
 
 }
