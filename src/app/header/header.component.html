@@ -26,7 +26,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('users')" [class]="module == 'users' ? 'nav-link active' : 'nav-link'" *ngIf="!this.authService.isRespondent()">Cadastros</a>
+            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('register')" [class]="module == 'register' ? 'nav-link active' : 'nav-link'" *ngIf="!this.authService.isRespondent()">Cadastros</a>
         </li>
 
         <li class="nav-item ml-auto"></li>
@@ -90,6 +90,13 @@
     <ul class="nav nav-pills nav-pills-secondary mt-2" *ngIf="module == 'mail'">
         <li class="nav-item">
             <a class="nav-link" routerLink="/mail/template/list" routerLinkActive="active">Templates</a>
+        </li>
+    </ul>
+
+    <!-- Register -->
+    <ul class="nav nav-pills nav-pills-secondary mt-2" *ngIf="module == 'register'">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/register/distributor/list" routerLinkActive="active">Distribuidores</a>
         </li>
     </ul>
 </header>

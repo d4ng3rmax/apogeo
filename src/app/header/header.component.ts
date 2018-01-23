@@ -85,6 +85,9 @@ export class HeaderComponent implements OnInit {
 
         } else if (module === 'processes') {
             this.router.navigate(['/processes/process/list']);
+
+        } else if (module === 'register') {
+            this.router.navigate(['/register/distributor/list']);
         }
     }
 
