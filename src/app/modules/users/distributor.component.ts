@@ -8,7 +8,7 @@ import { Subject } from 'rxjs/Rx';
     templateUrl: './distributor.component.html',
     styleUrls: ['../../components/data-grid/data-grid.component.scss']
 })
-export class DistributorComponent extends CrudComponent {
+export class DistributorsComponent extends CrudComponent {
 
     @ViewChild(DistributorDataGridComponent) dataGrid: DataGridComponent;
 

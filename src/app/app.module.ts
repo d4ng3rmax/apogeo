@@ -31,6 +31,9 @@ import { JobPositionsComponent, JobPositionComponent, JobPositionsDataGridCompon
 import { DepartmentsComponent, DepartmentModalComponent, DepartmentsDataGridComponent } from './modules/departments';
 import { IndustriesComponent, IndustriesDataGridComponent, IndustryModalComponent } from './modules/industries';
 
+
+// Distribuitor
+import { DistributorsComponent } from './modules/users';
 // Client
 // import { ClientComponent } from './modules/clients';
 
@@ -92,6 +95,8 @@ import { IndustriesComponent, IndustriesDataGridComponent, IndustryModalComponen
         IndustriesComponent,
         IndustriesDataGridComponent,
         IndustryModalComponent,
+
+        DistributorsComponent,
 
         // Clients
 
