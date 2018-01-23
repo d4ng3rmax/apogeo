@@ -37,30 +37,64 @@ import { IndustriesComponent, IndustriesDataGridComponent, IndustryModalComponen
 @NgModule({
     declarations: [
         // Shared
-        AppComponent, HeaderComponent, HomeComponent,
-        AlertComponent, InfoModalComponent, FilterControlsComponent, CheckboxComponent, DisabledCheckboxComponent, PersistNavigationComponent,
+        AppComponent,
+        HeaderComponent,
+        HomeComponent,
+
+        AlertComponent,
+        InfoModalComponent,
+        FilterControlsComponent,
+        CheckboxComponent,
+        DisabledCheckboxComponent,
+        PersistNavigationComponent,
 
         // Directives
         AutofocusDirective,
 
         // Survey
-        QuestionsComponent, QuestionsDataGridComponent, QuestionModalComponent,
-        PagesComponent, PageComponent, PagesDataGridComponent,
-        SurveysComponent, SurveyComponent, SurveysDataGridComponent,
+        QuestionsComponent,
+        QuestionsDataGridComponent,
+        QuestionModalComponent,
+
+        PagesComponent,
+        PageComponent,
+        PagesDataGridComponent,
+
+        SurveysComponent,
+        SurveyComponent,
+        SurveysDataGridComponent,
 
         // Solution
-        SolutionsComponent, SolutionComponent, SolutionsDataGridComponent,
-        ResultsComponent, ResultsDataGridComponent, ResultModalComponent,
+        SolutionsComponent,
+        SolutionComponent,
+        SolutionsDataGridComponent,
+        ResultsComponent,
+        ResultsDataGridComponent,
+        ResultModalComponent,
 
         // Mail
-        TemplatesComponent, TemplatesDataGridComponent, TemplateModalComponent,
+        TemplatesComponent,
+        TemplatesDataGridComponent,
+        TemplateModalComponent,
 
         // Job Positions
-        JobPositionsComponent, JobPositionComponent, JobPositionsDataGridComponent, TemperamentoMapFormComponent, ComportamentoMapFormComponent, MotivacaoFormComponent,
-        DepartmentsComponent, DepartmentModalComponent, DepartmentsDataGridComponent,
-        IndustriesComponent, IndustriesDataGridComponent, IndustryModalComponent,
+        JobPositionsComponent,
+        JobPositionComponent,
+        JobPositionsDataGridComponent,
+        TemperamentoMapFormComponent,
+        ComportamentoMapFormComponent,
+        MotivacaoFormComponent,
+
+        DepartmentsComponent,
+        DepartmentModalComponent,
+        DepartmentsDataGridComponent,
+
+        IndustriesComponent,
+        IndustriesDataGridComponent,
+        IndustryModalComponent,
 
         // Clients
+
         // ClientComponent
     ],
     imports: [

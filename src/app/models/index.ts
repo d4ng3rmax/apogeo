@@ -11,3 +11,4 @@ export * from './department.model';
 export * from './formula.model';
 export * from './industry.model';
 export * from './user.model';
+export * from './distributor.model';

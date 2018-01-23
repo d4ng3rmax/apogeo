@@ -25,6 +25,10 @@
             <a class="nav-link" href="javascript:void(0)" (click)="selectModule('mail')" [class]="module == 'mail' ? 'nav-link active' : 'nav-link'" *ngIf="!this.authService.isRespondent()">Email</a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" (click)="selectModule('users')" [class]="module == 'users' ? 'nav-link active' : 'nav-link'" *ngIf="!this.authService.isRespondent()">Usuários</a>
+        </li>
+
         <li class="nav-item ml-auto"></li>
 
         <ul class="nav-item nav nav-pills">

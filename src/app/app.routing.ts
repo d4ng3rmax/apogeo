@@ -63,6 +63,13 @@ const routes: Routes = [
                   // { path: 'department', component: DepartmentComponent }
                 ]
             },
+            {
+                path: 'users', children: [
+                  { path: 'distributors/list', component: JobPositionsComponent },
+                  { path: 'distributors/:id', component: JobPositionComponent },
+                  { path: 'distributors', component: JobPositionComponent }
+                ]
+            },
             // ]
             // },
             { path: '**', redirectTo: '' }
