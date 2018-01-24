@@ -1,7 +1,7 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { DistributorModalComponent } from './modal.component';
-import { DataGridComponent, CheckboxComponent } from '../../components';
+import { DataGridComponent, CheckboxComponent, DisabledCheckboxComponent } from '../../components';
 import { DistributorService } from './distributor.service';
 import { Distributor } from '../../models';
 
@@ -28,7 +28,7 @@ export class DistributorDataGridComponent extends DataGridComponent {
 
     constructor(protected router: Router, protected service: DistributorService) {
         super(router, service);
-        this.baseUrl = '/surveys/question';
+        this.baseUrl = '/register/distributors';
         this.labels.add = 'Adicionar Frase';
         this.settings.columns = {
             name: {
@@ -37,9 +37,8 @@ export class DistributorDataGridComponent extends DataGridComponent {
             email: {
                 title: 'E-mail', width: "45%", filter: false, editor: { type: 'textarea' }
             },
-            active: {
-                title: 'Facilitador', type: 'custom', valuePrepareFunction: 'custom', width: '10%', renderComponent: CheckboxComponent, filter: false,
-                onComponentInitFunction: (instance: any) => { instance.toggleActive = this.toggleActive; }
+            enabled: {
+                title: 'Facilitador', type: 'custom', valuePrepareFunction: 'custom', width: '10%', renderComponent: DisabledCheckboxComponent, filter: false
             }
         };
     }
@@ -49,11 +48,11 @@ export class DistributorDataGridComponent extends DataGridComponent {
     }
 
     toggleEnabled = (rowData): void => {
-        if (rowData.active) {
+        if (rowData.enabled) {
             this.alert.buildAlert(0, "Você só poderá ter 1 questionário ativo por vez. Selecione um questionário inativo para desativar este.");
 
             for (let i = 0; i < this.source['data'].length; i++) {
-                let newS = { id: rowData.id, active: rowData.active, title: rowData.title };
+                let newS = { id: rowData.id, enabled: rowData.enabled, title: rowData.title };
                 this.source.update(this.source['data'][i], this.source['data'][i]);
             }
 
