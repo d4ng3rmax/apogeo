@@ -33,7 +33,7 @@ import { IndustriesComponent, IndustriesDataGridComponent, IndustryModalComponen
 
 
 // Distribuitor
-import { DistributorsComponent } from './modules/register';
+import { DistributorsComponent, DistributorModalComponent, DistributorDataGridComponent } from './modules/register';
 // Client
 // import { ClientComponent } from './modules/clients';
 
@@ -97,6 +97,8 @@ import { DistributorsComponent } from './modules/register';
         IndustryModalComponent,
 
         DistributorsComponent,
+        DistributorDataGridComponent,
+        DistributorModalComponent,
 
         // Clients
 

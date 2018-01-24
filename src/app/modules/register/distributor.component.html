@@ -9,19 +9,19 @@
 
                     <!-- Form fields-->
 
-                    <label>Por frase:</label>
+                    <label>Por nome:</label>
                     <input #search type="text" placeholder="Buscar por..." (keyup)="dataGrid.search('question', search.value)" class="form-control" />
                     <br />
 
-                    <label>Por status:</label>
+                    <label>Facilitador:</label>
                     <div class="form-check">
                         <label class="form-check-label mg-right">
-                            <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios2" value="true" (click)="dataGrid.search('active', true)" />
-                            Ativo
+                            <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios2" value="true" (click)="dataGrid.search('enabled', true)" />
+                            Sim
                         </label>
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios2" value="false" (click)="dataGrid.search('active', false)" />
-                            Inativo
+                            <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios2" value="false" (click)="dataGrid.search('enabled', false)" />
+                            Não
                         </label>
                     </div>
                     <br />

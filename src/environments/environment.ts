@@ -16,6 +16,6 @@ export const environment = {
     departments: 'https://apogeo-jobposition-svc.cfapps.io/departments',
     industries: 'https://apogeo-jobposition-svc.cfapps.io/industries',
     areas: 'https://apogeo-jobposition-svc.cfapps.io/areas',
-    distributors: 'https://apogeo-jobposition-svc.cfapps.io/distributors'
+    distributors: 'https://apogeo-oauth-server.cfapps.io/api/distributors'
   }
 };

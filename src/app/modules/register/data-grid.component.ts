@@ -18,7 +18,7 @@ import { Distributor } from '../../models';
             <a (click)="this.reload()" href="javascript:void(0)"> Tentar novamente</a>
             <img *ngIf="this.reloading" src="images/refresh.svg" width="16" height="16" />
         </div>
-        <mm-question-modal></mm-question-modal>
+        <mm-distributor-modal></mm-distributor-modal>
         `,
     styleUrls: ['../../components/data-grid/data-grid.component.scss'],
     providers: [DistributorService],
@@ -31,11 +31,14 @@ export class DistributorDataGridComponent extends DataGridComponent {
         this.baseUrl = '/surveys/question';
         this.labels.add = 'Adicionar Frase';
         this.settings.columns = {
-            question: {
-                title: 'Nome', width: "90%", filter: false, editor: { type: 'textarea' }
+            name: {
+                title: 'Nome', width: "45%", filter: false, editor: { type: 'textarea' }
+            },
+            email: {
+                title: 'E-mail', width: "45%", filter: false, editor: { type: 'textarea' }
             },
             active: {
-                title: 'Ativo', type: 'custom', valuePrepareFunction: 'custom', width: '10%', renderComponent: CheckboxComponent, filter: false,
+                title: 'Facilitador', type: 'custom', valuePrepareFunction: 'custom', width: '10%', renderComponent: CheckboxComponent, filter: false,
                 onComponentInitFunction: (instance: any) => { instance.toggleActive = this.toggleActive; }
             }
         };
@@ -43,6 +46,36 @@ export class DistributorDataGridComponent extends DataGridComponent {
 
     newEntity = (rowData): Object => {
         return new Distributor(rowData.id, rowData.client, rowData.email, rowData.document, rowData.name, rowData.enabled);
+    }
+
+    toggleEnabled = (rowData): void => {
+        if (rowData.active) {
+            this.alert.buildAlert(0, "Você só poderá ter 1 questionário ativo por vez. Selecione um questionário inativo para desativar este.");
+
+            for (let i = 0; i < this.source['data'].length; i++) {
+                let newS = { id: rowData.id, active: rowData.active, title: rowData.title };
+                this.source.update(this.source['data'][i], this.source['data'][i]);
+            }
+
+            return;
+        }
+
+        if (window.confirm("Você só poderá ter 1 questionário ativo por vez. Ao ativar este, o anterior será automaticamente inativado. Deseja continuar?")) {
+            this.apiService.toggleActive(rowData.id)
+                .then(data => {
+                    // this.source.update(rowData, this.newEntity(data));
+                    // this.source.refresh();
+                    this.alert.buildAlert(1, this.labels.update.success);
+                    this.reload();
+
+                }, error => { this.alert.handleResponseError(error); this.reload(); });
+        } else {
+            // rowData.active = false;
+            for (let i = 0; i < this.source['data'].length; i++) {
+                let newS = { id: rowData.id, active: rowData.active, title: rowData.title };
+                this.source.update(this.source['data'][i], this.source['data'][i]);
+            }
+        }
     }
 
     // Modal editor

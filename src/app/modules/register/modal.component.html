@@ -9,17 +9,17 @@
         <form novalidate [formGroup]="form" (ngSubmit)="onSubmit(form)">
 
             <!-- Form -->
-            <label for="question">Questão:</label>
-            <textarea formControlName="question" cols="30" rows="5" class="form-control" autofocus></textarea>
+            <label for="client">Questão:</label>
+            <textarea formControlName="client" cols="30" rows="5" class="form-control" autofocus></textarea>
             <br />
-            
+
             <div class="row">
                 <div class="col-2 col-sm-1">
                     <span>Ativo</span>
                 </div>
                 <div class="col-2 col-sm-1">
-                    <input class="tgl tgl-skewed" type="checkbox" name="active" id="active" formControlName="active" [checked]="object.active" />
-                    <label class="tgl-btn" data-tg-off="NÃO" data-tg-on="SIM" for="active"></label>
+                    <input class="tgl tgl-skewed" type="checkbox" name="enabled" id="enabled" formControlName="enabled" [checked]="object.active" />
+                    <label class="tgl-btn" data-tg-off="NÃO" data-tg-on="SIM" for="enabled"></label>
                 </div>
             </div>
 
