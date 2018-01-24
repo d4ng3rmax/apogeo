@@ -17,7 +17,7 @@ import { JobPositionsComponent, JobPositionComponent } from './modules/jobPositi
 import { DepartmentsComponent } from './modules/departments';
 import { IndustriesComponent } from './modules/industries';
 
-import { DistributorsComponent } from './modules/users';
+import { DistributorsComponent } from './modules/register';
 
 const routes: Routes = [
     {

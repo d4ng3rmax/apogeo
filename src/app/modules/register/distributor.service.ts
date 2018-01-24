@@ -11,7 +11,7 @@ export class DistributorService extends ApiService {
 
     constructor(protected  http: Http, protected authService: AuthService) {
         super(http, authService);
-        this.apiRoot = environment.api.questions;
+        this.apiRoot = environment.api.distributors;
     }
 
 }

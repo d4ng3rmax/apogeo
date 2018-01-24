@@ -42,7 +42,7 @@ export class DistributorDataGridComponent extends DataGridComponent {
     }
 
     newEntity = (rowData): Object => {
-        return new Distributor(rowData.id, rowData.question, rowData.active);
+        return new Distributor(rowData.id, rowData.client, rowData.email, rowData.document, rowData.name, rowData.enabled);
     }
 
     // Modal editor

@@ -33,7 +33,7 @@ import { IndustriesComponent, IndustriesDataGridComponent, IndustryModalComponen
 
 
 // Distribuitor
-import { DistributorsComponent } from './modules/users';
+import { DistributorsComponent } from './modules/register';
 // Client
 // import { ClientComponent } from './modules/clients';
 
