@@ -50,6 +50,7 @@ export class ModalComponent implements OnInit {
             this.object = event.data;
             this.selectedRow = event.data;
         }
+        // console.info( this.object );
         this.form = this.fb.group(this.object);
         this.open(size === undefined ? this.defaultSize : size);
     }

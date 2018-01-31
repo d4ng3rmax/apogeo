@@ -1,0 +1,42 @@
+<app-header [menuEnabled]="menuEnabled"></app-header>
+<section>
+    <div class="container-fluid">
+        <div class="row no-mg">
+            <div class="col-12 col-sm-2 box-filter">
+                <h4 class="text-info">Filtro</h4>
+                <br />
+                <form #form name="form">
+
+                    <!-- Form fields-->
+
+                    <label>Por nome:</label>
+                    <input #search type="text" placeholder="Buscar por..." (keyup)="dataGrid.search('name', search.value)" class="form-control" />
+                    <br />
+
+                    <label>Facilitador:</label>
+                    <div class="form-check">
+                        <label class="form-check-label mg-right">
+                            <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios2" value="true" (click)="dataGrid.search('enabled', true)" />
+                            Sim
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios2" value="false" (click)="dataGrid.search('enabled', false)" />
+                            Não
+                        </label>
+                    </div>
+                    <br />
+
+                    <!-- Form fields -->
+
+                    <filter-controls [form]="form" [dataGrid]="dataGrid"></filter-controls>
+                </form>
+            </div>
+            <div class="col no-pd-right">
+                <alert #alert></alert>
+
+                <!-- Datagrid -->
+                <data-grid-distributors [alert]="alert" class="table table-hover table-bordered"></data-grid-distributors>
+            </div>
+        </div>
+    </div>
+</section>

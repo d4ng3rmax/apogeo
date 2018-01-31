@@ -1,7 +1,8 @@
-<modal #modal>
+<modal #modal [backdrop]="false" class="modal-xl">
     <modal-header [show-close]="true">
         <h4 class="flex-first" *ngIf="type == 'create'">Preencha os campos abaixo:</h4>
-        <h4 class="flex-first" *ngIf="type == 'edit'">Edite os campos abaixo:</h4>
+        <h4 class="flex-first" *ngIf="type == 'edit' && !this.authService.isAdminOrDistributor()">Distribuidor: {{ object.name }}</h4>
+        <h4 class="flex-first" *ngIf="type == 'edit' && this.authService.isAdminOrDistributor()">Distribuidor: {{ object.name }}</h4>
     </modal-header>
     <modal-body>
         <alert #alert></alert>
@@ -9,19 +10,111 @@
         <form novalidate [formGroup]="form" (ngSubmit)="onSubmit(form)">
 
             <!-- Form -->
-            <label for="client">Questão:</label>
-            <textarea formControlName="client" cols="30" rows="5" class="form-control" autofocus></textarea>
+
+            <div class="row">
+                <div class="col-12">
+
+                    <div style="display: block"></div>
+
+                    <div class="row">
+                        <div class="col-6">
+
+                            <label for="name">Nome:</label>
+                            <input type="text" formControlName="name" class="form-control" />
+
+                            <label for="email">Email:</label>
+                            <input type="text" formControlName="email" class="form-control" />
+
+                            <label for="document">CPF:</label>
+                            <input type="text" formControlName="document" class="form-control" />
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
             <br />
 
             <div class="row">
-                <div class="col-2 col-sm-1">
-                    <span>Ativo</span>
-                </div>
-                <div class="col-2 col-sm-1">
-                    <input class="tgl tgl-skewed" type="checkbox" name="enabled" id="enabled" formControlName="enabled" [checked]="object.active" />
-                    <label class="tgl-btn" data-tg-off="NÃO" data-tg-on="SIM" for="enabled"></label>
+                <div class="col-12">
+
+                    <h3>Endereços:</h3>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Logradouro</th>
+                                <th>Número</th>
+                                <th>Compl.</th>
+                                <th>Bairro</th>
+                                <th>Cidade</th>
+                                <th>Estado</th>
+                                <th>CEP</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <!-- <td><input type="text" formControlName="addresses[0].addressType" class="form-control" /></td> -->
+                                <!-- <td><input type="text" formControlName="addr_street" class="form-control" /></td>
+                                <td><input type="text" formControlName="addr_number" class="form-control" /></td>
+                                <td><input type="text" formControlName="addr_other" class="form-control" /></td>
+                                <td><input type="text" formControlName="addr_area" class="form-control" /></td>
+                                <td><input type="text" formControlName="addr_city" class="form-control" /></td>
+                                <td><input type="text" formControlName="addr_state" class="form-control" /></td>
+                                <td><input type="text" formControlName="addr_zipcode" class="form-control" /></td> -->
+                                <td>X / Y</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Telefones:</h3>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Username</th>
+                                <th>Username</th>
+                                <th>Username</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>@fat</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                <td>@twitter</td>
+                                <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
+
+            <!-- /Form -->
 
             <br />
 

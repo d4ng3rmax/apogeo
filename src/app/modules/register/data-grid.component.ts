@@ -1,6 +1,5 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { DistributorModalComponent } from './modal.component';
 import { DataGridComponent, CheckboxComponent, DisabledCheckboxComponent } from '../../components';
 import { DistributorService } from './distributor.service';
 import { Distributor } from '../../models';
@@ -11,7 +10,7 @@ import { Distributor } from '../../models';
         [settings]="settings"
         [source]="source"
         (create)="onCreate($event)"
-        (edit)="onSave($event)"
+        (edit)="onEdit($event)"
         (delete)="onDeleteConfirm($event)"></ng2-smart-table>
         <div *ngIf="this.empty">
             <br />
@@ -24,13 +23,16 @@ import { Distributor } from '../../models';
     providers: [DistributorService],
     encapsulation: ViewEncapsulation.None
 })
-export class DistributorDataGridComponent extends DataGridComponent {
+export class DistributorsDataGridComponent extends DataGridComponent {
 
     constructor(protected router: Router, protected service: DistributorService) {
         super(router, service);
-        this.baseUrl = '/register/distributors';
+        this.baseUrl = '/register/distributor';
         this.labels.add = 'Adicionar Frase';
         this.settings.columns = {
+            // id: {
+            //     title: 'Id', width: "45%", filter: false, editor: { type: 'textarea' }
+            // },
             name: {
                 title: 'Nome', width: "45%", filter: false, editor: { type: 'textarea' }
             },
@@ -44,51 +46,7 @@ export class DistributorDataGridComponent extends DataGridComponent {
     }
 
     newEntity = (rowData): Object => {
-        return new Distributor(rowData.id, rowData.client, rowData.email, rowData.document, rowData.name, rowData.enabled);
+        return new Distributor(rowData.id, rowData.client, rowData.email, rowData.document, rowData.name, rowData.roles, rowData.phones, rowData.addresses, rowData.distributorType, rowData.enabled);
     }
 
-    toggleEnabled = (rowData): void => {
-        if (rowData.enabled) {
-            this.alert.buildAlert(0, "Você só poderá ter 1 questionário ativo por vez. Selecione um questionário inativo para desativar este.");
-
-            for (let i = 0; i < this.source['data'].length; i++) {
-                let newS = { id: rowData.id, enabled: rowData.enabled, title: rowData.title };
-                this.source.update(this.source['data'][i], this.source['data'][i]);
-            }
-
-            return;
-        }
-
-        if (window.confirm("Você só poderá ter 1 questionário ativo por vez. Ao ativar este, o anterior será automaticamente inativado. Deseja continuar?")) {
-            this.apiService.toggleActive(rowData.id)
-                .then(data => {
-                    // this.source.update(rowData, this.newEntity(data));
-                    // this.source.refresh();
-                    this.alert.buildAlert(1, this.labels.update.success);
-                    this.reload();
-
-                }, error => { this.alert.handleResponseError(error); this.reload(); });
-        } else {
-            // rowData.active = false;
-            for (let i = 0; i < this.source['data'].length; i++) {
-                let newS = { id: rowData.id, active: rowData.active, title: rowData.title };
-                this.source.update(this.source['data'][i], this.source['data'][i]);
-            }
-        }
-    }
-
-    // Modal editor
-    @ViewChild(DistributorModalComponent)
-    modalComponent: DistributorModalComponent;
-
-    onCreate(event: any) {
-        this.alert.obj.status = false;
-        this.modalComponent.type = 'create';
-        this.modalComponent.openModal(this, event, 'lg', true);
-    }
-
-    onSave(event: any) {
-        this.modalComponent.type = 'edit';
-        this.modalComponent.openModal(this, event, 'lg', true);
-    }
 }

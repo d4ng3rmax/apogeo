@@ -17,7 +17,7 @@ import { JobPositionsComponent, JobPositionComponent } from './modules/jobPositi
 import { DepartmentsComponent } from './modules/departments';
 import { IndustriesComponent } from './modules/industries';
 
-import { DistributorsComponent } from './modules/register';
+import { DistributorComponent, DistributorsComponent } from './modules/register';
 
 const routes: Routes = [
     {
@@ -68,7 +68,7 @@ const routes: Routes = [
             {
                 path: 'register', children: [
                   { path: 'distributor/list', component: DistributorsComponent },
-                  { path: 'distributor/:id', component: DistributorsComponent },
+                  { path: 'distributor/:id', component: DistributorComponent },
                   { path: 'distributor', component: DistributorsComponent }
                 ]
             },

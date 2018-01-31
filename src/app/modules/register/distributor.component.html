@@ -1,42 +1,148 @@
 <app-header [menuEnabled]="menuEnabled"></app-header>
 <section>
+    <div class="container-fluid container" *ngIf="!loaded">
+        <div class="col-lg-10 lds-css ng-scope">
+            <div style="margin: 0 auto;" class="lds-eclipse">
+                <div></div>
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid">
-        <div class="row no-mg">
-            <div class="col-12 col-sm-2 box-filter">
-                <h4 class="text-info">Filtro</h4>
-                <br />
-                <form #form name="form">
+        <persist-navigation *ngIf="loaded" (save)="save($event)" (update)="update($event)" (deleteOne)="delete($event)" [listPath]="listPath" [urlId]="urlId" [loaded]="loaded"></persist-navigation>
+        <alert #alert></alert>
+    </div>
 
-                    <!-- Form fields-->
+    <div class="container-fluid" *ngIf="loaded">
+        <div class="row mg-top-2">
 
-                    <label>Por nome:</label>
-                    <input #search type="text" placeholder="Buscar por..." (keyup)="dataGrid.search('question', search.value)" class="form-control" />
-                    <br />
+            <div class="col-12 col-md-4">
+                <div class="row">
 
-                    <label>Facilitador:</label>
-                    <div class="form-check">
-                        <label class="form-check-label mg-right">
-                            <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios2" value="true" (click)="dataGrid.search('enabled', true)" />
-                            Sim
-                        </label>
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios2" value="false" (click)="dataGrid.search('enabled', false)" />
-                            Não
-                        </label>
+                    <div class="col-10 form-group">
+                        <label for="txt-nome">Nome da página:</label>
+                        <input type="text" id="txt-nome" class="form-control" [value]="object.name" [(ngModel)]="object.name" />
                     </div>
-                    <br />
 
-                    <!-- Form fields -->
+                    <div class="col-2 form-group">
+                        <label for="active">Facilitador:</label>
+                        <div class="check no-mg">
+                            <input class="tgl tgl-skewed" type="checkbox" name="enabled" id="active" [checked]="object.enabled" />
+                            <label class="tgl-btn" data-tg-off="NÃO" data-tg-on="SIM" for="enabled"></label>
+                        </div>
+                    </div>
 
-                    <filter-controls [form]="form" [dataGrid]="dataGrid"></filter-controls>
-                </form>
+                    <div class="col-12 form-group">
+                        <label for="txt-nome">E-Mail:</label>
+                        <input type="text" id="txt-nome" class="form-control" [value]="object.email" [(ngModel)]="object.email" />
+                    </div>
+
+                    <div class="col-12 form-group">
+                        <label for="txt-nome">CPF:</label>
+                        <input type="text" id="txt-nome" class="form-control" [value]="object.document" [(ngModel)]="object.document" />
+                    </div>
+
+
+
+                </div>
             </div>
-            <div class="col no-pd-right">
-                <alert #alert></alert>
 
-                <!-- Datagrid -->
-                <data-grid-distributors [alert]="alert" class="table table-hover table-bordered"></data-grid-distributors>
+            <div class="col-12">
+                <h5 class="mg-top-2">Endereços:</h5>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Logradouro</th>
+                            <th>Número</th>
+                            <th>Compl.</th>
+                            <th>Bairro</th>
+                            <th>Cidade</th>
+                            <th>Estado</th>
+                            <th>CEP</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" [value]="object.addresses[0].addressType" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[0].street" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[0].number" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[0].other" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[0].area" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[0].city" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[0].state" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[0].zipCode" class="form-control" /></td>
+                            <td>X / Y</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" [value]="object.addresses[1].addressType" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[1].street" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[1].number" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[1].other" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[1].area" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[1].city" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[1].state" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[1].zipCode" class="form-control" /></td>
+                            <td>X / Y</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" [value]="object.addresses[2].addressType" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[2].street" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[2].number" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[2].other" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[2].area" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[2].city" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[2].state" class="form-control" /></td>
+                            <td><input type="text" [value]="object.addresses[2].zipCode" class="form-control" /></td>
+                            <td>X / Y</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h5 class="mg-top-2">Telefones:</h5>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Username</th>
+                            <th>Username</th>
+                            <th>Username</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>@fat</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                            <td>@twitter</td>
+                            <td>@twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
         </div>
     </div>
 </section>

@@ -29,7 +29,7 @@ export class DisabledCheckboxComponent implements ViewCell, OnInit {
 
     ngOnInit() {
         if (this.flagName === undefined) {
-            this.flagName = 'active';
+            this.flagName = 'enabled';
         }
 
         if (this.rowData !== undefined) {
