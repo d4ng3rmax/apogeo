@@ -23,7 +23,6 @@ export class DistributorComponent extends EditComponent {
             this.newAddress({ id: 0, addressType: '', street: '', number: '', other: '', area: '', zipCode: '', city: '', state: '' }),
             this.newAddress({ id: 0, addressType: '', street: '', number: '', other: '', area: '', zipCode: '', city: '', state: '' })
         ];
-        console.info( this.address );
         this.object = this.newEntity({ id: 0, client: '', email: '', document: '', name: '', roles: [], phones: [{}, {}, {}], addresses: [this.address], distributorType: '', enabled: true });
     }
 

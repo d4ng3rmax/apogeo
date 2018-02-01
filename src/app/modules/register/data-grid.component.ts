@@ -1,12 +1,13 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { DistributorModalComponent } from './modal.component';
 import { DataGridComponent, CheckboxComponent, DisabledCheckboxComponent } from '../../components';
 import { DistributorService } from './distributor.service';
 import { Distributor } from '../../models';
 
 @Component({
     selector: 'data-grid-distributors',
-    template: `<ng2-smart-table
+    template: `<a (click)="showDisconts()">xxxxxxxx</a><ng2-smart-table
         [settings]="settings"
         [source]="source"
         (create)="onCreate($event)"
@@ -41,12 +42,24 @@ export class DistributorsDataGridComponent extends DataGridComponent {
             },
             enabled: {
                 title: 'Facilitador', type: 'custom', valuePrepareFunction: 'custom', width: '10%', renderComponent: DisabledCheckboxComponent, filter: false
+            },
+            actions: {
+                title: '', width: "45%", filter: false
             }
         };
     }
 
     newEntity = (rowData): Object => {
         return new Distributor(rowData.id, rowData.client, rowData.email, rowData.document, rowData.name, rowData.roles, rowData.phones, rowData.addresses, rowData.distributorType, rowData.enabled);
+    }
+
+    // Modal editor
+    @ViewChild(DistributorModalComponent)
+    modalComponent: DistributorModalComponent;
+
+    showDisconts() {
+        this.modalComponent.type = 'edit';
+        this.modalComponent.openModal(this, event, 'lg', true);
     }
 
 }

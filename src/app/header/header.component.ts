@@ -35,6 +35,7 @@ export class HeaderComponent implements OnInit {
         'jobs/department': {'title': 'Departamentos', 'size': 'center', 'content': 'Teste', 'url': ''},
         'jobs/industry': {'title': 'Ramos', 'size': 'center', 'content': 'Teste', 'url': ''},
         'mail/template': {'title': 'Emails', 'size': 'center', 'content': 'Teste', 'url': ''},
+        'register': {'title': 'Emails', 'size': 'center', 'content': 'Teste', 'url': ''},
         'sers': {'title': 'Usuários', 'size': 'center', 'content': 'Teste', 'url': ''},
         'tokens': {'title': 'Tokens', 'size': 'center', 'content': 'Teste', 'url': ''},
         'processes': {'title': 'Processos', 'size': 'lg', 'content': 'Teste', 'url': ''}

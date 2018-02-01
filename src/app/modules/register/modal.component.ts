@@ -17,18 +17,9 @@ export class DistributorModalComponent extends ModalComponent{
         this.defaultValues = { id: 0, client: '', email: '', document: '', name: '', roles: [], phones: [], addresses: [], distributorType: '', enabled: true };
     }
 
-    newEntity = (params): Object => {
-        return new Distributor(params.id, params.client, params.email, params.document, params.name, params.roles, params.phones, params.addresses, params.distributorType, params.enabled);
-    }
-
-    validate(value: any) {
-        let o = value['name'];
-        if (o === null || o === '' || o.length < 5) {
-            this.alert.buildAlert(0, "O campo nome requer ao menos 5 caracteres");
-            return false;
-        }
-        return true;
-    }
+    // newEntity = (params): Object => {
+    //     return new Distributor(params.id, params.client, params.email, params.document, params.name, params.roles, params.phones, params.addresses, params.distributorType, params.enabled);
+    // }
 
     open(size: string) {
         this.alert.reset();
