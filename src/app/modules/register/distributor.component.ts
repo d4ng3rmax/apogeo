@@ -15,7 +15,7 @@ export class DistributorComponent extends EditComponent {
     constructor(protected route: ActivatedRoute, protected router: Router,
         protected service: DistributorService) {
         super(route, router, service);
-        this.listPath = '/register/distributor';
+        this.listPath = '/register/distributor/list';
         this.object = this.newEntity({ id: 0, client: '', email: '', document: '', name: '', roles: [], phones: [], addresses: [], distributorType: '', enabled: true });
     }
 

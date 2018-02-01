@@ -79,7 +79,7 @@
                     </tbody>
                 </table>
 
-                <h5 class="mg-top-2">Telefones:</h5>
+                <h5 class="mg-top-2">Telefones: {{object.phones.length}}</h5>
 
                 <table class="table">
                     <thead>
@@ -93,12 +93,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><input type="text" [value]="object.phones[0].phoneType" class="form-control" /></td>
-                            <td><input type="text" [value]="object.phones[0].code" class="form-control" /></td>
-                            <td><input type="text" [value]="object.phones[0].number" class="form-control" /></td>
-                            <td><input type="text" [value]="object.phones[0].extension" class="form-control" /></td>
-                            <td><input type="text" [value]="object.phones[0].operatorType" class="form-control" /></td>
+                        <tr *ngFor="let phone of object.phones">
+                            <td><input type="text" [value]="phone.phoneType" class="form-control" /></td>
+                            <td><input type="text" [value]="phone.code" class="form-control" /></td>
+                            <td><input type="text" [value]="phone.number" class="form-control" /></td>
+                            <td><input type="text" [value]="phone.extension" class="form-control" /></td>
+                            <td><input type="text" [value]="phone.operatorType" class="form-control" /></td>
                             <td>@mdo</td>
                         </tr>
                     </tbody>

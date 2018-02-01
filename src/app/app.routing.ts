@@ -69,7 +69,7 @@ const routes: Routes = [
                 path: 'register', children: [
                   { path: 'distributor/list', component: DistributorsComponent },
                   { path: 'distributor/:id', component: DistributorComponent },
-                  { path: 'distributor', component: DistributorsComponent }
+                  { path: 'distributor', component: DistributorComponent }
                 ]
             },
             // ]
