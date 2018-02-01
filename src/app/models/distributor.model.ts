@@ -34,3 +34,62 @@ export class Distributor {
         this.enabled = enabled || false;
     }
 }
+
+export class DistributorAddress {
+    id: number;
+    addressType: string;
+    street: string;
+    number: string;
+    other: string;
+    area: string;
+    zipCode: string;
+    city: string;
+    state: string;
+
+    constructor(
+        id: number,
+        addressType: string,
+        street: string,
+        number: string,
+        other: string,
+        area: string,
+        zipCode: string,
+        city: string,
+        state: string
+    ) {
+        this.id = id;
+        this.addressType = addressType;
+        this.street = street;
+        this.number = number;
+        this.other = other;
+        this.area = area;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.state = state;
+    }
+}
+
+export class DistributorPhone {
+    id: number;
+    phoneType: string;
+    code: string;
+    number: string;
+    extension: string;
+    operatorType: string;
+
+    constructor(
+        id: number,
+        phoneType: string,
+        code: string,
+        number: string,
+        extension: string,
+        operatorType: string
+    ) {
+        this.id = id;
+        this.phoneType = phoneType;
+        this.code = code;
+        this.number = number;
+        this.extension = extension;
+        this.operatorType = operatorType;
+    }
+}
