@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header';
 import { HomeComponent } from './modules/home'
-import { AlertComponent, AutofocusDirective, InfoModalComponent, CheckboxComponent, DisabledCheckboxComponent, PersistNavigationComponent, FilterControlsComponent } from './components';
+import { AlertComponent, AutofocusDirective, InfoModalComponent, CheckboxComponent, DisabledCheckboxComponent, linkButton, PersistNavigationComponent, FilterControlsComponent } from './components';
 import { AuthFilter, AuthService } from './auth';
 
 // Survey
@@ -49,6 +49,7 @@ import { DistributorComponent, DistributorsComponent, DistributorModalComponent,
         FilterControlsComponent,
         CheckboxComponent,
         DisabledCheckboxComponent,
+        linkButton,
         PersistNavigationComponent,
 
         // Directives
@@ -117,6 +118,6 @@ import { DistributorComponent, DistributorsComponent, DistributorModalComponent,
     ],
     providers: [AuthService, AuthFilter],
     bootstrap: [AppComponent],
-    entryComponents: [CheckboxComponent, DisabledCheckboxComponent]
+    entryComponents: [CheckboxComponent, DisabledCheckboxComponent, linkButton]
 })
 export class AppModule { }

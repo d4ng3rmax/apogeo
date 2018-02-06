@@ -13,6 +13,7 @@ import { EditComponent } from '../../components';
 export class DistributorComponent extends EditComponent {
 
     address: any;
+    discounts: any[];
 
     constructor(protected route: ActivatedRoute, protected router: Router,
         protected service: DistributorService) {

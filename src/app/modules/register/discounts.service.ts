@@ -7,14 +7,14 @@ import { AuthService } from '../../auth';
 import { environment } from '../../../environments/environment';
 
 @Injectable()
-export class DistributorService extends ApiService {
+export class DiscountsService extends ApiService {
 
     constructor(protected http: Http, protected authService: AuthService) {
         super(http, authService);
         this.apiRoot = environment.api.distributors;
     }
 
-    async getSingleResultFromChild(id): Promise<any> {
+    async getSingleResult(id): Promise<any> {
         const response = await this.http.get(`${this.apiRoot}/${id}/discounts`, this.options)
             .toPromise()
         return response.json();

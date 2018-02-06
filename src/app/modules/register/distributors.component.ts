@@ -10,6 +10,7 @@ import { Subject } from 'rxjs/Rx';
 })
 export class DistributorsComponent extends CrudComponent {
 
-    @ViewChild(DistributorsDataGridComponent) dataGrid: DataGridComponent;
+    @ViewChild(DistributorsDataGridComponent)
+        dataGrid: DataGridComponent;
 
 }

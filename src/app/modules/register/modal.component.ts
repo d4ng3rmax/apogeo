@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ModalComponent } from '../../components';
-import { DistributorService } from './distributor.service';
-import { Distributor } from '../../models';
+import { DiscountsService } from './discounts.service';
+import { DistributorDiscounts } from '../../models';
 import { AuthService } from '../../auth';
 
 @Component({
@@ -12,17 +12,21 @@ import { AuthService } from '../../auth';
 })
 export class DistributorModalComponent extends ModalComponent{
 
-    constructor(protected fb: FormBuilder, protected service: DistributorService, public authService: AuthService) {
+    discount: any[];
+
+    constructor(protected fb: FormBuilder, protected service: DiscountsService, public authService: AuthService) {
         super(fb, service);
-        this.defaultValues = { id: 0, client: '', email: '', document: '', name: '', roles: [], phones: [], addresses: [], distributorType: '', enabled: true };
+        this.defaultValues = { id: 0, minimumAnswers: '', maximunAnswers: '', discount: '' };
     }
 
-    // newEntity = (params): Object => {
-    //     return new Distributor(params.id, params.client, params.email, params.document, params.name, params.roles, params.phones, params.addresses, params.distributorType, params.enabled);
-    // }
+    newEntity = (params): Object => {
+        return new DistributorDiscounts(params.id, params.minimumAnswers, params.maximunAnswers, params.discount);
+    }
 
     open(size: string) {
+        console.info( this.discount );
         this.alert.reset();
         this.modal.open('modal-xl');
     }
+
 }

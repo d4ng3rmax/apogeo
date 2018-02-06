@@ -1,17 +1,19 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { DistributorModalComponent } from './modal.component';
-import { DataGridComponent, CheckboxComponent, DisabledCheckboxComponent } from '../../components';
+import { DataGridComponent, CheckboxComponent, DisabledCheckboxComponent, linkButton } from '../../components';
 import { DistributorService } from './distributor.service';
+import { DiscountsService } from './discounts.service';
 import { Distributor } from '../../models';
 
 @Component({
     selector: 'data-grid-distributors',
-    template: `<a (click)="showDisconts()">xxxxxxxx</a><ng2-smart-table
+    template: `<ng2-smart-table
         [settings]="settings"
         [source]="source"
         (create)="onCreate($event)"
         (edit)="onEdit($event)"
+        (custom)="showDisconts($event)"
         (delete)="onDeleteConfirm($event)"></ng2-smart-table>
         <div *ngIf="this.empty">
             <br />
@@ -21,19 +23,19 @@ import { Distributor } from '../../models';
         <mm-distributor-modal></mm-distributor-modal>
         `,
     styleUrls: ['../../components/data-grid/data-grid.component.scss'],
-    providers: [DistributorService],
+    providers: [DistributorService, DiscountsService],
     encapsulation: ViewEncapsulation.None
 })
 export class DistributorsDataGridComponent extends DataGridComponent {
 
-    constructor(protected router: Router, protected service: DistributorService) {
+    discount: any[];
+
+    constructor(protected router: Router, protected service: DistributorService, protected serviceDisc: DiscountsService) {
+
         super(router, service);
         this.baseUrl = '/register/distributor';
-        this.labels.add = 'Adicionar Frase';
+        this.labels.add = 'Adicionar Distribuidor';
         this.settings.columns = {
-            // id: {
-            //     title: 'Id', width: "45%", filter: false, editor: { type: 'textarea' }
-            // },
             name: {
                 title: 'Nome', width: "45%", filter: false, editor: { type: 'textarea' }
             },
@@ -44,9 +46,29 @@ export class DistributorsDataGridComponent extends DataGridComponent {
                 title: 'Facilitador', type: 'custom', valuePrepareFunction: 'custom', width: '10%', renderComponent: DisabledCheckboxComponent, filter: false
             },
             actions: {
-                title: '', width: "45%", filter: false
+                title: '', type: 'custom', valuePrepareFunction: 'custom', width: '10%', renderComponent: linkButton, filter: false,
+                onComponentInitFunction: (instance: any) => { instance.showDisconts = this.showDisconts }
             }
+            // },
+            // actions2: {
+            //     title: '', type: 'custom', width: '10%', renderComponent: linkButton, filter: false
+            // }
         };
+        this.settings.actions.custom = [
+            {
+                title: '<i class="fa fa-dollar"></i>', filter: false
+            }
+        ];
+        this.settings.actions.add = false;
+        // this.settings.actions.edit = false;
+        this.settings.actions.delete = false;
+        this.settings.hideSubHeader = true;
+
+    }
+
+    async ngOnInit() {
+        const discount = await this.service.getSingleResultFromChild(261);
+        this.discount = discount;
     }
 
     newEntity = (rowData): Object => {
@@ -55,11 +77,13 @@ export class DistributorsDataGridComponent extends DataGridComponent {
 
     // Modal editor
     @ViewChild(DistributorModalComponent)
-    modalComponent: DistributorModalComponent;
+        modalComponent: DistributorModalComponent;
 
-    showDisconts() {
+    showDisconts(event: any) {
+        //console.info( event );
+        this.modalComponent.discount = this.discount;
         this.modalComponent.type = 'edit';
-        this.modalComponent.openModal(this, event, 'lg', true);
+        this.modalComponent.openModal(this, event, 'modal-xl', false);
     }
 
 }

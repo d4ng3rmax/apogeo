@@ -93,3 +93,22 @@ export class DistributorPhone {
         this.operatorType = operatorType;
     }
 }
+
+export class DistributorDiscounts {
+    id: number;
+    minimumAnswers: string;
+    maximunAnswers: string;
+    discount: string;
+
+    constructor(
+        id: number,
+        minimumAnswers: string,
+        maximunAnswers: string,
+        discount: string
+    ) {
+        this.id = id;
+        this.minimumAnswers = minimumAnswers;
+        this.maximunAnswers = maximunAnswers;
+        this.discount = discount;
+    }
+}
