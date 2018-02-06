@@ -18,20 +18,19 @@
                         <thead>
                             <tr>
                                 <th>Número de Soluções</th>
-                                <th>De --min-- a --max--</th>
-                                <th>De --min-- a --max--</th>
-                                <th>De --min-- a --max--</th>
-                                <th>De --min-- a --max--</th>
+                                <th>De {{object[0].minimumAnswers}} a {{object[0].maximunAnswers}}</th>
+                                <th>De {{object[1].minimumAnswers}} a {{object[1].maximunAnswers}}</th>
+                                <th>De {{object[2].minimumAnswers}} a {{object[2].maximunAnswers}}</th>
+                                <th>De {{object[3].minimumAnswers}} a {{object[3].maximunAnswers}}</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" class="form-control" value="{{object.id}}" /></td>
-                                <td><input type="text" class="form-control" value="{{object.minimumAnswers}}" /></td>
-                                <td><input type="text" class="form-control" /></td>
-                                <td><input type="text" class="form-control" /></td>
-                                <td><input type="text" class="form-control" /></td>
-                                <td>X / Y</td>
+                                <td>Desconto:</td>
+                                <td><input type="text" class="form-control" value="{{object[0].discount}}" /></td>
+                                <td><input type="text" class="form-control" value="{{object[1].discount}}" /></td>
+                                <td><input type="text" class="form-control" value="{{object[2].discount}}" /></td>
+                                <td><input type="text" class="form-control" value="{{object[3].discount}}" /></td>
                             </tr>
                         </tbody>
                     </table>
